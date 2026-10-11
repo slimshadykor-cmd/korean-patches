@@ -1,3 +1,5 @@
+> **2026-10-11 안내 위치 수정본**: 챕터 공통 화면의 ‘불러오는 중’과 ‘진행’을 오른쪽 하단의 같은 글자 시작 위치로 수정했습니다. 버전과 파일명은 v1.0으로 유지했습니다. 이전에 받은 분은 ZIP을 다시 받아 기존 v1.0 ISO에 적용하시면 됩니다. 세이브는 그대로 사용하며, xemu를 종료하고 새 ISO로 부팅해 주세요.
+
 **오리지널 Xbox · Japan/Korea (En,Ja) 원본 ISO용 한글패치**
 
 아래 Assets에서 **NGB_Korean_Patch_v1.0.zip** 하나를 받으세요. 자동 생성되는 Source code 파일은 설치용 패치가 아닙니다.
@@ -38,3 +40,4 @@ ZIP 전체 압축 해제 → **NGB_Korean_Patch.exe** 실행 → 원본 ISO 선�
 [자세한 설치 안내](https://github.com/slimshadykor-cmd/korean-patches/tree/main/xbox/ninja-gaiden-black)
 
 한글화: 슬림쉐이디
+

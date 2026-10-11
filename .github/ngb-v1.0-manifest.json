@@ -1,0 +1,67 @@
+{
+  "file": "NGB_Korean_Patch_v1.0.zip",
+  "bytes": 49440638,
+  "sha256": "d6b3ebde783ef27a0fb752c926d647ee525f1cb3af02762ce1864d400373955b",
+  "parts": [
+    {
+      "sha": "2ec0a29bea806adfcef8a3f2f8f3eb86d162cec4",
+      "bytes": 4194288
+    },
+    {
+      "sha": "a4974a6a0d91c7b7456cd12489c0a0443930f4d2",
+      "bytes": 4194288
+    },
+    {
+      "sha": "0f867979fa825baefa6434b24e327c374b4345af",
+      "bytes": 4194288
+    },
+    {
+      "sha": "48c2a3f46dc0f6226efc5fea6b33a71dc79fcb6b",
+      "bytes": 4194288
+    },
+    {
+      "sha": "34c31d1257998679c42b14aa76dc18f6c4802a54",
+      "bytes": 4194288
+    },
+    {
+      "sha": "b1bd6f2425fa3299153819d1fefb28cae042670a",
+      "bytes": 4194288
+    },
+    {
+      "sha": "4dc55d28c10f0cdd5d5add9d6d842e5afbcbe74d",
+      "bytes": 4194288
+    },
+    {
+      "sha": "36971e13f7a281d730025f375070ef3728d67a2f",
+      "bytes": 4194288
+    },
+    {
+      "sha": "ceb50a40c75c928c9d121bedf0b1d73110ce81fa",
+      "bytes": 4194288
+    },
+    {
+      "sha": "89d6be375d7c093e82545a7c0ea0a94078540238",
+      "bytes": 4194288
+    },
+    {
+      "sha": "6b7c7d0b646e8c79ad1acf659d90c800009178ad",
+      "bytes": 4194288
+    },
+    {
+      "sha": "63ccb041b7754286679727d81b4652002af86d43",
+      "bytes": 3303470
+    }
+  ],
+  "oldAssets": [
+    {
+      "name": "NGB_Korean_Patch_v1.0.zip",
+      "id": 630866927,
+      "digest": "sha256:6a9880e124713e1ee744808e3d60c127dba18da97c31f2a5dd360619ddc3c743"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "id": 630867032,
+      "digest": "sha256:fe5cd317f4ac50e20bbb329c443e07bedcc1641f3dbb996778e7f87bf16bcaa3"
+    }
+  ]
+}

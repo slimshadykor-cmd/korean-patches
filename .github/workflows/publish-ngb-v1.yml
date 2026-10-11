@@ -1,0 +1,35 @@
+name: Publish verified NGB v1.0
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/ngb-v1.0-manifest.json'
+      - '.github/publish_ngb.py'
+      - '.github/workflows/publish-ngb-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-ngb-v1
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Get this public repository at the triggering commit
+        env:
+          EXPECTED_COMMIT: ${{ github.sha }}
+        run: |
+          git init .
+          git remote add origin https://github.com/slimshadykor-cmd/korean-patches.git
+          git fetch --depth=1 origin "$EXPECTED_COMMIT"
+          git checkout --detach FETCH_HEAD
+      - name: Verify public package and publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 .github/publish_ngb.py
