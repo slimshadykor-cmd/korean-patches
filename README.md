@@ -4,7 +4,14 @@
 
 ## 기종 선택
 
+- **[Xbox](xbox/README.md)**
 - **[Xbox 360](xbox360/README.md)**
+
+## Xbox
+
+| 게임 | 안내 |
+| --- | --- |
+| 닌자가이덴 블랙 | [설치 안내·다운로드](xbox/ninja-gaiden-black/README.md) |
 
 ## Xbox 360
 
