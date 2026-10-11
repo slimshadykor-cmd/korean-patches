@@ -1,8 +1,8 @@
 Ninja Gaiden Black — Japan/Korea (En,Ja)
-원본 게임 내부 파일: default.xbe
-크기: 4,571,136바이트
-SHA-256: 667b6c04e0952ebf39848ea59ab8f8457ae3136c3d115f268557d861eeade6ce
+패치 전 원본 ISO 기준 해시 (제작자 제공)
 
-주의: 위 값은 ISO 전체 해시가 아닙니다.
-제공받은 자료는 추출된 게임 파일이므로 원본 ISO 전체 해시는 미확인입니다.
+MD5:   9e09ba06bab10c53b8460f4c43b98b18
+SHA-1: 8581d5d0e2f90dcbcb63bd94bcb958a764f6d3a5
+
+위 값은 원본 ISO 기준이며, 배포 ZIP이나 패치된 ISO의 해시가 아닙니다.
 배포 ZIP 해시는 SHA256SUMS.txt를 확인하세요.
