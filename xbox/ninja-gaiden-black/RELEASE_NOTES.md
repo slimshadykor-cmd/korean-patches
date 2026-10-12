@@ -2,7 +2,7 @@
 
 **일반 ISO인지 XISO인지 직접 구분할 필요 없이, 버튼 하나로 한글 XISO를 만드는 v1.2입니다.**
 
-아래 **Assets의 `NGB_Korean_Patch_v1.2.zip`**을 받으세요. 자동 생성되는 Source code 파일은 설치용 패치가 아닙니다.
+아래 Assets에서 **NGB_Korean_Patch_v1.2.zip**을 받으세요. 자동 생성되는 Source code 파일은 설치용 패치가 아닙니다.
 
 ### v1.2 변경 사항
 
