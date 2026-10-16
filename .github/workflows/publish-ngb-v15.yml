@@ -1,0 +1,28 @@
+name: Publish verified NGB v1.5 package
+
+on:
+  push:
+    branches:
+      - publish/ngb-v1.5-20261016
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ngb-v1.5-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'slimshadykor-cmd/korean-patches'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out verified publication inputs
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Upload, verify hashes, and publish the prepared draft
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .release-upload/ngb-v1.5/publish.py

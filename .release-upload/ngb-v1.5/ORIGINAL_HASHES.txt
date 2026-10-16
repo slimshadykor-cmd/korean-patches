@@ -1,0 +1,11 @@
+Ninja Gaiden Black — Japan/Korea (En,Ja)
+패치 전 원본 ISO 기준 해시 (제작자 제공)
+
+MD5:   9e09ba06bab10c53b8460f4c43b98b18
+SHA-1: 8581d5d0e2f90dcbcb63bd94bcb958a764f6d3a5
+
+위 값은 원본 ISO 기준이며, 배포 ZIP이나 패치된 ISO의 해시가 아닙니다.
+배포 ZIP 해시는 SHA256SUMS.txt를 확인하세요.
+
+일반 ISO/XISO 재포장에 따라 ISO 전체 해시는 달라질 수 있습니다.
+패치 프로그램은 내부 게임 데이터로 지원 여부를 판별합니다.
