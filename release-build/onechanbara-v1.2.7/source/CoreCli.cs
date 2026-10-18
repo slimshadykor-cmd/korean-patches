@@ -1,0 +1,1 @@
+using System; using OnechanbaraPatch; class CoreCli {static int Main(string[] a){try{Core.Apply(a[0],a[1],a[2],Console.WriteLine);return 0;}catch(Exception e){Console.Error.WriteLine(e.Message);return 1;}}}

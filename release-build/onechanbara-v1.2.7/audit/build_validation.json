@@ -1,0 +1,20 @@
+{
+  "version": "1.2.7",
+  "exe_sha256": "ca1746974c95b0bb356bfd11fe36e6500979a6aa32444c49f6e42ad8f5ef4119",
+  "exe_bytes": 400640000,
+  "manifest_paths": 158,
+  "payload_files": 140,
+  "changed_assets": [
+    "default.xex",
+    "Media/Menu/title2d.cat"
+  ],
+  "all_other_v126_payloads_identical": true,
+  "executable_identical_to_user_confirmed_v126_goddess_fix": true,
+  "executable_sha256": "39542a7430799f582f548023cabf4ab1af2d7ade215af9d52e4dc60bf0a442fb",
+  "title_version": "v1.2.7",
+  "title_jpeg_quality": 98,
+  "title_other_archive_entries_unchanged": true,
+  "font_unchanged_from_v126": true,
+  "user_confirmation": "2026-10-19 Asia/Seoul: user confirmed GoddessFix1 and authorized integrated release",
+  "complete_game_playthrough_tested": false
+}

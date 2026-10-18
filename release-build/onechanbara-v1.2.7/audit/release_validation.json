@@ -1,0 +1,12 @@
+{
+  "version": "1.2.7",
+  "release_bytes": 319226138,
+  "release_sha256": "453114a5ff3cd9c17b5090fa6923ceab611aade09c0d9d6e8138c973cc86dd65",
+  "exe_sha256": "ca1746974c95b0bb356bfd11fe36e6500979a6aa32444c49f6e42ad8f5ef4119",
+  "public_files": [
+    "Onechanbara_ISO_Korean_v1.2.7.exe",
+    "먼저읽기.txt",
+    "원본ISO_해시.txt"
+  ],
+  "test_tools_trainers_and_saves_excluded": true
+}

@@ -1,0 +1,31 @@
+{
+  "version": "1.2.7",
+  "tests": [
+    "original: all target and unrelated bytes verified; original ISO preserved",
+    "v125: all target and unrelated bytes verified; original ISO preserved",
+    "v126: all target and unrelated bytes verified; original ISO preserved",
+    "v125_statuefix: all target and unrelated bytes verified; original ISO preserved",
+    "v126_statuefix: all target and unrelated bytes verified; original ISO preserved",
+    "repeat application refused",
+    "existing output preserved",
+    "unknown executable refused before output"
+  ],
+  "target_files_verified": 140,
+  "source_files_in_fixture": 222,
+  "input_variants": [
+    "original",
+    "v125",
+    "v126",
+    "v125_statuefix",
+    "v126_statuefix"
+  ],
+  "all_variants_converge_to_same_target_files": true,
+  "all_v126_assets_except_xex_and_version_title_identical": true,
+  "temporary_payload_files_removed": true,
+  "empty_temporary_directories_observed_in_linux_environment": 1,
+  "inherited_movie_payloads": 6,
+  "fixture_limitation": "Synthetic XDVDFS with all supplied original UI, demo, mission files and actual executables. Original movie files were unavailable; inherited release movie bytes were used and verified unchanged. Not a complete original ISO or a full gameplay test.",
+  "user_runtime_confirmation": "User confirmed GoddessFix1 before authorizing this release; v127 executable is byte-identical to that v126 fixed executable.",
+  "windows_gui_executed": false,
+  "complete_playthrough_tested": false
+}

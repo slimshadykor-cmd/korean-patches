@@ -1,0 +1,582 @@
+{
+  "mission_files_scanned": 86,
+  "files_with_statue_key": 27,
+  "all_found_identifiers": "女神像",
+  "all_found_keys_preserved_in_final_patch": true,
+  "fixed_common_predicate": "0x82297090",
+  "fixed_common_search_key": "0x82034EB8",
+  "chapter_specific_fix": false,
+  "all_chapters_playtested": false,
+  "records": [
+    {
+      "file": "Media/Mission/m00_00.xmg",
+      "statue_key_offsets": [
+        1648
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m01_00.xmg",
+      "statue_key_offsets": [
+        3360
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m01_01.xmg",
+      "statue_key_offsets": [
+        1488
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m02_00.xmg",
+      "statue_key_offsets": [
+        1488
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m02_01.xmg",
+      "statue_key_offsets": [
+        7120
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m03_00.xmg",
+      "statue_key_offsets": [
+        3712
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m04_00.xmg",
+      "statue_key_offsets": [
+        1536
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m05_00.xmg",
+      "statue_key_offsets": [
+        5664
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m05_01.xmg",
+      "statue_key_offsets": [
+        1488
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m06_00.xmg",
+      "statue_key_offsets": [
+        4992
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m06_01.xmg",
+      "statue_key_offsets": [
+        1488
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m06_02.xmg",
+      "statue_key_offsets": [
+        1488
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m07_00.xmg",
+      "statue_key_offsets": [
+        1680
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m07_01.xmg",
+      "statue_key_offsets": [
+        1488
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m08_00.xmg",
+      "statue_key_offsets": [
+        5552
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m08_01.xmg",
+      "statue_key_offsets": [
+        1488
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m09_00.xmg",
+      "statue_key_offsets": [
+        4944
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m09_01.xmg",
+      "statue_key_offsets": [
+        7120
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m10_00.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m11_00.xmg",
+      "statue_key_offsets": [
+        1968
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m12_00.xmg",
+      "statue_key_offsets": [
+        2768
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m13_00.xmg",
+      "statue_key_offsets": [
+        2688
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m14_00.xmg",
+      "statue_key_offsets": [
+        1648
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m15_00.xmg",
+      "statue_key_offsets": [
+        2208
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m16_00.xmg",
+      "statue_key_offsets": [
+        4048
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m16_01.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m17_00.xmg",
+      "statue_key_offsets": [
+        5280
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m18_00.xmg",
+      "statue_key_offsets": [
+        1760
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m18_01.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/m19_00.xmg",
+      "statue_key_offsets": [
+        1648
+      ],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p00.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p01.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p02.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p03.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p04.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p05.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p06.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p07.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p08.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p09.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p10.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p11.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p12.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p13.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p14.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p15.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p16.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p17.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p18.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p19.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p20.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p21.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p22.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p23.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p24.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p25.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p26.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p27.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p28.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p29.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p30.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p31.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p32.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p33.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p34.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p35.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p36.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p37.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p38.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p39.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/p40.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv00.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv01.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv02.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv03.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv04.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv05.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv06.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv07.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv08.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv09.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv10.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv11.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv12.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv13.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    },
+    {
+      "file": "Media/Mission/surv14.xmg",
+      "statue_key_offsets": [],
+      "original_key_preserved": true,
+      "alternate_goddess_identifiers": []
+    }
+  ]
+}
