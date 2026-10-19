@@ -76,7 +76,7 @@ with zipfile.ZipFile(A/'package.zip') as old:
   else:assert rel in original and sha(original[rel]) in row[3].split(',')
   expected[rel]=delta(original[rel],raw) if row[5]=='delta' else raw
   assert sha(expected[rel])==row[2]
-  if rel not in ['default.xex','Media/Menu/title2d.cat']:assert raw==old.read('payload/'+row[4]) and row==oldrows[rel]
+  if rel not in ['default.xex','Media/Menu/title2d.cat'] and not (W/'changed'/rel).exists():assert raw==old.read('payload/'+row[4]) and row==oldrows[rel]
 original['untouched.bin']=b'INPUT PRESERVATION\x00'*100
 DOTNET=W/'dependencies/sdk/dotnet';tests=[]
 with tempfile.TemporaryDirectory(prefix='iso-verification-',dir=W) as tmp:
@@ -88,7 +88,7 @@ with tempfile.TemporaryDirectory(prefix='iso-verification-',dir=W) as tmp:
   assert not list(temp.glob('OnechanbaraPatch_*'))
   assert not Path(str(dst)+'.partial').exists()
   return p
- for version,base in [('original',0),('v125',0xfd90000),('v126',0x2080000),('v127',0)]:
+ for version,base in [('original',0),('v125',0xfd90000),('v126',0x2080000),('v127',0),('v128',0x20600)]:
   files=dict(original)
   if version=='v125':
    with zipfile.ZipFile(W/'baseline/v125.exe') as z:
@@ -101,6 +101,11 @@ with tempfile.TemporaryDirectory(prefix='iso-verification-',dir=W) as tmp:
     v126=manifest((A/'v126/package/manifest.tsv').read_bytes())
     for rel in ['default.xex','Media/Menu/title2d.cat']:
      row=v126[rel];files[rel]=delta(original[rel],(A/'v126/package/payload'/row[4]).read_bytes());assert sha(files[rel])==row[2]
+  elif version=='v128':
+   with zipfile.ZipFile(W.parent/'release_v128/deliverables/Onechanbara_ISO_Korean_v1.2.8.exe') as z:
+    old=manifest(z.read('manifest.tsv'))
+    for rel,row in old.items():
+     raw=z.read('payload/'+row[4]);files[rel]=delta(original[rel],raw) if row[5]=='delta' else raw;assert sha(files[rel])==row[2]
   for rel,row in rows.items():assert sha(files[rel])==row[2] or sha(files[rel]) in row[3].split(','),(version,rel)
   src=tmp/'input.iso';dst=tmp/'output.iso';create_iso(src,files,base);before=digest(src);run(src,dst);assert digest(src)==before
   entries=read_entries(dst,base);assert set(entries)==set(files)
@@ -108,12 +113,12 @@ with tempfile.TemporaryDirectory(prefix='iso-verification-',dir=W) as tmp:
    for rel,data in files.items():
     off,n=entries[rel];f.seek(off);assert f.read(n)==expected.get(rel,data),(version,rel)
   tests.append({'input':version,'base':hex(base),'all_158_targets_byte_exact':True,'all_unrelated_files_preserved':True,'input_preserved':True,'temporary_extraction_cleaned':True});print(tests[-1],flush=True)
-  if version=='v127':
+  if version=='v128':
    run(dst,tmp/'repeat.iso',False,'이미');assert not (tmp/'repeat.iso').exists()
    keep=digest(dst);run(src,dst,False,'출력 파일');assert digest(dst)==keep
    off,n=read_entries(src,base)['default.xex']
    with src.open('r+b') as f:f.seek(off+64);f.write(b'BAD!')
    run(src,tmp/'bad.iso',False,'지원하는 일본판');assert not (tmp/'bad.iso').exists()
   src.unlink();dst.unlink()
-report={'tests':tests,'input_files':len(original),'manifest_paths':len(rows),'inherited_movie_path_payloads_unchanged':movie_count,'accepted_older_input_hashes_retained':True,'unknown_input_rejected':True,'already_patched_rejected':True,'existing_output_preserved':True,'windows_gui_compiled':True,'windows_gui_runtime_tested':False,'actual_xenia_gameplay_tested':False,'fixture':'Synthetic XDVDFS using supplied original nonvideo assets and real v125/v126/v127 patched assets. Movie payloads already Korean. No full original ISO or emulator gameplay available.'}
+report={'tests':tests,'input_files':len(original),'manifest_paths':len(rows),'inherited_movie_path_payloads_unchanged':movie_count,'accepted_older_input_hashes_retained':True,'unknown_input_rejected':True,'already_patched_rejected':True,'existing_output_preserved':True,'windows_gui_compiled':True,'windows_gui_runtime_tested':False,'actual_xenia_gameplay_tested':False,'fixture':'Synthetic XDVDFS using supplied original nonvideo assets and real v125/v126/v127 patched assets. Movie payloads already Korean. Original and real v125/v126/v127/v128 asset inputs. No full original ISO or emulator gameplay available.'}
 (W/'audit/iso_validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(report,flush=True)

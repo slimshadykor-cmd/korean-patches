@@ -1,0 +1,196 @@
+{
+  "changed_dialogues": 21,
+  "changed_demo_files": 8,
+  "reviewed_dialogues": 411,
+  "mission_files": 86,
+  "mission_messages": 55,
+  "new_glyphs": [
+    {
+      "korean": "갚",
+      "cp932_hex": "8E41",
+      "atlas": 11,
+      "x": 32,
+      "y": 0,
+      "decoded_ink_bounds": [
+        4,
+        2,
+        29,
+        30
+      ]
+    },
+    {
+      "korean": "겐",
+      "cp932_hex": "8E5A",
+      "atlas": 11,
+      "x": 320,
+      "y": 32,
+      "decoded_ink_bounds": [
+        4,
+        2,
+        28,
+        30
+      ]
+    },
+    {
+      "korean": "굶",
+      "cp932_hex": "8E5B",
+      "atlas": 11,
+      "x": 352,
+      "y": 32,
+      "decoded_ink_bounds": [
+        3,
+        2,
+        28,
+        29
+      ]
+    },
+    {
+      "korean": "글",
+      "cp932_hex": "8E5C",
+      "atlas": 11,
+      "x": 384,
+      "y": 32,
+      "decoded_ink_bounds": [
+        3,
+        2,
+        28,
+        29
+      ]
+    },
+    {
+      "korean": "깃",
+      "cp932_hex": "8E5D",
+      "atlas": 11,
+      "x": 416,
+      "y": 32,
+      "decoded_ink_bounds": [
+        4,
+        1,
+        28,
+        30
+      ]
+    },
+    {
+      "korean": "껍",
+      "cp932_hex": "8E5E",
+      "atlas": 11,
+      "x": 448,
+      "y": 32,
+      "decoded_ink_bounds": [
+        4,
+        2,
+        26,
+        30
+      ]
+    },
+    {
+      "korean": "꼴",
+      "cp932_hex": "8E5F",
+      "atlas": 11,
+      "x": 480,
+      "y": 32,
+      "decoded_ink_bounds": [
+        3,
+        2,
+        28,
+        29
+      ]
+    },
+    {
+      "korean": "꿈",
+      "cp932_hex": "8E62",
+      "atlas": 11,
+      "x": 64,
+      "y": 64,
+      "decoded_ink_bounds": [
+        3,
+        2,
+        28,
+        29
+      ]
+    },
+    {
+      "korean": "끈",
+      "cp932_hex": "8E65",
+      "atlas": 11,
+      "x": 160,
+      "y": 64,
+      "decoded_ink_bounds": [
+        3,
+        3,
+        28,
+        28
+      ]
+    },
+    {
+      "korean": "냈",
+      "cp932_hex": "8E66",
+      "atlas": 11,
+      "x": 192,
+      "y": 64,
+      "decoded_ink_bounds": [
+        4,
+        1,
+        29,
+        30
+      ]
+    },
+    {
+      "korean": "널",
+      "cp932_hex": "8E6B",
+      "atlas": 11,
+      "x": 352,
+      "y": 64,
+      "decoded_ink_bounds": [
+        5,
+        2,
+        27,
+        30
+      ]
+    },
+    {
+      "korean": "농",
+      "cp932_hex": "8E73",
+      "atlas": 11,
+      "x": 96,
+      "y": 96,
+      "decoded_ink_bounds": [
+        3,
+        2,
+        28,
+        30
+      ]
+    },
+    {
+      "korean": "눠",
+      "cp932_hex": "8E74",
+      "atlas": 11,
+      "x": 128,
+      "y": 96,
+      "decoded_ink_bounds": [
+        3,
+        1,
+        26,
+        30
+      ]
+    },
+    {
+      "korean": "늑",
+      "cp932_hex": "8E75",
+      "atlas": 11,
+      "x": 160,
+      "y": 96,
+      "decoded_ink_bounds": [
+        3,
+        1,
+        28,
+        30
+      ]
+    }
+  ],
+  "preserved_font_cells": 776,
+  "font_size_unchanged": true,
+  "non_dialogue_data_unchanged": true,
+  "version": "1.2.8",
+  "actual_xenia_gameplay_tested": false
+}

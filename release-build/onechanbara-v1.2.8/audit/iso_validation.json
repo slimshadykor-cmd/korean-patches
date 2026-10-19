@@ -31,6 +31,14 @@
       "all_unrelated_files_preserved": true,
       "input_preserved": true,
       "temporary_extraction_cleaned": true
+    },
+    {
+      "input": "v128",
+      "base": "0x20600",
+      "all_158_targets_byte_exact": true,
+      "all_unrelated_files_preserved": true,
+      "input_preserved": true,
+      "temporary_extraction_cleaned": true
     }
   ],
   "input_files": 240,
@@ -43,5 +51,5 @@
   "windows_gui_compiled": true,
   "windows_gui_runtime_tested": false,
   "actual_xenia_gameplay_tested": false,
-  "fixture": "Synthetic XDVDFS using supplied original nonvideo assets and real v125/v126/v127 patched assets. Movie payloads already Korean. No full original ISO or emulator gameplay available."
+  "fixture": "Synthetic XDVDFS using supplied original nonvideo assets and real v125/v126/v127 patched assets. Movie payloads already Korean. Original and real v125/v126/v127/v128 asset inputs. No full original ISO or emulator gameplay available."
 }

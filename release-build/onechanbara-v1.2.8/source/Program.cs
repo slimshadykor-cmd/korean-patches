@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using OnechanbaraPatch;
 class PatchWindow:Form {
  Button select;TextBox log;bool busy;
- public PatchWindow(){Text="오네찬바라 볼텍스 ISO 한글패치 v1.2.8";ClientSize=new Size(740,490);MinimumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Malgun Gothic",10);
-  Controls.Add(new Label{Text="~기혈을 잇는 자들~  |  한글화 슬림쉐이디\n일본판 원본 / v1.2.2~v1.2.7 한글판 / 여신상 수정 적용판을 새 v1.2.8로 만듭니다.",Location=new Point(20,18),Size=new Size(700,58)});
+ public PatchWindow(){Text="오네찬바라 볼텍스 ISO 한글패치 v1.2.8 (10/19 대사 수정)";ClientSize=new Size(740,490);MinimumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Malgun Gothic",10);
+  Controls.Add(new Label{Text="~기혈을 잇는 자들~  |  한글화 슬림쉐이디\n일본판 원본 / v1.2.2~v1.2.8 한글판 / 여신상 수정 적용판을 새 v1.2.8로 만듭니다.",Location=new Point(20,18),Size=new Size(700,58)});
   select=new Button{Text="원본 / 기존 한글판 ISO 선택하여 v1.2.8 적용",Location=new Point(20,88),Size=new Size(700,44),Anchor=AnchorStyles.Top|AnchorStyles.Left|AnchorStyles.Right};Controls.Add(select);
   log=new TextBox{Multiline=true,ReadOnly=true,ScrollBars=ScrollBars.Vertical,Location=new Point(20,150),Size=new Size(700,318),Anchor=AnchorStyles.Top|AnchorStyles.Bottom|AnchorStyles.Left|AnchorStyles.Right};Controls.Add(log);
   select.Click+=async delegate{string source,target;

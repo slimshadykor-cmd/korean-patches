@@ -39,7 +39,7 @@ assert reconstructed==new
 s=(W/'baseline/build_release.py').read_text().replace('v1.2.7','v1.2.8').replace('v1.2.6','v1.2.7').replace('baseline-v126','baseline-v127');(B/'build_release.py').write_text(s)
 F=W/'publication/.github/workflows';F.mkdir(parents=True,exist_ok=True);(F/'publish-onechanbara-v128.yml').write_text((W/'baseline/workflow.yml').read_text().replace('v1.2.7','v1.2.8').replace('v127','v128'))
 shutil.copytree(W/'source',B/'source',dirs_exist_ok=True)
-for name in ['additional_checks.py','build_package.py','test_release.py','finish_release.py','create_recipe.py']:shutil.copyfile(W/name,B/'source'/name)
-for name in ['additional_function_checks.json','build_validation.json','iso_validation.json','release_validation.json']:
+for name in ['audit.py','font_alias_audit.py','build_changes.py','build_release.py','verify_text.py','render_proof.py','test_release.py','finish_release.py','create_recipe.py']:shutil.copyfile(W/name,B/'source'/name)
+for name in ['iso_validation.json','text_validation.json','release_validation.json']:
  if (W/'audit'/name).exists():(B/'audit').mkdir(exist_ok=True);shutil.copyfile(W/'audit'/name,B/'audit'/name)
 print({'literal_bytes':len(compressed),'parts':len(parts),'baseline_bytes_reused':sum(n for kind,at,n in commands if kind=='copy'),'exact_reconstruction':True})

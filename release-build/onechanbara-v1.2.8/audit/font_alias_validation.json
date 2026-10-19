@@ -1,0 +1,257 @@
+{
+  "known_mapping_count": 726,
+  "bitmap_matches": 776,
+  "verified_aliases": [
+    {
+      "korean": "댈",
+      "cp932_hex": "8D8D",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "덤",
+      "cp932_hex": "8D93",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "돼",
+      "cp932_hex": "8D97",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "둔",
+      "cp932_hex": "8D98",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "둬",
+      "cp932_hex": "8D9A",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "딜",
+      "cp932_hex": "8D9F",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "떼",
+      "cp932_hex": "8DA2",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "똑",
+      "cp932_hex": "8DA3",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "락",
+      "cp932_hex": "8DA4",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "랬",
+      "cp932_hex": "8DA5",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "렀",
+      "cp932_hex": "8DA6",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "릿",
+      "cp932_hex": "8DA7",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "맛",
+      "cp932_hex": "8DA9",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "멋",
+      "cp932_hex": "8DAB",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "뭐",
+      "cp932_hex": "8DAD",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "뭘",
+      "cp932_hex": "8DAF",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "밀",
+      "cp932_hex": "8DB2",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "셈",
+      "cp932_hex": "8DB3",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "송",
+      "cp932_hex": "8DBA",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "슷",
+      "cp932_hex": "8DC3",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "쎄",
+      "cp932_hex": "8DC6",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "엉",
+      "cp932_hex": "8DCB",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "엔",
+      "cp932_hex": "8DCD",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "웠",
+      "cp932_hex": "8DD1",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "윈",
+      "cp932_hex": "8DD2",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "윽",
+      "cp932_hex": "8DD3",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "잊",
+      "cp932_hex": "8DD4",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "쟁",
+      "cp932_hex": "8DD6",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "젠",
+      "cp932_hex": "8DDE",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "죠",
+      "cp932_hex": "8DE1",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "줬",
+      "cp932_hex": "8DE3",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "짱",
+      "cp932_hex": "8DE5",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "쨌",
+      "cp932_hex": "8DE9",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "찢",
+      "cp932_hex": "8DEE",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "창",
+      "cp932_hex": "8DEF",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "케",
+      "cp932_hex": "8DF1",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "켰",
+      "cp932_hex": "8DF3",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "쾌",
+      "cp932_hex": "8DF4",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "퀴",
+      "cp932_hex": "8DF6",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "큭",
+      "cp932_hex": "8DF7",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "탁",
+      "cp932_hex": "8DF9",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "톱",
+      "cp932_hex": "8DFB",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "틸",
+      "cp932_hex": "8DFC",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "푸",
+      "cp932_hex": "8E46",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "핫",
+      "cp932_hex": "8E49",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "헉",
+      "cp932_hex": "8E4A",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "헛",
+      "cp932_hex": "8E4B",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "혹",
+      "cp932_hex": "8E4E",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "훗",
+      "cp932_hex": "8E56",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    },
+    {
+      "korean": "흣",
+      "cp932_hex": "8E57",
+      "verified_by": "exact DXT5 glyph bitmap match"
+    }
+  ],
+  "conflicts": []
+}

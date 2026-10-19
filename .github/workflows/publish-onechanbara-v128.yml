@@ -26,10 +26,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create onechanbara-v1.2.8 \
-            --target "$GITHUB_SHA" \
-            --title "오네찬바라 볼텍스 한글패치 v1.2.8" \
+          gh release view onechanbara-v1.2.8 >/dev/null
+          gh release upload onechanbara-v1.2.8 \
+            release-dist/Onechanbara_ISO_Korean_v1.2.8_Release.zip \
+            --clobber
+          gh release edit onechanbara-v1.2.8 \
+            --title "오네찬바라 볼텍스 한글패치 v1.2.8 (10/19 대사 수정)" \
             --notes-file release-build/onechanbara-v1.2.8/release-notes.md \
-            --latest \
-            release-dist/Onechanbara_ISO_Korean_v1.2.8_Release.zip
-
+            --latest

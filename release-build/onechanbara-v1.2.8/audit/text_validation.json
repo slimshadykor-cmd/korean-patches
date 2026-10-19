@@ -1,0 +1,21 @@
+{
+  "executable_texts_compared_to_own_translation_records": 1053,
+  "mission_files_checked": 86,
+  "mission_texts_checked": 55,
+  "menu_texts_checked": 1423,
+  "dialogue_texts_checked": 411,
+  "new_glyph_codes_unused_by_unmodified_display_strings": true,
+  "non_dialogue_logic_identical_to_public_v128": true,
+  "changed_assets": [
+    "Media/Demo/demo06_00.cat",
+    "Media/Demo/demo06_01.cat",
+    "Media/Demo/demo07_01.cat",
+    "Media/Demo/demo11_00.cat",
+    "Media/Demo/demo17_00.cat",
+    "Media/Demo/demo19_00.cat",
+    "Media/Demo/demo20_00.cat",
+    "Media/Demo/demo20_02.cat",
+    "Media/Sys/font.bin"
+  ],
+  "actual_xenia_gameplay_tested": false
+}

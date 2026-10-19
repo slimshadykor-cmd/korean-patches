@@ -1,0 +1,11310 @@
+[
+  {
+    "korean": "가",
+    "cp932_hex": "9741",
+    "original_glyph": "輸",
+    "atlas": 20,
+    "x": 32,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "각",
+    "cp932_hex": "889F",
+    "original_glyph": "亜",
+    "atlas": 5,
+    "x": 480,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "간",
+    "cp932_hex": "9743",
+    "original_glyph": "佑",
+    "atlas": 20,
+    "x": 96,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "갈",
+    "cp932_hex": "9749",
+    "original_glyph": "悠",
+    "atlas": 20,
+    "x": 288,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "갉",
+    "cp932_hex": "974D",
+    "original_glyph": "柚",
+    "atlas": 20,
+    "x": 416,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "감",
+    "cp932_hex": "974F",
+    "original_glyph": "涌",
+    "atlas": 20,
+    "x": 480,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "갑",
+    "cp932_hex": "9753",
+    "original_glyph": "祐",
+    "atlas": 20,
+    "x": 96,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "갔",
+    "cp932_hex": "88A1",
+    "original_glyph": "娃",
+    "atlas": 5,
+    "x": 32,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "강",
+    "cp932_hex": "9757",
+    "original_glyph": "邑",
+    "atlas": 20,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "갖",
+    "cp932_hex": "88A2",
+    "original_glyph": "阿",
+    "atlas": 5,
+    "x": 64,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "같",
+    "cp932_hex": "9759",
+    "original_glyph": "雄",
+    "atlas": 20,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "개",
+    "cp932_hex": "975B",
+    "original_glyph": "夕",
+    "atlas": 20,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "객",
+    "cp932_hex": "88A3",
+    "original_glyph": "哀",
+    "atlas": 5,
+    "x": 96,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "갯",
+    "cp932_hex": "88A5",
+    "original_glyph": "挨",
+    "atlas": 5,
+    "x": 160,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "거",
+    "cp932_hex": "975F",
+    "original_glyph": "誉",
+    "atlas": 20,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "걱",
+    "cp932_hex": "88A7",
+    "original_glyph": "逢",
+    "atlas": 5,
+    "x": 224,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "건",
+    "cp932_hex": "9761",
+    "original_glyph": "預",
+    "atlas": 20,
+    "x": 32,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "걸",
+    "cp932_hex": "9763",
+    "original_glyph": "幼",
+    "atlas": 20,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "검",
+    "cp932_hex": "9766",
+    "original_glyph": "庸",
+    "atlas": 20,
+    "x": 192,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "겁",
+    "cp932_hex": "88AC",
+    "original_glyph": "握",
+    "atlas": 5,
+    "x": 384,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "것",
+    "cp932_hex": "9768",
+    "original_glyph": "揺",
+    "atlas": 20,
+    "x": 256,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "겉",
+    "cp932_hex": "88AD",
+    "original_glyph": "渥",
+    "atlas": 5,
+    "x": 416,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "게",
+    "cp932_hex": "9769",
+    "original_glyph": "擁",
+    "atlas": 20,
+    "x": 288,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "겠",
+    "cp932_hex": "976B",
+    "original_glyph": "楊",
+    "atlas": 20,
+    "x": 352,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "겨",
+    "cp932_hex": "88AF",
+    "original_glyph": "葦",
+    "atlas": 5,
+    "x": 480,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "격",
+    "cp932_hex": "976E",
+    "original_glyph": "溶",
+    "atlas": 20,
+    "x": 448,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "견",
+    "cp932_hex": "88B1",
+    "original_glyph": "鯵",
+    "atlas": 5,
+    "x": 32,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "결",
+    "cp932_hex": "976F",
+    "original_glyph": "熔",
+    "atlas": 20,
+    "x": 480,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "겸",
+    "cp932_hex": "88B2",
+    "original_glyph": "梓",
+    "atlas": 5,
+    "x": 64,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "겼",
+    "cp932_hex": "88B6",
+    "original_glyph": "宛",
+    "atlas": 5,
+    "x": 192,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "경",
+    "cp932_hex": "9771",
+    "original_glyph": "窯",
+    "atlas": 20,
+    "x": 32,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      29
+    ]
+  },
+  {
+    "korean": "곁",
+    "cp932_hex": "88BD",
+    "original_glyph": "或",
+    "atlas": 5,
+    "x": 416,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "계",
+    "cp932_hex": "9772",
+    "original_glyph": "羊",
+    "atlas": 20,
+    "x": 64,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "고",
+    "cp932_hex": "9773",
+    "original_glyph": "耀",
+    "atlas": 20,
+    "x": 96,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "곡",
+    "cp932_hex": "88C2",
+    "original_glyph": "按",
+    "atlas": 5,
+    "x": 64,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "곧",
+    "cp932_hex": "88C7",
+    "original_glyph": "杏",
+    "atlas": 5,
+    "x": 224,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "골",
+    "cp932_hex": "88CF",
+    "original_glyph": "委",
+    "atlas": 5,
+    "x": 480,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "곳",
+    "cp932_hex": "9777",
+    "original_glyph": "謡",
+    "atlas": 20,
+    "x": 224,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "공",
+    "cp932_hex": "977A",
+    "original_glyph": "陽",
+    "atlas": 20,
+    "x": 320,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      3,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "과",
+    "cp932_hex": "977B",
+    "original_glyph": "養",
+    "atlas": 20,
+    "x": 352,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "관",
+    "cp932_hex": "9785",
+    "original_glyph": "羅",
+    "atlas": 20,
+    "x": 160,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "광",
+    "cp932_hex": "978A",
+    "original_glyph": "頼",
+    "atlas": 20,
+    "x": 320,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "괜",
+    "cp932_hex": "88D1",
+    "original_glyph": "尉",
+    "atlas": 5,
+    "x": 32,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "괴",
+    "cp932_hex": "88D2",
+    "original_glyph": "惟",
+    "atlas": 5,
+    "x": 64,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "굉",
+    "cp932_hex": "88D4",
+    "original_glyph": "慰",
+    "atlas": 5,
+    "x": 128,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "교",
+    "cp932_hex": "88DD",
+    "original_glyph": "胃",
+    "atlas": 5,
+    "x": 416,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "구",
+    "cp932_hex": "978F",
+    "original_glyph": "酪",
+    "atlas": 20,
+    "x": 480,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "국",
+    "cp932_hex": "88DE",
+    "original_glyph": "萎",
+    "atlas": 5,
+    "x": 448,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "군",
+    "cp932_hex": "9793",
+    "original_glyph": "欄",
+    "atlas": 20,
+    "x": 96,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "굳",
+    "cp932_hex": "88DF",
+    "original_glyph": "衣",
+    "atlas": 5,
+    "x": 480,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "굴",
+    "cp932_hex": "88E5",
+    "original_glyph": "亥",
+    "atlas": 5,
+    "x": 160,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "굼",
+    "cp932_hex": "88E6",
+    "original_glyph": "域",
+    "atlas": 5,
+    "x": 192,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "궁",
+    "cp932_hex": "88E9",
+    "original_glyph": "磯",
+    "atlas": 5,
+    "x": 288,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "권",
+    "cp932_hex": "9794",
+    "original_glyph": "濫",
+    "atlas": 20,
+    "x": 128,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "궤",
+    "cp932_hex": "88ED",
+    "original_glyph": "逸",
+    "atlas": 5,
+    "x": 416,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "귀",
+    "cp932_hex": "9795",
+    "original_glyph": "藍",
+    "atlas": 20,
+    "x": 160,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "그",
+    "cp932_hex": "979A",
+    "original_glyph": "履",
+    "atlas": 20,
+    "x": 320,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "극",
+    "cp932_hex": "88EF",
+    "original_glyph": "茨",
+    "atlas": 5,
+    "x": 480,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "근",
+    "cp932_hex": "979C",
+    "original_glyph": "梨",
+    "atlas": 20,
+    "x": 384,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "금",
+    "cp932_hex": "979E",
+    "original_glyph": "璃",
+    "atlas": 20,
+    "x": 448,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "급",
+    "cp932_hex": "88F1",
+    "original_glyph": "鰯",
+    "atlas": 5,
+    "x": 32,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "기",
+    "cp932_hex": "97A1",
+    "original_glyph": "裡",
+    "atlas": 20,
+    "x": 32,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "긴",
+    "cp932_hex": "88F2",
+    "original_glyph": "允",
+    "atlas": 5,
+    "x": 64,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "길",
+    "cp932_hex": "97A2",
+    "original_glyph": "里",
+    "atlas": 20,
+    "x": 64,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "깊",
+    "cp932_hex": "97A5",
+    "original_glyph": "律",
+    "atlas": 20,
+    "x": 160,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "까",
+    "cp932_hex": "97AB",
+    "original_glyph": "劉",
+    "atlas": 20,
+    "x": 352,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "깐",
+    "cp932_hex": "97AD",
+    "original_glyph": "溜",
+    "atlas": 20,
+    "x": 416,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "깝",
+    "cp932_hex": "88F4",
+    "original_glyph": "咽",
+    "atlas": 5,
+    "x": 128,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "깡",
+    "cp932_hex": "88FA",
+    "original_glyph": "淫",
+    "atlas": 5,
+    "x": 320,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "깨",
+    "cp932_hex": "88FB",
+    "original_glyph": "胤",
+    "atlas": 5,
+    "x": 352,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "꺼",
+    "cp932_hex": "8943",
+    "original_glyph": "韻",
+    "atlas": 6,
+    "x": 96,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "껏",
+    "cp932_hex": "8946",
+    "original_glyph": "宇",
+    "atlas": 6,
+    "x": 192,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "께",
+    "cp932_hex": "97B1",
+    "original_glyph": "粒",
+    "atlas": 20,
+    "x": 32,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "껴",
+    "cp932_hex": "8949",
+    "original_glyph": "迂",
+    "atlas": 6,
+    "x": 288,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "꼼",
+    "cp932_hex": "894B",
+    "original_glyph": "卯",
+    "atlas": 6,
+    "x": 352,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "꽂",
+    "cp932_hex": "894C",
+    "original_glyph": "鵜",
+    "atlas": 6,
+    "x": 384,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "꽤",
+    "cp932_hex": "894F",
+    "original_glyph": "碓",
+    "atlas": 6,
+    "x": 480,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "꾸",
+    "cp932_hex": "8952",
+    "original_glyph": "嘘",
+    "atlas": 6,
+    "x": 64,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "꾼",
+    "cp932_hex": "8953",
+    "original_glyph": "唄",
+    "atlas": 6,
+    "x": 96,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "꿀",
+    "cp932_hex": "8954",
+    "original_glyph": "欝",
+    "atlas": 6,
+    "x": 128,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "꿉",
+    "cp932_hex": "97B2",
+    "original_glyph": "隆",
+    "atlas": 20,
+    "x": 64,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "꿔",
+    "cp932_hex": "8955",
+    "original_glyph": "蔚",
+    "atlas": 6,
+    "x": 160,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "꿰",
+    "cp932_hex": "8957",
+    "original_glyph": "姥",
+    "atlas": 6,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      2,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "뀌",
+    "cp932_hex": "97B3",
+    "original_glyph": "竜",
+    "atlas": 20,
+    "x": 96,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "뀔",
+    "cp932_hex": "8959",
+    "original_glyph": "浦",
+    "atlas": 6,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "뀝",
+    "cp932_hex": "895A",
+    "original_glyph": "瓜",
+    "atlas": 6,
+    "x": 320,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "끄",
+    "cp932_hex": "97B5",
+    "original_glyph": "侶",
+    "atlas": 20,
+    "x": 160,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      26
+    ]
+  },
+  {
+    "korean": "끊",
+    "cp932_hex": "895B",
+    "original_glyph": "閏",
+    "atlas": 6,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "끌",
+    "cp932_hex": "895E",
+    "original_glyph": "運",
+    "atlas": 6,
+    "x": 448,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "끔",
+    "cp932_hex": "97CF",
+    "original_glyph": "倫",
+    "atlas": 20,
+    "x": 480,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "끝",
+    "cp932_hex": "97D3",
+    "original_glyph": "燐",
+    "atlas": 20,
+    "x": 96,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "끼",
+    "cp932_hex": "895F",
+    "original_glyph": "雲",
+    "atlas": 6,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "낀",
+    "cp932_hex": "8961",
+    "original_glyph": "餌",
+    "atlas": 6,
+    "x": 32,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "나",
+    "cp932_hex": "97D5",
+    "original_glyph": "臨",
+    "atlas": 20,
+    "x": 160,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "낙",
+    "cp932_hex": "8962",
+    "original_glyph": "叡",
+    "atlas": 6,
+    "x": 64,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "난",
+    "cp932_hex": "97D9",
+    "original_glyph": "麟",
+    "atlas": 20,
+    "x": 288,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "날",
+    "cp932_hex": "97DD",
+    "original_glyph": "累",
+    "atlas": 20,
+    "x": 416,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "낡",
+    "cp932_hex": "8963",
+    "original_glyph": "営",
+    "atlas": 6,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "남",
+    "cp932_hex": "97E2",
+    "original_glyph": "冷",
+    "atlas": 20,
+    "x": 64,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "납",
+    "cp932_hex": "8964",
+    "original_glyph": "嬰",
+    "atlas": 6,
+    "x": 128,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "낫",
+    "cp932_hex": "8966",
+    "original_glyph": "映",
+    "atlas": 6,
+    "x": 192,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "났",
+    "cp932_hex": "8967",
+    "original_glyph": "曳",
+    "atlas": 6,
+    "x": 224,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "낮",
+    "cp932_hex": "97E3",
+    "original_glyph": "励",
+    "atlas": 20,
+    "x": 96,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      29
+    ]
+  },
+  {
+    "korean": "내",
+    "cp932_hex": "97E5",
+    "original_glyph": "怜",
+    "atlas": 20,
+    "x": 160,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "낸",
+    "cp932_hex": "8969",
+    "original_glyph": "永",
+    "atlas": 6,
+    "x": 288,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "낼",
+    "cp932_hex": "896B",
+    "original_glyph": "洩",
+    "atlas": 6,
+    "x": 352,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "냄",
+    "cp932_hex": "896D",
+    "original_glyph": "盈",
+    "atlas": 6,
+    "x": 416,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "냐",
+    "cp932_hex": "896F",
+    "original_glyph": "頴",
+    "atlas": 6,
+    "x": 480,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "냥",
+    "cp932_hex": "8970",
+    "original_glyph": "英",
+    "atlas": 6,
+    "x": 0,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      29
+    ]
+  },
+  {
+    "korean": "너",
+    "cp932_hex": "97E7",
+    "original_glyph": "礼",
+    "atlas": 20,
+    "x": 224,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "넌",
+    "cp932_hex": "8972",
+    "original_glyph": "詠",
+    "atlas": 6,
+    "x": 64,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "넘",
+    "cp932_hex": "8973",
+    "original_glyph": "鋭",
+    "atlas": 6,
+    "x": 96,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "넣",
+    "cp932_hex": "97E8",
+    "original_glyph": "苓",
+    "atlas": 20,
+    "x": 256,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "네",
+    "cp932_hex": "97E9",
+    "original_glyph": "鈴",
+    "atlas": 20,
+    "x": 288,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "녀",
+    "cp932_hex": "97EF",
+    "original_glyph": "暦",
+    "atlas": 20,
+    "x": 480,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "년",
+    "cp932_hex": "97F1",
+    "original_glyph": "列",
+    "atlas": 20,
+    "x": 32,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "녔",
+    "cp932_hex": "8975",
+    "original_glyph": "疫",
+    "atlas": 6,
+    "x": 160,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      1,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "녕",
+    "cp932_hex": "8979",
+    "original_glyph": "謁",
+    "atlas": 6,
+    "x": 288,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "노",
+    "cp932_hex": "97F5",
+    "original_glyph": "廉",
+    "atlas": 20,
+    "x": 160,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "녹",
+    "cp932_hex": "897A",
+    "original_glyph": "越",
+    "atlas": 6,
+    "x": 320,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "놀",
+    "cp932_hex": "897B",
+    "original_glyph": "閲",
+    "atlas": 6,
+    "x": 352,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "놈",
+    "cp932_hex": "897C",
+    "original_glyph": "榎",
+    "atlas": 6,
+    "x": 384,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "높",
+    "cp932_hex": "97F6",
+    "original_glyph": "恋",
+    "atlas": 20,
+    "x": 192,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "놓",
+    "cp932_hex": "97F8",
+    "original_glyph": "漣",
+    "atlas": 20,
+    "x": 256,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "누",
+    "cp932_hex": "897D",
+    "original_glyph": "厭",
+    "atlas": 6,
+    "x": 416,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "눈",
+    "cp932_hex": "97F9",
+    "original_glyph": "煉",
+    "atlas": 20,
+    "x": 288,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "눌",
+    "cp932_hex": "97FA",
+    "original_glyph": "簾",
+    "atlas": 20,
+    "x": 320,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "눴",
+    "cp932_hex": "897E",
+    "original_glyph": "円",
+    "atlas": 6,
+    "x": 448,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "뉴",
+    "cp932_hex": "8986",
+    "original_glyph": "掩",
+    "atlas": 6,
+    "x": 192,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "느",
+    "cp932_hex": "9644",
+    "original_glyph": "縫",
+    "atlas": 19,
+    "x": 128,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "는",
+    "cp932_hex": "9646",
+    "original_glyph": "芳",
+    "atlas": 19,
+    "x": 192,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "늘",
+    "cp932_hex": "8987",
+    "original_glyph": "援",
+    "atlas": 6,
+    "x": 224,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "늙",
+    "cp932_hex": "8991",
+    "original_glyph": "苑",
+    "atlas": 6,
+    "x": 32,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "늠",
+    "cp932_hex": "8992",
+    "original_glyph": "薗",
+    "atlas": 6,
+    "x": 64,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "능",
+    "cp932_hex": "9649",
+    "original_glyph": "蜂",
+    "atlas": 19,
+    "x": 288,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "늦",
+    "cp932_hex": "8995",
+    "original_glyph": "鴛",
+    "atlas": 6,
+    "x": 160,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "늬",
+    "cp932_hex": "8997",
+    "original_glyph": "於",
+    "atlas": 6,
+    "x": 224,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "니",
+    "cp932_hex": "964B",
+    "original_glyph": "訪",
+    "atlas": 19,
+    "x": 352,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      5,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "닌",
+    "cp932_hex": "899A",
+    "original_glyph": "凹",
+    "atlas": 6,
+    "x": 320,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "님",
+    "cp932_hex": "89A1",
+    "original_glyph": "横",
+    "atlas": 6,
+    "x": 32,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "다",
+    "cp932_hex": "964C",
+    "original_glyph": "豊",
+    "atlas": 19,
+    "x": 384,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "닥",
+    "cp932_hex": "89A2",
+    "original_glyph": "欧",
+    "atlas": 6,
+    "x": 64,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "단",
+    "cp932_hex": "964D",
+    "original_glyph": "邦",
+    "atlas": 19,
+    "x": 416,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "닫",
+    "cp932_hex": "89A3",
+    "original_glyph": "殴",
+    "atlas": 6,
+    "x": 96,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "달",
+    "cp932_hex": "964F",
+    "original_glyph": "飽",
+    "atlas": 19,
+    "x": 480,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "답",
+    "cp932_hex": "89A5",
+    "original_glyph": "翁",
+    "atlas": 6,
+    "x": 160,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "당",
+    "cp932_hex": "89A6",
+    "original_glyph": "襖",
+    "atlas": 6,
+    "x": 192,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      29
+    ]
+  },
+  {
+    "korean": "닿",
+    "cp932_hex": "89A7",
+    "original_glyph": "鴬",
+    "atlas": 6,
+    "x": 224,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "대",
+    "cp932_hex": "89AA",
+    "original_glyph": "岡",
+    "atlas": 6,
+    "x": 320,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "더",
+    "cp932_hex": "9655",
+    "original_glyph": "剖",
+    "atlas": 19,
+    "x": 160,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "덕",
+    "cp932_hex": "89AB",
+    "original_glyph": "沖",
+    "atlas": 6,
+    "x": 352,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "던",
+    "cp932_hex": "9657",
+    "original_glyph": "妨",
+    "atlas": 19,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "덜",
+    "cp932_hex": "89B1",
+    "original_glyph": "桶",
+    "atlas": 6,
+    "x": 32,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "덩",
+    "cp932_hex": "89B2",
+    "original_glyph": "牡",
+    "atlas": 6,
+    "x": 64,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "덮",
+    "cp932_hex": "965A",
+    "original_glyph": "忙",
+    "atlas": 19,
+    "x": 320,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "데",
+    "cp932_hex": "965B",
+    "original_glyph": "房",
+    "atlas": 19,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "도",
+    "cp932_hex": "965E",
+    "original_glyph": "某",
+    "atlas": 19,
+    "x": 448,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "독",
+    "cp932_hex": "89B3",
+    "original_glyph": "乙",
+    "atlas": 6,
+    "x": 96,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "돈",
+    "cp932_hex": "89B6",
+    "original_glyph": "恩",
+    "atlas": 6,
+    "x": 192,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "돌",
+    "cp932_hex": "965F",
+    "original_glyph": "棒",
+    "atlas": 19,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "동",
+    "cp932_hex": "9660",
+    "original_glyph": "冒",
+    "atlas": 19,
+    "x": 0,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "됐",
+    "cp932_hex": "89BE",
+    "original_glyph": "伽",
+    "atlas": 6,
+    "x": 448,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "되",
+    "cp932_hex": "9662",
+    "original_glyph": "肪",
+    "atlas": 19,
+    "x": 64,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "된",
+    "cp932_hex": "9663",
+    "original_glyph": "膨",
+    "atlas": 19,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "될",
+    "cp932_hex": "89C3",
+    "original_glyph": "嘉",
+    "atlas": 6,
+    "x": 96,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "됩",
+    "cp932_hex": "89C5",
+    "original_glyph": "嫁",
+    "atlas": 6,
+    "x": 160,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "두",
+    "cp932_hex": "89C7",
+    "original_glyph": "寡",
+    "atlas": 6,
+    "x": 224,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "둘",
+    "cp932_hex": "89CD",
+    "original_glyph": "河",
+    "atlas": 6,
+    "x": 416,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "둠",
+    "cp932_hex": "89CF",
+    "original_glyph": "珂",
+    "atlas": 6,
+    "x": 480,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "둥",
+    "cp932_hex": "89D1",
+    "original_glyph": "禾",
+    "atlas": 6,
+    "x": 32,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "뒤",
+    "cp932_hex": "9665",
+    "original_glyph": "貌",
+    "atlas": 19,
+    "x": 160,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "드",
+    "cp932_hex": "9667",
+    "original_glyph": "鉾",
+    "atlas": 19,
+    "x": 224,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "득",
+    "cp932_hex": "966A",
+    "original_glyph": "頬",
+    "atlas": 19,
+    "x": 320,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "든",
+    "cp932_hex": "966B",
+    "original_glyph": "北",
+    "atlas": 19,
+    "x": 352,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "듣",
+    "cp932_hex": "89D5",
+    "original_glyph": "苛",
+    "atlas": 6,
+    "x": 160,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "들",
+    "cp932_hex": "966D",
+    "original_glyph": "卜",
+    "atlas": 19,
+    "x": 416,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "듭",
+    "cp932_hex": "966E",
+    "original_glyph": "墨",
+    "atlas": 19,
+    "x": 448,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "듯",
+    "cp932_hex": "89D6",
+    "original_glyph": "茄",
+    "atlas": 6,
+    "x": 192,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "등",
+    "cp932_hex": "966F",
+    "original_glyph": "撲",
+    "atlas": 19,
+    "x": 480,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "디",
+    "cp932_hex": "9672",
+    "original_glyph": "睦",
+    "atlas": 19,
+    "x": 64,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      5,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "딘",
+    "cp932_hex": "89D9",
+    "original_glyph": "菓",
+    "atlas": 6,
+    "x": 288,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "딩",
+    "cp932_hex": "89DA",
+    "original_glyph": "蝦",
+    "atlas": 6,
+    "x": 320,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "딪",
+    "cp932_hex": "89DC",
+    "original_glyph": "嘩",
+    "atlas": 6,
+    "x": 384,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "따",
+    "cp932_hex": "89DE",
+    "original_glyph": "迦",
+    "atlas": 6,
+    "x": 448,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "딱",
+    "cp932_hex": "89E1",
+    "original_glyph": "蚊",
+    "atlas": 6,
+    "x": 32,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      31
+    ]
+  },
+  {
+    "korean": "딴",
+    "cp932_hex": "89E2",
+    "original_glyph": "俄",
+    "atlas": 6,
+    "x": 64,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "땅",
+    "cp932_hex": "89E3",
+    "original_glyph": "峨",
+    "atlas": 6,
+    "x": 96,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "때",
+    "cp932_hex": "9673",
+    "original_glyph": "穆",
+    "atlas": 19,
+    "x": 96,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "떠",
+    "cp932_hex": "89E7",
+    "original_glyph": "臥",
+    "atlas": 6,
+    "x": 224,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "떤",
+    "cp932_hex": "89EA",
+    "original_glyph": "賀",
+    "atlas": 6,
+    "x": 320,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "떨",
+    "cp932_hex": "89EB",
+    "original_glyph": "雅",
+    "atlas": 6,
+    "x": 352,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "떻",
+    "cp932_hex": "89ED",
+    "original_glyph": "駕",
+    "atlas": 6,
+    "x": 416,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "또",
+    "cp932_hex": "89F6",
+    "original_glyph": "怪",
+    "atlas": 6,
+    "x": 192,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "뚫",
+    "cp932_hex": "89F7",
+    "original_glyph": "悔",
+    "atlas": 6,
+    "x": 224,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "뛰",
+    "cp932_hex": "89FB",
+    "original_glyph": "拐",
+    "atlas": 6,
+    "x": 352,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "뜨",
+    "cp932_hex": "9674",
+    "original_glyph": "釦",
+    "atlas": 19,
+    "x": 128,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "뜩",
+    "cp932_hex": "8A44",
+    "original_glyph": "灰",
+    "atlas": 7,
+    "x": 128,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "뜬",
+    "cp932_hex": "8A46",
+    "original_glyph": "皆",
+    "atlas": 7,
+    "x": 192,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      3,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "뜯",
+    "cp932_hex": "8A47",
+    "original_glyph": "絵",
+    "atlas": 7,
+    "x": 224,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "뜻",
+    "cp932_hex": "8A49",
+    "original_glyph": "蟹",
+    "atlas": 7,
+    "x": 288,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "띈",
+    "cp932_hex": "8A4D",
+    "original_glyph": "凱",
+    "atlas": 7,
+    "x": 416,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "띠",
+    "cp932_hex": "8A52",
+    "original_glyph": "崖",
+    "atlas": 7,
+    "x": 64,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "라",
+    "cp932_hex": "9675",
+    "original_glyph": "勃",
+    "atlas": 19,
+    "x": 160,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "란",
+    "cp932_hex": "9676",
+    "original_glyph": "没",
+    "atlas": 19,
+    "x": 192,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "람",
+    "cp932_hex": "9677",
+    "original_glyph": "殆",
+    "atlas": 19,
+    "x": 224,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "랐",
+    "cp932_hex": "8A55",
+    "original_glyph": "涯",
+    "atlas": 7,
+    "x": 160,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "래",
+    "cp932_hex": "9679",
+    "original_glyph": "幌",
+    "atlas": 19,
+    "x": 288,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "랜",
+    "cp932_hex": "8A57",
+    "original_glyph": "蓋",
+    "atlas": 7,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "랭",
+    "cp932_hex": "967C",
+    "original_glyph": "翻",
+    "atlas": 19,
+    "x": 384,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "략",
+    "cp932_hex": "8A59",
+    "original_glyph": "該",
+    "atlas": 7,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "량",
+    "cp932_hex": "8A5A",
+    "original_glyph": "鎧",
+    "atlas": 7,
+    "x": 320,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "러",
+    "cp932_hex": "967D",
+    "original_glyph": "凡",
+    "atlas": 19,
+    "x": 416,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "런",
+    "cp932_hex": "967E",
+    "original_glyph": "盆",
+    "atlas": 19,
+    "x": 448,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "럴",
+    "cp932_hex": "8A5D",
+    "original_glyph": "馨",
+    "atlas": 7,
+    "x": 416,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "럼",
+    "cp932_hex": "8A5E",
+    "original_glyph": "蛙",
+    "atlas": 7,
+    "x": 448,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "럽",
+    "cp932_hex": "9683",
+    "original_glyph": "麻",
+    "atlas": 19,
+    "x": 96,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "렇",
+    "cp932_hex": "8A5F",
+    "original_glyph": "垣",
+    "atlas": 7,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "레",
+    "cp932_hex": "9684",
+    "original_glyph": "埋",
+    "atlas": 19,
+    "x": 128,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "려",
+    "cp932_hex": "9686",
+    "original_glyph": "昧",
+    "atlas": 19,
+    "x": 192,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "력",
+    "cp932_hex": "9687",
+    "original_glyph": "枚",
+    "atlas": 19,
+    "x": 224,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "련",
+    "cp932_hex": "8A61",
+    "original_glyph": "蛎",
+    "atlas": 7,
+    "x": 32,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "렬",
+    "cp932_hex": "968A",
+    "original_glyph": "槙",
+    "atlas": 19,
+    "x": 320,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "렵",
+    "cp932_hex": "8A62",
+    "original_glyph": "鈎",
+    "atlas": 7,
+    "x": 64,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "렸",
+    "cp932_hex": "8A63",
+    "original_glyph": "劃",
+    "atlas": 7,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "령",
+    "cp932_hex": "8A64",
+    "original_glyph": "嚇",
+    "atlas": 7,
+    "x": 128,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "로",
+    "cp932_hex": "968B",
+    "original_glyph": "幕",
+    "atlas": 19,
+    "x": 352,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "록",
+    "cp932_hex": "9694",
+    "original_glyph": "又",
+    "atlas": 19,
+    "x": 128,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "론",
+    "cp932_hex": "969B",
+    "original_glyph": "麿",
+    "atlas": 19,
+    "x": 352,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "롤",
+    "cp932_hex": "969D",
+    "original_glyph": "慢",
+    "atlas": 19,
+    "x": 416,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "롭",
+    "cp932_hex": "8A67",
+    "original_glyph": "拡",
+    "atlas": 7,
+    "x": 224,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "료",
+    "cp932_hex": "96A2",
+    "original_glyph": "未",
+    "atlas": 19,
+    "x": 64,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "루",
+    "cp932_hex": "8A68",
+    "original_glyph": "撹",
+    "atlas": 7,
+    "x": 256,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "룰",
+    "cp932_hex": "8A6E",
+    "original_glyph": "穫",
+    "atlas": 7,
+    "x": 448,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "류",
+    "cp932_hex": "96A4",
+    "original_glyph": "巳",
+    "atlas": 19,
+    "x": 128,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "률",
+    "cp932_hex": "96A5",
+    "original_glyph": "箕",
+    "atlas": 19,
+    "x": 160,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "르",
+    "cp932_hex": "96A6",
+    "original_glyph": "岬",
+    "atlas": 19,
+    "x": 192,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "른",
+    "cp932_hex": "96A9",
+    "original_glyph": "湊",
+    "atlas": 19,
+    "x": 288,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "를",
+    "cp932_hex": "96AA",
+    "original_glyph": "蓑",
+    "atlas": 19,
+    "x": 320,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "름",
+    "cp932_hex": "96AB",
+    "original_glyph": "稔",
+    "atlas": 19,
+    "x": 352,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "릅",
+    "cp932_hex": "8A71",
+    "original_glyph": "赫",
+    "atlas": 7,
+    "x": 32,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "리",
+    "cp932_hex": "96AE",
+    "original_glyph": "粍",
+    "atlas": 19,
+    "x": 448,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "릭",
+    "cp932_hex": "96B1",
+    "original_glyph": "務",
+    "atlas": 19,
+    "x": 32,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "린",
+    "cp932_hex": "96B2",
+    "original_glyph": "夢",
+    "atlas": 19,
+    "x": 64,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "릴",
+    "cp932_hex": "8A73",
+    "original_glyph": "郭",
+    "atlas": 7,
+    "x": 96,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "림",
+    "cp932_hex": "8A74",
+    "original_glyph": "閣",
+    "atlas": 7,
+    "x": 128,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "링",
+    "cp932_hex": "8A76",
+    "original_glyph": "革",
+    "atlas": 7,
+    "x": 192,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "마",
+    "cp932_hex": "96B5",
+    "original_glyph": "矛",
+    "atlas": 19,
+    "x": 160,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "막",
+    "cp932_hex": "8A7A",
+    "original_glyph": "額",
+    "atlas": 7,
+    "x": 320,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "만",
+    "cp932_hex": "96B6",
+    "original_glyph": "霧",
+    "atlas": 19,
+    "x": 192,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "많",
+    "cp932_hex": "96BA",
+    "original_glyph": "娘",
+    "atlas": 19,
+    "x": 320,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "말",
+    "cp932_hex": "8A7B",
+    "original_glyph": "顎",
+    "atlas": 7,
+    "x": 352,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "망",
+    "cp932_hex": "96BB",
+    "original_glyph": "冥",
+    "atlas": 19,
+    "x": 352,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      29
+    ]
+  },
+  {
+    "korean": "맞",
+    "cp932_hex": "8A7D",
+    "original_glyph": "笠",
+    "atlas": 7,
+    "x": 416,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "맡",
+    "cp932_hex": "8A7E",
+    "original_glyph": "樫",
+    "atlas": 7,
+    "x": 448,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "매",
+    "cp932_hex": "96BF",
+    "original_glyph": "盟",
+    "atlas": 19,
+    "x": 480,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "맨",
+    "cp932_hex": "96C1",
+    "original_glyph": "銘",
+    "atlas": 19,
+    "x": 32,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "맵",
+    "cp932_hex": "8A84",
+    "original_glyph": "割",
+    "atlas": 7,
+    "x": 128,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "맹",
+    "cp932_hex": "8A85",
+    "original_glyph": "喝",
+    "atlas": 7,
+    "x": 160,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "맺",
+    "cp932_hex": "96D0",
+    "original_glyph": "孟",
+    "atlas": 19,
+    "x": 0,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "머",
+    "cp932_hex": "96D2",
+    "original_glyph": "猛",
+    "atlas": 19,
+    "x": 64,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "먹",
+    "cp932_hex": "96D5",
+    "original_glyph": "耗",
+    "atlas": 19,
+    "x": 160,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "먼",
+    "cp932_hex": "8A86",
+    "original_glyph": "恰",
+    "atlas": 7,
+    "x": 192,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "멀",
+    "cp932_hex": "8A87",
+    "original_glyph": "括",
+    "atlas": 7,
+    "x": 224,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "멈",
+    "cp932_hex": "8A8F",
+    "original_glyph": "鰹",
+    "atlas": 7,
+    "x": 480,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "멍",
+    "cp932_hex": "8A92",
+    "original_glyph": "樺",
+    "atlas": 7,
+    "x": 64,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "메",
+    "cp932_hex": "8A93",
+    "original_glyph": "鞄",
+    "atlas": 7,
+    "x": 96,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "며",
+    "cp932_hex": "96D7",
+    "original_glyph": "儲",
+    "atlas": 19,
+    "x": 224,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "면",
+    "cp932_hex": "96DB",
+    "original_glyph": "杢",
+    "atlas": 19,
+    "x": 352,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "멸",
+    "cp932_hex": "96DE",
+    "original_glyph": "尤",
+    "atlas": 19,
+    "x": 448,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "명",
+    "cp932_hex": "96E1",
+    "original_glyph": "貰",
+    "atlas": 19,
+    "x": 32,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "몇",
+    "cp932_hex": "8A94",
+    "original_glyph": "株",
+    "atlas": 7,
+    "x": 128,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "모",
+    "cp932_hex": "96E3",
+    "original_glyph": "悶",
+    "atlas": 19,
+    "x": 96,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "목",
+    "cp932_hex": "96E6",
+    "original_glyph": "匁",
+    "atlas": 19,
+    "x": 192,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "몬",
+    "cp932_hex": "8A95",
+    "original_glyph": "兜",
+    "atlas": 7,
+    "x": 160,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      3,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "몰",
+    "cp932_hex": "96E7",
+    "original_glyph": "也",
+    "atlas": 19,
+    "x": 224,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "몸",
+    "cp932_hex": "96EA",
+    "original_glyph": "爺",
+    "atlas": 19,
+    "x": 320,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "못",
+    "cp932_hex": "96EB",
+    "original_glyph": "耶",
+    "atlas": 19,
+    "x": 352,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "묘",
+    "cp932_hex": "8A96",
+    "original_glyph": "竃",
+    "atlas": 7,
+    "x": 192,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "무",
+    "cp932_hex": "96ED",
+    "original_glyph": "弥",
+    "atlas": 19,
+    "x": 416,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "묵",
+    "cp932_hex": "8A9D",
+    "original_glyph": "茅",
+    "atlas": 7,
+    "x": 416,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "묶",
+    "cp932_hex": "8A9E",
+    "original_glyph": "萱",
+    "atlas": 7,
+    "x": 448,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "문",
+    "cp932_hex": "8A9F",
+    "original_glyph": "粥",
+    "atlas": 7,
+    "x": 480,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "묻",
+    "cp932_hex": "8AA1",
+    "original_glyph": "苅",
+    "atlas": 7,
+    "x": 32,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "물",
+    "cp932_hex": "96EF",
+    "original_glyph": "厄",
+    "atlas": 19,
+    "x": 480,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "므",
+    "cp932_hex": "8AA2",
+    "original_glyph": "瓦",
+    "atlas": 7,
+    "x": 64,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "미",
+    "cp932_hex": "96F1",
+    "original_glyph": "約",
+    "atlas": 19,
+    "x": 32,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      5,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "민",
+    "cp932_hex": "8AA6",
+    "original_glyph": "寒",
+    "atlas": 7,
+    "x": 192,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "믿",
+    "cp932_hex": "96F3",
+    "original_glyph": "訳",
+    "atlas": 19,
+    "x": 96,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "밍",
+    "cp932_hex": "96F5",
+    "original_glyph": "靖",
+    "atlas": 19,
+    "x": 160,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "밑",
+    "cp932_hex": "8AA7",
+    "original_glyph": "刊",
+    "atlas": 7,
+    "x": 224,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "바",
+    "cp932_hex": "96F6",
+    "original_glyph": "柳",
+    "atlas": 19,
+    "x": 192,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "박",
+    "cp932_hex": "8AAA",
+    "original_glyph": "巻",
+    "atlas": 7,
+    "x": 320,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "밖",
+    "cp932_hex": "8AAB",
+    "original_glyph": "喚",
+    "atlas": 7,
+    "x": 352,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "반",
+    "cp932_hex": "96F7",
+    "original_glyph": "薮",
+    "atlas": 19,
+    "x": 224,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "받",
+    "cp932_hex": "96F8",
+    "original_glyph": "鑓",
+    "atlas": 19,
+    "x": 256,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "발",
+    "cp932_hex": "96F9",
+    "original_glyph": "愉",
+    "atlas": 19,
+    "x": 288,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "밝",
+    "cp932_hex": "8AAC",
+    "original_glyph": "堪",
+    "atlas": 7,
+    "x": 384,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "밤",
+    "cp932_hex": "8AAD",
+    "original_glyph": "姦",
+    "atlas": 7,
+    "x": 416,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "밧",
+    "cp932_hex": "8AB1",
+    "original_glyph": "干",
+    "atlas": 7,
+    "x": 32,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "방",
+    "cp932_hex": "96FB",
+    "original_glyph": "油",
+    "atlas": 19,
+    "x": 352,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "배",
+    "cp932_hex": "9540",
+    "original_glyph": "鼻",
+    "atlas": 18,
+    "x": 0,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "뱉",
+    "cp932_hex": "8AB2",
+    "original_glyph": "幹",
+    "atlas": 7,
+    "x": 64,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "버",
+    "cp932_hex": "9545",
+    "original_glyph": "髭",
+    "atlas": 18,
+    "x": 160,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "번",
+    "cp932_hex": "9546",
+    "original_glyph": "彦",
+    "atlas": 18,
+    "x": 192,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "벌",
+    "cp932_hex": "9547",
+    "original_glyph": "膝",
+    "atlas": 18,
+    "x": 224,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "범",
+    "cp932_hex": "8AB3",
+    "original_glyph": "患",
+    "atlas": 7,
+    "x": 96,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "법",
+    "cp932_hex": "8AB5",
+    "original_glyph": "慣",
+    "atlas": 7,
+    "x": 160,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "벗",
+    "cp932_hex": "9549",
+    "original_glyph": "肘",
+    "atlas": 18,
+    "x": 288,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "베",
+    "cp932_hex": "8AB6",
+    "original_glyph": "憾",
+    "atlas": 7,
+    "x": 192,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "벨",
+    "cp932_hex": "8ABA",
+    "original_glyph": "桓",
+    "atlas": 7,
+    "x": 320,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "벼",
+    "cp932_hex": "8ABB",
+    "original_glyph": "棺",
+    "atlas": 7,
+    "x": 352,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "벽",
+    "cp932_hex": "8ABF",
+    "original_glyph": "漢",
+    "atlas": 7,
+    "x": 480,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "변",
+    "cp932_hex": "954F",
+    "original_glyph": "桧",
+    "atlas": 18,
+    "x": 480,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "별",
+    "cp932_hex": "8AC2",
+    "original_glyph": "環",
+    "atlas": 7,
+    "x": 64,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "병",
+    "cp932_hex": "8AC3",
+    "original_glyph": "甘",
+    "atlas": 7,
+    "x": 96,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "보",
+    "cp932_hex": "9552",
+    "original_glyph": "紐",
+    "atlas": 18,
+    "x": 64,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "복",
+    "cp932_hex": "8AC4",
+    "original_glyph": "監",
+    "atlas": 7,
+    "x": 128,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "본",
+    "cp932_hex": "9556",
+    "original_glyph": "彪",
+    "atlas": 18,
+    "x": 192,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "볼",
+    "cp932_hex": "8AC9",
+    "original_glyph": "緩",
+    "atlas": 7,
+    "x": 288,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "봉",
+    "cp932_hex": "955A",
+    "original_glyph": "瓢",
+    "atlas": 18,
+    "x": 320,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "봐",
+    "cp932_hex": "8ACF",
+    "original_glyph": "観",
+    "atlas": 7,
+    "x": 480,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "부",
+    "cp932_hex": "955B",
+    "original_glyph": "票",
+    "atlas": 18,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "분",
+    "cp932_hex": "955D",
+    "original_glyph": "評",
+    "atlas": 18,
+    "x": 416,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "불",
+    "cp932_hex": "955E",
+    "original_glyph": "豹",
+    "atlas": 18,
+    "x": 448,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "붉",
+    "cp932_hex": "8AD3",
+    "original_glyph": "鑑",
+    "atlas": 7,
+    "x": 96,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "붙",
+    "cp932_hex": "8AD5",
+    "original_glyph": "閑",
+    "atlas": 7,
+    "x": 160,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "브",
+    "cp932_hex": "955F",
+    "original_glyph": "廟",
+    "atlas": 18,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "블",
+    "cp932_hex": "9563",
+    "original_glyph": "苗",
+    "atlas": 18,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "비",
+    "cp932_hex": "9564",
+    "original_glyph": "錨",
+    "atlas": 18,
+    "x": 128,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      5,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "빈",
+    "cp932_hex": "9565",
+    "original_glyph": "鋲",
+    "atlas": 18,
+    "x": 160,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "빌",
+    "cp932_hex": "8AD6",
+    "original_glyph": "関",
+    "atlas": 7,
+    "x": 192,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "빛",
+    "cp932_hex": "8AD7",
+    "original_glyph": "陥",
+    "atlas": 7,
+    "x": 224,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "빠",
+    "cp932_hex": "9566",
+    "original_glyph": "蒜",
+    "atlas": 18,
+    "x": 192,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "빨",
+    "cp932_hex": "9567",
+    "original_glyph": "蛭",
+    "atlas": 18,
+    "x": 224,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "빼",
+    "cp932_hex": "8AD9",
+    "original_glyph": "館",
+    "atlas": 7,
+    "x": 288,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "뻔",
+    "cp932_hex": "8ADA",
+    "original_glyph": "舘",
+    "atlas": 7,
+    "x": 320,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "뻗",
+    "cp932_hex": "8ADC",
+    "original_glyph": "含",
+    "atlas": 7,
+    "x": 384,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "뼈",
+    "cp932_hex": "8ADF",
+    "original_glyph": "玩",
+    "atlas": 7,
+    "x": 480,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "뽑",
+    "cp932_hex": "9568",
+    "original_glyph": "鰭",
+    "atlas": 18,
+    "x": 256,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "뿌",
+    "cp932_hex": "8AE3",
+    "original_glyph": "翫",
+    "atlas": 7,
+    "x": 96,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "뿐",
+    "cp932_hex": "8AE5",
+    "original_glyph": "雁",
+    "atlas": 7,
+    "x": 160,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "뿜",
+    "cp932_hex": "8AE9",
+    "original_glyph": "企",
+    "atlas": 7,
+    "x": 288,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "쁜",
+    "cp932_hex": "8AEA",
+    "original_glyph": "伎",
+    "atlas": 7,
+    "x": 320,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "사",
+    "cp932_hex": "956A",
+    "original_glyph": "彬",
+    "atlas": 18,
+    "x": 320,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "삭",
+    "cp932_hex": "956B",
+    "original_glyph": "斌",
+    "atlas": 18,
+    "x": 352,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "산",
+    "cp932_hex": "956C",
+    "original_glyph": "浜",
+    "atlas": 18,
+    "x": 384,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "살",
+    "cp932_hex": "956E",
+    "original_glyph": "貧",
+    "atlas": 18,
+    "x": 448,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "삶",
+    "cp932_hex": "8AF1",
+    "original_glyph": "寄",
+    "atlas": 7,
+    "x": 32,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "삼",
+    "cp932_hex": "956F",
+    "original_glyph": "賓",
+    "atlas": 18,
+    "x": 480,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "삿",
+    "cp932_hex": "8AF2",
+    "original_glyph": "岐",
+    "atlas": 7,
+    "x": 64,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "상",
+    "cp932_hex": "9572",
+    "original_glyph": "瓶",
+    "atlas": 18,
+    "x": 64,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "새",
+    "cp932_hex": "9577",
+    "original_glyph": "婦",
+    "atlas": 18,
+    "x": 224,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "색",
+    "cp932_hex": "9578",
+    "original_glyph": "富",
+    "atlas": 18,
+    "x": 256,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "생",
+    "cp932_hex": "9579",
+    "original_glyph": "冨",
+    "atlas": 18,
+    "x": 288,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "서",
+    "cp932_hex": "957B",
+    "original_glyph": "府",
+    "atlas": 18,
+    "x": 352,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "석",
+    "cp932_hex": "8AF3",
+    "original_glyph": "希",
+    "atlas": 7,
+    "x": 96,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "선",
+    "cp932_hex": "957D",
+    "original_glyph": "扶",
+    "atlas": 18,
+    "x": 416,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "설",
+    "cp932_hex": "8AF6",
+    "original_glyph": "揮",
+    "atlas": 7,
+    "x": 192,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "섬",
+    "cp932_hex": "957E",
+    "original_glyph": "敷",
+    "atlas": 18,
+    "x": 448,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "섰",
+    "cp932_hex": "8AF7",
+    "original_glyph": "机",
+    "atlas": 7,
+    "x": 224,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "성",
+    "cp932_hex": "9586",
+    "original_glyph": "膚",
+    "atlas": 18,
+    "x": 192,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "세",
+    "cp932_hex": "9587",
+    "original_glyph": "芙",
+    "atlas": 18,
+    "x": 224,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "셋",
+    "cp932_hex": "8AFB",
+    "original_glyph": "棋",
+    "atlas": 7,
+    "x": 352,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "션",
+    "cp932_hex": "958A",
+    "original_glyph": "賦",
+    "atlas": 18,
+    "x": 320,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "소",
+    "cp932_hex": "958C",
+    "original_glyph": "阜",
+    "atlas": 18,
+    "x": 384,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "속",
+    "cp932_hex": "959D",
+    "original_glyph": "幅",
+    "atlas": 18,
+    "x": 416,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "손",
+    "cp932_hex": "959F",
+    "original_glyph": "福",
+    "atlas": 18,
+    "x": 480,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "솔",
+    "cp932_hex": "8B41",
+    "original_glyph": "帰",
+    "atlas": 8,
+    "x": 32,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "솟",
+    "cp932_hex": "8B45",
+    "original_glyph": "畿",
+    "atlas": 8,
+    "x": 160,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "쇄",
+    "cp932_hex": "8B46",
+    "original_glyph": "祈",
+    "atlas": 8,
+    "x": 192,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "쇠",
+    "cp932_hex": "8B47",
+    "original_glyph": "季",
+    "atlas": 8,
+    "x": 224,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "수",
+    "cp932_hex": "95A7",
+    "original_glyph": "仏",
+    "atlas": 18,
+    "x": 224,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "숙",
+    "cp932_hex": "8B49",
+    "original_glyph": "紀",
+    "atlas": 8,
+    "x": 288,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "순",
+    "cp932_hex": "95AB",
+    "original_glyph": "吻",
+    "atlas": 18,
+    "x": 352,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "술",
+    "cp932_hex": "95AD",
+    "original_glyph": "墳",
+    "atlas": 18,
+    "x": 416,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "숨",
+    "cp932_hex": "95AF",
+    "original_glyph": "扮",
+    "atlas": 18,
+    "x": 480,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "숲",
+    "cp932_hex": "8B51",
+    "original_glyph": "飢",
+    "atlas": 8,
+    "x": 32,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "숴",
+    "cp932_hex": "8B52",
+    "original_glyph": "騎",
+    "atlas": 8,
+    "x": 64,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "쉬",
+    "cp932_hex": "95B2",
+    "original_glyph": "粉",
+    "atlas": 18,
+    "x": 64,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "쉰",
+    "cp932_hex": "8B53",
+    "original_glyph": "鬼",
+    "atlas": 8,
+    "x": 96,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "쉽",
+    "cp932_hex": "8B55",
+    "original_glyph": "偽",
+    "atlas": 8,
+    "x": 160,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "스",
+    "cp932_hex": "95B3",
+    "original_glyph": "糞",
+    "atlas": 18,
+    "x": 96,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "슨",
+    "cp932_hex": "8B56",
+    "original_glyph": "儀",
+    "atlas": 8,
+    "x": 192,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "슬",
+    "cp932_hex": "8B57",
+    "original_glyph": "妓",
+    "atlas": 8,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "슴",
+    "cp932_hex": "8B59",
+    "original_glyph": "戯",
+    "atlas": 8,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "습",
+    "cp932_hex": "95B9",
+    "original_glyph": "併",
+    "atlas": 18,
+    "x": 288,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "승",
+    "cp932_hex": "95BA",
+    "original_glyph": "兵",
+    "atlas": 18,
+    "x": 320,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "시",
+    "cp932_hex": "95C6",
+    "original_glyph": "僻",
+    "atlas": 18,
+    "x": 192,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "식",
+    "cp932_hex": "8B5C",
+    "original_glyph": "欺",
+    "atlas": 8,
+    "x": 384,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "신",
+    "cp932_hex": "95C8",
+    "original_glyph": "癖",
+    "atlas": 18,
+    "x": 256,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "실",
+    "cp932_hex": "95C9",
+    "original_glyph": "碧",
+    "atlas": 18,
+    "x": 288,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "심",
+    "cp932_hex": "95D5",
+    "original_glyph": "遍",
+    "atlas": 18,
+    "x": 160,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "십",
+    "cp932_hex": "8B5F",
+    "original_glyph": "祇",
+    "atlas": 8,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "싶",
+    "cp932_hex": "8B62",
+    "original_glyph": "誼",
+    "atlas": 8,
+    "x": 64,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "싸",
+    "cp932_hex": "95D6",
+    "original_glyph": "便",
+    "atlas": 18,
+    "x": 192,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "쌍",
+    "cp932_hex": "8B63",
+    "original_glyph": "議",
+    "atlas": 8,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "써",
+    "cp932_hex": "95D9",
+    "original_glyph": "弁",
+    "atlas": 18,
+    "x": 288,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "썩",
+    "cp932_hex": "8B65",
+    "original_glyph": "菊",
+    "atlas": 8,
+    "x": 160,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "쏘",
+    "cp932_hex": "8B66",
+    "original_glyph": "鞠",
+    "atlas": 8,
+    "x": 192,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "쏜",
+    "cp932_hex": "8B69",
+    "original_glyph": "喫",
+    "atlas": 8,
+    "x": 288,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "쏴",
+    "cp932_hex": "8B6A",
+    "original_glyph": "桔",
+    "atlas": 8,
+    "x": 320,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "쓰",
+    "cp932_hex": "95DE",
+    "original_glyph": "圃",
+    "atlas": 18,
+    "x": 448,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "쓴",
+    "cp932_hex": "8B6B",
+    "original_glyph": "橘",
+    "atlas": 8,
+    "x": 352,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "쓸",
+    "cp932_hex": "95E0",
+    "original_glyph": "歩",
+    "atlas": 18,
+    "x": 0,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "씨",
+    "cp932_hex": "8B6D",
+    "original_glyph": "砧",
+    "atlas": 8,
+    "x": 416,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "씬",
+    "cp932_hex": "8B6F",
+    "original_glyph": "黍",
+    "atlas": 8,
+    "x": 480,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "아",
+    "cp932_hex": "95E1",
+    "original_glyph": "甫",
+    "atlas": 18,
+    "x": 32,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "악",
+    "cp932_hex": "8B72",
+    "original_glyph": "脚",
+    "atlas": 8,
+    "x": 64,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "안",
+    "cp932_hex": "95E3",
+    "original_glyph": "輔",
+    "atlas": 18,
+    "x": 96,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "않",
+    "cp932_hex": "95E4",
+    "original_glyph": "穂",
+    "atlas": 18,
+    "x": 128,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "알",
+    "cp932_hex": "8B73",
+    "original_glyph": "虐",
+    "atlas": 8,
+    "x": 96,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "암",
+    "cp932_hex": "95E5",
+    "original_glyph": "募",
+    "atlas": 18,
+    "x": 160,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "압",
+    "cp932_hex": "95EA",
+    "original_glyph": "母",
+    "atlas": 18,
+    "x": 320,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "앗",
+    "cp932_hex": "8B77",
+    "original_glyph": "仇",
+    "atlas": 8,
+    "x": 224,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "았",
+    "cp932_hex": "95EB",
+    "original_glyph": "簿",
+    "atlas": 18,
+    "x": 352,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "앞",
+    "cp932_hex": "8B79",
+    "original_glyph": "及",
+    "atlas": 8,
+    "x": 288,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "애",
+    "cp932_hex": "95F2",
+    "original_glyph": "奉",
+    "atlas": 18,
+    "x": 64,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "앤",
+    "cp932_hex": "95F5",
+    "original_glyph": "峯",
+    "atlas": 18,
+    "x": 160,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "야",
+    "cp932_hex": "95F7",
+    "original_glyph": "庖",
+    "atlas": 18,
+    "x": 224,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "약",
+    "cp932_hex": "8B7A",
+    "original_glyph": "吸",
+    "atlas": 8,
+    "x": 320,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      31
+    ]
+  },
+  {
+    "korean": "얌",
+    "cp932_hex": "8B7B",
+    "original_glyph": "宮",
+    "atlas": 8,
+    "x": 352,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "양",
+    "cp932_hex": "95F9",
+    "original_glyph": "捧",
+    "atlas": 18,
+    "x": 288,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      29
+    ]
+  },
+  {
+    "korean": "어",
+    "cp932_hex": "95FC",
+    "original_glyph": "朋",
+    "atlas": 18,
+    "x": 384,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "억",
+    "cp932_hex": "8B7C",
+    "original_glyph": "弓",
+    "atlas": 8,
+    "x": 384,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "언",
+    "cp932_hex": "8B84",
+    "original_glyph": "灸",
+    "atlas": 8,
+    "x": 128,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "얻",
+    "cp932_hex": "8B85",
+    "original_glyph": "球",
+    "atlas": 8,
+    "x": 160,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "얼",
+    "cp932_hex": "9442",
+    "original_glyph": "韮",
+    "atlas": 17,
+    "x": 64,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "얽",
+    "cp932_hex": "9443",
+    "original_glyph": "任",
+    "atlas": 17,
+    "x": 96,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "엄",
+    "cp932_hex": "8B87",
+    "original_glyph": "窮",
+    "atlas": 8,
+    "x": 224,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "업",
+    "cp932_hex": "8B8B",
+    "original_glyph": "給",
+    "atlas": 8,
+    "x": 352,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "없",
+    "cp932_hex": "9444",
+    "original_glyph": "妊",
+    "atlas": 17,
+    "x": 128,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      31
+    ]
+  },
+  {
+    "korean": "었",
+    "cp932_hex": "9447",
+    "original_glyph": "濡",
+    "atlas": 17,
+    "x": 224,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "에",
+    "cp932_hex": "9449",
+    "original_glyph": "祢",
+    "atlas": 17,
+    "x": 288,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "엑",
+    "cp932_hex": "944B",
+    "original_glyph": "葱",
+    "atlas": 17,
+    "x": 352,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "여",
+    "cp932_hex": "944C",
+    "original_glyph": "猫",
+    "atlas": 17,
+    "x": 384,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "역",
+    "cp932_hex": "8B91",
+    "original_glyph": "拒",
+    "atlas": 8,
+    "x": 32,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "연",
+    "cp932_hex": "944D",
+    "original_glyph": "熱",
+    "atlas": 17,
+    "x": 416,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "열",
+    "cp932_hex": "9453",
+    "original_glyph": "粘",
+    "atlas": 17,
+    "x": 96,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "염",
+    "cp932_hex": "9455",
+    "original_glyph": "廼",
+    "atlas": 17,
+    "x": 160,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "엽",
+    "cp932_hex": "9456",
+    "original_glyph": "之",
+    "atlas": 17,
+    "x": 192,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "엿",
+    "cp932_hex": "8B99",
+    "original_glyph": "漁",
+    "atlas": 8,
+    "x": 288,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "였",
+    "cp932_hex": "9459",
+    "original_glyph": "悩",
+    "atlas": 17,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "영",
+    "cp932_hex": "945B",
+    "original_glyph": "納",
+    "atlas": 17,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "옆",
+    "cp932_hex": "8B9A",
+    "original_glyph": "禦",
+    "atlas": 8,
+    "x": 320,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "예",
+    "cp932_hex": "945E",
+    "original_glyph": "膿",
+    "atlas": 17,
+    "x": 448,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "옐",
+    "cp932_hex": "8B9B",
+    "original_glyph": "魚",
+    "atlas": 8,
+    "x": 352,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "옛",
+    "cp932_hex": "945F",
+    "original_glyph": "農",
+    "atlas": 17,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "오",
+    "cp932_hex": "9461",
+    "original_glyph": "蚤",
+    "atlas": 17,
+    "x": 32,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "옥",
+    "cp932_hex": "8B9C",
+    "original_glyph": "亨",
+    "atlas": 8,
+    "x": 384,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "온",
+    "cp932_hex": "9462",
+    "original_glyph": "巴",
+    "atlas": 17,
+    "x": 64,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "올",
+    "cp932_hex": "9463",
+    "original_glyph": "把",
+    "atlas": 17,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "옷",
+    "cp932_hex": "8B9D",
+    "original_glyph": "享",
+    "atlas": 8,
+    "x": 416,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "와",
+    "cp932_hex": "9465",
+    "original_glyph": "覇",
+    "atlas": 17,
+    "x": 160,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "완",
+    "cp932_hex": "9466",
+    "original_glyph": "杷",
+    "atlas": 17,
+    "x": 192,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "왔",
+    "cp932_hex": "9469",
+    "original_glyph": "琶",
+    "atlas": 17,
+    "x": 288,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "왕",
+    "cp932_hex": "946C",
+    "original_glyph": "罵",
+    "atlas": 17,
+    "x": 384,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "왜",
+    "cp932_hex": "8B9E",
+    "original_glyph": "京",
+    "atlas": 8,
+    "x": 448,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "왠",
+    "cp932_hex": "8B9F",
+    "original_glyph": "供",
+    "atlas": 8,
+    "x": 480,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "외",
+    "cp932_hex": "8BA1",
+    "original_glyph": "僑",
+    "atlas": 8,
+    "x": 32,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "왼",
+    "cp932_hex": "8BA2",
+    "original_glyph": "兇",
+    "atlas": 8,
+    "x": 64,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "요",
+    "cp932_hex": "946D",
+    "original_glyph": "芭",
+    "atlas": 17,
+    "x": 416,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "욕",
+    "cp932_hex": "946E",
+    "original_glyph": "馬",
+    "atlas": 17,
+    "x": 448,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "용",
+    "cp932_hex": "9471",
+    "original_glyph": "拝",
+    "atlas": 17,
+    "x": 32,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "우",
+    "cp932_hex": "9474",
+    "original_glyph": "杯",
+    "atlas": 17,
+    "x": 128,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "욱",
+    "cp932_hex": "9476",
+    "original_glyph": "牌",
+    "atlas": 17,
+    "x": 192,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "운",
+    "cp932_hex": "9478",
+    "original_glyph": "肺",
+    "atlas": 17,
+    "x": 256,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "울",
+    "cp932_hex": "8BA3",
+    "original_glyph": "競",
+    "atlas": 8,
+    "x": 96,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "움",
+    "cp932_hex": "947C",
+    "original_glyph": "培",
+    "atlas": 17,
+    "x": 384,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "웃",
+    "cp932_hex": "947D",
+    "original_glyph": "媒",
+    "atlas": 17,
+    "x": 416,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "웅",
+    "cp932_hex": "8BA7",
+    "original_glyph": "匡",
+    "atlas": 8,
+    "x": 224,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "워",
+    "cp932_hex": "8BAA",
+    "original_glyph": "喬",
+    "atlas": 8,
+    "x": 320,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "원",
+    "cp932_hex": "947E",
+    "original_glyph": "梅",
+    "atlas": 17,
+    "x": 448,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "월",
+    "cp932_hex": "8BAB",
+    "original_glyph": "境",
+    "atlas": 8,
+    "x": 352,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "위",
+    "cp932_hex": "9486",
+    "original_glyph": "陪",
+    "atlas": 17,
+    "x": 192,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "유",
+    "cp932_hex": "9487",
+    "original_glyph": "這",
+    "atlas": 17,
+    "x": 224,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "육",
+    "cp932_hex": "8BAE",
+    "original_glyph": "彊",
+    "atlas": 8,
+    "x": 448,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "율",
+    "cp932_hex": "8BB1",
+    "original_glyph": "恭",
+    "atlas": 8,
+    "x": 32,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "융",
+    "cp932_hex": "8BC2",
+    "original_glyph": "仰",
+    "atlas": 8,
+    "x": 64,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "으",
+    "cp932_hex": "948D",
+    "original_glyph": "剥",
+    "atlas": 17,
+    "x": 416,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "은",
+    "cp932_hex": "9493",
+    "original_glyph": "箔",
+    "atlas": 17,
+    "x": 96,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "을",
+    "cp932_hex": "9499",
+    "original_glyph": "漠",
+    "atlas": 17,
+    "x": 288,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "음",
+    "cp932_hex": "949E",
+    "original_glyph": "麦",
+    "atlas": 17,
+    "x": 448,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "응",
+    "cp932_hex": "8BC4",
+    "original_glyph": "尭",
+    "atlas": 8,
+    "x": 128,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "의",
+    "cp932_hex": "949F",
+    "original_glyph": "函",
+    "atlas": 17,
+    "x": 480,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "이",
+    "cp932_hex": "94A1",
+    "original_glyph": "硲",
+    "atlas": 17,
+    "x": 32,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "인",
+    "cp932_hex": "94A2",
+    "original_glyph": "箸",
+    "atlas": 17,
+    "x": 64,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "일",
+    "cp932_hex": "94A3",
+    "original_glyph": "肇",
+    "atlas": 17,
+    "x": 96,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "잃",
+    "cp932_hex": "8BC5",
+    "original_glyph": "暁",
+    "atlas": 8,
+    "x": 160,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "임",
+    "cp932_hex": "94A4",
+    "original_glyph": "筈",
+    "atlas": 17,
+    "x": 128,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "입",
+    "cp932_hex": "94A5",
+    "original_glyph": "櫨",
+    "atlas": 17,
+    "x": 160,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "있",
+    "cp932_hex": "94A6",
+    "original_glyph": "幡",
+    "atlas": 17,
+    "x": 192,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "자",
+    "cp932_hex": "94A9",
+    "original_glyph": "畠",
+    "atlas": 17,
+    "x": 288,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "작",
+    "cp932_hex": "94AA",
+    "original_glyph": "八",
+    "atlas": 17,
+    "x": 320,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "잔",
+    "cp932_hex": "8BC7",
+    "original_glyph": "局",
+    "atlas": 8,
+    "x": 224,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "잖",
+    "cp932_hex": "8BCB",
+    "original_glyph": "桐",
+    "atlas": 8,
+    "x": 352,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "잘",
+    "cp932_hex": "8BCD",
+    "original_glyph": "僅",
+    "atlas": 8,
+    "x": 416,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "잠",
+    "cp932_hex": "94AB",
+    "original_glyph": "鉢",
+    "atlas": 17,
+    "x": 352,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "잡",
+    "cp932_hex": "8BCF",
+    "original_glyph": "均",
+    "atlas": 8,
+    "x": 480,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "장",
+    "cp932_hex": "94B1",
+    "original_glyph": "罰",
+    "atlas": 17,
+    "x": 32,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "재",
+    "cp932_hex": "94B6",
+    "original_glyph": "噺",
+    "atlas": 17,
+    "x": 192,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "저",
+    "cp932_hex": "94C1",
+    "original_glyph": "斑",
+    "atlas": 17,
+    "x": 32,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "적",
+    "cp932_hex": "94C5",
+    "original_glyph": "版",
+    "atlas": 17,
+    "x": 160,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "전",
+    "cp932_hex": "94C7",
+    "original_glyph": "班",
+    "atlas": 17,
+    "x": 224,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "절",
+    "cp932_hex": "8BD1",
+    "original_glyph": "錦",
+    "atlas": 8,
+    "x": 32,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "젊",
+    "cp932_hex": "94C8",
+    "original_glyph": "畔",
+    "atlas": 17,
+    "x": 256,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "점",
+    "cp932_hex": "8BD3",
+    "original_glyph": "欣",
+    "atlas": 8,
+    "x": 96,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "접",
+    "cp932_hex": "8BD5",
+    "original_glyph": "琴",
+    "atlas": 8,
+    "x": 160,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "젓",
+    "cp932_hex": "8BD6",
+    "original_glyph": "禁",
+    "atlas": 8,
+    "x": 192,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "정",
+    "cp932_hex": "94CB",
+    "original_glyph": "藩",
+    "atlas": 17,
+    "x": 352,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "제",
+    "cp932_hex": "94D2",
+    "original_glyph": "挽",
+    "atlas": 17,
+    "x": 64,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "젬",
+    "cp932_hex": "8BD7",
+    "original_glyph": "禽",
+    "atlas": 8,
+    "x": 224,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "져",
+    "cp932_hex": "94D3",
+    "original_glyph": "晩",
+    "atlas": 17,
+    "x": 96,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "졌",
+    "cp932_hex": "8BDB",
+    "original_glyph": "菌",
+    "atlas": 8,
+    "x": 352,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "조",
+    "cp932_hex": "94D6",
+    "original_glyph": "磐",
+    "atlas": 17,
+    "x": 192,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "족",
+    "cp932_hex": "94D7",
+    "original_glyph": "蕃",
+    "atlas": 17,
+    "x": 224,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "존",
+    "cp932_hex": "8BDC",
+    "original_glyph": "衿",
+    "atlas": 8,
+    "x": 384,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "좀",
+    "cp932_hex": "94D9",
+    "original_glyph": "匪",
+    "atlas": 17,
+    "x": 288,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "좁",
+    "cp932_hex": "8BDE",
+    "original_glyph": "謹",
+    "atlas": 8,
+    "x": 448,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "종",
+    "cp932_hex": "94DB",
+    "original_glyph": "否",
+    "atlas": 17,
+    "x": 352,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "좋",
+    "cp932_hex": "94DC",
+    "original_glyph": "妃",
+    "atlas": 17,
+    "x": 384,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "좌",
+    "cp932_hex": "8BE1",
+    "original_glyph": "吟",
+    "atlas": 8,
+    "x": 32,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "죄",
+    "cp932_hex": "8BE2",
+    "original_glyph": "銀",
+    "atlas": 8,
+    "x": 64,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "주",
+    "cp932_hex": "94DD",
+    "original_glyph": "庇",
+    "atlas": 17,
+    "x": 416,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "죽",
+    "cp932_hex": "94E1",
+    "original_glyph": "批",
+    "atlas": 17,
+    "x": 32,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "준",
+    "cp932_hex": "8BE3",
+    "original_glyph": "九",
+    "atlas": 8,
+    "x": 96,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      3,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "줄",
+    "cp932_hex": "8BE4",
+    "original_glyph": "倶",
+    "atlas": 8,
+    "x": 128,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "줍",
+    "cp932_hex": "8BE6",
+    "original_glyph": "区",
+    "atlas": 8,
+    "x": 192,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "중",
+    "cp932_hex": "94E2",
+    "original_glyph": "披",
+    "atlas": 17,
+    "x": 64,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "줘",
+    "cp932_hex": "8BE7",
+    "original_glyph": "狗",
+    "atlas": 8,
+    "x": 224,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "즉",
+    "cp932_hex": "8BE9",
+    "original_glyph": "矩",
+    "atlas": 8,
+    "x": 288,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "즐",
+    "cp932_hex": "94E5",
+    "original_glyph": "泌",
+    "atlas": 17,
+    "x": 160,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "증",
+    "cp932_hex": "8BF1",
+    "original_glyph": "虞",
+    "atlas": 8,
+    "x": 32,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "지",
+    "cp932_hex": "94E6",
+    "original_glyph": "疲",
+    "atlas": 17,
+    "x": 192,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "직",
+    "cp932_hex": "94EA",
+    "original_glyph": "緋",
+    "atlas": 17,
+    "x": 320,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "진",
+    "cp932_hex": "94EB",
+    "original_glyph": "罷",
+    "atlas": 17,
+    "x": 352,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "질",
+    "cp932_hex": "8BF4",
+    "original_glyph": "偶",
+    "atlas": 8,
+    "x": 128,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "짐",
+    "cp932_hex": "94EC",
+    "original_glyph": "肥",
+    "atlas": 17,
+    "x": 384,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "집",
+    "cp932_hex": "94ED",
+    "original_glyph": "被",
+    "atlas": 17,
+    "x": 416,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "짓",
+    "cp932_hex": "8BF5",
+    "original_glyph": "寓",
+    "atlas": 8,
+    "x": 160,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "징",
+    "cp932_hex": "8BF6",
+    "original_glyph": "遇",
+    "atlas": 8,
+    "x": 192,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "짙",
+    "cp932_hex": "8BF7",
+    "original_glyph": "隅",
+    "atlas": 8,
+    "x": 224,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "짜",
+    "cp932_hex": "8BF8",
+    "original_glyph": "串",
+    "atlas": 8,
+    "x": 256,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "짝",
+    "cp932_hex": "8BF9",
+    "original_glyph": "櫛",
+    "atlas": 8,
+    "x": 288,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "짧",
+    "cp932_hex": "8BFA",
+    "original_glyph": "釧",
+    "atlas": 8,
+    "x": 320,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "째",
+    "cp932_hex": "8BFB",
+    "original_glyph": "屑",
+    "atlas": 8,
+    "x": 352,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "쩌",
+    "cp932_hex": "8C43",
+    "original_glyph": "靴",
+    "atlas": 9,
+    "x": 96,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "쩍",
+    "cp932_hex": "8C45",
+    "original_glyph": "窪",
+    "atlas": 9,
+    "x": 160,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "쩔",
+    "cp932_hex": "8C49",
+    "original_glyph": "栗",
+    "atlas": 9,
+    "x": 288,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "쪽",
+    "cp932_hex": "8C4F",
+    "original_glyph": "薫",
+    "atlas": 9,
+    "x": 480,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "쫓",
+    "cp932_hex": "8C51",
+    "original_glyph": "群",
+    "atlas": 9,
+    "x": 32,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "쯤",
+    "cp932_hex": "8C53",
+    "original_glyph": "郡",
+    "atlas": 9,
+    "x": 96,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "찌",
+    "cp932_hex": "94EF",
+    "original_glyph": "費",
+    "atlas": 17,
+    "x": 480,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "찍",
+    "cp932_hex": "8C55",
+    "original_glyph": "袈",
+    "atlas": 9,
+    "x": 160,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "차",
+    "cp932_hex": "8C56",
+    "original_glyph": "祁",
+    "atlas": 9,
+    "x": 192,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "착",
+    "cp932_hex": "8C57",
+    "original_glyph": "係",
+    "atlas": 9,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "찮",
+    "cp932_hex": "8C59",
+    "original_glyph": "刑",
+    "atlas": 9,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "찰",
+    "cp932_hex": "94F6",
+    "original_glyph": "尾",
+    "atlas": 17,
+    "x": 192,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "참",
+    "cp932_hex": "8C5B",
+    "original_glyph": "啓",
+    "atlas": 9,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "찾",
+    "cp932_hex": "94F7",
+    "original_glyph": "微",
+    "atlas": 17,
+    "x": 224,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "채",
+    "cp932_hex": "8C5C",
+    "original_glyph": "圭",
+    "atlas": 9,
+    "x": 384,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "챈",
+    "cp932_hex": "8C5D",
+    "original_glyph": "珪",
+    "atlas": 9,
+    "x": 416,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "챕",
+    "cp932_hex": "94F9",
+    "original_glyph": "毘",
+    "atlas": 17,
+    "x": 288,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "처",
+    "cp932_hex": "94FB",
+    "original_glyph": "眉",
+    "atlas": 17,
+    "x": 352,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "척",
+    "cp932_hex": "9345",
+    "original_glyph": "摘",
+    "atlas": 16,
+    "x": 160,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "철",
+    "cp932_hex": "8C5F",
+    "original_glyph": "契",
+    "atlas": 9,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "첩",
+    "cp932_hex": "8C61",
+    "original_glyph": "径",
+    "atlas": 9,
+    "x": 32,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "청",
+    "cp932_hex": "8C62",
+    "original_glyph": "恵",
+    "atlas": 9,
+    "x": 64,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "체",
+    "cp932_hex": "934B",
+    "original_glyph": "適",
+    "atlas": 16,
+    "x": 352,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "쳐",
+    "cp932_hex": "8C63",
+    "original_glyph": "慶",
+    "atlas": 9,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "쳤",
+    "cp932_hex": "9355",
+    "original_glyph": "填",
+    "atlas": 16,
+    "x": 160,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "초",
+    "cp932_hex": "8C64",
+    "original_glyph": "慧",
+    "atlas": 9,
+    "x": 128,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "촉",
+    "cp932_hex": "8C65",
+    "original_glyph": "憩",
+    "atlas": 9,
+    "x": 160,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "총",
+    "cp932_hex": "9356",
+    "original_glyph": "天",
+    "atlas": 16,
+    "x": 192,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "최",
+    "cp932_hex": "8C68",
+    "original_glyph": "敬",
+    "atlas": 9,
+    "x": 256,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "추",
+    "cp932_hex": "8C69",
+    "original_glyph": "景",
+    "atlas": 9,
+    "x": 288,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "축",
+    "cp932_hex": "8C6A",
+    "original_glyph": "桂",
+    "atlas": 9,
+    "x": 320,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "춘",
+    "cp932_hex": "8C6B",
+    "original_glyph": "渓",
+    "atlas": 9,
+    "x": 352,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "출",
+    "cp932_hex": "8C6C",
+    "original_glyph": "畦",
+    "atlas": 9,
+    "x": 384,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "춤",
+    "cp932_hex": "9357",
+    "original_glyph": "展",
+    "atlas": 16,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "충",
+    "cp932_hex": "8C6D",
+    "original_glyph": "稽",
+    "atlas": 9,
+    "x": 416,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "춰",
+    "cp932_hex": "8C6E",
+    "original_glyph": "系",
+    "atlas": 9,
+    "x": 448,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "취",
+    "cp932_hex": "9359",
+    "original_glyph": "添",
+    "atlas": 16,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "츠",
+    "cp932_hex": "935B",
+    "original_glyph": "甜",
+    "atlas": 16,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "측",
+    "cp932_hex": "9361",
+    "original_glyph": "殿",
+    "atlas": 16,
+    "x": 32,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "층",
+    "cp932_hex": "9363",
+    "original_glyph": "田",
+    "atlas": 16,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "치",
+    "cp932_hex": "9365",
+    "original_glyph": "兎",
+    "atlas": 16,
+    "x": 160,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "친",
+    "cp932_hex": "8C72",
+    "original_glyph": "罫",
+    "atlas": 9,
+    "x": 64,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "칠",
+    "cp932_hex": "9367",
+    "original_glyph": "堵",
+    "atlas": 16,
+    "x": 224,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "침",
+    "cp932_hex": "8C75",
+    "original_glyph": "蛍",
+    "atlas": 9,
+    "x": 160,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "카",
+    "cp932_hex": "8C77",
+    "original_glyph": "詣",
+    "atlas": 9,
+    "x": 224,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "칼",
+    "cp932_hex": "936D",
+    "original_glyph": "杜",
+    "atlas": 16,
+    "x": 416,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "캐",
+    "cp932_hex": "9371",
+    "original_glyph": "賭",
+    "atlas": 16,
+    "x": 32,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "커",
+    "cp932_hex": "8C7A",
+    "original_glyph": "頚",
+    "atlas": 9,
+    "x": 320,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "컨",
+    "cp932_hex": "9373",
+    "original_glyph": "都",
+    "atlas": 16,
+    "x": 96,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "컬",
+    "cp932_hex": "9375",
+    "original_glyph": "砥",
+    "atlas": 16,
+    "x": 160,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "컷",
+    "cp932_hex": "8C7C",
+    "original_glyph": "芸",
+    "atlas": 9,
+    "x": 384,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "켜",
+    "cp932_hex": "9376",
+    "original_glyph": "砺",
+    "atlas": 16,
+    "x": 192,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "켬",
+    "cp932_hex": "9377",
+    "original_glyph": "努",
+    "atlas": 16,
+    "x": 224,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "코",
+    "cp932_hex": "937D",
+    "original_glyph": "党",
+    "atlas": 16,
+    "x": 416,
+    "y": 96,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "콘",
+    "cp932_hex": "9384",
+    "original_glyph": "塘",
+    "atlas": 16,
+    "x": 128,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "콜",
+    "cp932_hex": "8C7E",
+    "original_glyph": "鯨",
+    "atlas": 9,
+    "x": 448,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "콤",
+    "cp932_hex": "9385",
+    "original_glyph": "套",
+    "atlas": 16,
+    "x": 160,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "쿨",
+    "cp932_hex": "9386",
+    "original_glyph": "宕",
+    "atlas": 16,
+    "x": 192,
+    "y": 128,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "퀘",
+    "cp932_hex": "8C85",
+    "original_glyph": "桁",
+    "atlas": 9,
+    "x": 160,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "퀵",
+    "cp932_hex": "8C86",
+    "original_glyph": "傑",
+    "atlas": 9,
+    "x": 192,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "큐",
+    "cp932_hex": "8C87",
+    "original_glyph": "欠",
+    "atlas": 9,
+    "x": 224,
+    "y": 128,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "크",
+    "cp932_hex": "939B",
+    "original_glyph": "筒",
+    "atlas": 16,
+    "x": 352,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "큰",
+    "cp932_hex": "8C92",
+    "original_glyph": "健",
+    "atlas": 9,
+    "x": 64,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "클",
+    "cp932_hex": "939C",
+    "original_glyph": "糖",
+    "atlas": 16,
+    "x": 384,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      3,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "큼",
+    "cp932_hex": "8C96",
+    "original_glyph": "喧",
+    "atlas": 9,
+    "x": 192,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "키",
+    "cp932_hex": "939D",
+    "original_glyph": "統",
+    "atlas": 16,
+    "x": 416,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "킨",
+    "cp932_hex": "8C97",
+    "original_glyph": "圏",
+    "atlas": 9,
+    "x": 224,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "킬",
+    "cp932_hex": "8C99",
+    "original_glyph": "嫌",
+    "atlas": 9,
+    "x": 288,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "타",
+    "cp932_hex": "939F",
+    "original_glyph": "董",
+    "atlas": 16,
+    "x": 480,
+    "y": 160,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "탄",
+    "cp932_hex": "93A0",
+    "original_glyph": "蕩",
+    "atlas": 16,
+    "x": 0,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "탈",
+    "cp932_hex": "93A1",
+    "original_glyph": "藤",
+    "atlas": 16,
+    "x": 32,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "탐",
+    "cp932_hex": "93A3",
+    "original_glyph": "謄",
+    "atlas": 16,
+    "x": 96,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "탓",
+    "cp932_hex": "8C9B",
+    "original_glyph": "憲",
+    "atlas": 9,
+    "x": 352,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "태",
+    "cp932_hex": "93AB",
+    "original_glyph": "騰",
+    "atlas": 16,
+    "x": 352,
+    "y": 192,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "택",
+    "cp932_hex": "93B2",
+    "original_glyph": "憧",
+    "atlas": 16,
+    "x": 64,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "터",
+    "cp932_hex": "93B3",
+    "original_glyph": "撞",
+    "atlas": 16,
+    "x": 96,
+    "y": 224,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "턱",
+    "cp932_hex": "8C9E",
+    "original_glyph": "捲",
+    "atlas": 9,
+    "x": 448,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "털",
+    "cp932_hex": "8C9F",
+    "original_glyph": "検",
+    "atlas": 9,
+    "x": 480,
+    "y": 160,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "테",
+    "cp932_hex": "93C3",
+    "original_glyph": "禿",
+    "atlas": 16,
+    "x": 96,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "텐",
+    "cp932_hex": "93C4",
+    "original_glyph": "篤",
+    "atlas": 16,
+    "x": 128,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "템",
+    "cp932_hex": "8CA1",
+    "original_glyph": "牽",
+    "atlas": 9,
+    "x": 32,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "토",
+    "cp932_hex": "93C8",
+    "original_glyph": "栃",
+    "atlas": 16,
+    "x": 256,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "통",
+    "cp932_hex": "93C9",
+    "original_glyph": "橡",
+    "atlas": 16,
+    "x": 288,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "투",
+    "cp932_hex": "8CA3",
+    "original_glyph": "献",
+    "atlas": 9,
+    "x": 96,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "튕",
+    "cp932_hex": "8CA6",
+    "original_glyph": "絹",
+    "atlas": 9,
+    "x": 192,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "트",
+    "cp932_hex": "93CA",
+    "original_glyph": "凸",
+    "atlas": 16,
+    "x": 320,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "특",
+    "cp932_hex": "8CA7",
+    "original_glyph": "県",
+    "atlas": 9,
+    "x": 224,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "튼",
+    "cp932_hex": "93CC",
+    "original_glyph": "椴",
+    "atlas": 16,
+    "x": 384,
+    "y": 256,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "틀",
+    "cp932_hex": "93D3",
+    "original_glyph": "噸",
+    "atlas": 16,
+    "x": 96,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "틈",
+    "cp932_hex": "8CAD",
+    "original_glyph": "遣",
+    "atlas": 9,
+    "x": 416,
+    "y": 192,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "틱",
+    "cp932_hex": "8CB0",
+    "original_glyph": "顕",
+    "atlas": 9,
+    "x": 0,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      5,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "파",
+    "cp932_hex": "93D4",
+    "original_glyph": "屯",
+    "atlas": 16,
+    "x": 128,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "판",
+    "cp932_hex": "8CB2",
+    "original_glyph": "鹸",
+    "atlas": 9,
+    "x": 64,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "팔",
+    "cp932_hex": "8CB6",
+    "original_glyph": "幻",
+    "atlas": 9,
+    "x": 192,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "패",
+    "cp932_hex": "93D5",
+    "original_glyph": "惇",
+    "atlas": 16,
+    "x": 160,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "퍼",
+    "cp932_hex": "93D6",
+    "original_glyph": "敦",
+    "atlas": 16,
+    "x": 192,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "펫",
+    "cp932_hex": "8CBA",
+    "original_glyph": "玄",
+    "atlas": 9,
+    "x": 320,
+    "y": 224,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "펴",
+    "cp932_hex": "8CC6",
+    "original_glyph": "姑",
+    "atlas": 9,
+    "x": 192,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "편",
+    "cp932_hex": "8CCB",
+    "original_glyph": "戸",
+    "atlas": 9,
+    "x": 352,
+    "y": 256,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "펼",
+    "cp932_hex": "8CD1",
+    "original_glyph": "袴",
+    "atlas": 9,
+    "x": 32,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "평",
+    "cp932_hex": "93D7",
+    "original_glyph": "沌",
+    "atlas": 16,
+    "x": 224,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "포",
+    "cp932_hex": "93D9",
+    "original_glyph": "遁",
+    "atlas": 16,
+    "x": 288,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "폭",
+    "cp932_hex": "93DA",
+    "original_glyph": "頓",
+    "atlas": 16,
+    "x": 320,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "표",
+    "cp932_hex": "93DB",
+    "original_glyph": "呑",
+    "atlas": 16,
+    "x": 352,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "풀",
+    "cp932_hex": "8CD2",
+    "original_glyph": "股",
+    "atlas": 9,
+    "x": 64,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "품",
+    "cp932_hex": "93DC",
+    "original_glyph": "曇",
+    "atlas": 16,
+    "x": 384,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "풍",
+    "cp932_hex": "8CD5",
+    "original_glyph": "虎",
+    "atlas": 9,
+    "x": 160,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "프",
+    "cp932_hex": "93DE",
+    "original_glyph": "奈",
+    "atlas": 16,
+    "x": 448,
+    "y": 288,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "플",
+    "cp932_hex": "93E1",
+    "original_glyph": "乍",
+    "atlas": 16,
+    "x": 32,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "피",
+    "cp932_hex": "93E2",
+    "original_glyph": "凪",
+    "atlas": 16,
+    "x": 64,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "핀",
+    "cp932_hex": "8CD6",
+    "original_glyph": "誇",
+    "atlas": 9,
+    "x": 192,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "필",
+    "cp932_hex": "93E5",
+    "original_glyph": "灘",
+    "atlas": 16,
+    "x": 160,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "하",
+    "cp932_hex": "93E6",
+    "original_glyph": "捺",
+    "atlas": 16,
+    "x": 192,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "학",
+    "cp932_hex": "93E7",
+    "original_glyph": "鍋",
+    "atlas": 16,
+    "x": 224,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      31
+    ]
+  },
+  {
+    "korean": "한",
+    "cp932_hex": "93E9",
+    "original_glyph": "馴",
+    "atlas": 16,
+    "x": 288,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "할",
+    "cp932_hex": "93EB",
+    "original_glyph": "畷",
+    "atlas": 16,
+    "x": 352,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "함",
+    "cp932_hex": "93EC",
+    "original_glyph": "南",
+    "atlas": 16,
+    "x": 384,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "합",
+    "cp932_hex": "93ED",
+    "original_glyph": "楠",
+    "atlas": 16,
+    "x": 416,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "항",
+    "cp932_hex": "8CD9",
+    "original_glyph": "雇",
+    "atlas": 9,
+    "x": 288,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "해",
+    "cp932_hex": "93EE",
+    "original_glyph": "軟",
+    "atlas": 16,
+    "x": 448,
+    "y": 320,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "핵",
+    "cp932_hex": "8CDA",
+    "original_glyph": "顧",
+    "atlas": 9,
+    "x": 320,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "했",
+    "cp932_hex": "93F4",
+    "original_glyph": "迩",
+    "atlas": 16,
+    "x": 128,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "행",
+    "cp932_hex": "93F5",
+    "original_glyph": "匂",
+    "atlas": 16,
+    "x": 160,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "향",
+    "cp932_hex": "8CDE",
+    "original_glyph": "伍",
+    "atlas": 9,
+    "x": 448,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "허",
+    "cp932_hex": "8CDF",
+    "original_glyph": "午",
+    "atlas": 9,
+    "x": 480,
+    "y": 288,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "험",
+    "cp932_hex": "8CE1",
+    "original_glyph": "吾",
+    "atlas": 9,
+    "x": 32,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "헤",
+    "cp932_hex": "8CE2",
+    "original_glyph": "娯",
+    "atlas": 9,
+    "x": 64,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "혀",
+    "cp932_hex": "8CE5",
+    "original_glyph": "悟",
+    "atlas": 9,
+    "x": 160,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "현",
+    "cp932_hex": "93F6",
+    "original_glyph": "賑",
+    "atlas": 16,
+    "x": 192,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "혈",
+    "cp932_hex": "93F9",
+    "original_glyph": "廿",
+    "atlas": 16,
+    "x": 288,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "협",
+    "cp932_hex": "8CE6",
+    "original_glyph": "梧",
+    "atlas": 9,
+    "x": 192,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "혔",
+    "cp932_hex": "8CE7",
+    "original_glyph": "檎",
+    "atlas": 9,
+    "x": 224,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "형",
+    "cp932_hex": "8CE9",
+    "original_glyph": "碁",
+    "atlas": 9,
+    "x": 288,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "호",
+    "cp932_hex": "8CED",
+    "original_glyph": "醐",
+    "atlas": 9,
+    "x": 416,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      3,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "혼",
+    "cp932_hex": "8CEE",
+    "original_glyph": "乞",
+    "atlas": 9,
+    "x": 448,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "홀",
+    "cp932_hex": "8CEF",
+    "original_glyph": "鯉",
+    "atlas": 9,
+    "x": 480,
+    "y": 320,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "홍",
+    "cp932_hex": "93FB",
+    "original_glyph": "乳",
+    "atlas": 16,
+    "x": 352,
+    "y": 352,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "화",
+    "cp932_hex": "9243",
+    "original_glyph": "辰",
+    "atlas": 15,
+    "x": 96,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "확",
+    "cp932_hex": "9246",
+    "original_glyph": "巽",
+    "atlas": 15,
+    "x": 192,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "환",
+    "cp932_hex": "8CF0",
+    "original_glyph": "交",
+    "atlas": 9,
+    "x": 0,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "활",
+    "cp932_hex": "8CF1",
+    "original_glyph": "佼",
+    "atlas": 9,
+    "x": 32,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "황",
+    "cp932_hex": "9247",
+    "original_glyph": "竪",
+    "atlas": 15,
+    "x": 224,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "회",
+    "cp932_hex": "924A",
+    "original_glyph": "谷",
+    "atlas": 15,
+    "x": 320,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "획",
+    "cp932_hex": "924F",
+    "original_glyph": "丹",
+    "atlas": 15,
+    "x": 480,
+    "y": 0,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "횟",
+    "cp932_hex": "8CF3",
+    "original_glyph": "候",
+    "atlas": 9,
+    "x": 96,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "효",
+    "cp932_hex": "9257",
+    "original_glyph": "淡",
+    "atlas": 15,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "후",
+    "cp932_hex": "9259",
+    "original_glyph": "炭",
+    "atlas": 15,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "훈",
+    "cp932_hex": "8CFA",
+    "original_glyph": "厚",
+    "atlas": 9,
+    "x": 320,
+    "y": 352,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "훌",
+    "cp932_hex": "8D41",
+    "original_glyph": "喉",
+    "atlas": 10,
+    "x": 32,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "훨",
+    "cp932_hex": "8D43",
+    "original_glyph": "垢",
+    "atlas": 10,
+    "x": 96,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "휘",
+    "cp932_hex": "8D44",
+    "original_glyph": "好",
+    "atlas": 10,
+    "x": 128,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "휩",
+    "cp932_hex": "8D45",
+    "original_glyph": "孔",
+    "atlas": 10,
+    "x": 160,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "휴",
+    "cp932_hex": "8D46",
+    "original_glyph": "孝",
+    "atlas": 10,
+    "x": 192,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "흉",
+    "cp932_hex": "8D47",
+    "original_glyph": "宏",
+    "atlas": 10,
+    "x": 224,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "흐",
+    "cp932_hex": "8D4A",
+    "original_glyph": "巷",
+    "atlas": 10,
+    "x": 320,
+    "y": 0,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      4,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "흔",
+    "cp932_hex": "8D53",
+    "original_glyph": "拘",
+    "atlas": 10,
+    "x": 96,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "흘",
+    "cp932_hex": "8D54",
+    "original_glyph": "控",
+    "atlas": 10,
+    "x": 128,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "흙",
+    "cp932_hex": "8D57",
+    "original_glyph": "晃",
+    "atlas": 10,
+    "x": 224,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      31
+    ]
+  },
+  {
+    "korean": "흡",
+    "cp932_hex": "925B",
+    "original_glyph": "端",
+    "atlas": 15,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "흥",
+    "cp932_hex": "8D59",
+    "original_glyph": "杭",
+    "atlas": 10,
+    "x": 288,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "흩",
+    "cp932_hex": "8D5B",
+    "original_glyph": "梗",
+    "atlas": 10,
+    "x": 352,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "희",
+    "cp932_hex": "8D5E",
+    "original_glyph": "洪",
+    "atlas": 10,
+    "x": 448,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "히",
+    "cp932_hex": "925D",
+    "original_glyph": "綻",
+    "atlas": 15,
+    "x": 416,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "힌",
+    "cp932_hex": "925F",
+    "original_glyph": "胆",
+    "atlas": 15,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "힐",
+    "cp932_hex": "8D5F",
+    "original_glyph": "浩",
+    "atlas": 10,
+    "x": 480,
+    "y": 32,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "힘",
+    "cp932_hex": "9262",
+    "original_glyph": "鍛",
+    "atlas": 15,
+    "x": 64,
+    "y": 64,
+    "old_mapping_preserved": true,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "걷",
+    "cp932_hex": "8D60",
+    "original_glyph": "港",
+    "atlas": 10,
+    "x": 0,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "곰",
+    "cp932_hex": "8D63",
+    "original_glyph": "皇",
+    "atlas": 10,
+    "x": 96,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "꼬",
+    "cp932_hex": "8D65",
+    "original_glyph": "稿",
+    "atlas": 10,
+    "x": 160,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      5,
+      28,
+      27
+    ]
+  },
+  {
+    "korean": "닦",
+    "cp932_hex": "8D66",
+    "original_glyph": "糠",
+    "atlas": 10,
+    "x": 192,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "띄",
+    "cp932_hex": "8D6B",
+    "original_glyph": "耕",
+    "atlas": 10,
+    "x": 352,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "릎",
+    "cp932_hex": "8D6E",
+    "original_glyph": "肱",
+    "atlas": 10,
+    "x": 448,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "밀",
+    "cp932_hex": "8D6F",
+    "original_glyph": "腔",
+    "atlas": 10,
+    "x": 480,
+    "y": 64,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "뺨",
+    "cp932_hex": "8D71",
+    "original_glyph": "航",
+    "atlas": 10,
+    "x": 32,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "엔",
+    "cp932_hex": "8D72",
+    "original_glyph": "荒",
+    "atlas": 10,
+    "x": 64,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "잽",
+    "cp932_hex": "8D75",
+    "original_glyph": "講",
+    "atlas": 10,
+    "x": 160,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "퀴",
+    "cp932_hex": "8D79",
+    "original_glyph": "酵",
+    "atlas": 10,
+    "x": 288,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "퇴",
+    "cp932_hex": "8D7A",
+    "original_glyph": "鉱",
+    "atlas": 10,
+    "x": 320,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "튀",
+    "cp932_hex": "8D7B",
+    "original_glyph": "砿",
+    "atlas": 10,
+    "x": 352,
+    "y": 96,
+    "old_mapping_preserved": false,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "앙",
+    "cp932_hex": "8D85",
+    "original_glyph": "劫",
+    "atlas": 10,
+    "x": 160,
+    "y": 128
+  },
+  {
+    "korean": "창",
+    "cp932_hex": "8D86",
+    "original_glyph": "号",
+    "atlas": 10,
+    "x": 192,
+    "y": 128
+  },
+  {
+    "korean": "댈",
+    "cp932_hex": "8D8D",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "덤",
+    "cp932_hex": "8D93",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "돼",
+    "cp932_hex": "8D97",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "둔",
+    "cp932_hex": "8D98",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "둬",
+    "cp932_hex": "8D9A",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "딜",
+    "cp932_hex": "8D9F",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "떼",
+    "cp932_hex": "8DA2",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "똑",
+    "cp932_hex": "8DA3",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "락",
+    "cp932_hex": "8DA4",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "랬",
+    "cp932_hex": "8DA5",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "렀",
+    "cp932_hex": "8DA6",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "릿",
+    "cp932_hex": "8DA7",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "맛",
+    "cp932_hex": "8DA9",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "멋",
+    "cp932_hex": "8DAB",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "뭐",
+    "cp932_hex": "8DAD",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "뭘",
+    "cp932_hex": "8DAF",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "밀",
+    "cp932_hex": "8DB2",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "셈",
+    "cp932_hex": "8DB3",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "송",
+    "cp932_hex": "8DBA",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "슷",
+    "cp932_hex": "8DC3",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "쎄",
+    "cp932_hex": "8DC6",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "엉",
+    "cp932_hex": "8DCB",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "엔",
+    "cp932_hex": "8DCD",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "웠",
+    "cp932_hex": "8DD1",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "윈",
+    "cp932_hex": "8DD2",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "윽",
+    "cp932_hex": "8DD3",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "잊",
+    "cp932_hex": "8DD4",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "쟁",
+    "cp932_hex": "8DD6",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "젠",
+    "cp932_hex": "8DDE",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "죠",
+    "cp932_hex": "8DE1",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "줬",
+    "cp932_hex": "8DE3",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "짱",
+    "cp932_hex": "8DE5",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "쨌",
+    "cp932_hex": "8DE9",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "찢",
+    "cp932_hex": "8DEE",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "창",
+    "cp932_hex": "8DEF",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "케",
+    "cp932_hex": "8DF1",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "켰",
+    "cp932_hex": "8DF3",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "쾌",
+    "cp932_hex": "8DF4",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "퀴",
+    "cp932_hex": "8DF6",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "큭",
+    "cp932_hex": "8DF7",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "탁",
+    "cp932_hex": "8DF9",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "톱",
+    "cp932_hex": "8DFB",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "틸",
+    "cp932_hex": "8DFC",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "푸",
+    "cp932_hex": "8E46",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "핫",
+    "cp932_hex": "8E49",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "헉",
+    "cp932_hex": "8E4A",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "헛",
+    "cp932_hex": "8E4B",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "혹",
+    "cp932_hex": "8E4E",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "훗",
+    "cp932_hex": "8E56",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "흣",
+    "cp932_hex": "8E57",
+    "verified_by": "exact DXT5 glyph bitmap match"
+  },
+  {
+    "korean": "갚",
+    "cp932_hex": "8E41",
+    "atlas": 11,
+    "x": 32,
+    "y": 0,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "겐",
+    "cp932_hex": "8E5A",
+    "atlas": 11,
+    "x": 320,
+    "y": 32,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "굶",
+    "cp932_hex": "8E5B",
+    "atlas": 11,
+    "x": 352,
+    "y": 32,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "글",
+    "cp932_hex": "8E5C",
+    "atlas": 11,
+    "x": 384,
+    "y": 32,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "깃",
+    "cp932_hex": "8E5D",
+    "atlas": 11,
+    "x": 416,
+    "y": 32,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "껍",
+    "cp932_hex": "8E5E",
+    "atlas": 11,
+    "x": 448,
+    "y": 32,
+    "decoded_ink_bounds": [
+      4,
+      2,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "꼴",
+    "cp932_hex": "8E5F",
+    "atlas": 11,
+    "x": 480,
+    "y": 32,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "꿈",
+    "cp932_hex": "8E62",
+    "atlas": 11,
+    "x": 64,
+    "y": 64,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      29
+    ]
+  },
+  {
+    "korean": "끈",
+    "cp932_hex": "8E65",
+    "atlas": 11,
+    "x": 160,
+    "y": 64,
+    "decoded_ink_bounds": [
+      3,
+      3,
+      28,
+      28
+    ]
+  },
+  {
+    "korean": "냈",
+    "cp932_hex": "8E66",
+    "atlas": 11,
+    "x": 192,
+    "y": 64,
+    "decoded_ink_bounds": [
+      4,
+      1,
+      29,
+      30
+    ]
+  },
+  {
+    "korean": "널",
+    "cp932_hex": "8E6B",
+    "atlas": 11,
+    "x": 352,
+    "y": 64,
+    "decoded_ink_bounds": [
+      5,
+      2,
+      27,
+      30
+    ]
+  },
+  {
+    "korean": "농",
+    "cp932_hex": "8E73",
+    "atlas": 11,
+    "x": 96,
+    "y": 96,
+    "decoded_ink_bounds": [
+      3,
+      2,
+      28,
+      30
+    ]
+  },
+  {
+    "korean": "눠",
+    "cp932_hex": "8E74",
+    "atlas": 11,
+    "x": 128,
+    "y": 96,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      26,
+      30
+    ]
+  },
+  {
+    "korean": "늑",
+    "cp932_hex": "8E75",
+    "atlas": 11,
+    "x": 160,
+    "y": 96,
+    "decoded_ink_bounds": [
+      3,
+      1,
+      28,
+      30
+    ]
+  }
+]
