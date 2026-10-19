@@ -1,0 +1,24 @@
+{
+  "version": "1.2.8",
+  "modified_assets": [
+    "default.xex",
+    "Media/Menu/title2d.cat"
+  ],
+  "logical_xex_changed_bytes": 6,
+  "logical_xex_changed_offset": "0x34e98",
+  "restored_original_internal_prefix": "腕輪：",
+  "existing_translations_preserved": true,
+  "title_size": [
+    1280,
+    720
+  ],
+  "title_jpeg_quality": 98,
+  "title_other_entries_unchanged": true,
+  "patcher_core_unchanged": true,
+  "manifest_paths": 158,
+  "exe_bytes": 400640512,
+  "exe_sha256": "a7b731c7af536f03194cad0ba3a1dfb802132db23125f7b1bb8dcf7a4faca0cc",
+  "actual_xenia_gameplay_tested": false,
+  "title_original_logos_unchanged_from_v127": true,
+  "title_visual_review": "Verified main title v1.2.8 next to existing Korean credit."
+}

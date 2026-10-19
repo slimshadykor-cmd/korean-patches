@@ -1,0 +1,47 @@
+{
+  "tests": [
+    {
+      "input": "original",
+      "base": "0x0",
+      "all_158_targets_byte_exact": true,
+      "all_unrelated_files_preserved": true,
+      "input_preserved": true,
+      "temporary_extraction_cleaned": true
+    },
+    {
+      "input": "v125",
+      "base": "0xfd90000",
+      "all_158_targets_byte_exact": true,
+      "all_unrelated_files_preserved": true,
+      "input_preserved": true,
+      "temporary_extraction_cleaned": true
+    },
+    {
+      "input": "v126",
+      "base": "0x2080000",
+      "all_158_targets_byte_exact": true,
+      "all_unrelated_files_preserved": true,
+      "input_preserved": true,
+      "temporary_extraction_cleaned": true
+    },
+    {
+      "input": "v127",
+      "base": "0x0",
+      "all_158_targets_byte_exact": true,
+      "all_unrelated_files_preserved": true,
+      "input_preserved": true,
+      "temporary_extraction_cleaned": true
+    }
+  ],
+  "input_files": 240,
+  "manifest_paths": 158,
+  "inherited_movie_path_payloads_unchanged": 24,
+  "accepted_older_input_hashes_retained": true,
+  "unknown_input_rejected": true,
+  "already_patched_rejected": true,
+  "existing_output_preserved": true,
+  "windows_gui_compiled": true,
+  "windows_gui_runtime_tested": false,
+  "actual_xenia_gameplay_tested": false,
+  "fixture": "Synthetic XDVDFS using supplied original nonvideo assets and real v125/v126/v127 patched assets. Movie payloads already Korean. No full original ISO or emulator gameplay available."
+}

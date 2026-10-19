@@ -1,0 +1,13 @@
+{
+  "version": "1.2.8",
+  "release_bytes": 319226225,
+  "release_sha256": "760dbefed57d6160e462d427ef9395f81b2a09d51d4b3e5ac465b389fdabff80",
+  "exe_sha256": "a7b731c7af536f03194cad0ba3a1dfb802132db23125f7b1bb8dcf7a4faca0cc",
+  "actual_xenia_gameplay_tested": false,
+  "release_files": [
+    "Onechanbara_ISO_Korean_v1.2.8.exe",
+    "먼저읽기.txt",
+    "원본ISO_해시.txt"
+  ],
+  "test_and_trainer_assets_excluded": true
+}

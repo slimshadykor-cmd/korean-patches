@@ -1,0 +1,35 @@
+name: Publish Onechanbara v1.2.8
+
+on:
+  push:
+    branches: [releases/onechanbara-v1.2.8]
+    paths:
+      - release-build/onechanbara-v1.2.8/**
+      - .github/workflows/publish-onechanbara-v128.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-onechanbara-v128
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct and verify the approved Windows patcher
+        run: python3 release-build/onechanbara-v1.2.8/build_release.py --out release-dist
+      - name: Publish the official ZIP
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create onechanbara-v1.2.8 \
+            --target "$GITHUB_SHA" \
+            --title "오네찬바라 볼텍스 한글패치 v1.2.8" \
+            --notes-file release-build/onechanbara-v1.2.8/release-notes.md \
+            --latest \
+            release-dist/Onechanbara_ISO_Korean_v1.2.8_Release.zip
+
