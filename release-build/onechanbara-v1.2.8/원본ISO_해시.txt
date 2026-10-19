@@ -1,4 +1,4 @@
-일본판 원본 ISO 기준 해시
+﻿일본판 원본 ISO 기준 해시
 
 MD5: a1c8c272378c3ac0bae34c61ff0fc0aa
 SHA-1: 13cfb703350719c4e22cfd83100d100e94cb661f
