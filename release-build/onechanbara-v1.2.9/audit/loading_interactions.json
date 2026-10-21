@@ -1,0 +1,267 @@
+{
+  "direct_branches": 51,
+  "completion_gated_calls": 49,
+  "forwarders": 2,
+  "callers_preserved": true,
+  "completion_callback_is_original_noop": true,
+  "frame_rate_and_game_timing_code_modified": false,
+  "loading_wrapper_uses_original_read_poll_close_apis": true,
+  "interpretation": "Only advances after a real state transition; unchanged ready=1 contract at all direct call sites. Static and mocked-OS function tests do not establish all-mission stability.",
+  "callers": [
+    {
+      "address": "0x821fe8e8",
+      "kind": "forwarding tail call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821fe9a8",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821fea10",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821fea74",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821fed50",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ff144",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ff414",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ff670",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ff790",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ff9e4",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ffae0",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ffb5c",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ffc58",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ffcd8",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x821ffe78",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82200254",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82201024",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82201540",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82201974",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82201be8",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82201ce8",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82201f70",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82202010",
+      "kind": "forwarding tail call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82203a88",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x822042d8",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82204338",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x822044ac",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x822045c8",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82204748",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x822047f0",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82204870",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x8220497c",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82204a78",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x822055ac",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x8220571c",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82205808",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82205910",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x822059f4",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82205b04",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82205c3c",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82205dc8",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82205e3c",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82205f18",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82206070",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x822060e4",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x8220612c",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82206170",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82206554",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82206650",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82206710",
+      "kind": "completion-gated call",
+      "unchanged": true
+    },
+    {
+      "address": "0x82206828",
+      "kind": "completion-gated call",
+      "unchanged": true
+    }
+  ]
+}

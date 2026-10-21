@@ -1,0 +1,12 @@
+{
+  "executable_display_records": 1053,
+  "story_dialogues": 411,
+  "mission_nonempty_messages": 55,
+  "mission_files": 86,
+  "area_labels": 96,
+  "font_mapping_count": 790,
+  "font_binary_preserved_from_verified_v128": true,
+  "unexpected_japanese_in_dialogue_mission_or_area_display_fields": 0,
+  "new_translation_bug_found": 0,
+  "scope": "Known player-visible text fields; internal Japanese resource identifiers intentionally preserved. Full game rendering was not executed."
+}

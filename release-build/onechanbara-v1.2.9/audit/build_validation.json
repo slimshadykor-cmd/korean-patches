@@ -1,0 +1,20 @@
+{
+  "version": "1.2.9",
+  "changed_assets_from_latest_v128": [
+    "default.xex",
+    "Media/Menu/title2d.cat"
+  ],
+  "other_156_manifest_paths_unchanged": true,
+  "loading_xex_matches_user_tested_build": "1d5ca57194a51bf60eee37f9612f30f275381c85c480b5210a0d0e5895e4573c",
+  "patcher_core_identical_to_v128": true,
+  "title_size": [
+    1280,
+    720
+  ],
+  "title_jpeg_quality": 98,
+  "manifest_paths": 158,
+  "unique_payloads": 140,
+  "test01_input_supported": true,
+  "exe_sha256": "ba1553b9ed5e9465b5f230fdb0170a536b3c382b9930a54842bc41b22b899c93",
+  "actual_xenia_gameplay_tested_by_assistant": false
+}

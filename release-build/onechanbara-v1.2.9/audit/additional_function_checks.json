@@ -1,0 +1,3717 @@
+{
+  "additional_bug_count": 0,
+  "area_lookup_tests": 288,
+  "prop_classification_tests": 162,
+  "item_creation_branch_tests": 105,
+  "baseline_creation_mismatches": 0,
+  "candidate_creation_mismatches": 0,
+  "areas": [
+    {
+      "version": "original",
+      "filename": "m00_touch_f.fax",
+      "label_pointer": "0x826e1324",
+      "label": "教会と外人墓地"
+    },
+    {
+      "version": "original",
+      "filename": "m01_touch_f.fax",
+      "label_pointer": "0x826e1370",
+      "label": "丘陵公園"
+    },
+    {
+      "version": "original",
+      "filename": "m02_touch_f.fax",
+      "label_pointer": "0x826e13bc",
+      "label": "繁華街"
+    },
+    {
+      "version": "original",
+      "filename": "m03_touch_f.fax",
+      "label_pointer": "0x826e1408",
+      "label": "電気街"
+    },
+    {
+      "version": "original",
+      "filename": "m04_touch_f.fax",
+      "label_pointer": "0x826e1454",
+      "label": "地下駐車場"
+    },
+    {
+      "version": "original",
+      "filename": "m05_touch_f.fax",
+      "label_pointer": "0x826e14a0",
+      "label": "駅前広場"
+    },
+    {
+      "version": "original",
+      "filename": "m06_touch_f.fax",
+      "label_pointer": "0x826e14ec",
+      "label": "地下鉄入り口"
+    },
+    {
+      "version": "original",
+      "filename": "m07_touch_f.fax",
+      "label_pointer": "0x826e1538",
+      "label": "地下水路"
+    },
+    {
+      "version": "original",
+      "filename": "m08_touch_f.fax",
+      "label_pointer": "0x826e1584",
+      "label": "ビル街"
+    },
+    {
+      "version": "original",
+      "filename": "m09_touch_f.fax",
+      "label_pointer": "0x826e15d0",
+      "label": "海上連絡橋"
+    },
+    {
+      "version": "original",
+      "filename": "m10_touch_f.fax",
+      "label_pointer": "0x826e161c",
+      "label": "埠頭倉庫"
+    },
+    {
+      "version": "original",
+      "filename": "m11_touch_f.fax",
+      "label_pointer": "0x826e1668",
+      "label": "ガード下連絡通路"
+    },
+    {
+      "version": "original",
+      "filename": "m12_touch_f.fax",
+      "label_pointer": "0x826e16b4",
+      "label": "地下駐車場出口"
+    },
+    {
+      "version": "original",
+      "filename": "s02_touch_f.fax",
+      "label_pointer": "0x826e1700",
+      "label": "研究施設：司令部"
+    },
+    {
+      "version": "original",
+      "filename": "k00_touch_f.fax",
+      "label_pointer": "0x826e174c",
+      "label": "孤島"
+    },
+    {
+      "version": "original",
+      "filename": "h04_touch_f.fax",
+      "label_pointer": "0x826e1798",
+      "label": "飛行艇左舷：中層"
+    },
+    {
+      "version": "original",
+      "filename": "h06_touch_f.fax",
+      "label_pointer": "0x826e17e4",
+      "label": "冠水橋"
+    },
+    {
+      "version": "original",
+      "filename": "b00_touch_f.fax",
+      "label_pointer": "0x826e1830",
+      "label": "病院：地階"
+    },
+    {
+      "version": "original",
+      "filename": "b01_touch_f.fax",
+      "label_pointer": "0x826e187c",
+      "label": "病院：東病棟"
+    },
+    {
+      "version": "original",
+      "filename": "b02_touch_f.fax",
+      "label_pointer": "0x826e18c8",
+      "label": "病院：西病棟"
+    },
+    {
+      "version": "original",
+      "filename": "s00_touch_f.fax",
+      "label_pointer": "0x826e1914",
+      "label": "研究施設：入り口"
+    },
+    {
+      "version": "original",
+      "filename": "s01_touch_f.fax",
+      "label_pointer": "0x826e1960",
+      "label": "研究施設：中央部"
+    },
+    {
+      "version": "original",
+      "filename": "s03_touch_f.fax",
+      "label_pointer": "0x826e19ac",
+      "label": "研究施設：司令部"
+    },
+    {
+      "version": "original",
+      "filename": "s04_touch_f.fax",
+      "label_pointer": "0x826e19f8",
+      "label": "研究施設：下層通路"
+    },
+    {
+      "version": "original",
+      "filename": "h00_touch_f.fax",
+      "label_pointer": "0x826e1a44",
+      "label": "飛行艇右舷：上層"
+    },
+    {
+      "version": "original",
+      "filename": "h01_touch_f.fax",
+      "label_pointer": "0x826e1a90",
+      "label": "飛行艇右舷：中層"
+    },
+    {
+      "version": "original",
+      "filename": "h02_touch_f.fax",
+      "label_pointer": "0x826e1adc",
+      "label": "飛行艇右舷：下層"
+    },
+    {
+      "version": "original",
+      "filename": "h03_touch_f.fax",
+      "label_pointer": "0x826e1b28",
+      "label": "飛行艇左舷：上層"
+    },
+    {
+      "version": "original",
+      "filename": "h05_touch_f.fax",
+      "label_pointer": "0x826e1b74",
+      "label": "飛行艇左舷：下層"
+    },
+    {
+      "version": "original",
+      "filename": "m03_n_touch_f.fax",
+      "label_pointer": "0x826e1bc0",
+      "label": "電気街"
+    },
+    {
+      "version": "original",
+      "filename": "m05_n_touch_f.fax",
+      "label_pointer": "0x826e1c0c",
+      "label": "駅前広場"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_00.fax",
+      "label_pointer": "0x826e1c58",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_01.fax",
+      "label_pointer": "0x826e1ca4",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_02.fax",
+      "label_pointer": "0x826e1cf0",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_03.fax",
+      "label_pointer": "0x826e1d3c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_04.fax",
+      "label_pointer": "0x826e1d88",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_05.fax",
+      "label_pointer": "0x826e1dd4",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_06.fax",
+      "label_pointer": "0x826e1e20",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_07.fax",
+      "label_pointer": "0x826e1e6c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_08.fax",
+      "label_pointer": "0x826e1eb8",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_09.fax",
+      "label_pointer": "0x826e1f04",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_10.fax",
+      "label_pointer": "0x826e1f50",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f_11.fax",
+      "label_pointer": "0x826e1f9c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_00.fax",
+      "label_pointer": "0x826e1fe8",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_01.fax",
+      "label_pointer": "0x826e2034",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_02.fax",
+      "label_pointer": "0x826e2080",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_03.fax",
+      "label_pointer": "0x826e20cc",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_04.fax",
+      "label_pointer": "0x826e2118",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_05.fax",
+      "label_pointer": "0x826e2164",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_06.fax",
+      "label_pointer": "0x826e21b0",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_07.fax",
+      "label_pointer": "0x826e21fc",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_08.fax",
+      "label_pointer": "0x826e2248",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_09.fax",
+      "label_pointer": "0x826e2294",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_10.fax",
+      "label_pointer": "0x826e22e0",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f_11.fax",
+      "label_pointer": "0x826e232c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_00.fax",
+      "label_pointer": "0x826e2378",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_01.fax",
+      "label_pointer": "0x826e23c4",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_02.fax",
+      "label_pointer": "0x826e2410",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_03.fax",
+      "label_pointer": "0x826e245c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_04.fax",
+      "label_pointer": "0x826e24a8",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_05.fax",
+      "label_pointer": "0x826e24f4",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_06.fax",
+      "label_pointer": "0x826e2540",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_07.fax",
+      "label_pointer": "0x826e258c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_08.fax",
+      "label_pointer": "0x826e25d8",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_09.fax",
+      "label_pointer": "0x826e2624",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_10.fax",
+      "label_pointer": "0x826e2670",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_11.fax",
+      "label_pointer": "0x826e26bc",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_00.fax",
+      "label_pointer": "0x826e2708",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_01.fax",
+      "label_pointer": "0x826e2754",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_02.fax",
+      "label_pointer": "0x826e27a0",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_03.fax",
+      "label_pointer": "0x826e27ec",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_04.fax",
+      "label_pointer": "0x826e2838",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_05.fax",
+      "label_pointer": "0x826e2884",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_06.fax",
+      "label_pointer": "0x826e28d0",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_07.fax",
+      "label_pointer": "0x826e291c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_08.fax",
+      "label_pointer": "0x826e2968",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_09.fax",
+      "label_pointer": "0x826e29b4",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_10.fax",
+      "label_pointer": "0x826e2a00",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_11.fax",
+      "label_pointer": "0x826e2a4c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_12.fax",
+      "label_pointer": "0x826e2a98",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_13.fax",
+      "label_pointer": "0x826e2ae4",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_14.fax",
+      "label_pointer": "0x826e2b30",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f_15.fax",
+      "label_pointer": "0x826e2b7c",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_00_touch_f.fax",
+      "label_pointer": "0x826e2bc8",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_01_touch_f.fax",
+      "label_pointer": "0x826e2c14",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f.fax",
+      "label_pointer": "0x826e2c60",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_03_touch_f.fax",
+      "label_pointer": "0x826e2cac",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg6_00_touch_f.fax",
+      "label_pointer": "0x826e2cf8",
+      "label": "拷問部屋"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_12.fax",
+      "label_pointer": "0x826e2d44",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_13.fax",
+      "label_pointer": "0x826e2d90",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "bg7_02_touch_f_14.fax",
+      "label_pointer": "0x826e2ddc",
+      "label": "サバイバル"
+    },
+    {
+      "version": "original",
+      "filename": "h06_touch_f.fax",
+      "label_pointer": "0x826e17e4",
+      "label": "冠水橋"
+    },
+    {
+      "version": "original",
+      "filename": "p00_touch_f.fax",
+      "label_pointer": "0x826e2e74",
+      "label": "プラクティス"
+    },
+    {
+      "version": "original",
+      "filename": "m03_touch_f_night.fax",
+      "label_pointer": "0x826e2ec0",
+      "label": "電気街"
+    },
+    {
+      "version": "original",
+      "filename": "m05_touch_f_night.fax",
+      "label_pointer": "0x826e2f0c",
+      "label": "駅前広場"
+    },
+    {
+      "version": "original",
+      "filename": "m02_touch_f_night.fax",
+      "label_pointer": "0x826e2f58",
+      "label": "繁華街"
+    },
+    {
+      "version": "current",
+      "filename": "m00_touch_f.fax",
+      "label_pointer": "0x826e1324",
+      "label": "교회와　외국인　묘지"
+    },
+    {
+      "version": "current",
+      "filename": "m01_touch_f.fax",
+      "label_pointer": "0x826e1370",
+      "label": "언덕　공원"
+    },
+    {
+      "version": "current",
+      "filename": "m02_touch_f.fax",
+      "label_pointer": "0x826e13bc",
+      "label": "번화가"
+    },
+    {
+      "version": "current",
+      "filename": "m03_touch_f.fax",
+      "label_pointer": "0x826e1408",
+      "label": "전자　상가"
+    },
+    {
+      "version": "current",
+      "filename": "m04_touch_f.fax",
+      "label_pointer": "0x826e1454",
+      "label": "지하　주차장"
+    },
+    {
+      "version": "current",
+      "filename": "m05_touch_f.fax",
+      "label_pointer": "0x826e14a0",
+      "label": "역　앞　광장"
+    },
+    {
+      "version": "current",
+      "filename": "m06_touch_f.fax",
+      "label_pointer": "0x826e14ec",
+      "label": "지하철　입구"
+    },
+    {
+      "version": "current",
+      "filename": "m07_touch_f.fax",
+      "label_pointer": "0x826e1538",
+      "label": "지하　수로"
+    },
+    {
+      "version": "current",
+      "filename": "m08_touch_f.fax",
+      "label_pointer": "0x826e1584",
+      "label": "빌딩가"
+    },
+    {
+      "version": "current",
+      "filename": "m09_touch_f.fax",
+      "label_pointer": "0x826e15d0",
+      "label": "해상　연결교"
+    },
+    {
+      "version": "current",
+      "filename": "m10_touch_f.fax",
+      "label_pointer": "0x826e161c",
+      "label": "부두　창고"
+    },
+    {
+      "version": "current",
+      "filename": "m11_touch_f.fax",
+      "label_pointer": "0x826e1668",
+      "label": "고가　아래　연결　통로"
+    },
+    {
+      "version": "current",
+      "filename": "m12_touch_f.fax",
+      "label_pointer": "0x826e16b4",
+      "label": "지하　주차장　출구"
+    },
+    {
+      "version": "current",
+      "filename": "s02_touch_f.fax",
+      "label_pointer": "0x826e1700",
+      "label": "연구　시설：사령부"
+    },
+    {
+      "version": "current",
+      "filename": "k00_touch_f.fax",
+      "label_pointer": "0x826e174c",
+      "label": "외딴섬"
+    },
+    {
+      "version": "current",
+      "filename": "h04_touch_f.fax",
+      "label_pointer": "0x826e1798",
+      "label": "비행정　좌현：중층"
+    },
+    {
+      "version": "current",
+      "filename": "h06_touch_f.fax",
+      "label_pointer": "0x826e17e4",
+      "label": "침수된　다리"
+    },
+    {
+      "version": "current",
+      "filename": "b00_touch_f.fax",
+      "label_pointer": "0x826e1830",
+      "label": "병원：지하층"
+    },
+    {
+      "version": "current",
+      "filename": "b01_touch_f.fax",
+      "label_pointer": "0x826e187c",
+      "label": "병원：동쪽　병동"
+    },
+    {
+      "version": "current",
+      "filename": "b02_touch_f.fax",
+      "label_pointer": "0x826e18c8",
+      "label": "병원：서쪽　병동"
+    },
+    {
+      "version": "current",
+      "filename": "s00_touch_f.fax",
+      "label_pointer": "0x826e1914",
+      "label": "연구　시설：입구"
+    },
+    {
+      "version": "current",
+      "filename": "s01_touch_f.fax",
+      "label_pointer": "0x826e1960",
+      "label": "연구　시설：중앙부"
+    },
+    {
+      "version": "current",
+      "filename": "s03_touch_f.fax",
+      "label_pointer": "0x826e19ac",
+      "label": "연구　시설：사령부"
+    },
+    {
+      "version": "current",
+      "filename": "s04_touch_f.fax",
+      "label_pointer": "0x826e19f8",
+      "label": "연구　시설：하층　통로"
+    },
+    {
+      "version": "current",
+      "filename": "h00_touch_f.fax",
+      "label_pointer": "0x826e1a44",
+      "label": "비행정　우현：상층"
+    },
+    {
+      "version": "current",
+      "filename": "h01_touch_f.fax",
+      "label_pointer": "0x826e1a90",
+      "label": "비행정　우현：중층"
+    },
+    {
+      "version": "current",
+      "filename": "h02_touch_f.fax",
+      "label_pointer": "0x826e1adc",
+      "label": "비행정　우현：하층"
+    },
+    {
+      "version": "current",
+      "filename": "h03_touch_f.fax",
+      "label_pointer": "0x826e1b28",
+      "label": "비행정　좌현：상층"
+    },
+    {
+      "version": "current",
+      "filename": "h05_touch_f.fax",
+      "label_pointer": "0x826e1b74",
+      "label": "비행정　좌현：하층"
+    },
+    {
+      "version": "current",
+      "filename": "m03_n_touch_f.fax",
+      "label_pointer": "0x826e1bc0",
+      "label": "전자　상가"
+    },
+    {
+      "version": "current",
+      "filename": "m05_n_touch_f.fax",
+      "label_pointer": "0x826e1c0c",
+      "label": "역　앞　광장"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_00.fax",
+      "label_pointer": "0x826e1c58",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_01.fax",
+      "label_pointer": "0x826e1ca4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_02.fax",
+      "label_pointer": "0x826e1cf0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_03.fax",
+      "label_pointer": "0x826e1d3c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_04.fax",
+      "label_pointer": "0x826e1d88",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_05.fax",
+      "label_pointer": "0x826e1dd4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_06.fax",
+      "label_pointer": "0x826e1e20",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_07.fax",
+      "label_pointer": "0x826e1e6c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_08.fax",
+      "label_pointer": "0x826e1eb8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_09.fax",
+      "label_pointer": "0x826e1f04",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_10.fax",
+      "label_pointer": "0x826e1f50",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f_11.fax",
+      "label_pointer": "0x826e1f9c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_00.fax",
+      "label_pointer": "0x826e1fe8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_01.fax",
+      "label_pointer": "0x826e2034",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_02.fax",
+      "label_pointer": "0x826e2080",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_03.fax",
+      "label_pointer": "0x826e20cc",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_04.fax",
+      "label_pointer": "0x826e2118",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_05.fax",
+      "label_pointer": "0x826e2164",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_06.fax",
+      "label_pointer": "0x826e21b0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_07.fax",
+      "label_pointer": "0x826e21fc",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_08.fax",
+      "label_pointer": "0x826e2248",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_09.fax",
+      "label_pointer": "0x826e2294",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_10.fax",
+      "label_pointer": "0x826e22e0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f_11.fax",
+      "label_pointer": "0x826e232c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_00.fax",
+      "label_pointer": "0x826e2378",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_01.fax",
+      "label_pointer": "0x826e23c4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_02.fax",
+      "label_pointer": "0x826e2410",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_03.fax",
+      "label_pointer": "0x826e245c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_04.fax",
+      "label_pointer": "0x826e24a8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_05.fax",
+      "label_pointer": "0x826e24f4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_06.fax",
+      "label_pointer": "0x826e2540",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_07.fax",
+      "label_pointer": "0x826e258c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_08.fax",
+      "label_pointer": "0x826e25d8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_09.fax",
+      "label_pointer": "0x826e2624",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_10.fax",
+      "label_pointer": "0x826e2670",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_11.fax",
+      "label_pointer": "0x826e26bc",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_00.fax",
+      "label_pointer": "0x826e2708",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_01.fax",
+      "label_pointer": "0x826e2754",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_02.fax",
+      "label_pointer": "0x826e27a0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_03.fax",
+      "label_pointer": "0x826e27ec",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_04.fax",
+      "label_pointer": "0x826e2838",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_05.fax",
+      "label_pointer": "0x826e2884",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_06.fax",
+      "label_pointer": "0x826e28d0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_07.fax",
+      "label_pointer": "0x826e291c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_08.fax",
+      "label_pointer": "0x826e2968",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_09.fax",
+      "label_pointer": "0x826e29b4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_10.fax",
+      "label_pointer": "0x826e2a00",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_11.fax",
+      "label_pointer": "0x826e2a4c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_12.fax",
+      "label_pointer": "0x826e2a98",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_13.fax",
+      "label_pointer": "0x826e2ae4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_14.fax",
+      "label_pointer": "0x826e2b30",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f_15.fax",
+      "label_pointer": "0x826e2b7c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_00_touch_f.fax",
+      "label_pointer": "0x826e2bc8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_01_touch_f.fax",
+      "label_pointer": "0x826e2c14",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f.fax",
+      "label_pointer": "0x826e2c60",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_03_touch_f.fax",
+      "label_pointer": "0x826e2cac",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg6_00_touch_f.fax",
+      "label_pointer": "0x826e2cf8",
+      "label": "고문실"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_12.fax",
+      "label_pointer": "0x826e2d44",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_13.fax",
+      "label_pointer": "0x826e2d90",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "bg7_02_touch_f_14.fax",
+      "label_pointer": "0x826e2ddc",
+      "label": "서바이벌"
+    },
+    {
+      "version": "current",
+      "filename": "h06_touch_f.fax",
+      "label_pointer": "0x826e17e4",
+      "label": "침수된　다리"
+    },
+    {
+      "version": "current",
+      "filename": "p00_touch_f.fax",
+      "label_pointer": "0x826e2e74",
+      "label": "연습장"
+    },
+    {
+      "version": "current",
+      "filename": "m03_touch_f_night.fax",
+      "label_pointer": "0x826e2ec0",
+      "label": "전자　상가"
+    },
+    {
+      "version": "current",
+      "filename": "m05_touch_f_night.fax",
+      "label_pointer": "0x826e2f0c",
+      "label": "역　앞　광장"
+    },
+    {
+      "version": "current",
+      "filename": "m02_touch_f_night.fax",
+      "label_pointer": "0x826e2f58",
+      "label": "번화가"
+    },
+    {
+      "version": "candidate",
+      "filename": "m00_touch_f.fax",
+      "label_pointer": "0x826e1324",
+      "label": "교회와　외국인　묘지"
+    },
+    {
+      "version": "candidate",
+      "filename": "m01_touch_f.fax",
+      "label_pointer": "0x826e1370",
+      "label": "언덕　공원"
+    },
+    {
+      "version": "candidate",
+      "filename": "m02_touch_f.fax",
+      "label_pointer": "0x826e13bc",
+      "label": "번화가"
+    },
+    {
+      "version": "candidate",
+      "filename": "m03_touch_f.fax",
+      "label_pointer": "0x826e1408",
+      "label": "전자　상가"
+    },
+    {
+      "version": "candidate",
+      "filename": "m04_touch_f.fax",
+      "label_pointer": "0x826e1454",
+      "label": "지하　주차장"
+    },
+    {
+      "version": "candidate",
+      "filename": "m05_touch_f.fax",
+      "label_pointer": "0x826e14a0",
+      "label": "역　앞　광장"
+    },
+    {
+      "version": "candidate",
+      "filename": "m06_touch_f.fax",
+      "label_pointer": "0x826e14ec",
+      "label": "지하철　입구"
+    },
+    {
+      "version": "candidate",
+      "filename": "m07_touch_f.fax",
+      "label_pointer": "0x826e1538",
+      "label": "지하　수로"
+    },
+    {
+      "version": "candidate",
+      "filename": "m08_touch_f.fax",
+      "label_pointer": "0x826e1584",
+      "label": "빌딩가"
+    },
+    {
+      "version": "candidate",
+      "filename": "m09_touch_f.fax",
+      "label_pointer": "0x826e15d0",
+      "label": "해상　연결교"
+    },
+    {
+      "version": "candidate",
+      "filename": "m10_touch_f.fax",
+      "label_pointer": "0x826e161c",
+      "label": "부두　창고"
+    },
+    {
+      "version": "candidate",
+      "filename": "m11_touch_f.fax",
+      "label_pointer": "0x826e1668",
+      "label": "고가　아래　연결　통로"
+    },
+    {
+      "version": "candidate",
+      "filename": "m12_touch_f.fax",
+      "label_pointer": "0x826e16b4",
+      "label": "지하　주차장　출구"
+    },
+    {
+      "version": "candidate",
+      "filename": "s02_touch_f.fax",
+      "label_pointer": "0x826e1700",
+      "label": "연구　시설：사령부"
+    },
+    {
+      "version": "candidate",
+      "filename": "k00_touch_f.fax",
+      "label_pointer": "0x826e174c",
+      "label": "외딴섬"
+    },
+    {
+      "version": "candidate",
+      "filename": "h04_touch_f.fax",
+      "label_pointer": "0x826e1798",
+      "label": "비행정　좌현：중층"
+    },
+    {
+      "version": "candidate",
+      "filename": "h06_touch_f.fax",
+      "label_pointer": "0x826e17e4",
+      "label": "침수된　다리"
+    },
+    {
+      "version": "candidate",
+      "filename": "b00_touch_f.fax",
+      "label_pointer": "0x826e1830",
+      "label": "병원：지하층"
+    },
+    {
+      "version": "candidate",
+      "filename": "b01_touch_f.fax",
+      "label_pointer": "0x826e187c",
+      "label": "병원：동쪽　병동"
+    },
+    {
+      "version": "candidate",
+      "filename": "b02_touch_f.fax",
+      "label_pointer": "0x826e18c8",
+      "label": "병원：서쪽　병동"
+    },
+    {
+      "version": "candidate",
+      "filename": "s00_touch_f.fax",
+      "label_pointer": "0x826e1914",
+      "label": "연구　시설：입구"
+    },
+    {
+      "version": "candidate",
+      "filename": "s01_touch_f.fax",
+      "label_pointer": "0x826e1960",
+      "label": "연구　시설：중앙부"
+    },
+    {
+      "version": "candidate",
+      "filename": "s03_touch_f.fax",
+      "label_pointer": "0x826e19ac",
+      "label": "연구　시설：사령부"
+    },
+    {
+      "version": "candidate",
+      "filename": "s04_touch_f.fax",
+      "label_pointer": "0x826e19f8",
+      "label": "연구　시설：하층　통로"
+    },
+    {
+      "version": "candidate",
+      "filename": "h00_touch_f.fax",
+      "label_pointer": "0x826e1a44",
+      "label": "비행정　우현：상층"
+    },
+    {
+      "version": "candidate",
+      "filename": "h01_touch_f.fax",
+      "label_pointer": "0x826e1a90",
+      "label": "비행정　우현：중층"
+    },
+    {
+      "version": "candidate",
+      "filename": "h02_touch_f.fax",
+      "label_pointer": "0x826e1adc",
+      "label": "비행정　우현：하층"
+    },
+    {
+      "version": "candidate",
+      "filename": "h03_touch_f.fax",
+      "label_pointer": "0x826e1b28",
+      "label": "비행정　좌현：상층"
+    },
+    {
+      "version": "candidate",
+      "filename": "h05_touch_f.fax",
+      "label_pointer": "0x826e1b74",
+      "label": "비행정　좌현：하층"
+    },
+    {
+      "version": "candidate",
+      "filename": "m03_n_touch_f.fax",
+      "label_pointer": "0x826e1bc0",
+      "label": "전자　상가"
+    },
+    {
+      "version": "candidate",
+      "filename": "m05_n_touch_f.fax",
+      "label_pointer": "0x826e1c0c",
+      "label": "역　앞　광장"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_00.fax",
+      "label_pointer": "0x826e1c58",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_01.fax",
+      "label_pointer": "0x826e1ca4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_02.fax",
+      "label_pointer": "0x826e1cf0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_03.fax",
+      "label_pointer": "0x826e1d3c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_04.fax",
+      "label_pointer": "0x826e1d88",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_05.fax",
+      "label_pointer": "0x826e1dd4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_06.fax",
+      "label_pointer": "0x826e1e20",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_07.fax",
+      "label_pointer": "0x826e1e6c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_08.fax",
+      "label_pointer": "0x826e1eb8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_09.fax",
+      "label_pointer": "0x826e1f04",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_10.fax",
+      "label_pointer": "0x826e1f50",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f_11.fax",
+      "label_pointer": "0x826e1f9c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_00.fax",
+      "label_pointer": "0x826e1fe8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_01.fax",
+      "label_pointer": "0x826e2034",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_02.fax",
+      "label_pointer": "0x826e2080",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_03.fax",
+      "label_pointer": "0x826e20cc",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_04.fax",
+      "label_pointer": "0x826e2118",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_05.fax",
+      "label_pointer": "0x826e2164",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_06.fax",
+      "label_pointer": "0x826e21b0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_07.fax",
+      "label_pointer": "0x826e21fc",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_08.fax",
+      "label_pointer": "0x826e2248",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_09.fax",
+      "label_pointer": "0x826e2294",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_10.fax",
+      "label_pointer": "0x826e22e0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f_11.fax",
+      "label_pointer": "0x826e232c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_00.fax",
+      "label_pointer": "0x826e2378",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_01.fax",
+      "label_pointer": "0x826e23c4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_02.fax",
+      "label_pointer": "0x826e2410",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_03.fax",
+      "label_pointer": "0x826e245c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_04.fax",
+      "label_pointer": "0x826e24a8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_05.fax",
+      "label_pointer": "0x826e24f4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_06.fax",
+      "label_pointer": "0x826e2540",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_07.fax",
+      "label_pointer": "0x826e258c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_08.fax",
+      "label_pointer": "0x826e25d8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_09.fax",
+      "label_pointer": "0x826e2624",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_10.fax",
+      "label_pointer": "0x826e2670",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_11.fax",
+      "label_pointer": "0x826e26bc",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_00.fax",
+      "label_pointer": "0x826e2708",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_01.fax",
+      "label_pointer": "0x826e2754",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_02.fax",
+      "label_pointer": "0x826e27a0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_03.fax",
+      "label_pointer": "0x826e27ec",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_04.fax",
+      "label_pointer": "0x826e2838",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_05.fax",
+      "label_pointer": "0x826e2884",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_06.fax",
+      "label_pointer": "0x826e28d0",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_07.fax",
+      "label_pointer": "0x826e291c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_08.fax",
+      "label_pointer": "0x826e2968",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_09.fax",
+      "label_pointer": "0x826e29b4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_10.fax",
+      "label_pointer": "0x826e2a00",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_11.fax",
+      "label_pointer": "0x826e2a4c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_12.fax",
+      "label_pointer": "0x826e2a98",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_13.fax",
+      "label_pointer": "0x826e2ae4",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_14.fax",
+      "label_pointer": "0x826e2b30",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f_15.fax",
+      "label_pointer": "0x826e2b7c",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_00_touch_f.fax",
+      "label_pointer": "0x826e2bc8",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_01_touch_f.fax",
+      "label_pointer": "0x826e2c14",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f.fax",
+      "label_pointer": "0x826e2c60",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_03_touch_f.fax",
+      "label_pointer": "0x826e2cac",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg6_00_touch_f.fax",
+      "label_pointer": "0x826e2cf8",
+      "label": "고문실"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_12.fax",
+      "label_pointer": "0x826e2d44",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_13.fax",
+      "label_pointer": "0x826e2d90",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "bg7_02_touch_f_14.fax",
+      "label_pointer": "0x826e2ddc",
+      "label": "서바이벌"
+    },
+    {
+      "version": "candidate",
+      "filename": "h06_touch_f.fax",
+      "label_pointer": "0x826e17e4",
+      "label": "침수된　다리"
+    },
+    {
+      "version": "candidate",
+      "filename": "p00_touch_f.fax",
+      "label_pointer": "0x826e2e74",
+      "label": "연습장"
+    },
+    {
+      "version": "candidate",
+      "filename": "m03_touch_f_night.fax",
+      "label_pointer": "0x826e2ec0",
+      "label": "전자　상가"
+    },
+    {
+      "version": "candidate",
+      "filename": "m05_touch_f_night.fax",
+      "label_pointer": "0x826e2f0c",
+      "label": "역　앞　광장"
+    },
+    {
+      "version": "candidate",
+      "filename": "m02_touch_f_night.fax",
+      "label_pointer": "0x826e2f58",
+      "label": "번화가"
+    }
+  ],
+  "props": [
+    {
+      "version": "original",
+      "object": "破壊：ゴミ箱四角",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ゴミ箱四角",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ゴミ箱丸",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ゴミ箱丸",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ダンボール",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ダンボール",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：空きビンA",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：空きビンA",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：空きビンB",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：空きビンB",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：空きビンC",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：空きビンC",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：空きビンD",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：空きビンD",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：缶A",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：缶A",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：缶B",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：缶B",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：缶C",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：缶C",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：缶D",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：缶D",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ドラム缶A",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ドラム缶A",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ドラム缶B",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ドラム缶B",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ドラム缶C",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ドラム缶C",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ドラム缶D",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：ドラム缶D",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：自転車",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：自転車",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "女神像",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "女神像",
+      "mode": 2,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "マイム：車紺",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "マイム：車紺",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "マイム：車白",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "マイム：車白",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "マイム：車赤",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "マイム：車赤",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "マイム：タクシー",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "マイム：タクシー",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：木の箱",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：木の箱",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：遺跡の石像",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：遺跡の石像",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：鉄柵",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：鉄柵",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：大岩",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：大岩",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：巨岩",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "破壊：巨岩",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "unknown-object",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "object": "unknown-object",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ゴミ箱四角",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ゴミ箱四角",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ゴミ箱丸",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ゴミ箱丸",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ダンボール",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ダンボール",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：空きビンA",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：空きビンA",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：空きビンB",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：空きビンB",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：空きビンC",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：空きビンC",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：空きビンD",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：空きビンD",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：缶A",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：缶A",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：缶B",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：缶B",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：缶C",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：缶C",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：缶D",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：缶D",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ドラム缶A",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ドラム缶A",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ドラム缶B",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ドラム缶B",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ドラム缶C",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ドラム缶C",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ドラム缶D",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：ドラム缶D",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：自転車",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：自転車",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "女神像",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "女神像",
+      "mode": 2,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "マイム：車紺",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "マイム：車紺",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "マイム：車白",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "マイム：車白",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "マイム：車赤",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "マイム：車赤",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "マイム：タクシー",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "マイム：タクシー",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：木の箱",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：木の箱",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：遺跡の石像",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：遺跡の石像",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：鉄柵",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：鉄柵",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：大岩",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：大岩",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：巨岩",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "破壊：巨岩",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "unknown-object",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "object": "unknown-object",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ゴミ箱四角",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ゴミ箱四角",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ゴミ箱丸",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ゴミ箱丸",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ダンボール",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ダンボール",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：空きビンA",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：空きビンA",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：空きビンB",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：空きビンB",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：空きビンC",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：空きビンC",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：空きビンD",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：空きビンD",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：缶A",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：缶A",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：缶B",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：缶B",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：缶C",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：缶C",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：缶D",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：缶D",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ドラム缶A",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ドラム缶A",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ドラム缶B",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ドラム缶B",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ドラム缶C",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ドラム缶C",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ドラム缶D",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：ドラム缶D",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：自転車",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：自転車",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "女神像",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "女神像",
+      "mode": 2,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "マイム：車紺",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "マイム：車紺",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "マイム：車白",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "マイム：車白",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "マイム：車赤",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "マイム：車赤",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "マイム：タクシー",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "マイム：タクシー",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：木の箱",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：木の箱",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：遺跡の石像",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：遺跡の石像",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：鉄柵",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：鉄柵",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：大岩",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：大岩",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：巨岩",
+      "mode": 1,
+      "result": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "破壊：巨岩",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "unknown-object",
+      "mode": 1,
+      "result": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "object": "unknown-object",
+      "mode": 2,
+      "result": 0,
+      "matches_original": true
+    }
+  ],
+  "item_creation": [
+    {
+      "version": "original",
+      "key": "キー:01_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:02_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:02_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:02_02",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:03_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:05_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:05_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:06_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:06_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:08_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:09_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:09_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:09_02",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:09_03",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:11_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:12_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:13_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:13_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:15_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:15_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:16_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:17_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "キー:17_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：剛力の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：血糊抑制の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 1,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：穢れ抑制の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 2,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：貫通の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 3,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：アイテムの腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 4,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：回避の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 5,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：技巧の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 6,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：銃弾の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 7,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：経験値の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 8,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：血晶の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 9,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：護身の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 10,
+      "matches_original": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：自動螺旋の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 11,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:01_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:02_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:02_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:02_02",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:03_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:05_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:05_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:06_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:06_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:08_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:09_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:09_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:09_02",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:09_03",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:11_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:12_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:13_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:13_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:15_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:15_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:16_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:17_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "キー:17_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：剛力の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：血糊抑制の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 1,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：穢れ抑制の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 2,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：貫通の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 3,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：アイテムの腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 4,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：回避の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 5,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：技巧の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 6,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：銃弾の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 7,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：経験値の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 8,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：血晶の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 9,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：護身の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 10,
+      "matches_original": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：自動螺旋の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 11,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:01_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:02_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:02_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:02_02",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:03_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:05_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:05_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:06_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:06_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:08_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:09_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:09_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:09_02",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:09_03",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:11_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:12_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:13_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:13_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:15_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:15_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:16_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:17_00",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:17_01",
+      "category": 14,
+      "expected_category": 14,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：剛力の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 0,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：血糊抑制の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 1,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：穢れ抑制の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 2,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：貫通の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 3,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：アイテムの腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 4,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：回避の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 5,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：技巧の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 6,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：銃弾の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 7,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：経験値の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 8,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：血晶の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 9,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：護身の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 10,
+      "matches_original": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：自動螺旋の腕輪",
+      "category": 13,
+      "expected_category": 13,
+      "item_id": 11,
+      "matches_original": true
+    }
+  ],
+  "method": "Original PPC instructions run in Unicorn. Area/object-name getters are stubbed to supplied original lookup strings; classification/search and item category selection execute original instructions. This is function-level emulation, not Xenia gameplay."
+}

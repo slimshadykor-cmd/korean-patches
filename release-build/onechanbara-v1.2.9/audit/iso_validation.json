@@ -1,0 +1,58 @@
+{
+  "tests": [
+    {
+      "input": "original",
+      "base": "0x0",
+      "all_158_targets_byte_exact": true,
+      "unrelated_assets_and_input_preserved": true,
+      "shipping_exe_core_executed": true,
+      "temp_cleaned": true
+    },
+    {
+      "input": "v125",
+      "base": "0xfb20",
+      "all_158_targets_byte_exact": true,
+      "unrelated_assets_and_input_preserved": true,
+      "shipping_exe_core_executed": true,
+      "temp_cleaned": true
+    },
+    {
+      "input": "v128",
+      "base": "0x20600",
+      "all_158_targets_byte_exact": true,
+      "unrelated_assets_and_input_preserved": true,
+      "shipping_exe_core_executed": true,
+      "temp_cleaned": true
+    },
+    {
+      "input": "Test01-JP",
+      "base": "0x2080000",
+      "all_158_targets_byte_exact": true,
+      "unrelated_assets_and_input_preserved": true,
+      "shipping_exe_core_executed": true,
+      "temp_cleaned": true
+    },
+    {
+      "input": "Test01-KOR",
+      "base": "0xfd90000",
+      "all_158_targets_byte_exact": true,
+      "unrelated_assets_and_input_preserved": true,
+      "shipping_exe_core_executed": true,
+      "temp_cleaned": true
+    }
+  ],
+  "rejections": [
+    "already-patched",
+    "existing-output",
+    "input-equals-output",
+    "unknown-xex",
+    "invalid-iso"
+  ],
+  "manifest_paths": 158,
+  "unchanged_movie_paths": 24,
+  "older_accepted_hashes_retained": true,
+  "actual_shipping_exe_managed_core_executed": true,
+  "windows_gui_runtime_tested": false,
+  "actual_xenia_gameplay_tested_by_assistant": false,
+  "fixture": "Synthetic XDVDFS with supplied original nonvideo assets and real v125/v128/Test01 files. Video payloads are already Korean. This is not execution of a full original retail ISO."
+}

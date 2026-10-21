@@ -1,0 +1,951 @@
+{
+  "method": "Run original PPC ID/name/description lookup functions against 35 original keys for original, public v1.2.8, and local candidate memories; 315 actual function calls. This is not full gameplay.",
+  "tests": 315,
+  "results": [
+    {
+      "version": "original",
+      "key": "キー:01_00",
+      "id": 1,
+      "display_pointer": "0x82034e78",
+      "display_text": "地下駐車場への鍵",
+      "description_pointer": "0x82034e30",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:02_00",
+      "id": 2,
+      "display_pointer": "0x82034e14",
+      "display_text": "地下通路の鍵",
+      "description_pointer": "0x82034db0",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:02_01",
+      "id": 0,
+      "display_pointer": "0x82034d8c",
+      "display_text": "手術室IDパス０１",
+      "description_pointer": "0x82034d20",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:02_02",
+      "id": 1,
+      "display_pointer": "0x82034d08",
+      "display_text": "封鎖扉の鍵",
+      "description_pointer": "0x82034cb8",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:03_00",
+      "id": 2,
+      "display_pointer": "0x82034ca0",
+      "display_text": "大通りの鍵",
+      "description_pointer": "0x82034c58",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:05_00",
+      "id": 2,
+      "display_pointer": "0x82034c34",
+      "display_text": "地下水路の鍵：壱",
+      "description_pointer": "0x82034bd8",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:05_01",
+      "id": 2,
+      "display_pointer": "0x82034bb8",
+      "display_text": "地下水路の鍵：弐",
+      "description_pointer": "0x82034b68",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:06_00",
+      "id": 2,
+      "display_pointer": "0x82034b50",
+      "display_text": "封鎖門の鍵",
+      "description_pointer": "0x82034ae8",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:06_01",
+      "id": 2,
+      "display_pointer": "0x82034ac8",
+      "display_text": "地下水路の鍵：参",
+      "description_pointer": "0x82034bd8",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:08_00",
+      "id": 2,
+      "display_pointer": "0x82034ca0",
+      "display_text": "大通りの鍵",
+      "description_pointer": "0x82034c58",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:09_00",
+      "id": 0,
+      "display_pointer": "0x82034aa0",
+      "display_text": "客室のIDカード",
+      "description_pointer": "0x82034a50",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:09_01",
+      "id": 1,
+      "display_pointer": "0x82034a34",
+      "display_text": "客室の鍵",
+      "description_pointer": "0x820349e0",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:09_02",
+      "id": 0,
+      "display_pointer": "0x820349b8",
+      "display_text": "後部ハッチのIDカード",
+      "description_pointer": "0x82034948",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:09_03",
+      "id": 1,
+      "display_pointer": "0x82034930",
+      "display_text": "船首の鍵",
+      "description_pointer": "0x820348c8",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:11_00",
+      "id": 3,
+      "display_pointer": "0x820348b0",
+      "display_text": "組織の紋章",
+      "description_pointer": "0x82034850",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:12_00",
+      "id": 4,
+      "display_pointer": "0x82034834",
+      "display_text": "サタンの珠",
+      "description_pointer": "0x820347c8",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:13_00",
+      "id": 5,
+      "display_pointer": "0x820347a8",
+      "display_text": "ベリアルの珠",
+      "description_pointer": "0x82034738",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:13_01",
+      "id": 6,
+      "display_pointer": "0x82034714",
+      "display_text": "レヴィアタンの珠",
+      "description_pointer": "0x820346a0",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:15_00",
+      "id": 7,
+      "display_pointer": "0x82034680",
+      "display_text": "アスタロスの珠",
+      "description_pointer": "0x82034610",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:15_01",
+      "id": 8,
+      "display_pointer": "0x820345f4",
+      "display_text": "マモンの珠",
+      "description_pointer": "0x82034588",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:16_00",
+      "id": 9,
+      "display_pointer": "0x82034568",
+      "display_text": "ベルゼブブの珠",
+      "description_pointer": "0x820344f8",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:17_00",
+      "id": 4,
+      "display_pointer": "0x820344d4",
+      "display_text": "アスモデウスの珠",
+      "description_pointer": "0x82034460",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "キー:17_01",
+      "id": 3,
+      "display_pointer": "0x82034444",
+      "display_text": "黄金の紋章",
+      "description_pointer": "0x820343e0",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：剛力の腕輪",
+      "id": 0,
+      "display_pointer": "0x8202b4e8",
+      "display_text": "剛力の腕輪",
+      "description_pointer": "0x820343b4",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：血糊抑制の腕輪",
+      "id": 1,
+      "display_pointer": "0x8202b4d8",
+      "display_text": "血糊抑制の腕輪",
+      "description_pointer": "0x82034388",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：穢れ抑制の腕輪",
+      "id": 2,
+      "display_pointer": "0x8202b4c8",
+      "display_text": "穢れ抑制の腕輪",
+      "description_pointer": "0x8203435c",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：貫通の腕輪",
+      "id": 3,
+      "display_pointer": "0x8202b4bc",
+      "display_text": "貫通の腕輪",
+      "description_pointer": "0x82034334",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：アイテムの腕輪",
+      "id": 4,
+      "display_pointer": "0x8202b4b0",
+      "display_text": "発生の腕輪",
+      "description_pointer": "0x82034308",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：回避の腕輪",
+      "id": 5,
+      "display_pointer": "0x8202b4a0",
+      "display_text": "見切りの腕輪",
+      "description_pointer": "0x820342e0",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：技巧の腕輪",
+      "id": 6,
+      "display_pointer": "0x8202b494",
+      "display_text": "技巧の腕輪",
+      "description_pointer": "0x820342b8",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：銃弾の腕輪",
+      "id": 7,
+      "display_pointer": "0x8202b488",
+      "display_text": "銃弾の腕輪",
+      "description_pointer": "0x82034290",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：経験値の腕輪",
+      "id": 8,
+      "display_pointer": "0x8202b47c",
+      "display_text": "修練の腕輪",
+      "description_pointer": "0x82034268",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：血晶の腕輪",
+      "id": 9,
+      "display_pointer": "0x8202b470",
+      "display_text": "血晶の腕輪",
+      "description_pointer": "0x82034240",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：護身の腕輪",
+      "id": 10,
+      "display_pointer": "0x8202b464",
+      "display_text": "護身の腕輪",
+      "description_pointer": "0x82034218",
+      "passed": true
+    },
+    {
+      "version": "original",
+      "key": "腕輪：自動螺旋の腕輪",
+      "id": 11,
+      "display_pointer": "0x8202b454",
+      "display_text": "自動恍惚の腕輪",
+      "description_pointer": "0x820341ec",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:01_00",
+      "id": 1,
+      "display_pointer": "0x82034e78",
+      "display_text": "지하 주차장 열쇠",
+      "description_pointer": "0x82034e30",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:02_00",
+      "id": 2,
+      "display_pointer": "0x82034e14",
+      "display_text": "지하 통로 키",
+      "description_pointer": "0x82034db0",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:02_01",
+      "id": 0,
+      "display_pointer": "0x82034d8c",
+      "display_text": "수술실 ID 패스01",
+      "description_pointer": "0x82034d20",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:02_02",
+      "id": 1,
+      "display_pointer": "0x82034d08",
+      "display_text": "봉쇄문 열쇠",
+      "description_pointer": "0x82034cb8",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:03_00",
+      "id": 2,
+      "display_pointer": "0x82034ca0",
+      "display_text": "큰길 열쇠",
+      "description_pointer": "0x82034c58",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:05_00",
+      "id": 2,
+      "display_pointer": "0x82034c34",
+      "display_text": "지하 수로 열쇠1",
+      "description_pointer": "0x82034bd8",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:05_01",
+      "id": 2,
+      "display_pointer": "0x82034bb8",
+      "display_text": "지하 수로 열쇠2",
+      "description_pointer": "0x82034b68",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:06_00",
+      "id": 2,
+      "display_pointer": "0x82034b50",
+      "display_text": "봉쇄문 열쇠",
+      "description_pointer": "0x82034ae8",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:06_01",
+      "id": 2,
+      "display_pointer": "0x82034ac8",
+      "display_text": "지하 수로 열쇠3",
+      "description_pointer": "0x82034bd8",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:08_00",
+      "id": 2,
+      "display_pointer": "0x82034ca0",
+      "display_text": "큰길 열쇠",
+      "description_pointer": "0x82034c58",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:09_00",
+      "id": 0,
+      "display_pointer": "0x82034aa0",
+      "display_text": "객실 ID 카드",
+      "description_pointer": "0x82034a50",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:09_01",
+      "id": 1,
+      "display_pointer": "0x82034a34",
+      "display_text": "객실 열쇠",
+      "description_pointer": "0x820349e0",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:09_02",
+      "id": 0,
+      "display_pointer": "0x820349b8",
+      "display_text": "후방 해치 ID 카드",
+      "description_pointer": "0x82034948",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:09_03",
+      "id": 1,
+      "display_pointer": "0x82034930",
+      "display_text": "선수 열쇠",
+      "description_pointer": "0x820348c8",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:11_00",
+      "id": 3,
+      "display_pointer": "0x820348b0",
+      "display_text": "조직 문장",
+      "description_pointer": "0x82034850",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:12_00",
+      "id": 4,
+      "display_pointer": "0x82034834",
+      "display_text": "사탄 구슬",
+      "description_pointer": "0x820347c8",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:13_00",
+      "id": 5,
+      "display_pointer": "0x820347a8",
+      "display_text": "벨리알 구슬",
+      "description_pointer": "0x82034738",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:13_01",
+      "id": 6,
+      "display_pointer": "0x82034714",
+      "display_text": "레비아탄 구슬",
+      "description_pointer": "0x820346a0",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:15_00",
+      "id": 7,
+      "display_pointer": "0x82034680",
+      "display_text": "아스타로스 구슬",
+      "description_pointer": "0x82034610",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:15_01",
+      "id": 8,
+      "display_pointer": "0x820345f4",
+      "display_text": "마몬 구슬",
+      "description_pointer": "0x82034588",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:16_00",
+      "id": 9,
+      "display_pointer": "0x82034568",
+      "display_text": "벨제부브 구슬",
+      "description_pointer": "0x820344f8",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:17_00",
+      "id": 4,
+      "display_pointer": "0x820344d4",
+      "display_text": "아스모데우스 구슬",
+      "description_pointer": "0x82034460",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "キー:17_01",
+      "id": 3,
+      "display_pointer": "0x82034444",
+      "display_text": "황금 문장",
+      "description_pointer": "0x820343e0",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：剛力の腕輪",
+      "id": 0,
+      "display_pointer": "0x8202b4e8",
+      "display_text": "강력 팔찌",
+      "description_pointer": "0x820343b4",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：血糊抑制の腕輪",
+      "id": 1,
+      "display_pointer": "0x8202b4d8",
+      "display_text": "혈흔 억제 팔찌",
+      "description_pointer": "0x82034388",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：穢れ抑制の腕輪",
+      "id": 2,
+      "display_pointer": "0x8202b4c8",
+      "display_text": "오염 억제 팔찌",
+      "description_pointer": "0x8203435c",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：貫通の腕輪",
+      "id": 3,
+      "display_pointer": "0x8202b4bc",
+      "display_text": "관통 팔찌",
+      "description_pointer": "0x82034334",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：アイテムの腕輪",
+      "id": 4,
+      "display_pointer": "0x8202b4b0",
+      "display_text": "드롭 팔찌",
+      "description_pointer": "0x82034308",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：回避の腕輪",
+      "id": 5,
+      "display_pointer": "0x8202b4a0",
+      "display_text": "간파 팔찌",
+      "description_pointer": "0x820342e0",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：技巧の腕輪",
+      "id": 6,
+      "display_pointer": "0x8202b494",
+      "display_text": "기교 팔찌",
+      "description_pointer": "0x820342b8",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：銃弾の腕輪",
+      "id": 7,
+      "display_pointer": "0x8202b488",
+      "display_text": "총탄 팔찌",
+      "description_pointer": "0x82034290",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：経験値の腕輪",
+      "id": 8,
+      "display_pointer": "0x8202b47c",
+      "display_text": "수련 팔찌",
+      "description_pointer": "0x82034268",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：血晶の腕輪",
+      "id": 9,
+      "display_pointer": "0x8202b470",
+      "display_text": "혈정 팔찌",
+      "description_pointer": "0x82034240",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：護身の腕輪",
+      "id": 10,
+      "display_pointer": "0x8202b464",
+      "display_text": "호신 팔찌",
+      "description_pointer": "0x82034218",
+      "passed": true
+    },
+    {
+      "version": "current",
+      "key": "腕輪：自動螺旋の腕輪",
+      "id": 11,
+      "display_pointer": "0x8202b454",
+      "display_text": "자동 황홀 팔찌",
+      "description_pointer": "0x820341ec",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:01_00",
+      "id": 1,
+      "display_pointer": "0x82034e78",
+      "display_text": "지하 주차장 열쇠",
+      "description_pointer": "0x82034e30",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:02_00",
+      "id": 2,
+      "display_pointer": "0x82034e14",
+      "display_text": "지하 통로 키",
+      "description_pointer": "0x82034db0",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:02_01",
+      "id": 0,
+      "display_pointer": "0x82034d8c",
+      "display_text": "수술실 ID 패스01",
+      "description_pointer": "0x82034d20",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:02_02",
+      "id": 1,
+      "display_pointer": "0x82034d08",
+      "display_text": "봉쇄문 열쇠",
+      "description_pointer": "0x82034cb8",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:03_00",
+      "id": 2,
+      "display_pointer": "0x82034ca0",
+      "display_text": "큰길 열쇠",
+      "description_pointer": "0x82034c58",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:05_00",
+      "id": 2,
+      "display_pointer": "0x82034c34",
+      "display_text": "지하 수로 열쇠1",
+      "description_pointer": "0x82034bd8",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:05_01",
+      "id": 2,
+      "display_pointer": "0x82034bb8",
+      "display_text": "지하 수로 열쇠2",
+      "description_pointer": "0x82034b68",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:06_00",
+      "id": 2,
+      "display_pointer": "0x82034b50",
+      "display_text": "봉쇄문 열쇠",
+      "description_pointer": "0x82034ae8",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:06_01",
+      "id": 2,
+      "display_pointer": "0x82034ac8",
+      "display_text": "지하 수로 열쇠3",
+      "description_pointer": "0x82034bd8",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:08_00",
+      "id": 2,
+      "display_pointer": "0x82034ca0",
+      "display_text": "큰길 열쇠",
+      "description_pointer": "0x82034c58",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:09_00",
+      "id": 0,
+      "display_pointer": "0x82034aa0",
+      "display_text": "객실 ID 카드",
+      "description_pointer": "0x82034a50",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:09_01",
+      "id": 1,
+      "display_pointer": "0x82034a34",
+      "display_text": "객실 열쇠",
+      "description_pointer": "0x820349e0",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:09_02",
+      "id": 0,
+      "display_pointer": "0x820349b8",
+      "display_text": "후방 해치 ID 카드",
+      "description_pointer": "0x82034948",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:09_03",
+      "id": 1,
+      "display_pointer": "0x82034930",
+      "display_text": "선수 열쇠",
+      "description_pointer": "0x820348c8",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:11_00",
+      "id": 3,
+      "display_pointer": "0x820348b0",
+      "display_text": "조직 문장",
+      "description_pointer": "0x82034850",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:12_00",
+      "id": 4,
+      "display_pointer": "0x82034834",
+      "display_text": "사탄 구슬",
+      "description_pointer": "0x820347c8",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:13_00",
+      "id": 5,
+      "display_pointer": "0x820347a8",
+      "display_text": "벨리알 구슬",
+      "description_pointer": "0x82034738",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:13_01",
+      "id": 6,
+      "display_pointer": "0x82034714",
+      "display_text": "레비아탄 구슬",
+      "description_pointer": "0x820346a0",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:15_00",
+      "id": 7,
+      "display_pointer": "0x82034680",
+      "display_text": "아스타로스 구슬",
+      "description_pointer": "0x82034610",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:15_01",
+      "id": 8,
+      "display_pointer": "0x820345f4",
+      "display_text": "마몬 구슬",
+      "description_pointer": "0x82034588",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:16_00",
+      "id": 9,
+      "display_pointer": "0x82034568",
+      "display_text": "벨제부브 구슬",
+      "description_pointer": "0x820344f8",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:17_00",
+      "id": 4,
+      "display_pointer": "0x820344d4",
+      "display_text": "아스모데우스 구슬",
+      "description_pointer": "0x82034460",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "キー:17_01",
+      "id": 3,
+      "display_pointer": "0x82034444",
+      "display_text": "황금 문장",
+      "description_pointer": "0x820343e0",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：剛力の腕輪",
+      "id": 0,
+      "display_pointer": "0x8202b4e8",
+      "display_text": "강력 팔찌",
+      "description_pointer": "0x820343b4",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：血糊抑制の腕輪",
+      "id": 1,
+      "display_pointer": "0x8202b4d8",
+      "display_text": "혈흔 억제 팔찌",
+      "description_pointer": "0x82034388",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：穢れ抑制の腕輪",
+      "id": 2,
+      "display_pointer": "0x8202b4c8",
+      "display_text": "오염 억제 팔찌",
+      "description_pointer": "0x8203435c",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：貫通の腕輪",
+      "id": 3,
+      "display_pointer": "0x8202b4bc",
+      "display_text": "관통 팔찌",
+      "description_pointer": "0x82034334",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：アイテムの腕輪",
+      "id": 4,
+      "display_pointer": "0x8202b4b0",
+      "display_text": "드롭 팔찌",
+      "description_pointer": "0x82034308",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：回避の腕輪",
+      "id": 5,
+      "display_pointer": "0x8202b4a0",
+      "display_text": "간파 팔찌",
+      "description_pointer": "0x820342e0",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：技巧の腕輪",
+      "id": 6,
+      "display_pointer": "0x8202b494",
+      "display_text": "기교 팔찌",
+      "description_pointer": "0x820342b8",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：銃弾の腕輪",
+      "id": 7,
+      "display_pointer": "0x8202b488",
+      "display_text": "총탄 팔찌",
+      "description_pointer": "0x82034290",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：経験値の腕輪",
+      "id": 8,
+      "display_pointer": "0x8202b47c",
+      "display_text": "수련 팔찌",
+      "description_pointer": "0x82034268",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：血晶の腕輪",
+      "id": 9,
+      "display_pointer": "0x8202b470",
+      "display_text": "혈정 팔찌",
+      "description_pointer": "0x82034240",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：護身の腕輪",
+      "id": 10,
+      "display_pointer": "0x8202b464",
+      "display_text": "호신 팔찌",
+      "description_pointer": "0x82034218",
+      "passed": true
+    },
+    {
+      "version": "candidate",
+      "key": "腕輪：自動螺旋の腕輪",
+      "id": 11,
+      "display_pointer": "0x8202b454",
+      "display_text": "자동 황홀 팔찌",
+      "description_pointer": "0x820341ec",
+      "passed": true
+    }
+  ]
+}

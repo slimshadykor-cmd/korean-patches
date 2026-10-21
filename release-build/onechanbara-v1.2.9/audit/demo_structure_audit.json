@@ -1,0 +1,3071 @@
+[
+  {
+    "file": "demo02_01.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x920",
+        "current_text_offset": "0x920",
+        "original": "どう？　狩るつもりで狩られた気分は？",
+        "current": "어때？　사냥하려다　사냥당한　기분은？"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x945",
+        "current_text_offset": "0x947",
+        "original": "…………。",
+        "current": "…………．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x950",
+        "current_text_offset": "0x952",
+        "original": "じゃあ、手始めに誰の差し金なのかを聞かせてもらえる？",
+        "current": "그럼　누가　시켰는지　말해　봐？"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x985",
+        "current_text_offset": "0x973",
+        "original": "卑魅虚様……、だ……。",
+        "current": "히미코　님……이시다……．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x99c",
+        "current_text_offset": "0x98e",
+        "original": "ヒミコサマ……ね。",
+        "current": "히미코　님……이라．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x9af",
+        "current_text_offset": "0x9a3",
+        "original": "ふうん、ご大層な名前。",
+        "current": "흐음，　거창한　이름이네．"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x9c6",
+        "current_text_offset": "0x9be",
+        "original": "……で、目的は？",
+        "current": "……그래서，　목적은？"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x9d7",
+        "current_text_offset": "0x9d5",
+        "original": "…………。",
+        "current": "…………．"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0x9e2",
+        "current_text_offset": "0x9e0",
+        "original": "口はお堅いご様子ね。",
+        "current": "입이　꽤　무거우시네．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x9f7",
+        "current_text_offset": "0x9f7",
+        "original": "しつけがきっちり行き届いてるみたい。",
+        "current": "교육은　철저히　받은　모양이야．"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0xa1c",
+        "current_text_offset": "0xa18",
+        "original": "でもね、もう大方の察しはついてる。",
+        "current": "하지만　이미　대충　짐작했어．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0xa3f",
+        "current_text_offset": "0xa37",
+        "original": "街中にゾンビを放ってまでして手に入れたい物……",
+        "current": "거리에　좀비를　풀면서까지　얻으려는　것……．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0xa6e",
+        "current_text_offset": "0xa66",
+        "original": "それは、忌血以外に考えられない。",
+        "current": "기혈　말고는　생각할　수　없지．"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0xa8f",
+        "current_text_offset": "0xa87",
+        "original": "それも、咲の忌血を狙ってるんでしょ？",
+        "current": "그것도　사키의　기혈을　노리는　거지？"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0xab4",
+        "current_text_offset": "0xaae",
+        "original": "ク、ククク……。そうだ……。",
+        "current": "크，　크크크……．　그렇다……．"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0xad1",
+        "current_text_offset": "0xacf",
+        "original": "お、お姉ちゃん……。",
+        "current": "어，　언니……．"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0xae6",
+        "current_text_offset": "0xae0",
+        "original": "大丈夫よ、咲。",
+        "current": "괜찮아，　사키．"
+      },
+      {
+        "record": 28,
+        "original_text_offset": "0xaf5",
+        "current_text_offset": "0xaf1",
+        "original": "あなたのことは、わたしが守るから……。",
+        "current": "너는　내가　지켜　줄　테니까……．"
+      },
+      {
+        "record": 29,
+        "original_text_offset": "0xb1c",
+        "current_text_offset": "0xb14",
+        "original": "違うのお姉ちゃん。",
+        "current": "그게　아니야，　언니．"
+      },
+      {
+        "record": 31,
+        "original_text_offset": "0xb2f",
+        "current_text_offset": "0xb2b",
+        "original": "こいつらから嫌な気配が伝わってくるの。",
+        "current": "이　녀석들에게서　불길한　기운이　느껴져．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0xb56",
+        "current_text_offset": "0xb56",
+        "original": "今までとは、ちょっと違う……。",
+        "current": "지금까지와는　조금　달라……．"
+      },
+      {
+        "record": 34,
+        "original_text_offset": "0xb75",
+        "current_text_offset": "0xb75",
+        "original": "限りなく屍霊に近いけど、でもそうじゃないような、",
+        "current": "좀비와　아주　비슷하지만，　아닌　것　같기도　하고，"
+      },
+      {
+        "record": 35,
+        "original_text_offset": "0xba6",
+        "current_text_offset": "0xbaa",
+        "original": "とにかく嫌な気配が……。",
+        "current": "아무튼　불길한　기운이……．"
+      },
+      {
+        "record": 36,
+        "original_text_offset": "0xbbf",
+        "current_text_offset": "0xbc7",
+        "original": "そのようね……。",
+        "current": "그런　것　같네……．"
+      },
+      {
+        "record": 38,
+        "original_text_offset": "0xbd0",
+        "current_text_offset": "0xbdc",
+        "original": "ありがとう。",
+        "current": "고마워．"
+      },
+      {
+        "record": 39,
+        "original_text_offset": "0xbdd",
+        "current_text_offset": "0xbe5",
+        "original": "油断は禁物、のようね。",
+        "current": "방심하면　안　되겠어．"
+      },
+      {
+        "record": 40,
+        "original_text_offset": "0xbf4",
+        "current_text_offset": "0xbfc",
+        "original": "じゃあ……、覚悟を決めて遺言をどうぞ。",
+        "current": "그럼……　각오하고　유언이나　남겨．"
+      },
+      {
+        "record": 42,
+        "original_text_offset": "0xc1b",
+        "current_text_offset": "0xc21",
+        "original": "ククク……。",
+        "current": "크크크……．"
+      },
+      {
+        "record": 44,
+        "original_text_offset": "0xc28",
+        "current_text_offset": "0xc2e",
+        "original": "ククッ、フハッ、フハハ……！！",
+        "current": "크큭，　푸핫，　푸하하……！！"
+      },
+      {
+        "record": 45,
+        "original_text_offset": "0xc47",
+        "current_text_offset": "0xc4d",
+        "original": "遺言ナシ……と。",
+        "current": "유언은　없다……　이거지．"
+      },
+      {
+        "record": 47,
+        "original_text_offset": "0xc58",
+        "current_text_offset": "0xc68",
+        "original": "じゃ、そういうことで悪いけど……。",
+        "current": "그럼，　미안하지만……．"
+      },
+      {
+        "record": 48,
+        "original_text_offset": "0xc7b",
+        "current_text_offset": "0xc81",
+        "original": "あなたには、ここで死んでもらうわ。",
+        "current": "넌　여기서　죽어　줘야겠어．"
+      },
+      {
+        "record": 49,
+        "original_text_offset": "0xc9e",
+        "current_text_offset": "0xc9e",
+        "original": "ククク……、馬鹿め……。",
+        "current": "크크크……　멍청한　것……．"
+      },
+      {
+        "record": 51,
+        "original_text_offset": "0xcb7",
+        "current_text_offset": "0xcbb",
+        "original": "狩りは……、これから……、だ……。",
+        "current": "사냥은……　지금부터……다……．"
+      }
+    ],
+    "text_pool": [
+      "0x920",
+      "0xcdc"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 926,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo06_00.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x7ec",
+        "current_text_offset": "0x7ec",
+        "original": "咲……。",
+        "current": "사키……．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x7f5",
+        "current_text_offset": "0x7f7",
+        "original": "無事でよかった。",
+        "current": "무사해서　다행이야．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x806",
+        "current_text_offset": "0x80c",
+        "original": "お姉ちゃんこそ……。",
+        "current": "언니도……．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x81b",
+        "current_text_offset": "0x819",
+        "original": "ところで、そちらの方は？",
+        "current": "그런데　그쪽　분은　누구야？"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x834",
+        "current_text_offset": "0x836",
+        "original": "あ……、この人、捕まってたアタシを助けてくれた、…えと、名前は…。",
+        "current": "아……　잡혀　있던　날　구해　준　분이야．　이름은……　어……．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x877",
+        "current_text_offset": "0x877",
+        "original": "アンナよ。よろしくね、アヤ。",
+        "current": "안나야．　잘　부탁해，　아야．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x894",
+        "current_text_offset": "0x896",
+        "original": "妹を助けてくれて、ありがとう。　礼を言うわ。",
+        "current": "동생을　구해　줘서　고마워．　감사할게．"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x8c1",
+        "current_text_offset": "0x8bf",
+        "original": "……けど、どうして危険を冒してまで、そんなことを？",
+        "current": "……그런데　왜　위험을　무릅쓰고　그런　일을？"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0x8f4",
+        "current_text_offset": "0x8ee",
+        "original": "私たちの名前も知っているようだし。",
+        "current": "우리　이름도　알고　있는　것　같고．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0x917",
+        "current_text_offset": "0x913",
+        "original": "お、お姉ちゃん……。",
+        "current": "어，　언니……．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0x92c",
+        "current_text_offset": "0x924",
+        "original": "フフッ、お疑いのようですね。",
+        "current": "후훗，　의심하시는군요．"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0x949",
+        "current_text_offset": "0x93d",
+        "original": "……大丈夫、安心してください。",
+        "current": "……괜찮아요．　안심하세요．"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0x968",
+        "current_text_offset": "0x95a",
+        "original": "あなたがた姉妹は、私たちの間では有名人なのですよ。",
+        "current": "두　분은　저희　사이에서　유명하거든요．"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0x99b",
+        "current_text_offset": "0x983",
+        "original": "私たちの間？",
+        "current": "저희　사이라니？"
+      },
+      {
+        "record": 25,
+        "original_text_offset": "0x9a8",
+        "current_text_offset": "0x994",
+        "original": "Ｚ．Ｐ．Ｆ隊の間で、ということです。",
+        "current": "Ｚ．Ｐ．Ｆ　대원들　사이에서요．"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0x9cd",
+        "current_text_offset": "0x9b5",
+        "original": "……そのＺ．Ｐ．Ｆ隊っていうのは？",
+        "current": "……그　Ｚ．Ｐ．Ｆ라는　건？"
+      },
+      {
+        "record": 28,
+        "original_text_offset": "0x9f0",
+        "current_text_offset": "0x9d2",
+        "original": "屍霊事件のために特別編成された特殊部隊です。",
+        "current": "좀비　사건　때문에　편성된　특수부대예요．"
+      },
+      {
+        "record": 29,
+        "original_text_offset": "0xa1d",
+        "current_text_offset": "0x9fd",
+        "original": "当然、以前起きた屍霊事件でのあなたがたの活躍も知っています。",
+        "current": "물론　지난　좀비　사건　때　두　분이　활약한　것도　알고　있어요．"
+      },
+      {
+        "record": 30,
+        "original_text_offset": "0xa5a",
+        "current_text_offset": "0xa40",
+        "original": "そして、ある組織のエージェントと名乗った黒ずくめの女、",
+        "current": "그리고　어느　조직의　요원이라던　검은　옷의　여자，"
+      },
+      {
+        "record": 31,
+        "original_text_offset": "0xa91",
+        "current_text_offset": "0xa75",
+        "original": "レイコのことも……。",
+        "current": "레이코에　대해서도……．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0xaa6",
+        "current_text_offset": "0xa8e",
+        "original": "なるほど、ね……。",
+        "current": "그렇구나……．"
+      },
+      {
+        "record": 33,
+        "original_text_offset": "0xab9",
+        "current_text_offset": "0xa9d",
+        "original": "でも、ずいぶんとフットワークが軽いのね。",
+        "current": "그런데　움직임이　상당히　빠르네．"
+      },
+      {
+        "record": 34,
+        "original_text_offset": "0xae2",
+        "current_text_offset": "0xac0",
+        "original": "今回の事件が起きてからの動きが早すぎやしない？",
+        "current": "이번　사건이　터진　뒤로　너무　빨리　움직인　거　아니야？"
+      },
+      {
+        "record": 35,
+        "original_text_offset": "0xb11",
+        "current_text_offset": "0xafb",
+        "original": "…今は部隊としての行動ではなく、私が個人として行動しているからです。",
+        "current": "……지금은　부대가　아닌，　저　개인으로　움직이고　있으니까요．"
+      },
+      {
+        "record": 36,
+        "original_text_offset": "0xb56",
+        "current_text_offset": "0xb3c",
+        "original": "サキを救えたのも、あの組織の動きをマークしていたからこそで、",
+        "current": "……지금은　부대가　아니라　개인적으로　움직이고　있으니까요．"
+      },
+      {
+        "record": 37,
+        "original_text_offset": "0xb93",
+        "current_text_offset": "0xb7b",
+        "original": "実は………！？",
+        "current": "실은………！？"
+      },
+      {
+        "record": 39,
+        "original_text_offset": "0xba2",
+        "current_text_offset": "0xb8a",
+        "original": "どうしたの、アンナさん？",
+        "current": "왜　그래요，　안나　씨？"
+      },
+      {
+        "record": 40,
+        "original_text_offset": "0xbbb",
+        "current_text_offset": "0xba3",
+        "original": "……あっ！？",
+        "current": "……앗！？"
+      },
+      {
+        "record": 42,
+        "original_text_offset": "0xbc8",
+        "current_text_offset": "0xbae",
+        "original": "どうやら邪魔が入ったみたいね。",
+        "current": "아무래도　방해꾼이　온　것　같네．"
+      },
+      {
+        "record": 43,
+        "original_text_offset": "0xbe7",
+        "current_text_offset": "0xbd1",
+        "original": "アンナ、あなたの話は興味深いけれど……。",
+        "current": "안나，　네　이야기는　흥미롭지만……．"
+      },
+      {
+        "record": 44,
+        "original_text_offset": "0xc10",
+        "current_text_offset": "0xbf8",
+        "original": "ええ、話の続きはあとにしましょう。",
+        "current": "네，　이야기는　나중에　계속하죠．"
+      }
+    ],
+    "text_pool": [
+      "0x7ec",
+      "0xc34"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 1090,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo06_01.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x298",
+        "current_text_offset": "0x298",
+        "original": "見つけたよ、咲ぃ。",
+        "current": "찾았다，　사키．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x2ab",
+        "current_text_offset": "0x2a9",
+        "original": "……誰なの、おまえ？",
+        "current": "……넌　누구야？"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x2c0",
+        "current_text_offset": "0x2ba",
+        "original": "教えて欲しい？",
+        "current": "알고　싶어？"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x2cf",
+        "current_text_offset": "0x2c7",
+        "original": "アタシの名前は、ミザリー。",
+        "current": "내　이름은　미저리．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x2ea",
+        "current_text_offset": "0x2dc",
+        "original": "おまえが欲しくて探してたんだよ。",
+        "current": "널　갖고　싶어서　찾아다녔어．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x30b",
+        "current_text_offset": "0x2fb",
+        "original": "アヤ、危険な相手のようですよ。",
+        "current": "아야，　위험한　상대　같아요．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x32a",
+        "current_text_offset": "0x31a",
+        "original": "ええ、わかってるわ。",
+        "current": "그래，　알고　있어．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x33f",
+        "current_text_offset": "0x32f",
+        "original": "ところで、そのミザリーさんとやらは……、組織の人間？",
+        "current": "그런데　그　미저리라는　분은……　조직　사람인가？"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x374",
+        "current_text_offset": "0x362",
+        "original": "まぁ、一応ね。",
+        "current": "뭐，　일단은．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x383",
+        "current_text_offset": "0x371",
+        "original": "それじゃ、挨拶も済んだことだし……いただくよ！！",
+        "current": "그럼　인사도　끝났으니……　잘　먹을게！！"
+      }
+    ],
+    "text_pool": [
+      "0x298",
+      "0x3b4"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 286,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo06_02.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x3cc",
+        "current_text_offset": "0x3cc",
+        "original": "ンフフフ、やるじゃん……。",
+        "current": "으흐흐，　제법인데……．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x3e7",
+        "current_text_offset": "0x3e5",
+        "original": "でもね、見てよこれ……。",
+        "current": "그런데　이것　좀　봐……．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x400",
+        "current_text_offset": "0x400",
+        "original": "その棘だらけの無駄にでかい剣がどうかしたの？",
+        "current": "그　쓸데없이　크고　가시투성이인　칼이　왜？"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x42d",
+        "current_text_offset": "0x42d",
+        "original": "棘のせいで血がこびり付いたままよ。",
+        "current": "가시　때문에　피가　잔뜩　엉겨　붙었네．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x450",
+        "current_text_offset": "0x456",
+        "original": "ンフフ。これ、おまえらの血なんだよ……。",
+        "current": "으흐흐．　이거，　너희　피야……．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x479",
+        "current_text_offset": "0x479",
+        "original": "これだけあれば、あとで……。ンフフ、とっても美味しそう……。",
+        "current": "이만큼이면　나중에……．　으흐흐，　정말　맛있겠어……．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x4b6",
+        "current_text_offset": "0x4b2",
+        "original": "おまえ、アタシたちの血でなにする気だっ！？",
+        "current": "너，　우리　피로　뭘　하려는　거야！？"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x4e1",
+        "current_text_offset": "0x4d9",
+        "original": "アタシさ。",
+        "current": "난　말이야．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x4ec",
+        "current_text_offset": "0x4e6",
+        "original": "例え少しでも他の奴の忌血を身体に取り込めば、",
+        "current": "남의　기혈을　조금이라도　몸에　받아들이면，"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x519",
+        "current_text_offset": "0x513",
+        "original": "自分の力を増幅できちゃうんだよね……。",
+        "current": "내　힘을　키울　수　있거든……．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x540",
+        "current_text_offset": "0x534",
+        "original": "この剣のギザギザだってさぁ、",
+        "current": "이　칼의　톱니도　말이야，"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0x55d",
+        "current_text_offset": "0x54f",
+        "original": "おまえたちのような忌血を持つ者の肉を切り裂いて、",
+        "current": "너희처럼　기혈을　지닌　자의　살을　찢어서，"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x58e",
+        "current_text_offset": "0x57c",
+        "original": "血を確実に手に入れるために仕込んであるわけだし……。",
+        "current": "피를　확실하게　얻으려고　달아　둔　거야……．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x5c3",
+        "current_text_offset": "0x5ab",
+        "original": "ミザリー、あなた……。",
+        "current": "미저리，　너……．"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0x5da",
+        "current_text_offset": "0x5be",
+        "original": "はじめから忌血だけが目的で……。",
+        "current": "처음부터　기혈만　노렸구나……．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0x5fb",
+        "current_text_offset": "0x5df",
+        "original": "次は、もっとたくさんの血をいただくから……。",
+        "current": "다음엔　더　많은　피를　받아　갈게……．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0x628",
+        "current_text_offset": "0x608",
+        "original": "ンフフ……。楽しみにしててね。",
+        "current": "으흐흐……　기대하고　있어．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0x647",
+        "current_text_offset": "0x625",
+        "original": "ンフフフフフフ……",
+        "current": "으흐흐흐흐흐……．"
+      }
+    ],
+    "text_pool": [
+      "0x3cc",
+      "0x65c"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 640,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo07_00.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x68c",
+        "current_text_offset": "0x68c",
+        "original": "咲を捕獲することはできなんだか……。",
+        "current": "사키는　붙잡지　못했느냐……．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x6b1",
+        "current_text_offset": "0x6ab",
+        "original": "まあよいわ、まずは少量でも忌血さえ手に入ればそれでよい。",
+        "current": "뭐，　됐다．　우선　적은　양이라도　기혈만　얻으면　된다．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x6ea",
+        "current_text_offset": "0x6e6",
+        "original": "……しかし、ミザリーに忌血を与える結果ともなりました……。",
+        "current": "……허나　미저리에게도　기혈을　주고　말았습니다……．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x725",
+        "current_text_offset": "0x71d",
+        "original": "わかっておる。",
+        "current": "알고　있다．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x734",
+        "current_text_offset": "0x72a",
+        "original": "あの身の程を知らぬ小娘がっ……。",
+        "current": "분수도　모르는　계집애　같으니……．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x755",
+        "current_text_offset": "0x74f",
+        "original": "相変わらず勝手をしよるわ……。",
+        "current": "여전히　제멋대로　구는구나……．"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x774",
+        "current_text_offset": "0x770",
+        "original": "それに……、忌血の姉妹じゃな。",
+        "current": "그리고……　기혈의　자매로군．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x793",
+        "current_text_offset": "0x78f",
+        "original": "あのままにしておくこともできぬ……。",
+        "current": "그대로　내버려　둘　수도　없지……．"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0x7b8",
+        "current_text_offset": "0x7b4",
+        "original": "…………。",
+        "current": "…………．"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x7c3",
+        "current_text_offset": "0x7bf",
+        "original": "ふむ……では、咲を再度捕獲しにかかるとするか……。",
+        "current": "흐음……　그럼　사키를　다시　붙잡도록　해라……．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x7f6",
+        "current_text_offset": "0x7f2",
+        "original": "奴の身体は実験体として有用な存在と言える。",
+        "current": "그　몸은　실험체로　쓸　만하다．"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0x821",
+        "current_text_offset": "0x813",
+        "original": "しかし万が一、咲を捕獲できぬようならば、姉妹もろとも始末せよっ！",
+        "current": "허나　사키를　붙잡지　못하겠거든，　자매를　모두　없애라！"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0x862",
+        "current_text_offset": "0x84e",
+        "original": "ミザリーにこれ以上、忌血を得させぬ為にな。",
+        "current": "미저리가　더는　기혈을　얻지　못하게．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0x88d",
+        "current_text_offset": "0x875",
+        "original": "ははっ……。",
+        "current": "예……．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0x89a",
+        "current_text_offset": "0x87e",
+        "original": "問題は…、咲を捕らえるにはまず、",
+        "current": "문제는……　사키를　붙잡으려면　먼저，"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0x8bb",
+        "current_text_offset": "0x8a5",
+        "original": "きゃつらの所在を突き止めねばならぬことじゃが…。",
+        "current": "그들이　어디　있는지　알아내야　하지……．"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0x8ec",
+        "current_text_offset": "0x8d0",
+        "original": "……よし。今一度、屍霊を街に放つのじゃ。",
+        "current": "……좋다．　다시　한번　거리에　좀비를　풀어라．"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0x915",
+        "current_text_offset": "0x901",
+        "original": "組織を公にさらす恐れがありますが……。",
+        "current": "조직이　세상에　드러날　위험이　있습니다……．"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0x93c",
+        "current_text_offset": "0x930",
+        "original": "なに……、心配はいらぬ。",
+        "current": "뭐……　걱정할　것　없다．"
+      },
+      {
+        "record": 25,
+        "original_text_offset": "0x955",
+        "current_text_offset": "0x94b",
+        "original": "世間に組織が知れたところで、咲の忌血を手にした今、",
+        "current": "조직이　알려진들，　사키의　기혈을　얻은　이상，"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0x988",
+        "current_text_offset": "0x97c",
+        "original": "我らに敵対するものなどありはせぬわ！",
+        "current": "우리에게　맞설　자　따위는　없으니！"
+      },
+      {
+        "record": 27,
+        "original_text_offset": "0x9ad",
+        "current_text_offset": "0x9a1",
+        "original": "ははっ……。",
+        "current": "예……．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0x9ba",
+        "current_text_offset": "0x9aa",
+        "original": "……さて、この作戦……。",
+        "current": "……그럼，　이번　작전에는……．"
+      },
+      {
+        "record": 34,
+        "original_text_offset": "0x9d3",
+        "current_text_offset": "0x9cb",
+        "original": "おまえにも参加してもらうぞ。",
+        "current": "너도　참가해　줘야겠다．"
+      },
+      {
+        "record": 35,
+        "original_text_offset": "0x9f0",
+        "current_text_offset": "0x9e4",
+        "original": "……できるな？",
+        "current": "……할　수　있겠느냐？"
+      },
+      {
+        "record": 36,
+        "original_text_offset": "0x9ff",
+        "current_text_offset": "0x9fb",
+        "original": "畏まりました、仰せのとおりに……。",
+        "current": "알겠습니다．　분부대로　하겠습니다……．"
+      }
+    ],
+    "text_pool": [
+      "0x68c",
+      "0xa24"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 921,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo07_01.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x6e4",
+        "current_text_offset": "0x6e4",
+        "original": "お久しぶりね、彩。変わりはないかしら？",
+        "current": "오랜만이네，　아야．　잘　지냈어？"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x70b",
+        "current_text_offset": "0x707",
+        "original": "レイコ……。",
+        "current": "레이코……．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x718",
+        "current_text_offset": "0x714",
+        "original": "……わたしは、相変わらずよ。",
+        "current": "……난　여전해．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x735",
+        "current_text_offset": "0x725",
+        "original": "あなたは……なんだか少し雰囲気が変わったみたいね。",
+        "current": "넌……　왠지　분위기가　조금　달라졌네．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x768",
+        "current_text_offset": "0x74e",
+        "original": "フフッ、でもねぇ……、変わらないものもあるのよ……。",
+        "current": "후훗，　그래도……　변하지　않는　것도　있어……．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x79d",
+        "current_text_offset": "0x781",
+        "original": "見て、あなたにつけられたこの首の傷……",
+        "current": "봐，　네가　내　목에　남긴　이　상처……．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x7c4",
+        "current_text_offset": "0x7ac",
+        "original": "いくらファンデーションを塗っても、浮き上がってくるのよ。",
+        "current": "화장을　아무리　두껍게　해도　드러나거든．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x7fd",
+        "current_text_offset": "0x7d7",
+        "original": "これはきっと…。あなたのことを忘れないようにってことなんでしょうね。",
+        "current": "분명……　널　잊지　말라는　뜻이겠지．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x842",
+        "current_text_offset": "0x7fe",
+        "original": "わたしの方は、忘れてもらってても一向にかまわなかったんだけどね。",
+        "current": "난　잊어　줬어도　전혀　상관없었는데　말이야．"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x883",
+        "current_text_offset": "0x82d",
+        "original": "でも、悪いことばかりじゃないのよ。",
+        "current": "하지만　나쁜　일만　있었던　건　아니야．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x8a6",
+        "current_text_offset": "0x856",
+        "original": "あなたと一緒に倒した、あのエヴァの忌血。",
+        "current": "너와　함께　쓰러뜨린　에바의　기혈．"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0x8cf",
+        "current_text_offset": "0x87b",
+        "original": "組織が行ってる研究にすごく役に立ったわ。",
+        "current": "조직의　연구에　아주　큰　도움이　됐거든．"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x8f8",
+        "current_text_offset": "0x8a6",
+        "original": "くっ……。",
+        "current": "큭……．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x903",
+        "current_text_offset": "0x8af",
+        "original": "あら、どうしたの彩？　急に黙り込んじゃって。",
+        "current": "어머，　왜　그래，　아야？　갑자기　말이　없네．"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0x930",
+        "current_text_offset": "0x8e0",
+        "original": "調子でも悪いの？",
+        "current": "어디　아프니？"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0x941",
+        "current_text_offset": "0x8ef",
+        "original": "わたしは後悔しているのよ。",
+        "current": "난　후회하고　있어．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0x95c",
+        "current_text_offset": "0x904",
+        "original": "レイコ、あなたの姿を目の当たりにして……。自分の甘さにね。",
+        "current": "레이코，　네　모습을　보고……　내가　너무　물렀다는　걸．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0x997",
+        "current_text_offset": "0x93f",
+        "original": "あの時、わたしがちゃんととどめを刺していれば、",
+        "current": "그때　내가　확실하게　끝장을　냈다면，"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0x9c6",
+        "current_text_offset": "0x966",
+        "original": "今回の騒動も起きなかったんじゃないかって。",
+        "current": "이번　소동도　없었을　텐데　하고．"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0x9f1",
+        "current_text_offset": "0x989",
+        "original": "アハハハッ！　本当にそうねっ、彩っ。",
+        "current": "아하하하！　정말　그러네，　아야！"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0xa16",
+        "current_text_offset": "0x9ac",
+        "original": "あなたにしては信じられない程、甘いミスだったわね。",
+        "current": "너답지　않게　너무　안일한　실수였어．"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0xa49",
+        "current_text_offset": "0x9d3",
+        "original": "でも……。だったら、どうするつもりなのかしら？",
+        "current": "그런데……　그렇다면　어쩔　생각이야？"
+      },
+      {
+        "record": 25,
+        "original_text_offset": "0xa78",
+        "current_text_offset": "0x9fa",
+        "original": "咲っ、アンナッ……。",
+        "current": "사키，　안나……．"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0xa8d",
+        "current_text_offset": "0xa0d",
+        "original": "ここはわたしに任せて、あなたたちは先に行って！",
+        "current": "여긴　내게　맡기고　너희는　먼저　가！"
+      },
+      {
+        "record": 27,
+        "original_text_offset": "0xabc",
+        "current_text_offset": "0xa34",
+        "original": "えっ、でも……。お姉ちゃん……？",
+        "current": "뭐？　하지만……　언니……？"
+      },
+      {
+        "record": 28,
+        "original_text_offset": "0xadd",
+        "current_text_offset": "0xa51",
+        "original": "心配しないで咲。",
+        "current": "걱정　마，　사키．"
+      },
+      {
+        "record": 29,
+        "original_text_offset": "0xaee",
+        "current_text_offset": "0xa64",
+        "original": "すぐに後を追うから。",
+        "current": "금방　따라갈게．"
+      },
+      {
+        "record": 30,
+        "original_text_offset": "0xb03",
+        "current_text_offset": "0xa75",
+        "original": "アンナ。咲のこと、よろしく頼むわね。",
+        "current": "안나．　사키를　부탁할게．"
+      },
+      {
+        "record": 31,
+        "original_text_offset": "0xb28",
+        "current_text_offset": "0xa90",
+        "original": "ええ、わかったわ。任せて。",
+        "current": "응，　알았어．　맡겨　둬．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0xb43",
+        "current_text_offset": "0xaab",
+        "original": "アヤ、あなたも気をつけてください。",
+        "current": "아야，　당신도　조심하세요．"
+      },
+      {
+        "record": 35,
+        "original_text_offset": "0xb66",
+        "current_text_offset": "0xac8",
+        "original": "まぁ……、嬉しい配慮ね、彩。",
+        "current": "어머……　고마운　배려네，　아야．"
+      },
+      {
+        "record": 36,
+        "original_text_offset": "0xb83",
+        "current_text_offset": "0xaeb",
+        "original": "誰にも邪魔されず、あなたと戦えるだなんて。",
+        "current": "아무　방해도　없이　너와　싸울　수　있다니．"
+      },
+      {
+        "record": 37,
+        "original_text_offset": "0xbae",
+        "current_text_offset": "0xb18",
+        "original": "レイコ……、おしゃべりはもうおしまいよ。",
+        "current": "레이코……　수다는　이제　끝이야．"
+      },
+      {
+        "record": 38,
+        "original_text_offset": "0xbd7",
+        "current_text_offset": "0xb3b",
+        "original": "今こそ、過去の禍根を断ち切ってやるわ。",
+        "current": "지금이야말로　과거의　화근을　끊어　주겠어．"
+      }
+    ],
+    "text_pool": [
+      "0x6e4",
+      "0xc00"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 1327,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo07_02.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x31c",
+        "current_text_offset": "0x31c",
+        "original": "ンッ……ハァハァ……。",
+        "current": "으윽……　하아，　하아……．"
+      },
+      {
+        "record": 2,
+        "original_text_offset": "0x333",
+        "current_text_offset": "0x339",
+        "original": "さすがに……やるわね、彩……。",
+        "current": "역시……　제법이네，　아야……．"
+      },
+      {
+        "record": 3,
+        "original_text_offset": "0x352",
+        "current_text_offset": "0x35a",
+        "original": "やるもなにも……レイコ、もしかしてあなた本当の馬鹿？",
+        "current": "제법이고　뭐고……　레이코，　너　정말　바보야？"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x387",
+        "current_text_offset": "0x38b",
+        "original": "あなたの力じゃわたしに勝てないって、もうわかってたと思うんだけど？",
+        "current": "네　힘으로　날　이길　수　없다는　건　이미　알았을　텐데？"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x3ca",
+        "current_text_offset": "0x3c6",
+        "original": "フフフ……。",
+        "current": "후후후……．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x3d7",
+        "current_text_offset": "0x3d3",
+        "original": "彩、あなたこそ忘れてるんじゃない？",
+        "current": "아야，　오히려　네가　잊은　거　아니야？"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x3fa",
+        "current_text_offset": "0x3fc",
+        "original": "この私の身体の秘密を……。",
+        "current": "내　몸의　비밀을……．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x415",
+        "current_text_offset": "0x413",
+        "original": "秘密……？",
+        "current": "비밀……？"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x420",
+        "current_text_offset": "0x41e",
+        "original": "そう、まだまだ終わりなんかじゃないわよ。",
+        "current": "그래，　아직　끝난　게　아니야．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x449",
+        "current_text_offset": "0x43f",
+        "original": "こんなものじゃ、終わらないのよ！",
+        "current": "이　정도로　끝나진　않아！"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x46a",
+        "current_text_offset": "0x45a",
+        "original": "え？　なんなの、これ？　クローン！？",
+        "current": "뭐？　이게　뭐야？　클론！？"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x48f",
+        "current_text_offset": "0x477",
+        "original": "アーッハッハ、ハハッ、ハハハッ！",
+        "current": "아하하，　하하，　하하하！"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x4b0",
+        "current_text_offset": "0x492",
+        "original": "そうよ、彩。これ全部、私なの！！",
+        "current": "그래，　아야．　전부　나야！！"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0x4d1",
+        "current_text_offset": "0x4b1",
+        "original": "これで、もっともっと楽しむことができるわねっ！！",
+        "current": "이제　훨씬　더　즐길　수　있겠네！！"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x502",
+        "current_text_offset": "0x4d6",
+        "original": "ふぅ、悪趣味にもほどがあるわね……。",
+        "current": "후우，　악취미도　정도가　있지……．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x527",
+        "current_text_offset": "0x4fb",
+        "original": "けど、これでやっと面白くなってきたって感じね。",
+        "current": "그래도　이제야　좀　재미있어지겠네．"
+      }
+    ],
+    "text_pool": [
+      "0x31c",
+      "0x558"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 561,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo08_00.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x190",
+        "current_text_offset": "0x190",
+        "original": "また黒服の奴らが出てきた……。",
+        "current": "또　검은　옷　녀석들이　나왔네……．"
+      },
+      {
+        "record": 2,
+        "original_text_offset": "0x1af",
+        "current_text_offset": "0x1b5",
+        "original": "まったく、面倒だな……。",
+        "current": "정말，　귀찮게　하네……．"
+      },
+      {
+        "record": 3,
+        "original_text_offset": "0x1c8",
+        "current_text_offset": "0x1d0",
+        "original": "油断しないで、サキ。",
+        "current": "방심하지　마，　사키．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x1dd",
+        "current_text_offset": "0x1e7",
+        "original": "彼らは卑魅虚の側近たちです。",
+        "current": "저들은　히미코의　측근이에요．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x1fa",
+        "current_text_offset": "0x206",
+        "original": "ただのゾンビたちとは比べ物にならないほどの戦闘能力がありますよ。",
+        "current": "평범한　좀비와　비교도　안　될　전투력을　지녔어요．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x23b",
+        "current_text_offset": "0x23b",
+        "original": "大丈夫。",
+        "current": "괜찮아요．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x244",
+        "current_text_offset": "0x246",
+        "original": "もう油断なんてしないからっ！",
+        "current": "이젠　방심하지　않을　거야！"
+      }
+    ],
+    "text_pool": [
+      "0x190",
+      "0x264"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 209,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo09_01.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x26c",
+        "current_text_offset": "0x26c",
+        "original": "ククク…、大した強さだ…。",
+        "current": "크크크……　대단한　힘이군……．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x287",
+        "current_text_offset": "0x28d",
+        "original": "これであればミザリーも…、迂闊に手は出せぬか…。",
+        "current": "이　정도면　미저리도……　함부로　못　덤비겠군……．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x2b8",
+        "current_text_offset": "0x2c2",
+        "original": "ミザリー？",
+        "current": "미저리？"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x2c3",
+        "current_text_offset": "0x2cb",
+        "original": "あいつは…、あなたと味方同士じゃないの？",
+        "current": "그　여자……　당신과　한패　아니었어？"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x2ec",
+        "current_text_offset": "0x2f2",
+        "original": "島へ…、来るのだ…。",
+        "current": "섬으로……　와라……．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x301",
+        "current_text_offset": "0x309",
+        "original": "待って、兄さんっ！",
+        "current": "기다려，　오빠！"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x314",
+        "current_text_offset": "0x31a",
+        "original": "えっ！？",
+        "current": "뭐！？"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x31d",
+        "current_text_offset": "0x321",
+        "original": "にい…さん、って。",
+        "current": "오……빠라니．"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x330",
+        "current_text_offset": "0x330",
+        "original": "あいつ…、もしかしてアンナさんの…。",
+        "current": "저　사람……　설마　안나　씨의……．"
+      }
+    ],
+    "text_pool": [
+      "0x26c",
+      "0x358"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 226,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo10_00.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x794",
+        "current_text_offset": "0x794",
+        "original": "…………。",
+        "current": "…………．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x79f",
+        "current_text_offset": "0x79f",
+        "original": "ミザリーか……。",
+        "current": "미저리냐……．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x7b0",
+        "current_text_offset": "0x7ae",
+        "original": "側近たちを払えば姿を見せると思っておったわ。",
+        "current": "측근들을　물리면　모습을　드러낼　줄　알았다．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x7dd",
+        "current_text_offset": "0x7dd",
+        "original": "なんでもお見通しってわけだ。",
+        "current": "다　꿰뚫어　보신다　이거네．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x7fa",
+        "current_text_offset": "0x7fa",
+        "original": "ああ、もちろんだとも。",
+        "current": "그래，　물론이지．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x811",
+        "current_text_offset": "0x80d",
+        "original": "お前が陰で忌血をつまんでおったこともな……。",
+        "current": "네가　몰래　기혈을　빼먹은　것도　말이다……．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x83e",
+        "current_text_offset": "0x83c",
+        "original": "クフフッ、やっぱり？",
+        "current": "크흐흐，　역시？"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x853",
+        "current_text_offset": "0x84d",
+        "original": "その顔で隠していたつもりなら、大した器と言うべきかな。",
+        "current": "그런　얼굴로　숨겼다고　생각했다면　대단한　배짱이구나．"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x88a",
+        "current_text_offset": "0x886",
+        "original": "だが、これからは勝手な真似は一切許さぬ。",
+        "current": "허나　이젠　제멋대로　구는　건　용납하지　않겠다．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x8b3",
+        "current_text_offset": "0x8b9",
+        "original": "背いたときは……、分かっておるだろうな……。",
+        "current": "거역하면……　어찌　될지　알고　있겠지……．"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0x8e0",
+        "current_text_offset": "0x8e6",
+        "original": "言うことを聞けない、と言ったら？",
+        "current": "말을　못　듣겠다고　하면？"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x901",
+        "current_text_offset": "0x901",
+        "original": "我が組織に盾突く気か……？",
+        "current": "우리　조직에　맞설　셈이냐……？"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x91c",
+        "current_text_offset": "0x922",
+        "original": "愚か者めが……、身の程を知れ。",
+        "current": "어리석은　것……　분수를　알아라．"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0x93b",
+        "current_text_offset": "0x945",
+        "original": "アタシ、けっこう忌血の研究に役立ってたはず。",
+        "current": "나，　기혈　연구에　꽤　도움이　됐을　텐데．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0x968",
+        "current_text_offset": "0x972",
+        "original": "なのに……。",
+        "current": "그런데도……．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0x975",
+        "current_text_offset": "0x981",
+        "original": "やっぱりアタシは、ただの実験動物だったんだ。",
+        "current": "역시　난　실험동물일　뿐이었구나．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0x9a2",
+        "current_text_offset": "0x9a4",
+        "original": "愚鈍な……。",
+        "current": "우둔한　것……．"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0x9af",
+        "current_text_offset": "0x9b5",
+        "original": "貴様など所詮、組織の歯車の一つにすぎぬわっ……。",
+        "current": "네년　따윈　조직의　톱니바퀴　하나일　뿐이다……．"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0x9e0",
+        "current_text_offset": "0x9e8",
+        "original": "そう。……なら、いいわ。",
+        "current": "그래．　……그렇다면　됐어．"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0x9f9",
+        "current_text_offset": "0xa05",
+        "original": "アンタとはここでお別れだね。",
+        "current": "너와는　여기서　작별이야．"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0xa16",
+        "current_text_offset": "0xa20",
+        "original": "アンタが集めたいろんな忌血……。",
+        "current": "네가　모아　놓은　온갖　기혈……．"
+      },
+      {
+        "record": 25,
+        "original_text_offset": "0xa37",
+        "current_text_offset": "0xa43",
+        "original": "全部、アタシの物にすることにしたからっ！",
+        "current": "전부　내　것으로　삼기로　했거든！"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0xa60",
+        "current_text_offset": "0xa66",
+        "original": "はっ。あくまで組織に仇なすつもりか……。",
+        "current": "하，　끝까지　조직에　반기를　들겠다는　거냐……．"
+      },
+      {
+        "record": 27,
+        "original_text_offset": "0xa89",
+        "current_text_offset": "0xa99",
+        "original": "卑魅虚様……。",
+        "current": "히미코　님……．"
+      },
+      {
+        "record": 30,
+        "original_text_offset": "0xa98",
+        "current_text_offset": "0xaaa",
+        "original": "なるほどね……、相変わらずの用心深さね。",
+        "current": "그렇구나……　여전히　조심성이　많네．"
+      },
+      {
+        "record": 31,
+        "original_text_offset": "0xac1",
+        "current_text_offset": "0xad1",
+        "original": "いかようにでも言うがいいわ。",
+        "current": "뭐라고　떠들든　상관없다．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0xade",
+        "current_text_offset": "0xaec",
+        "original": "さてと、どうしようか？",
+        "current": "자，　그럼　어쩔까？"
+      },
+      {
+        "record": 33,
+        "original_text_offset": "0xaf5",
+        "current_text_offset": "0xb01",
+        "original": "あんたら全員相手にしてたら、",
+        "current": "너희를　전부　상대했다간，"
+      },
+      {
+        "record": 34,
+        "original_text_offset": "0xb12",
+        "current_text_offset": "0xb1c",
+        "original": "さすがに身体が持ちそうもないだろうし……。",
+        "current": "아무리　나라도　몸이　못　버틸　것　같은데……．"
+      },
+      {
+        "record": 35,
+        "original_text_offset": "0xb3d",
+        "current_text_offset": "0xb4d",
+        "original": "ここは……、撤退とさせてもらうわねっ！",
+        "current": "여기선……　물러나도록　할게！"
+      },
+      {
+        "record": 37,
+        "original_text_offset": "0xb64",
+        "current_text_offset": "0xb6c",
+        "original": "……追いますか？",
+        "current": "……쫓을까요？"
+      },
+      {
+        "record": 39,
+        "original_text_offset": "0xb75",
+        "current_text_offset": "0xb7b",
+        "original": "かまわん。",
+        "current": "됐다．"
+      },
+      {
+        "record": 40,
+        "original_text_offset": "0xb80",
+        "current_text_offset": "0xb82",
+        "original": "……ほうっておけ。",
+        "current": "……내버려　둬라．"
+      },
+      {
+        "record": 41,
+        "original_text_offset": "0xb93",
+        "current_text_offset": "0xb95",
+        "original": "それよりも咲の身柄だ……。あれさえ手に入れば全ての片が付く……。",
+        "current": "그보다　사키다……．　그　아이만　손에　넣으면　모두　끝난다……．"
+      },
+      {
+        "record": 42,
+        "original_text_offset": "0xbd4",
+        "current_text_offset": "0xbd8",
+        "original": "ははっ……。",
+        "current": "예……．"
+      }
+    ],
+    "text_pool": [
+      "0x794",
+      "0xbe4"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 1083,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo11_00.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x634",
+        "current_text_offset": "0x634",
+        "original": "まったく、とんだ空の旅だったわね。",
+        "current": "정말，　기막힌　비행이었네．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x657",
+        "current_text_offset": "0x651",
+        "original": "まぁ、無事に着けましたから、良しとしましょう。",
+        "current": "뭐，　무사히　도착했으니　다행으로　여기죠．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x686",
+        "current_text_offset": "0x67e",
+        "original": "待って！　お姉ちゃん……！　あれ……！？",
+        "current": "잠깐！　언니……！　저건……！？"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x6af",
+        "current_text_offset": "0x69f",
+        "original": "……ミザリーのようね。",
+        "current": "……미저리　같네．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x6c6",
+        "current_text_offset": "0x6b2",
+        "original": "……へぇ、本当に来たんだ？",
+        "current": "……와，　정말　왔네？"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x6e1",
+        "current_text_offset": "0x6c9",
+        "original": "よくここがわかったね。",
+        "current": "여기는　용케도　알아냈네．"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x6f8",
+        "current_text_offset": "0x6e4",
+        "original": "ええ、ご招待してくれた方がいたからね。",
+        "current": "응，　초대해　준　분이　있었거든．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x71f",
+        "current_text_offset": "0x707",
+        "original": "ふーん、そうなんだ。",
+        "current": "흐음，　그랬구나．"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0x734",
+        "current_text_offset": "0x71a",
+        "original": "まあ別になんでもいいんだけど。",
+        "current": "뭐，　아무래도　상관없지만．"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x753",
+        "current_text_offset": "0x737",
+        "original": "それで、お出迎えがあなたってこと？",
+        "current": "그래서　네가　마중을　나온　거야？"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x776",
+        "current_text_offset": "0x75a",
+        "original": "そうなら、早めに始めちゃってもらえないかしら？",
+        "current": "그렇다면　빨리　시작해　주겠어？"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0x7a5",
+        "current_text_offset": "0x77b",
+        "original": "いいよ、別にすぐ始めちゃっても……。",
+        "current": "좋아，　당장　시작해도　되지만……．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0x7ca",
+        "current_text_offset": "0x7a0",
+        "original": "でもね。……今はやめとく。",
+        "current": "그런데……　지금은　관둘래．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0x7e5",
+        "current_text_offset": "0x7bd",
+        "original": "どういうこと？",
+        "current": "무슨　뜻이야？"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0x7f4",
+        "current_text_offset": "0x7cc",
+        "original": "そんな気分だってことだけだよ。",
+        "current": "그냥　그런　기분이라고．"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0x813",
+        "current_text_offset": "0x7e5",
+        "original": "ま、好きにやっちゃっててよ。アタシは邪魔しないからさ。",
+        "current": "마음대로　해．　난　방해하지　않을　테니까．"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0x84a",
+        "current_text_offset": "0x812",
+        "original": "そう言いつつ、後ろからバッサリとか？",
+        "current": "그렇게　말하고　뒤에서　베어　버리려고？"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0x86f",
+        "current_text_offset": "0x83b",
+        "original": "それとも、なにか罠でも……？",
+        "current": "아니면　무슨　함정이라도……？"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0x88c",
+        "current_text_offset": "0x85a",
+        "original": "さあね。どう考えるかは、ご自由に。",
+        "current": "글쎄．　어떻게　생각하든　네　자유야．"
+      },
+      {
+        "record": 25,
+        "original_text_offset": "0x8af",
+        "current_text_offset": "0x881",
+        "original": "好きなだけ島の探索でもなんでもやっちゃってよ。",
+        "current": "섬을　뒤지든　뭘　하든　마음대로　해．"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0x8de",
+        "current_text_offset": "0x8a8",
+        "original": "……本気で手を出す気はないみたいですね。",
+        "current": "……정말　손댈　생각은　없는　것　같네요．"
+      },
+      {
+        "record": 28,
+        "original_text_offset": "0x907",
+        "current_text_offset": "0x8d3",
+        "original": "…………。",
+        "current": "…………．"
+      },
+      {
+        "record": 30,
+        "original_text_offset": "0x912",
+        "current_text_offset": "0x8de",
+        "original": "フフフ……じゃあね。",
+        "current": "후후후……　그럼，　안녕．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0x927",
+        "current_text_offset": "0x8f9",
+        "original": "ホントに、行っちゃったよ……、変なの……。",
+        "current": "정말　가　버렸네……　이상한　여자……．"
+      },
+      {
+        "record": 33,
+        "original_text_offset": "0x952",
+        "current_text_offset": "0x922",
+        "original": "つまり、わたしたちの歓迎の準備は万全ってことよ。",
+        "current": "그러니까　우릴　맞을　준비가　끝났다는　거겠지．"
+      },
+      {
+        "record": 34,
+        "original_text_offset": "0x983",
+        "current_text_offset": "0x953",
+        "original": "さっ、何が待っているのか、期待していこうかしらね。",
+        "current": "자，　뭐가　기다릴지　기대하면서　가　볼까？"
+      }
+    ],
+    "text_pool": [
+      "0x634",
+      "0x9b8"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 903,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo17_00.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x214",
+        "current_text_offset": "0x214",
+        "original": "咲、アンナ……。",
+        "current": "사키，　안나……．"
+      },
+      {
+        "record": 3,
+        "original_text_offset": "0x225",
+        "current_text_offset": "0x227",
+        "original": "よかった。２人とも無事だったようね。",
+        "current": "다행이야．　둘　다　무사했구나．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x24a",
+        "current_text_offset": "0x248",
+        "original": "うん、どうってことなかったよ。",
+        "current": "응，　별것도　아니었어．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x269",
+        "current_text_offset": "0x261",
+        "original": "お姉ちゃんも平気だったみたいだね。",
+        "current": "언니도　괜찮았나　보네．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x28c",
+        "current_text_offset": "0x27a",
+        "original": "私の方も、なんとか。",
+        "current": "저도　어떻게든요．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x2a1",
+        "current_text_offset": "0x28d",
+        "original": "まさか、あんなにクローンがいるとは思いませんでしたが。",
+        "current": "클론이　그렇게　많을　줄은　몰랐지만요．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x2d8",
+        "current_text_offset": "0x2b6",
+        "original": "さて……と、何とか合流することはできたけど……。",
+        "current": "자……　어떻게든　다시　모이긴　했는데……．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x309",
+        "current_text_offset": "0x2e3",
+        "original": "ただ……、問題はこれからどうやって卑魅虚のところまで辿り着くかね。",
+        "current": "문제는　이제　어떻게　히미코에게　가느냐는　거야．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x34c",
+        "current_text_offset": "0x316",
+        "original": "とりあえず上の階層への道を探すしか、手はなさそうね。",
+        "current": "우선　위층으로　가는　길을　찾는　수밖에　없겠어．"
+      }
+    ],
+    "text_pool": [
+      "0x214",
+      "0x384"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 361,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo17_01.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x52c",
+        "current_text_offset": "0x52c",
+        "original": "フゥ……。卑魅虚の側近どもはあらかた片付けたね。",
+        "current": "후우……　히미코의　측근들은　거의　해치웠네．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x55d",
+        "current_text_offset": "0x55b",
+        "original": "これで残る１人をぶっ潰せば……。",
+        "current": "이제　남은　한　놈만　박살　내면……．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x57e",
+        "current_text_offset": "0x582",
+        "original": "つまり……。",
+        "current": "그러니까……．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x58b",
+        "current_text_offset": "0x591",
+        "original": "私の兄……、ね……。",
+        "current": "우리　오빠……네……．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x5a0",
+        "current_text_offset": "0x5a8",
+        "original": "あ……。ご、ごめんなさい……。",
+        "current": "아……　죄，　죄송해요……．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x5bf",
+        "current_text_offset": "0x5c5",
+        "original": "いいのよ……、サキ、気にしないで……。",
+        "current": "괜찮아……　사키，　마음　쓰지　마……．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x5e6",
+        "current_text_offset": "0x5ee",
+        "original": "これは私自身の戦いですから。",
+        "current": "이건　저　자신의　싸움이니까요．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x603",
+        "current_text_offset": "0x60f",
+        "original": "――誰！？",
+        "current": "누구야！？"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x60e",
+        "current_text_offset": "0x61a",
+        "original": "３人は……、倒されてしまったか……。",
+        "current": "셋은……　쓰러졌나……．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x633",
+        "current_text_offset": "0x633",
+        "original": "兄さんっ！",
+        "current": "오빠！"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0x63e",
+        "current_text_offset": "0x63a",
+        "original": "っ………、おでましね……。",
+        "current": "큭………　나타났네……．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0x659",
+        "current_text_offset": "0x653",
+        "original": "くっ……。",
+        "current": "큭……．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0x664",
+        "current_text_offset": "0x65c",
+        "original": "思い出してっ、兄さんっ！",
+        "current": "기억해　내，　오빠！"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0x67d",
+        "current_text_offset": "0x671",
+        "original": "私よっ、アンナよっ！",
+        "current": "나야，　안나라고！"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0x692",
+        "current_text_offset": "0x684",
+        "original": "お前たちを……、卑魅虚様の元へと送り届ける……。",
+        "current": "너희를……　히미코　님께　데려가겠다……．"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0x6c3",
+        "current_text_offset": "0x6af",
+        "original": "お前たちの、死体を……。",
+        "current": "너희의　시체를……．"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0x6dc",
+        "current_text_offset": "0x6c4",
+        "original": "兄さんっ……。",
+        "current": "오빠……．"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0x6eb",
+        "current_text_offset": "0x6cf",
+        "original": "駄目よ、アンナ……。",
+        "current": "소용없어，　안나……．"
+      },
+      {
+        "record": 25,
+        "original_text_offset": "0x700",
+        "current_text_offset": "0x6e6",
+        "original": "あなたの声は、彼には届いていないわ。",
+        "current": "네　목소리는　그에게　닿지　않아．"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0x725",
+        "current_text_offset": "0x709",
+        "original": "…………。",
+        "current": "…………．"
+      },
+      {
+        "record": 27,
+        "original_text_offset": "0x730",
+        "current_text_offset": "0x714",
+        "original": "アンナ……。辛いけど……、覚悟を決めるときが来たようよ。",
+        "current": "안나……　괴롭겠지만……　각오를　다져야　할　때가　온　것　같아．"
+      },
+      {
+        "record": 28,
+        "original_text_offset": "0x769",
+        "current_text_offset": "0x757",
+        "original": "さぁ、準備はいいっ？　咲っ！　甘さは……、禁物よ。",
+        "current": "자，　준비됐어？　사키！　마음　약해지면……　안　돼．"
+      }
+    ],
+    "text_pool": [
+      "0x52c",
+      "0x79c"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 614,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo19_00.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x8f4",
+        "current_text_offset": "0x8f4",
+        "original": "あなたが卑魅虚、のようね……。",
+        "current": "네가　히미코인가　보네……．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x913",
+        "current_text_offset": "0x911",
+        "original": "……まさか、こんな皺だらけのお婆ちゃんだったとは思わなかったけど。",
+        "current": "……설마　이렇게　주름투성이　할머니일　줄은　몰랐지만．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x956",
+        "current_text_offset": "0x94a",
+        "original": "ククッ、言っておれ……。",
+        "current": "크큭，　마음껏　떠들어라……．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x96f",
+        "current_text_offset": "0x969",
+        "original": "しかし……。",
+        "current": "그나저나……．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x97c",
+        "current_text_offset": "0x978",
+        "original": "ぬしらがここまでたどり着いたということは……。",
+        "current": "너희가　여기까지　왔다는　것은……．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x9ab",
+        "current_text_offset": "0x99d",
+        "original": "側近どもはすべて屠られたということか。",
+        "current": "측근들이　모두　죽었다는　뜻이냐．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x9d2",
+        "current_text_offset": "0x9c0",
+        "original": "ええ、そういうことになるわね。",
+        "current": "그래，　그렇게　되겠네．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x9f1",
+        "current_text_offset": "0x9d9",
+        "original": "フン、全く使えぬ奴らよ……。",
+        "current": "흥，　쓸모없는　놈들　같으니……．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0xa0e",
+        "current_text_offset": "0x9fc",
+        "original": "所詮は研究の副産物で生まれた半端者、",
+        "current": "결국　연구의　부산물로　태어난　반쪽짜리，"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0xa33",
+        "current_text_offset": "0xa27",
+        "original": "元人間の出来損ないにすぎなかったか。",
+        "current": "인간이었다가　망가진　실패작에　불과했나．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0xa58",
+        "current_text_offset": "0xa52",
+        "original": "くっ！　貴様ぁっ！",
+        "current": "큭！　이　자식이！"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0xa6b",
+        "current_text_offset": "0xa65",
+        "original": "ま、ともかく、研究なんて、もう必要ないわよ。",
+        "current": "뭐，　어쨌든　연구　같은　건　이제　필요　없어．"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0xa98",
+        "current_text_offset": "0xa96",
+        "original": "あなたにはここで終わってもらうんだからね。",
+        "current": "너는　여기서　끝날　테니까．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0xac3",
+        "current_text_offset": "0xab3",
+        "original": "フフフ、言いよるわ……。",
+        "current": "후후후，　잘도　떠드는구나……．"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0xadc",
+        "current_text_offset": "0xad4",
+        "original": "だが、それも遅かったな。",
+        "current": "허나　이미　늦었다．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0xaf5",
+        "current_text_offset": "0xae9",
+        "original": "我が組織の忌血の研究はもはや最終段階にきておる。",
+        "current": "우리　조직의　기혈　연구는　이제　최종　단계다．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0xb26",
+        "current_text_offset": "0xb1a",
+        "original": "生命も力も、思うがままよ。",
+        "current": "생명도　힘도　내　뜻대로지．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0xb41",
+        "current_text_offset": "0xb37",
+        "original": "その証に、常人には手に入れることの叶わぬ、",
+        "current": "그　증거로，　평범한　인간은　얻을　수　없는，"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0xb6c",
+        "current_text_offset": "0xb66",
+        "original": "無限の齢を手に入れておるのじゃからな。",
+        "current": "영원한　수명을　손에　넣었으니까．"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0xb93",
+        "current_text_offset": "0xb89",
+        "original": "どうじゃ、ぬしら。我が僕となることを誓えば、",
+        "current": "어떠냐？　내　종이　되겠다고　맹세한다면，"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0xbc0",
+        "current_text_offset": "0xbb4",
+        "original": "この力と永遠の命を分け与えてやらぬこともないが？",
+        "current": "이　힘과　영원한　생명을　나눠　줄　수도　있는데？"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0xbf1",
+        "current_text_offset": "0xbe7",
+        "original": "別に長生きなんかしたくないわね。",
+        "current": "딱히　오래　살고　싶진　않아．"
+      },
+      {
+        "record": 25,
+        "original_text_offset": "0xc12",
+        "current_text_offset": "0xc06",
+        "original": "あなたの姿を見ていると、特にそう思えるわ。",
+        "current": "네　모습을　보니　더욱　그런　생각이　드네．"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0xc3d",
+        "current_text_offset": "0xc33",
+        "original": "そうだっ、誰がお前なんかの手下になるか。",
+        "current": "맞아！　누가　너　따위의　부하가　될까　봐？"
+      },
+      {
+        "record": 27,
+        "original_text_offset": "0xc66",
+        "current_text_offset": "0xc60",
+        "original": "アタシが今ここで、お前の無限の齢とやらに終止符を打ってやるっ！",
+        "current": "내가　지금　여기서　네　영원한　수명에　끝을　내　주겠어！"
+      },
+      {
+        "record": 28,
+        "original_text_offset": "0xca5",
+        "current_text_offset": "0xc9b",
+        "original": "クッ、クククク……まあよいわ。",
+        "current": "큭，　크크크크……　뭐，　좋다．"
+      },
+      {
+        "record": 29,
+        "original_text_offset": "0xcc4",
+        "current_text_offset": "0xcbc",
+        "original": "必要なのはおまえたちに宿る忌血であって、おまえたちではない。",
+        "current": "필요한　건　너희　몸속의　기혈이지，　너희가　아니다．"
+      },
+      {
+        "record": 30,
+        "original_text_offset": "0xd01",
+        "current_text_offset": "0xcf3",
+        "original": "むしろおまえたちの一族は全て抹殺しておくべき存在。",
+        "current": "오히려　너희　일족은　모조리　없애야　할　존재다．"
+      },
+      {
+        "record": 31,
+        "original_text_offset": "0xd34",
+        "current_text_offset": "0xd26",
+        "original": "忌血を持つ者は、この世にひとりだけでいい……。",
+        "current": "기혈을　지닌　자는　이　세상에　하나면　족하다……．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0xd63",
+        "current_text_offset": "0xd5b",
+        "original": "クククッ。そう、私だけでいいのだからな。",
+        "current": "크크큭．　그래，　나　하나면　족하지．"
+      },
+      {
+        "record": 33,
+        "original_text_offset": "0xd8c",
+        "current_text_offset": "0xd82",
+        "original": "ふうん……で、忌血を独り占めして、なにをしたいわけ？",
+        "current": "흐음……　그래서，　기혈을　독차지해서　뭘　하려고？"
+      },
+      {
+        "record": 34,
+        "original_text_offset": "0xdc1",
+        "current_text_offset": "0xdb7",
+        "original": "まさか、世界征服を企んでるとか言わないわよね？",
+        "current": "설마　세계　정복을　꾸민다는　소리는　아니겠지？"
+      },
+      {
+        "record": 35,
+        "original_text_offset": "0xdf0",
+        "current_text_offset": "0xde8",
+        "original": "愚か者め……。",
+        "current": "어리석은　것……．"
+      },
+      {
+        "record": 36,
+        "original_text_offset": "0xdff",
+        "current_text_offset": "0xdfb",
+        "original": "人類の頂点に立つ者が世界を統べるのは当然のこと。",
+        "current": "인류의　정점에　선　자가　세상을　다스림은　당연한　일．"
+      },
+      {
+        "record": 37,
+        "original_text_offset": "0xe30",
+        "current_text_offset": "0xe34",
+        "original": "最強の忌血をその身に宿す者こそが世界を統べずに、",
+        "current": "가장　강력한　기혈을　지닌　자가　다스리지　않으면，"
+      },
+      {
+        "record": 38,
+        "original_text_offset": "0xe61",
+        "current_text_offset": "0xe69",
+        "original": "誰が統べるというのか？",
+        "current": "누가　다스리겠느냐？"
+      },
+      {
+        "record": 39,
+        "original_text_offset": "0xe78",
+        "current_text_offset": "0xe7e",
+        "original": "やれやれ……どうやら無駄に歳を取りすぎると、",
+        "current": "이런……　아무래도　나이만　헛되이　먹다　보면，"
+      },
+      {
+        "record": 40,
+        "original_text_offset": "0xea5",
+        "current_text_offset": "0xeaf",
+        "original": "刺激が足りなくて、妄想が膨らみすぎるみたいね。",
+        "current": "자극이　부족해서　망상만　부푸나　보네．"
+      },
+      {
+        "record": 41,
+        "original_text_offset": "0xed4",
+        "current_text_offset": "0xed8",
+        "original": "屍霊事件の元凶めっ、あなたこそが葬られるべき存在っ、",
+        "current": "좀비　사건의　원흉！　묻어　버려야　할　건　바로　너야！"
+      },
+      {
+        "record": 42,
+        "original_text_offset": "0xf09",
+        "current_text_offset": "0xf11",
+        "original": "兄の命を弄んだ罪、今こそ償わせてやるっ！",
+        "current": "오빠의　목숨을　농락한　죄，　지금　갚아　주겠어！"
+      },
+      {
+        "record": 43,
+        "original_text_offset": "0xf32",
+        "current_text_offset": "0xf44",
+        "original": "フン。",
+        "current": "흥．"
+      },
+      {
+        "record": 44,
+        "original_text_offset": "0xf39",
+        "current_text_offset": "0xf49",
+        "original": "この理屈がわからぬとは……、愚か過ぎるにも程がある。",
+        "current": "이　이치를　모르다니……　어리석어도　정도가　있지．"
+      },
+      {
+        "record": 45,
+        "original_text_offset": "0xf6e",
+        "current_text_offset": "0xf7e",
+        "original": "フゥ……年寄りの戯言にはもう付き合いきれないわね。",
+        "current": "후우……　늙은이의　헛소리는　더　못　들어　주겠네．"
+      },
+      {
+        "record": 46,
+        "original_text_offset": "0xfa1",
+        "current_text_offset": "0xfb3",
+        "original": "残念だけど、",
+        "current": "안됐지만，"
+      },
+      {
+        "record": 47,
+        "original_text_offset": "0xfae",
+        "current_text_offset": "0xfbe",
+        "original": "せっかく忌血を手に入れても、頭の血のめぐりは悪いままのようね。",
+        "current": "기혈을　얻고도　머리에　피는　안　도는　모양이지？"
+      },
+      {
+        "record": 48,
+        "original_text_offset": "0xfed",
+        "current_text_offset": "0xff1",
+        "original": "ぬかせ、小娘！",
+        "current": "닥쳐라，　계집애！"
+      },
+      {
+        "record": 49,
+        "original_text_offset": "0xffc",
+        "current_text_offset": "0x1004",
+        "original": "今ここで、忌血の一族を根絶やしにしてくれるわっ！",
+        "current": "지금　여기서　기혈　일족을　멸족시켜　주마！"
+      },
+      {
+        "record": 50,
+        "original_text_offset": "0x102d",
+        "current_text_offset": "0x1031",
+        "original": "来なっ！",
+        "current": "덤벼！"
+      }
+    ],
+    "text_pool": [
+      "0x8f4",
+      "0x1038"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 1874,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo20_00.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0xc64",
+        "current_text_offset": "0xc64",
+        "original": "フッ、ンフフ……。",
+        "current": "훗，　으흐흐……．"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0xc77",
+        "current_text_offset": "0xc77",
+        "original": "誰！？",
+        "current": "누구야！？"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0xc7e",
+        "current_text_offset": "0xc82",
+        "original": "アタシに決まってるじゃない。",
+        "current": "당연히　나지．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0xc9b",
+        "current_text_offset": "0xc91",
+        "original": "ミザリー……。",
+        "current": "미저리……．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0xcaa",
+        "current_text_offset": "0xc9e",
+        "original": "……あなた、無駄にしぶといようね。",
+        "current": "……넌　쓸데없이　끈질기네．"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0xccd",
+        "current_text_offset": "0xcbb",
+        "original": "クククッ……。",
+        "current": "크크큭……．"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0xcdc",
+        "current_text_offset": "0xcc8",
+        "original": "まぁ、忌血を喰らい続けてきたお陰ってとこだね……。",
+        "current": "뭐，　계속　기혈을　먹어　온　덕분이겠지……．"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0xd0f",
+        "current_text_offset": "0xcf7",
+        "original": "さっきも、新しい忌血を手に入れたところさ……。",
+        "current": "방금도　새로운　기혈을　손에　넣었거든……．"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0xd3e",
+        "current_text_offset": "0xd24",
+        "original": "……まさか。",
+        "current": "……설마．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0xd4b",
+        "current_text_offset": "0xd2f",
+        "original": "そうさっ。",
+        "current": "맞아．"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0xd56",
+        "current_text_offset": "0xd36",
+        "original": "側近どもの血っ……。それに婆ぁの血っ……。",
+        "current": "측근들의　피……．　그리고　늙은이의　피……．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0xd81",
+        "current_text_offset": "0xd65",
+        "original": "おまえたちのおかげで、いろんな忌血が手に入ったよ。",
+        "current": "너희　덕분에　온갖　기혈을　얻었어．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0xdb4",
+        "current_text_offset": "0xd8a",
+        "original": "お、お姉ちゃん、あいつ……。",
+        "current": "어，　언니，　저　여자……．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0xdd1",
+        "current_text_offset": "0xda7",
+        "original": "ええ、忌血に浸かりすぎね。",
+        "current": "그래，　기혈에　너무　빠졌어．"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0xdec",
+        "current_text_offset": "0xdc6",
+        "original": "身体から殺気……、いや、狂気が溢れ出ているわ。",
+        "current": "몸에서　살기……　아니，　광기가　넘쳐흐르네．"
+      },
+      {
+        "record": 22,
+        "original_text_offset": "0xe1b",
+        "current_text_offset": "0xdf5",
+        "original": "忌血に浸りすぎ……か。",
+        "current": "기혈에　너무　빠졌다……라．"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0xe32",
+        "current_text_offset": "0xe12",
+        "original": "ククッ、ククク……。",
+        "current": "크큭，　크크크……．"
+      },
+      {
+        "record": 24,
+        "original_text_offset": "0xe47",
+        "current_text_offset": "0xe27",
+        "original": "……何がおかしい？",
+        "current": "……뭐가　웃겨？"
+      },
+      {
+        "record": 26,
+        "original_text_offset": "0xe5a",
+        "current_text_offset": "0xe38",
+        "original": "……いい加減、気づいてるんでしょ？",
+        "current": "……슬슬　너도　깨닫고　있잖아？"
+      },
+      {
+        "record": 28,
+        "original_text_offset": "0xe7d",
+        "current_text_offset": "0xe59",
+        "original": "忌血を持つ者は、その激しい闘争本能から決して逃れることはできない…。",
+        "current": "기혈을　지닌　자는　그　격렬한　투쟁　본능에서　벗어날　수　없어……．"
+      },
+      {
+        "record": 29,
+        "original_text_offset": "0xec2",
+        "current_text_offset": "0xea0",
+        "original": "わたしたちとあなたを一緒にしないでくれる？",
+        "current": "우리를　너와　똑같이　취급하지　말아　줄래？"
+      },
+      {
+        "record": 30,
+        "original_text_offset": "0xeed",
+        "current_text_offset": "0xecd",
+        "original": "……いいやっ！　同じさっ。彩、そんなこと言っても無駄さ。",
+        "current": "……아니！　똑같아！　아야，　그렇게　말해도　소용없어．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0xf26",
+        "current_text_offset": "0xf06",
+        "original": "忌血の正統種であればこそ、わかるはず。",
+        "current": "기혈을　정통으로　이었으니　알겠지．"
+      },
+      {
+        "record": 33,
+        "original_text_offset": "0xf4d",
+        "current_text_offset": "0xf2b",
+        "original": "その闘争本能に身を委ねる快楽を……。",
+        "current": "그　투쟁　본능에　몸을　맡기는　쾌락을……．"
+      },
+      {
+        "record": 34,
+        "original_text_offset": "0xf72",
+        "current_text_offset": "0xf58",
+        "original": "目の前に戦う相手がいれば、剣を止めることなんか出来やしない……。",
+        "current": "눈앞에　싸울　상대가　있으면　칼을　멈출　수　없잖아……．"
+      },
+      {
+        "record": 35,
+        "original_text_offset": "0xfb3",
+        "current_text_offset": "0xf93",
+        "original": "……まるで血に飢えた狼ね。",
+        "current": "……피에　굶주린　늑대　같네．"
+      },
+      {
+        "record": 37,
+        "original_text_offset": "0xfce",
+        "current_text_offset": "0xfb2",
+        "original": "ククッ。おまえにその言葉、そのまま返してやるよ。",
+        "current": "크큭．　그　말，　그대로　돌려줄게．"
+      },
+      {
+        "record": 38,
+        "original_text_offset": "0xfff",
+        "current_text_offset": "0xfd7",
+        "original": "どうせ、おまえも時とともに、忌血に理性を支配され、",
+        "current": "어차피　너도　언젠간　기혈에　이성을　빼앗겨，"
+      },
+      {
+        "record": 39,
+        "original_text_offset": "0x1032",
+        "current_text_offset": "0x1006",
+        "original": "アタシと同じ血に飢えた存在となる……。",
+        "current": "나처럼　피에　굶주린　존재가　될　테니까……．"
+      },
+      {
+        "record": 40,
+        "original_text_offset": "0x1059",
+        "current_text_offset": "0x1035",
+        "original": "彩、もっと自分に素直になれば？",
+        "current": "아야，　좀　더　솔직해지는　게　어때？"
+      },
+      {
+        "record": 41,
+        "original_text_offset": "0x1078",
+        "current_text_offset": "0x105c",
+        "original": "本当は、闘争本能という名の狂気が身体の奥で渦巻いているんだろぅ？",
+        "current": "사실은　투쟁　본능이란　광기가　몸　깊숙이　소용돌이치고　있잖아？"
+      },
+      {
+        "record": 42,
+        "original_text_offset": "0x10b9",
+        "current_text_offset": "0x109f",
+        "original": "一緒にしないでって言ったの、聞こえなかったかしら？",
+        "current": "너와　똑같이　취급하지　말라는　말，　못　들었어？"
+      },
+      {
+        "record": 43,
+        "original_text_offset": "0x10ec",
+        "current_text_offset": "0x10d2",
+        "original": "フンッ、とぼけようったって無駄なことさ。",
+        "current": "흥，　시치미　떼　봐야　소용없어．"
+      },
+      {
+        "record": 44,
+        "original_text_offset": "0x1115",
+        "current_text_offset": "0x10f5",
+        "original": "彩っ！　いい加減認めたらどうだっ！？",
+        "current": "아야！　이제　그만　인정하지　그래！？"
+      },
+      {
+        "record": 45,
+        "original_text_offset": "0x113a",
+        "current_text_offset": "0x111c",
+        "original": "忌血を宿した時点で闘いの螺旋から身を引くことなんてできやしないのさ。",
+        "current": "기혈이　깃든　순간부터　끝없는　싸움에서　벗어날　수는　없어．"
+      },
+      {
+        "record": 46,
+        "original_text_offset": "0x117f",
+        "current_text_offset": "0x115b",
+        "original": "そして、おまえは既にその味を知っているはずだ。",
+        "current": "그리고　넌　이미　그　맛을　알고　있겠지．"
+      },
+      {
+        "record": 47,
+        "original_text_offset": "0x11ae",
+        "current_text_offset": "0x1186",
+        "original": "彩、おまえは咲と殺し合ったときの興奮を忘れられたか？",
+        "current": "아야，　사키와　서로　죽이려　싸우던　흥분을　잊을　수　있었어？"
+      },
+      {
+        "record": 48,
+        "original_text_offset": "0x11e3",
+        "current_text_offset": "0x11c7",
+        "original": "無駄なんだよっ、くだらない理性や理想を並べてもっ。",
+        "current": "소용없어！　하찮은　이성이니　이상이니　떠들어　봐야！"
+      },
+      {
+        "record": 49,
+        "original_text_offset": "0x1216",
+        "current_text_offset": "0x11fe",
+        "original": "忌血は闘いと殺戮を求める血っ、",
+        "current": "기혈은　싸움과　살육을　원해！"
+      },
+      {
+        "record": 50,
+        "original_text_offset": "0x1235",
+        "current_text_offset": "0x121d",
+        "original": "この世の生を根絶やしにする荒ぶる血なんだよっ。",
+        "current": "이　세상　생명을　모조리　없애려는　사나운　피야！"
+      },
+      {
+        "record": 51,
+        "original_text_offset": "0x1264",
+        "current_text_offset": "0x1250",
+        "original": "なにを馬鹿なことをっ！",
+        "current": "무슨　말도　안　되는　소리를！"
+      },
+      {
+        "record": 52,
+        "original_text_offset": "0x127b",
+        "current_text_offset": "0x126f",
+        "original": "アヤは決して……。",
+        "current": "아야는　절대로……．"
+      },
+      {
+        "record": 53,
+        "original_text_offset": "0x128e",
+        "current_text_offset": "0x1284",
+        "original": "お姉ちゃんは違う、おまえなんかと違うんだっ！",
+        "current": "언니는　달라！　너　따위와는　다르다고！"
+      },
+      {
+        "record": 54,
+        "original_text_offset": "0x12bb",
+        "current_text_offset": "0x12ad",
+        "original": "ククッ、いいねえ咲。その怒りはアタシに向けられたもの？",
+        "current": "크큭，　좋네，　사키．　그　분노는　날　향한　거야？"
+      },
+      {
+        "record": 56,
+        "original_text_offset": "0x12f2",
+        "current_text_offset": "0x12e2",
+        "original": "もしかして、自分自身の心の奥深くにある",
+        "current": "혹시　네　마음　깊은　곳에　자리　잡은，"
+      },
+      {
+        "record": 57,
+        "original_text_offset": "0x1319",
+        "current_text_offset": "0x130b",
+        "original": "戸惑いに向けられたものだったりするんじゃないのか？",
+        "current": "망설임을　향한　분노는　아니고？"
+      },
+      {
+        "record": 58,
+        "original_text_offset": "0x134c",
+        "current_text_offset": "0x132c",
+        "original": "くっ、貴様ぁ……。",
+        "current": "큭，　이　자식……．"
+      },
+      {
+        "record": 59,
+        "original_text_offset": "0x135f",
+        "current_text_offset": "0x1341",
+        "original": "正直、組織が目指した世界征服なんて、",
+        "current": "솔직히　조직이　꿈꾸던　세계　정복　따위，"
+      },
+      {
+        "record": 60,
+        "original_text_offset": "0x1384",
+        "current_text_offset": "0x136c",
+        "original": "アタシにとってはどうでもいいんだ。",
+        "current": "내겐　아무래도　상관없어．"
+      },
+      {
+        "record": 61,
+        "original_text_offset": "0x13a7",
+        "current_text_offset": "0x1387",
+        "original": "目の前に忌血があれば手に入れる。それまでのコト……。",
+        "current": "눈앞에　기혈이　있으면　손에　넣는다．　그뿐이야……．"
+      },
+      {
+        "record": 62,
+        "original_text_offset": "0x13dc",
+        "current_text_offset": "0x13be",
+        "original": "もはやおまえらの血を見ぬ限り、フフッ……、",
+        "current": "이젠　너희의　피를　보기　전엔，　후훗……．"
+      },
+      {
+        "record": 63,
+        "original_text_offset": "0x1407",
+        "current_text_offset": "0x13eb",
+        "original": "この衝動は収まらないよ……。",
+        "current": "이　충동을　억누를　수　없어……．"
+      },
+      {
+        "record": 64,
+        "original_text_offset": "0x1424",
+        "current_text_offset": "0x140e",
+        "original": "闘争本能、ね……。いろいろと述べてくれたようだけど……。",
+        "current": "투쟁　본능이라……　이것저것　잘　떠들어　줬는데……．"
+      },
+      {
+        "record": 65,
+        "original_text_offset": "0x145d",
+        "current_text_offset": "0x1445",
+        "original": "それは忌血に溺れたあなた自身のことで、わたしたちには関係ないわ。",
+        "current": "그건　기혈에　빠진　너　자신　이야기지，　우린　상관없어．"
+      },
+      {
+        "record": 66,
+        "original_text_offset": "0x149e",
+        "current_text_offset": "0x1480",
+        "original": "――でもね。それでも、ひとつだけ確かなことがあるわ。",
+        "current": "하지만……　그래도　하나만은　확실해．"
+      },
+      {
+        "record": 67,
+        "original_text_offset": "0x14d3",
+        "current_text_offset": "0x14a7",
+        "original": "ミザリー……わたしが、あなたを殺したくって仕方がないってことよっ！",
+        "current": "미저리……　지금　널　죽이고　싶어　견딜　수　없다는　거야！"
+      },
+      {
+        "record": 69,
+        "original_text_offset": "0x1516",
+        "current_text_offset": "0x14e4",
+        "original": "……殺ろうか。",
+        "current": "……죽여　볼까．"
+      }
+    ],
+    "text_pool": [
+      "0xc64",
+      "0x1528"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 2268,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  },
+  {
+    "file": "demo20_02.cat",
+    "dialogue_records": [
+      {
+        "record": 0,
+        "original_text_offset": "0x6b8",
+        "current_text_offset": "0x6b8",
+        "original": "うう……。",
+        "current": "으으……．"
+      },
+      {
+        "record": 4,
+        "original_text_offset": "0x6c3",
+        "current_text_offset": "0x6c3",
+        "original": "……！！",
+        "current": "……！！"
+      },
+      {
+        "record": 5,
+        "original_text_offset": "0x6cc",
+        "current_text_offset": "0x6cc",
+        "original": "まさかアタシが……、ハァハァ……、",
+        "current": "설마　내가……　하아，　하아……．"
+      },
+      {
+        "record": 6,
+        "original_text_offset": "0x6ef",
+        "current_text_offset": "0x6ef",
+        "original": "理性を残した半端ものに負けるとは……、ね……。",
+        "current": "이성을　남긴　반쪽짜리에게　질　줄은……　말이야……．"
+      },
+      {
+        "record": 7,
+        "original_text_offset": "0x71e",
+        "current_text_offset": "0x726",
+        "original": "ガハッ……。",
+        "current": "커헉……．"
+      },
+      {
+        "record": 8,
+        "original_text_offset": "0x72b",
+        "current_text_offset": "0x731",
+        "original": "でも、彩……。",
+        "current": "하지만，　아야……．"
+      },
+      {
+        "record": 9,
+        "original_text_offset": "0x73a",
+        "current_text_offset": "0x746",
+        "original": "アタシが死ぬ前に、ひとつだけ忠告、",
+        "current": "죽기　전에　충고　하나　해　줄게．"
+      },
+      {
+        "record": 10,
+        "original_text_offset": "0x75d",
+        "current_text_offset": "0x769",
+        "original": "……違うな。予言をしてあげるよ……。",
+        "current": "……아니지．　예언을　해　줄게……．"
+      },
+      {
+        "record": 11,
+        "original_text_offset": "0x782",
+        "current_text_offset": "0x78e",
+        "original": "予言……？",
+        "current": "예언……？"
+      },
+      {
+        "record": 12,
+        "original_text_offset": "0x78d",
+        "current_text_offset": "0x799",
+        "original": "アタシと戦ってみて……、わかったでしょ……？",
+        "current": "나와　싸워　보고……　알았지……？"
+      },
+      {
+        "record": 13,
+        "original_text_offset": "0x7ba",
+        "current_text_offset": "0x7bc",
+        "original": "どう取り繕ったところで、忌血は強烈な闘争本能を呼び起こす……。",
+        "current": "아무리　감추려　해도　기혈은　격렬한　투쟁　본능을　일깨워……．"
+      },
+      {
+        "record": 14,
+        "original_text_offset": "0x7f9",
+        "current_text_offset": "0x7fd",
+        "original": "いつか必ず、忌血がおまえたち姉妹の仲を引き裂く……。",
+        "current": "언젠가　반드시　기혈이　너희　자매를　갈라놓을　거야……．"
+      },
+      {
+        "record": 15,
+        "original_text_offset": "0x82e",
+        "current_text_offset": "0x838",
+        "original": "う、嘘だ……。",
+        "current": "거，　거짓말……．"
+      },
+      {
+        "record": 16,
+        "original_text_offset": "0x83d",
+        "current_text_offset": "0x84b",
+        "original": "いつか必ず……、そう、殺し合うおまえたちの頭の中に、",
+        "current": "언젠가　반드시……　서로　죽이려　싸우는　너희　머릿속에，"
+      },
+      {
+        "record": 17,
+        "original_text_offset": "0x872",
+        "current_text_offset": "0x886",
+        "original": "アタシの予言が……、いつか必ずよぎるのさ……。",
+        "current": "내　예언이……　반드시　스쳐　지나갈　거야……．"
+      },
+      {
+        "record": 18,
+        "original_text_offset": "0x8a1",
+        "current_text_offset": "0x8b7",
+        "original": "……ンフフッ、いい気味だね。",
+        "current": "……으흐흐，　꼴좋네．"
+      },
+      {
+        "record": 19,
+        "original_text_offset": "0x8be",
+        "current_text_offset": "0x8ce",
+        "original": "…………。",
+        "current": "…………．"
+      },
+      {
+        "record": 20,
+        "original_text_offset": "0x8c9",
+        "current_text_offset": "0x8d9",
+        "original": "ンフッ、ンフフ……ンフフ、ンフ……。",
+        "current": "으흣，　으흐흐……　으흐흐，　으흐……．"
+      },
+      {
+        "record": 21,
+        "original_text_offset": "0x8ee",
+        "current_text_offset": "0x8ce",
+        "original": "…………。",
+        "current": "…………．"
+      },
+      {
+        "record": 23,
+        "original_text_offset": "0x8f9",
+        "current_text_offset": "0x902",
+        "original": "……じゃあ、いくわ。",
+        "current": "……그럼，　갈게．"
+      },
+      {
+        "record": 28,
+        "original_text_offset": "0x90e",
+        "current_text_offset": "0x915",
+        "original": "そう、気をつけてね。",
+        "current": "그래，　조심해．"
+      },
+      {
+        "record": 29,
+        "original_text_offset": "0x923",
+        "current_text_offset": "0x926",
+        "original": "そちらこそ。",
+        "current": "너도．"
+      },
+      {
+        "record": 30,
+        "original_text_offset": "0x930",
+        "current_text_offset": "0x92d",
+        "original": "それと……いろいろ、ありがとう。",
+        "current": "그리고……　여러모로　고마워．"
+      },
+      {
+        "record": 31,
+        "original_text_offset": "0x951",
+        "current_text_offset": "0x94c",
+        "original": "……あと、ごめんなさい。",
+        "current": "……또，　미안해．"
+      },
+      {
+        "record": 32,
+        "original_text_offset": "0x96a",
+        "current_text_offset": "0x95f",
+        "original": "兄さんのこと……？",
+        "current": "네　오빠　일……？"
+      },
+      {
+        "record": 33,
+        "original_text_offset": "0x97d",
+        "current_text_offset": "0x972",
+        "original": "……ま、お互い様ね。わたしの妹もね……。",
+        "current": "……뭐，　피차일반이지．　내　동생도……．"
+      },
+      {
+        "record": 34,
+        "original_text_offset": "0x9a6",
+        "current_text_offset": "0x99d",
+        "original": "ウフフ、じゃあ……ね。",
+        "current": "후후，　그럼……　안녕．"
+      },
+      {
+        "record": 36,
+        "original_text_offset": "0x9bd",
+        "current_text_offset": "0x9b6",
+        "original": "じゃ、行こうか、咲。",
+        "current": "자，　갈까，　사키？"
+      },
+      {
+        "record": 37,
+        "original_text_offset": "0x9d2",
+        "current_text_offset": "0x9cb",
+        "original": "うん、お姉ちゃん。",
+        "current": "응，　언니．"
+      }
+    ],
+    "text_pool": [
+      "0x6b8",
+      "0x9e8"
+    ],
+    "unexplained_changes": [],
+    "changed_bytes": 780,
+    "speaker_ids_timing_animation_and_other_archive_entries_preserved": true
+  }
+]

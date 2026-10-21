@@ -1,0 +1,765 @@
+{
+  "checks": [
+    {
+      "name": "bracelet classification prefix",
+      "at": 216728,
+      "size": 8
+    },
+    {
+      "name": "goddess classification substring",
+      "at": 216760,
+      "size": 8
+    },
+    {
+      "name": "destructible classification substring",
+      "at": 216752,
+      "size": 8
+    },
+    {
+      "name": "enemy model attachment and prop definitions",
+      "at": 7221440,
+      "size": 6048
+    },
+    {
+      "name": "item ID/key/display-pointer table",
+      "at": 7227488,
+      "size": 560
+    },
+    {
+      "name": "item resource key 0",
+      "at": 216716,
+      "size": 11,
+      "text": "キー:01_00"
+    },
+    {
+      "name": "item resource key 1",
+      "at": 216612,
+      "size": 11,
+      "text": "キー:02_00"
+    },
+    {
+      "name": "item resource key 2",
+      "at": 216480,
+      "size": 11,
+      "text": "キー:02_01"
+    },
+    {
+      "name": "item resource key 3",
+      "at": 216340,
+      "size": 11,
+      "text": "キー:02_02"
+    },
+    {
+      "name": "item resource key 4",
+      "at": 216236,
+      "size": 11,
+      "text": "キー:03_00"
+    },
+    {
+      "name": "item resource key 5",
+      "at": 216136,
+      "size": 11,
+      "text": "キー:05_00"
+    },
+    {
+      "name": "item resource key 6",
+      "at": 216012,
+      "size": 11,
+      "text": "キー:05_01"
+    },
+    {
+      "name": "item resource key 7",
+      "at": 215900,
+      "size": 11,
+      "text": "キー:06_00"
+    },
+    {
+      "name": "item resource key 8",
+      "at": 215772,
+      "size": 11,
+      "text": "キー:06_01"
+    },
+    {
+      "name": "item resource key 9",
+      "at": 215740,
+      "size": 11,
+      "text": "キー:08_00"
+    },
+    {
+      "name": "item resource key 10",
+      "at": 215728,
+      "size": 11,
+      "text": "キー:09_00"
+    },
+    {
+      "name": "item resource key 11",
+      "at": 215616,
+      "size": 11,
+      "text": "キー:09_01"
+    },
+    {
+      "name": "item resource key 12",
+      "at": 215504,
+      "size": 11,
+      "text": "キー:09_02"
+    },
+    {
+      "name": "item resource key 13",
+      "at": 215356,
+      "size": 11,
+      "text": "キー:09_03"
+    },
+    {
+      "name": "item resource key 14",
+      "at": 215228,
+      "size": 11,
+      "text": "キー:11_00"
+    },
+    {
+      "name": "item resource key 15",
+      "at": 215104,
+      "size": 11,
+      "text": "キー:12_00"
+    },
+    {
+      "name": "item resource key 16",
+      "at": 214968,
+      "size": 11,
+      "text": "キー:13_00"
+    },
+    {
+      "name": "item resource key 17",
+      "at": 214824,
+      "size": 11,
+      "text": "キー:13_01"
+    },
+    {
+      "name": "item resource key 18",
+      "at": 214672,
+      "size": 11,
+      "text": "キー:15_00"
+    },
+    {
+      "name": "item resource key 19",
+      "at": 214528,
+      "size": 11,
+      "text": "キー:15_01"
+    },
+    {
+      "name": "item resource key 20",
+      "at": 214392,
+      "size": 11,
+      "text": "キー:16_00"
+    },
+    {
+      "name": "item resource key 21",
+      "at": 214248,
+      "size": 11,
+      "text": "キー:17_00"
+    },
+    {
+      "name": "item resource key 22",
+      "at": 214096,
+      "size": 11,
+      "text": "キー:17_01"
+    },
+    {
+      "name": "item resource key 23",
+      "at": 213960,
+      "size": 17,
+      "text": "腕輪：剛力の腕輪"
+    },
+    {
+      "name": "item resource key 24",
+      "at": 213916,
+      "size": 21,
+      "text": "腕輪：血糊抑制の腕輪"
+    },
+    {
+      "name": "item resource key 25",
+      "at": 213872,
+      "size": 21,
+      "text": "腕輪：穢れ抑制の腕輪"
+    },
+    {
+      "name": "item resource key 26",
+      "at": 213832,
+      "size": 17,
+      "text": "腕輪：貫通の腕輪"
+    },
+    {
+      "name": "item resource key 27",
+      "at": 213788,
+      "size": 21,
+      "text": "腕輪：アイテムの腕輪"
+    },
+    {
+      "name": "item resource key 28",
+      "at": 213748,
+      "size": 17,
+      "text": "腕輪：回避の腕輪"
+    },
+    {
+      "name": "item resource key 29",
+      "at": 213708,
+      "size": 17,
+      "text": "腕輪：技巧の腕輪"
+    },
+    {
+      "name": "item resource key 30",
+      "at": 213668,
+      "size": 17,
+      "text": "腕輪：銃弾の腕輪"
+    },
+    {
+      "name": "item resource key 31",
+      "at": 213628,
+      "size": 19,
+      "text": "腕輪：経験値の腕輪"
+    },
+    {
+      "name": "item resource key 32",
+      "at": 213588,
+      "size": 17,
+      "text": "腕輪：血晶の腕輪"
+    },
+    {
+      "name": "item resource key 33",
+      "at": 213548,
+      "size": 17,
+      "text": "腕輪：護身の腕輪"
+    },
+    {
+      "name": "item resource key 34",
+      "at": 213504,
+      "size": 21,
+      "text": "腕輪：自動螺旋の腕輪"
+    },
+    {
+      "name": "area lookup metadata and filename 0",
+      "at": 7213816,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 1",
+      "at": 7213892,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 2",
+      "at": 7213968,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 3",
+      "at": 7214044,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 4",
+      "at": 7214120,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 5",
+      "at": 7214196,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 6",
+      "at": 7214272,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 7",
+      "at": 7214348,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 8",
+      "at": 7214424,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 9",
+      "at": 7214500,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 10",
+      "at": 7214576,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 11",
+      "at": 7214652,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 12",
+      "at": 7214728,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 13",
+      "at": 7214804,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 14",
+      "at": 7214880,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 15",
+      "at": 7214956,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 16",
+      "at": 7215032,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 17",
+      "at": 7215108,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 18",
+      "at": 7215184,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 19",
+      "at": 7215260,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 20",
+      "at": 7215336,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 21",
+      "at": 7215412,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 22",
+      "at": 7215488,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 23",
+      "at": 7215564,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 24",
+      "at": 7215640,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 25",
+      "at": 7215716,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 26",
+      "at": 7215792,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 27",
+      "at": 7215868,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 28",
+      "at": 7215944,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 29",
+      "at": 7216020,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 30",
+      "at": 7216096,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 31",
+      "at": 7216172,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 32",
+      "at": 7216248,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 33",
+      "at": 7216324,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 34",
+      "at": 7216400,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 35",
+      "at": 7216476,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 36",
+      "at": 7216552,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 37",
+      "at": 7216628,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 38",
+      "at": 7216704,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 39",
+      "at": 7216780,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 40",
+      "at": 7216856,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 41",
+      "at": 7216932,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 42",
+      "at": 7217008,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 43",
+      "at": 7217084,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 44",
+      "at": 7217160,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 45",
+      "at": 7217236,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 46",
+      "at": 7217312,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 47",
+      "at": 7217388,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 48",
+      "at": 7217464,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 49",
+      "at": 7217540,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 50",
+      "at": 7217616,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 51",
+      "at": 7217692,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 52",
+      "at": 7217768,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 53",
+      "at": 7217844,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 54",
+      "at": 7217920,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 55",
+      "at": 7217996,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 56",
+      "at": 7218072,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 57",
+      "at": 7218148,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 58",
+      "at": 7218224,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 59",
+      "at": 7218300,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 60",
+      "at": 7218376,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 61",
+      "at": 7218452,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 62",
+      "at": 7218528,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 63",
+      "at": 7218604,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 64",
+      "at": 7218680,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 65",
+      "at": 7218756,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 66",
+      "at": 7218832,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 67",
+      "at": 7218908,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 68",
+      "at": 7218984,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 69",
+      "at": 7219060,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 70",
+      "at": 7219136,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 71",
+      "at": 7219212,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 72",
+      "at": 7219288,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 73",
+      "at": 7219364,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 74",
+      "at": 7219440,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 75",
+      "at": 7219516,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 76",
+      "at": 7219592,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 77",
+      "at": 7219668,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 78",
+      "at": 7219744,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 79",
+      "at": 7219820,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 80",
+      "at": 7219896,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 81",
+      "at": 7219972,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 82",
+      "at": 7220048,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 83",
+      "at": 7220124,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 84",
+      "at": 7220200,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 85",
+      "at": 7220276,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 86",
+      "at": 7220352,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 87",
+      "at": 7220428,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 88",
+      "at": 7220504,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 89",
+      "at": 7220580,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 90",
+      "at": 7220656,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 91",
+      "at": 7220732,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 92",
+      "at": 7220808,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 93",
+      "at": 7220884,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 94",
+      "at": 7220960,
+      "size": 44
+    },
+    {
+      "name": "area lookup metadata and filename 95",
+      "at": 7221036,
+      "size": 44
+    },
+    {
+      "name": "event key 176136",
+      "at": 176136,
+      "size": 14,
+      "text": "イベントキー6"
+    },
+    {
+      "name": "event key 176152",
+      "at": 176152,
+      "size": 14,
+      "text": "イベントキー5"
+    },
+    {
+      "name": "event key 176168",
+      "at": 176168,
+      "size": 14,
+      "text": "イベントキー4"
+    },
+    {
+      "name": "event key 176184",
+      "at": 176184,
+      "size": 14,
+      "text": "イベントキー3"
+    },
+    {
+      "name": "event key 176200",
+      "at": 176200,
+      "size": 14,
+      "text": "イベントキー2"
+    },
+    {
+      "name": "event key 176216",
+      "at": 176216,
+      "size": 14,
+      "text": "イベントキー1"
+    }
+  ],
+  "results": {
+    "v128": {
+      "protected_checks": 142,
+      "failed": []
+    },
+    "candidate": {
+      "protected_checks": 142,
+      "failed": []
+    }
+  }
+}

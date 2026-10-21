@@ -1,0 +1,38 @@
+name: Publish Onechanbara v1.2.9
+
+on:
+  push:
+    branches: [releases/onechanbara-v1.2.9]
+    paths:
+      - release-build/onechanbara-v1.2.9/**
+      - .github/workflows/publish-onechanbara-v129.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-onechanbara-v129
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct and verify the tested Windows patcher
+        run: python3 release-build/onechanbara-v1.2.9/build_release.py --out release-dist
+      - name: Publish the official ZIP
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view onechanbara-v1.2.9 >/dev/null 2>&1; then
+            gh release create onechanbara-v1.2.9 --draft --target "$GITHUB_SHA" \
+              --title "오네찬바라 볼텍스 한글패치 v1.2.9 — 로딩 개선 통합" \
+              --notes-file release-build/onechanbara-v1.2.9/release-notes.md
+          fi
+          gh release upload onechanbara-v1.2.9 \
+            release-dist/Onechanbara_ISO_Korean_v1.2.9_Release.zip --clobber
+          gh release edit onechanbara-v1.2.9 --draft=false --latest \
+            --title "오네찬바라 볼텍스 한글패치 v1.2.9 — 로딩 개선 통합" \
+            --notes-file release-build/onechanbara-v1.2.9/release-notes.md

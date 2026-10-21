@@ -1,0 +1,2509 @@
+{
+  "engine": "Unicorn 2.1.4 PPC64 default POWER10, MSR=0, virtual TLB; actual instructions including ld/std, only external APIs mocked",
+  "tested_cases": 192,
+  "original_and_test_final_results_match": true,
+  "nonblocking_wait_arguments_preserved": true,
+  "nonvolatile_registers_and_stack_preserved": true,
+  "ready_immediately_original_outer_calls": 4,
+  "ready_immediately_test_outer_calls": 1,
+  "max_steps": 4,
+  "actual_xenia_or_wall_time_test": false,
+  "cases": [
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 1,
+      "max_inner_calls": 4
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 1,
+      "max_inner_calls": 4
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 3,
+      "test_calls": 1,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 3,
+      "test_calls": 1,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 5,
+      "test_calls": 4,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 5,
+      "test_calls": 4,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 4,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 4,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 0,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 3,
+      "test_calls": 1,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 3,
+      "test_calls": 1,
+      "max_inner_calls": 3
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 2,
+      "test_calls": 1,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 2,
+      "test_calls": 1,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 5,
+      "test_calls": 4,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 5,
+      "test_calls": 4,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 4,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 4,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 1,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 2,
+      "test_calls": 1,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 2,
+      "test_calls": 1,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 2,
+      "test_calls": 1,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 2,
+      "test_calls": 1,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 5,
+      "test_calls": 4,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 5,
+      "test_calls": 4,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 4,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 4,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 5,
+      "test_calls": 4,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 5,
+      "test_calls": 4,
+      "max_inner_calls": 2
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 4,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 4,
+      "test_calls": 4,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 2,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 3,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 1,
+      "test_calls": 1,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 0,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": false,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 0,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": false,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": false
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    },
+    {
+      "case": {
+        "start_state": 4294967295,
+        "ready_tick": 3,
+        "read_ok": true,
+        "last_error": 5,
+        "protect": true,
+        "wait_failure": true
+      },
+      "original_calls": 12,
+      "test_calls": 12,
+      "max_inner_calls": 1
+    }
+  ]
+}

@@ -1,0 +1,522 @@
+{
+  "missions": [
+    {
+      "file": "m00_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m01_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m01_01.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m02_00.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m02_01.xmg",
+      "message_slots": 1,
+      "changed_bytes": 52,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m03_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m04_00.xmg",
+      "message_slots": 1,
+      "changed_bytes": 35,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m05_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m05_01.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m06_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m06_01.xmg",
+      "message_slots": 2,
+      "changed_bytes": 72,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m06_02.xmg",
+      "message_slots": 2,
+      "changed_bytes": 72,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m07_00.xmg",
+      "message_slots": 5,
+      "changed_bytes": 223,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m07_01.xmg",
+      "message_slots": 2,
+      "changed_bytes": 72,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m08_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m08_01.xmg",
+      "message_slots": 2,
+      "changed_bytes": 72,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m09_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m09_01.xmg",
+      "message_slots": 1,
+      "changed_bytes": 52,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m10_00.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m11_00.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m12_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m13_00.xmg",
+      "message_slots": 2,
+      "changed_bytes": 99,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m14_00.xmg",
+      "message_slots": 2,
+      "changed_bytes": 82,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m15_00.xmg",
+      "message_slots": 3,
+      "changed_bytes": 134,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m16_00.xmg",
+      "message_slots": 2,
+      "changed_bytes": 99,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m16_01.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m17_00.xmg",
+      "message_slots": 2,
+      "changed_bytes": 87,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m18_00.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m18_01.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "m19_00.xmg",
+      "message_slots": 1,
+      "changed_bytes": 35,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p00.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p01.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p02.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p03.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p04.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p05.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p06.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p07.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p08.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p09.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p10.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p11.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p12.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p13.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p14.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p15.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p16.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p17.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p18.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p19.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p20.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p21.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p22.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p23.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p24.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p25.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p26.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p27.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p28.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p29.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p30.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p31.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p32.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p33.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p34.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p35.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p36.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p37.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p38.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p39.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "p40.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv00.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv01.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv02.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv03.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv04.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv05.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv06.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv07.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv08.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv09.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv10.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv11.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv12.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv13.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    },
+    {
+      "file": "surv14.xmg",
+      "message_slots": 0,
+      "changed_bytes": 0,
+      "non_message_bytes_preserved": true
+    }
+  ],
+  "count": 86,
+  "changed_files": 23
+}

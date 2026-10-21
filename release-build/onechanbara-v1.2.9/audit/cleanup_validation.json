@@ -1,0 +1,20 @@
+{
+  "reason": "Repeat an earlier transient cleanup assertion in shipping-EXE exception path; full matrix rerun and three isolated repetitions passed.",
+  "results": [
+    {
+      "attempt": 1,
+      "expected_rejection": true,
+      "temporary_files_removed": true
+    },
+    {
+      "attempt": 2,
+      "expected_rejection": true,
+      "temporary_files_removed": true
+    },
+    {
+      "attempt": 3,
+      "expected_rejection": true,
+      "temporary_files_removed": true
+    }
+  ]
+}
