@@ -1,0 +1,25 @@
+name: Publish verified NGB v1.6 package
+on:
+  push:
+    branches:
+      - publish/ngb-v1.6-20261021
+permissions:
+  contents: write
+concurrency:
+  group: ngb-v1.6-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'slimshadykor-cmd/korean-patches'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out verified publication inputs
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Reconstruct exact verified ZIP, upload and publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TARGET: 04213a0a504d87e72c3515315dd515bb47cf9027
+        run: python3 .release-upload/ngb-v1.6/publish.py
