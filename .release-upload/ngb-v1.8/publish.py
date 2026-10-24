@@ -4,8 +4,8 @@ from assemble import assemble
 ROOT=Path(__file__).resolve().parent
 REPO='slimshadykor-cmd/korean-patches';TAG='ngb-v1.8'
 API='https://api.github.com/repos/'+REPO
-OLD='55e37a602c0863664f72ba69c0e5186743a343dd013afb9f9e7fc64fe3f4c53f'
-NEW='ee36ae347ad2287cc74e0efee3ad00f380ecb9164f2def8f0c91b0dd740f7cf6'
+OLD='ee36ae347ad2287cc74e0efee3ad00f380ecb9164f2def8f0c91b0dd740f7cf6'
+NEW='558f55599302f9403faa1da290e35f3e3e1a711ee3d6aea103cfbda3405c9da8'
 NAME='NGB_Korean_Patch_v1.8.zip'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def api(path,data=None,method='GET'):
@@ -28,8 +28,6 @@ def main():
     url='https://github.com/'+REPO+'/releases/download/'+TAG+'/'+NAME
     urllib.request.urlretrieve(url,base);assert sha(base.read_bytes())==OLD
     payload=ROOT/'payload.zip'
-    with payload.open('wb') as f:
-        for p in sorted(ROOT.glob('payload.part*')):f.write(p.read_bytes())
     (ROOT/'manifest.json').write_bytes(gzip.decompress((ROOT/'manifest.json.gz').read_bytes()))
     out=ROOT/NAME;assert assemble(base,payload,ROOT/'manifest.json',out)==NEW
     latest=api('/releases/tags/'+TAG);assert latest['body']==release['body'];assert next(a for a in latest['assets'] if a['name']==NAME)['digest']=='sha256:'+OLD
@@ -43,7 +41,7 @@ def main():
     body=(ROOT/'RELEASE_NOTES.md').read_text();api('/releases/'+str(release['id']),{'body':body},'PATCH')
     assert api('/releases/tags/'+TAG)['body']==body
     for attempt in range(10):
-        with urllib.request.urlopen(url+'?revision=storm-pickup-'+str(attempt),timeout=120) as r:download=r.read()
+        with urllib.request.urlopen(url+'?revision=save-mode-marks-'+str(attempt),timeout=120) as r:download=r.read()
         if sha(download)==NEW:break
         if attempt==9:raise AssertionError('Public download does not match')
         time.sleep(5)
