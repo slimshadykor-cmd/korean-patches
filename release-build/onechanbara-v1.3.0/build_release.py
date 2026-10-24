@@ -13,7 +13,7 @@ def main():
     parser.add_argument('--baseline-zip',type=Path)
     parser.add_argument('--out',type=Path,default=Path('release-dist'))
     args=parser.parse_args()
-    recipe=json.loads((HERE/'recipe.json').read_text())
+    recipe=json.loads((HERE/'recipe.json').read_text(encoding='utf-8'))
     assert recipe['format']=='verified-exe-copy-literal-v1'
     args.out.mkdir(parents=True,exist_ok=True)
     baseline=args.baseline_zip or args.out/'baseline-v129.zip'

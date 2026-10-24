@@ -8,7 +8,7 @@ def request(path,method='GET',payload=None):
     with urllib.request.urlopen(req) as r:return json.load(r)
 new=request('/releases/tags/onechanbara-v1.3.0')
 assert not new['draft'] and not new['prerelease']
-expected=json.loads((Path(__file__).resolve().parent.parent/'recipe.json').read_text())
+expected=json.loads((Path(__file__).resolve().parent.parent/'recipe.json').read_text(encoding='utf-8'))
 assets=[a for a in new['assets'] if a['name']=='Onechanbara_ISO_Korean_v1.3.0_Release.zip']
 assert len(assets)==1 and assets[0]['digest']=='sha256:'+expected['release_sha256']
 notice='''<!-- latest-patch-navigation:start -->
