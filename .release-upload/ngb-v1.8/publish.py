@@ -4,8 +4,8 @@ from assemble import assemble
 ROOT=Path(__file__).resolve().parent
 REPO='slimshadykor-cmd/korean-patches';TAG='ngb-v1.8'
 API='https://api.github.com/repos/'+REPO
-OLD='f95a1c084dde10b904c863dd2c26582b1b975f768f89cf8d1f80a7b2d04f40de'
-NEW='55e37a602c0863664f72ba69c0e5186743a343dd013afb9f9e7fc64fe3f4c53f'
+OLD='55e37a602c0863664f72ba69c0e5186743a343dd013afb9f9e7fc64fe3f4c53f'
+NEW='ee36ae347ad2287cc74e0efee3ad00f380ecb9164f2def8f0c91b0dd740f7cf6'
 NAME='NGB_Korean_Patch_v1.8.zip'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def api(path,data=None,method='GET'):
@@ -38,7 +38,7 @@ def main():
     body=(ROOT/'RELEASE_NOTES.md').read_text();api('/releases/'+str(release['id']),{'body':body},'PATCH')
     assert api('/releases/tags/'+TAG)['body']==body
     for attempt in range(10):
-        with urllib.request.urlopen(url+'?revision=heukryonggeom-'+str(attempt),timeout=120) as r:download=r.read()
+        with urllib.request.urlopen(url+'?revision=storm-pickup-'+str(attempt),timeout=120) as r:download=r.read()
         if sha(download)==NEW:break
         if attempt==9:raise AssertionError('Public download does not match')
         time.sleep(5)
