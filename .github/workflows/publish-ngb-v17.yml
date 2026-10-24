@@ -1,0 +1,28 @@
+name: Publish NGB v1.7 Storm
+
+on:
+  push:
+    branches:
+      - publish/ngb-v1.7-20261024
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ngb-v1.7-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'slimshadykor-cmd/korean-patches'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out reviewed public release inputs
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Assemble, verify, and publish NGB v1.7
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .release-upload/ngb-v1.7/publish.py
