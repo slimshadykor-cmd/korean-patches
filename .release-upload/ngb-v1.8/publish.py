@@ -18,7 +18,12 @@ def main():
     release=api('/releases/tags/'+TAG);assert not release['draft'] and not release['immutable']
     assets={x['name']:x for x in release['assets']};assert assets[NAME]['digest'] in ('sha256:'+OLD,'sha256:'+NEW)
     if assets[NAME]['digest']=='sha256:'+NEW:
-        assert release['body']==(ROOT/'RELEASE_NOTES.md').read_text();print('Already published and verified');return
+        body=(ROOT/'RELEASE_NOTES.md').read_text()
+        if release['body']!=body:api('/releases/'+str(release['id']),{'body':body},'PATCH')
+        after=api('/releases/tags/'+TAG)
+        assert after['body']==body
+        assert {a['name']:(a['id'],a['digest']) for a in after['assets']}=={n:(a['id'],a['digest']) for n,a in assets.items()}
+        print('Release explanation updated; all assets unchanged');return
     base=ROOT/'base-v1.8.zip'
     url='https://github.com/'+REPO+'/releases/download/'+TAG+'/'+NAME
     urllib.request.urlretrieve(url,base);assert sha(base.read_bytes())==OLD
