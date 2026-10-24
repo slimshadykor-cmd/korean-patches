@@ -1,0 +1,42 @@
+{
+  "version": "1.3.0",
+  "confirmed_records_resolved": 107,
+  "xdbf_strings_read": 128,
+  "unchanged_english_records": 25,
+  "achievement_definitions_unchanged": 27,
+  "achievement_text_references_resolved": 81,
+  "resource_offsets_and_nonstring_blocks_unchanged": true,
+  "non_text_game_code_unchanged": true,
+  "loading_code_byte_identical": true,
+  "free_regions_nonoverlapping": true,
+  "free_regions": [
+    [
+      8992,
+      1955
+    ]
+  ],
+  "save_function_probes": [
+    {
+      "type": 0,
+      "actual": "게임 데이터",
+      "passed": true
+    },
+    {
+      "type": 1,
+      "actual": "의상 데이터",
+      "passed": true
+    },
+    {
+      "type": 2,
+      "actual": "오류 파일",
+      "passed": true
+    }
+  ],
+  "keyboard_prompt": [
+    "의상 이름을 입력해 주세요."
+  ],
+  "actual_powerpc_instructions_executed": true,
+  "platform_calls_stubbed": true,
+  "platform_ui_rendered": false,
+  "xenia_gameplay_performed": false
+}

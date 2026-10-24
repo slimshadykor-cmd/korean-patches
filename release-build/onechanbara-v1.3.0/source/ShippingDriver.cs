@@ -1,0 +1,1 @@
+using System;using System.IO;using System.Reflection;class ShippingDriver {static int Main(string[] a){try {var x=Assembly.LoadFile(Path.GetFullPath(a[0]));x.GetType("Standalone",true).GetMethod("Apply").Invoke(null,new object[]{a[1],a[2],new Action<string>(Console.WriteLine)});return 0;}catch(Exception e){Console.Error.WriteLine((e.InnerException??e).ToString());return 1;}}}

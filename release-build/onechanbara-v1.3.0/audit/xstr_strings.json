@@ -1,0 +1,770 @@
+[
+  {
+    "id": "0x8000",
+    "original": "お姉チャンバラvorteX",
+    "korean": "오네찬바라 vorteX",
+    "modified": true
+  },
+  {
+    "id": "0x7f00",
+    "original": "ゲームの種類",
+    "korean": "게임 종류",
+    "modified": true
+  },
+  {
+    "id": "0x7f01",
+    "original": "ランク マッチ",
+    "korean": "랭크 매치",
+    "modified": true
+  },
+  {
+    "id": "0x7f02",
+    "original": "プレイヤー マッチ",
+    "korean": "플레이어 매치",
+    "modified": true
+  },
+  {
+    "id": "0x2",
+    "original": "D3 PUBLISHER",
+    "korean": "D3 PUBLISHER",
+    "modified": false
+  },
+  {
+    "id": "0x3",
+    "original": "TAMSOFT",
+    "korean": "TAMSOFT",
+    "modified": false
+  },
+  {
+    "id": "0x4",
+    "original": "テンガロンハットに水着を着こなす美麗の女剣士、彩がゾンビ相手に剣を振るう爽快アクションゲーム。スタイリッシュなアクションを更に加速させゾンビを薙ぎ倒す！返り血を浴びれば浴びるほど徐々に溜まっていく返り血ゲージや、ゲージがＭＡＸになったときに発動する暴走システムは健在。更に幅広く彩や咲たちのカスタマイズが可能に。服装に髪の色は勿論、今作では目の色や唇の色までもが変更可能！好評なシステムはそのままに、爽快感を更にバージョンアップさせた『お姉チャンバラvorteX』。前作よりぐっと美麗になった彩・咲は勿論、新キャラクターも登場し\"忌血\"をめぐる物語も架橋へと突き進む。",
+    "korean": "카우보이 모자와 수영복 차림의 아름다운 여검사 아야가 좀비를 상대로 칼을 휘두르는 통쾌한 액션 게임. 더욱 빠르고 화려해진 액션으로 좀비를 베어 쓰러뜨리세요! 적의 피를 뒤집어쓸수록 차오르는 오염 게이지와 게이지가 MAX에 도달하면 발동하는 폭주 시스템도 건재합니다. 아야와 사키의 외모도 더욱 다양하게 꾸밀 수 있습니다. 의상과 머리색은 물론, 이번에는 눈과 입술 색까지 변경할 수 있습니다! 호평받은 시스템은 그대로 살리고 통쾌함을 한층 높인 『오네찬바라 vorteX』. 전작보다 더욱 아름다워진 아야와 사키에 새로운 캐릭터까지 합류하며, \"기혈\"을 둘러싼 이야기는 절정으로 치닫습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x6",
+    "original": "アクション",
+    "korean": "액션",
+    "modified": true
+  },
+  {
+    "id": "0xd",
+    "original": "ストーリーモード",
+    "korean": "스토리 모드",
+    "modified": true
+  },
+  {
+    "id": "0xe",
+    "original": "サバイバルモード",
+    "korean": "서바이벌 모드",
+    "modified": true
+  },
+  {
+    "id": "0x13",
+    "original": "難易度{c3}、\r\nチャプター{p0x10000007}まで進行中。",
+    "korean": "난이도 {c3},\r\n챕터 {p0x10000007}까지 진행 중.",
+    "modified": true
+  },
+  {
+    "id": "0x16",
+    "original": "クエスト称号：『猟奇的な女』の獲得",
+    "korean": "퀘스트 칭호: 『엽기의 여인』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x17",
+    "original": "クエストＮｏ．１　『猟奇的な女』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.1 『엽기의 여인』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x18",
+    "original": "クエスト称号：『ジェノサイダー』の獲得",
+    "korean": "퀘스트 칭호: 『학살자』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x19",
+    "original": "クエストＮｏ．２　『ジェノサイダー』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.2 『학살자』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x1a",
+    "original": "クエスト称号：『紅化粧』の獲得",
+    "korean": "퀘스트 칭호: 『피화장』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x1b",
+    "original": "クエストＮｏ．３　『紅化粧』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.3 『피화장』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x1c",
+    "original": "クエスト称号：『狂気のリピドー』の獲得",
+    "korean": "퀘스트 칭호: 『광기의 욕망』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x1d",
+    "original": "クエストＮｏ．４　『狂気のリピドー』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.4 『광기의 욕망』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x1e",
+    "original": "クエスト称号：『瀕死の昂揚』の獲得",
+    "korean": "퀘스트 칭호: 『빈사의 고양』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x1f",
+    "original": "クエストＮｏ．５　『瀕死の昂揚』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.5 『빈사의 고양』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x20",
+    "original": "クエスト称号：『ブラッディソード』の獲得",
+    "korean": "퀘스트 칭호: 『블러디 소드』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x21",
+    "original": "クエストＮｏ．６　『ブラッディソード』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.6 『블러디 소드』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x22",
+    "original": "クエスト称号：『女帝の舞い』の獲得",
+    "korean": "퀘스트 칭호: 『여제의 춤』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x23",
+    "original": "クエストＮｏ．７　『女帝の舞い』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.7 『여제의 춤』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x24",
+    "original": "クエスト称号：『連絶の女王』の獲得",
+    "korean": "퀘스트 칭호: 『연속 처치왕』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x25",
+    "original": "クエストＮｏ．８　『連絶の女王』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.8 『연속 처치왕』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x26",
+    "original": "クエスト称号：『無傷の女王』の獲得",
+    "korean": "퀘스트 칭호: 『무상의 여왕』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x27",
+    "original": "クエストＮｏ．９　『無傷の女王』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.9 『무상의 여왕』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x28",
+    "original": "クエスト称号：『瞬殺の美女』の獲得",
+    "korean": "퀘스트 칭호: 『순살의 미녀』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x29",
+    "original": "クエストＮｏ．１０　『瞬殺の美女』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.10 『순살의 미녀』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x2a",
+    "original": "クエスト称号：『クールマスター』の獲得",
+    "korean": "퀘스트 칭호: 『쿨 마스터』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x2b",
+    "original": "クエストＮｏ．１１　『クールマスター』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.11 『쿨 마스터』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x2c",
+    "original": "クエスト称号：『ゾンビピアッサー』の獲得",
+    "korean": "퀘스트 칭호: 『좀비 피어서』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x2d",
+    "original": "クエストＮｏ．１２　『ゾンビピアッサー』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.12 『좀비 피어서』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x2e",
+    "original": "クエスト称号：『テクニカルマスター』の獲得",
+    "korean": "퀘스트 칭호: 『테크니컬 마스터』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x2f",
+    "original": "クエストＮｏ．１３　『テクニカルマスター』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.13 『테크니컬 마스터』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x30",
+    "original": "クエスト称号：『忘我の極致』の獲得",
+    "korean": "퀘스트 칭호: 『망아의 경지』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x31",
+    "original": "クエストＮｏ．１４　『忘我の極致』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.14 『망아의 경지』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x32",
+    "original": "クエスト称号：『暴走する忌血』の獲得",
+    "korean": "퀘스트 칭호: 『기혈 폭주』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x33",
+    "original": "クエストＮｏ．１５　『暴走する忌血』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.15 『기혈 폭주』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x34",
+    "original": "クエスト称号：『避燕の舞い』の獲得",
+    "korean": "퀘스트 칭호: 『회피의 춤』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x35",
+    "original": "クエストＮｏ．１６　『避燕の舞い』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.16 『회피의 춤』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x36",
+    "original": "クエスト称号：『反撃の閃光』の獲得",
+    "korean": "퀘스트 칭호: 『반격의 섬광』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x37",
+    "original": "クエストＮｏ．１７　『反撃の閃光』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.17 『반격의 섬광』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x38",
+    "original": "クエスト称号：『ヒット＆ラン』の獲得",
+    "korean": "퀘스트 칭호: 『히트 앤 런』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x39",
+    "original": "クエストＮｏ．１８　『ヒット＆ラン』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.18 『히트 앤 런』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x3a",
+    "original": "クエスト称号：『銃弾の雨』の獲得",
+    "korean": "퀘스트 칭호: 『총탄의 비』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x3b",
+    "original": "クエストＮｏ．１９　『銃弾の雨』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.19 『총탄의 비』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x3c",
+    "original": "クエスト称号：『深淵への到達』の獲得",
+    "korean": "퀘스트 칭호: 『심연에 도달』 획득",
+    "modified": true
+  },
+  {
+    "id": "0x3d",
+    "original": "クエストＮｏ．２０　『深淵への到達』（Ｌｖ１～３）を達成しました",
+    "korean": "퀘스트 No.20 『심연에 도달』(Lv1~3)를 달성했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x3e",
+    "original": "ストーリーモード：難易度ＮＯＲＭＡＬのクリアー",
+    "korean": "스토리 모드: NORMAL 난이도 클리어",
+    "modified": true
+  },
+  {
+    "id": "0x3f",
+    "original": "難易度ＮＯＲＭＡＬでのストーリーモードをクリアーしました",
+    "korean": "NORMAL 난이도로 스토리 모드를 클리어했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x40",
+    "original": "ストーリーモード：難易度ＨＡＲＤのクリアー",
+    "korean": "스토리 모드: HARD 난이도 클리어",
+    "modified": true
+  },
+  {
+    "id": "0x41",
+    "original": "難易度ＨＡＲＤでのストーリーモードをクリアーしました",
+    "korean": "HARD 난이도로 스토리 모드를 클리어했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x42",
+    "original": "ストーリーモード：難易度ＶＩＯＬＥＮＴのクリアー",
+    "korean": "스토리 모드: VIOLENT 난이도 클리어",
+    "modified": true
+  },
+  {
+    "id": "0x43",
+    "original": "難易度ＶＩＯＬＥＮＴでのストーリーモードをクリアーしました",
+    "korean": "VIOLENT 난이도로 스토리 모드를 클리어했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x44",
+    "original": "ストーリーモード：難易度ＢＥＲＳＥＲＫのクリアー",
+    "korean": "스토리 모드: BERSERK 난이도 클리어",
+    "modified": true
+  },
+  {
+    "id": "0x45",
+    "original": "難易度ＢＥＲＳＥＲＫでのストーリーモードをクリアーしました",
+    "korean": "BERSERK 난이도로 스토리 모드를 클리어했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x46",
+    "original": "彩：特典コンプリート",
+    "korean": "아야: 특전 모두 획득",
+    "modified": true
+  },
+  {
+    "id": "0x47",
+    "original": "キャラクター「彩」の特典を全て獲得しました",
+    "korean": "캐릭터 「아야」의 특전을 모두 획득했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x48",
+    "original": "咲：特典コンプリート",
+    "korean": "사키: 특전 모두 획득",
+    "modified": true
+  },
+  {
+    "id": "0x49",
+    "original": "キャラクター「咲」の特典を全て獲得しました",
+    "korean": "캐릭터 「사키」의 특전을 모두 획득했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x4a",
+    "original": "アンナ：特典コンプリート",
+    "korean": "안나: 특전 모두 획득",
+    "modified": true
+  },
+  {
+    "id": "0x4b",
+    "original": "キャラクター「アンナ」の特典を全て獲得しました",
+    "korean": "캐릭터 「안나」의 특전을 모두 획득했습니다.",
+    "modified": true
+  },
+  {
+    "id": "0x4c",
+    "original": "クエストＮｏ．１　『猟奇的な女』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.1 『엽기의 여인』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x4d",
+    "original": "クエストＮｏ．２　『ジェノサイダー』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.2 『학살자』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x4e",
+    "original": "クエストＮｏ．３　『紅化粧』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.3 『피화장』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x4f",
+    "original": "クエストＮｏ．４　『狂気のリピドー』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.4 『광기의 욕망』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x50",
+    "original": "クエストＮｏ．５　『瀕死の昂揚』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.5 『빈사의 고양』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x51",
+    "original": "クエストＮｏ．６　『ブラッディソード』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.6 『블러디 소드』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x52",
+    "original": "クエストＮｏ．７　『女帝の舞い』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.7 『여제의 춤』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x53",
+    "original": "クエストＮｏ．８　『連絶の女王』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.8 『연속 처치왕』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x54",
+    "original": "クエストＮｏ．９　『無傷の女王』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.9 『무상의 여왕』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x55",
+    "original": "クエストＮｏ．１０　『瞬殺の美女』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.10 『순살의 미녀』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x56",
+    "original": "クエストＮｏ．１１　『クールマスター』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.11 『쿨 마스터』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x57",
+    "original": "クエストＮｏ．１２　『ゾンビピアッサー』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.12 『좀비 피어서』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x58",
+    "original": "クエストＮｏ．１３　『テクニカルマスター』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.13 『테크니컬 마스터』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x59",
+    "original": "クエストＮｏ．１４　『忘我の極致』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.14 『망아의 경지』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x5a",
+    "original": "クエストＮｏ．１５　『暴走する忌血』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.15 『기혈 폭주』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x5b",
+    "original": "クエストＮｏ．１６　『避燕の舞い』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.16 『회피의 춤』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x5c",
+    "original": "クエストＮｏ．１７　『反撃の閃光』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.17 『반격의 섬광』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x5d",
+    "original": "クエストＮｏ．１８　『ヒット＆ラン』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.18 『히트 앤 런』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x5e",
+    "original": "クエストＮｏ．１９　『銃弾の雨』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.19 『총탄의 비』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x5f",
+    "original": "クエストＮｏ．２０　『深淵への到達』（Ｌｖ１～３）を達成しましょう",
+    "korean": "퀘스트 No.20 『심연에 도달』(Lv1~3)를 달성하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x60",
+    "original": "難易度ＮＯＲＭＡＬでのストーリーモードをクリアーしましょう",
+    "korean": "NORMAL 난이도로 스토리 모드를 클리어하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x61",
+    "original": "難易度ＨＡＲＤでのストーリーモードをクリアーしましょう",
+    "korean": "HARD 난이도로 스토리 모드를 클리어하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x62",
+    "original": "難易度ＶＩＯＬＥＮＴでのストーリーモードをクリアーしましょう",
+    "korean": "VIOLENT 난이도로 스토리 모드를 클리어하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x63",
+    "original": "難易度ＢＥＲＳＥＲＫでのストーリーモードをクリアーしましょう",
+    "korean": "BERSERK 난이도로 스토리 모드를 클리어하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x64",
+    "original": "キャラクター「彩」の特典を全て獲得しましょう",
+    "korean": "캐릭터 「아야」의 특전을 모두 획득하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x65",
+    "original": "キャラクター「咲」の特典を全て獲得しましょう",
+    "korean": "캐릭터 「사키」의 특전을 모두 획득하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x66",
+    "original": "キャラクター「アンナ」の特典を全て獲得しましょう",
+    "korean": "캐릭터 「안나」의 특전을 모두 획득하세요.",
+    "modified": true
+  },
+  {
+    "id": "0x67",
+    "original": "チャプター{p0x10000001}をプレイ中。\r\n「{c0}」：Ｌｖ{p0x10000002}",
+    "korean": "챕터 {p0x10000001} 플레이 중.\r\n「{c0}」: Lv{p0x10000002}",
+    "modified": true
+  },
+  {
+    "id": "0x68",
+    "original": "チャプター{p0x10000001}をプレイ中。\r\n２人同時プレイ中。",
+    "korean": "챕터 {p0x10000001} 플레이 중.\r\n2인 동시 플레이 중.",
+    "modified": true
+  },
+  {
+    "id": "0x69",
+    "original": "チャプター{p0x10000001}をプレイ中。\r\n「{c0}」：Ｌｖ{p0x10000002}",
+    "korean": "챕터 {p0x10000001} 플레이 중.\r\n「{c0}」: Lv{p0x10000002}",
+    "modified": true
+  },
+  {
+    "id": "0x6a",
+    "original": "チャプター{p0x10000001}をプレイ中。\r\n２人同時プレイ中。",
+    "korean": "챕터 {p0x10000001} 플레이 중.\r\n2인 동시 플레이 중.",
+    "modified": true
+  },
+  {
+    "id": "0x6b",
+    "original": "ステージ{p0x10000003}－{p0x10000004}をプレイ中。\r\n「{c0}」：Ｌｖ{p0x10000002}",
+    "korean": "스테이지 {p0x10000003}-{p0x10000004} 플레이 중.\r\n「{c0}」: Lv{p0x10000002}",
+    "modified": true
+  },
+  {
+    "id": "0x6c",
+    "original": "ステージ{p0x10000003}－{p0x10000004}をプレイ中。\r\n２人同時プレイ中。",
+    "korean": "스테이지 {p0x10000003}-{p0x10000004} 플레이 중.\r\n2인 동시 플레이 중.",
+    "modified": true
+  },
+  {
+    "id": "0x6d",
+    "original": "プラクティスモードをプレイ中。\r\n「{c0}」：Ｌｖ{p0x10000002}",
+    "korean": "연습 모드 플레이 중.\r\n「{c0}」: Lv{p0x10000002}",
+    "modified": true
+  },
+  {
+    "id": "0x6e",
+    "original": "クエストモードを確認中。\r\n{p0x10000005}個のクエストを達成中。",
+    "korean": "퀘스트 모드 확인 중.\r\n퀘스트 {p0x10000005}개 달성.",
+    "modified": true
+  },
+  {
+    "id": "0x6f",
+    "original": "ドレスアップモードをプレイ中。\r\n{p0x10000006}個のパーツを獲得中。",
+    "korean": "꾸미기 모드 이용 중.\r\n꾸미기 부품 {p0x10000006}개 획득.",
+    "modified": true
+  },
+  {
+    "id": "0x70",
+    "original": "ビューモードをプレイ中。\r\n「{c2}」鑑賞中。",
+    "korean": "감상 모드 이용 중.\r\n「{c2}」 감상 중.",
+    "modified": true
+  },
+  {
+    "id": "0x71",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x72",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x73",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x74",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x75",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x76",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x77",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x78",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x79",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x7a",
+    "original": "<Insert display string text>",
+    "korean": "<Insert display string text>",
+    "modified": false
+  },
+  {
+    "id": "0x7b",
+    "original": "彩",
+    "korean": "아야",
+    "modified": true
+  },
+  {
+    "id": "0x7c",
+    "original": "咲",
+    "korean": "사키",
+    "modified": true
+  },
+  {
+    "id": "0x7d",
+    "original": "アンナ",
+    "korean": "안나",
+    "modified": true
+  },
+  {
+    "id": "0x7e",
+    "original": "CHARACTER",
+    "korean": "CHARACTER",
+    "modified": false
+  },
+  {
+    "id": "0x7f",
+    "original": "PROFILE",
+    "korean": "PROFILE",
+    "modified": false
+  },
+  {
+    "id": "0x80",
+    "original": "COSTUME",
+    "korean": "COSTUME",
+    "modified": false
+  },
+  {
+    "id": "0x81",
+    "original": "MOTION",
+    "korean": "MOTION",
+    "modified": false
+  },
+  {
+    "id": "0x82",
+    "original": "VOICE",
+    "korean": "VOICE",
+    "modified": false
+  },
+  {
+    "id": "0x83",
+    "original": "BGM",
+    "korean": "BGM",
+    "modified": false
+  },
+  {
+    "id": "0x84",
+    "original": "SE",
+    "korean": "SE",
+    "modified": false
+  },
+  {
+    "id": "0x85",
+    "original": "MOVIE",
+    "korean": "MOVIE",
+    "modified": false
+  },
+  {
+    "id": "0x86",
+    "original": "EASY",
+    "korean": "EASY",
+    "modified": false
+  },
+  {
+    "id": "0x87",
+    "original": "NORMAL",
+    "korean": "NORMAL",
+    "modified": false
+  },
+  {
+    "id": "0x88",
+    "original": "HARD",
+    "korean": "HARD",
+    "modified": false
+  },
+  {
+    "id": "0x89",
+    "original": "VIOLENT",
+    "korean": "VIOLENT",
+    "modified": false
+  },
+  {
+    "id": "0x8a",
+    "original": "BERSERK",
+    "korean": "BERSERK",
+    "modified": false
+  }
+]

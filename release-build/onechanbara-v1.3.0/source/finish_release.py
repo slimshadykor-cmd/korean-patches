@@ -1,0 +1,127 @@
+from pathlib import Path
+import json,zipfile,hashlib,shutil
+R=Path(__file__).resolve().parent.parent;D=R/'deliverables';B=R/'publication/release-build/onechanbara-v1.3.0';B.mkdir(parents=True,exist_ok=True)
+sha=lambda b:hashlib.sha256(b).hexdigest()
+assert json.loads((R/'audit/text_validation.json').read_text())['confirmed_records_resolved']==107
+assert len(json.loads((R/'audit/iso_validation.json').read_text())['tests'])==2
+readme='''오네찬바라 볼텍스 ~기혈을 잇는 자들~ 한글패치 v1.3.0
+한글화 슬림쉐이디
+
+[v1.3.0 변경 내용]
+코스튬 이름 입력 안내와 저장 데이터 명칭 4개를 한글화했습니다.
+도전과제 27개의 제목·달성/미달성 설명, 활동 상태, 게임 소개 등
+시스템 정보 103항목을 한글화했습니다.
+기존 한글화와 대사 수정, 여신상·팔찌 판별 수정, v1.2.9 로딩 개선을
+모두 포함한 누적 패치입니다. 이전 패치를 순서대로 적용할 필요가 없습니다.
+
+[버전 확인]
+패치 프로그램 제목과 배포 파일명에서 v1.3.0을 확인해 주세요.
+이번 업데이트는 이미지 수정 제외 방침에 따라 타이틀 이미지를 유지했습니다.
+따라서 게임 타이틀 화면의 표기는 v1.2.9로 남아 있습니다.
+
+[준비물]
+- 일본판 원본 ISO 또는 정식 v1.2.2~v1.2.9 한글판 ISO
+- 지원 한글판의 GoddessFix1 적용판 및 기존 지원 Loading Test01 적용판도 사용 가능
+- Windows 64비트, .NET Framework 4.8
+- 새 ISO를 저장할 여유 공간과 약 500MB의 임시 공간
+
+[적용 방법]
+1. 제니아에서 게임을 종료하고 배포 ZIP을 원하는 폴더에 풉니다.
+2. Onechanbara_ISO_Korean_v1.3.0.exe를 실행합니다.
+3. ISO 선택 버튼으로 원본 또는 지원되는 기존 한글판 ISO를 선택합니다.
+4. 새 ISO의 저장 위치와 이름을 지정합니다.
+5. 완료 창에 표시된 새 ISO를 Xenia에서 직접 불러옵니다.
+
+게임 ISO 자체를 압축 해제할 필요는 없습니다.
+입력 ISO를 보존하고 별도의 새 ISO를 만듭니다.
+완성 ISO는 사용자가 4번에서 지정한 위치에 저장됩니다.
+게임이나 Xenia를 자동 실행하지 않습니다.
+
+[유지한 내용]
+v1.2.9의 로딩 처리 코드와 기존 대사·지역·아이템·메뉴·영상 자막을 유지합니다.
+이미지·텍스처·영상, 간단한 영어 난이도 표기는 이번에 변경하지 않았습니다.
+도전과제 ID, 이벤트와 오브젝트 식별자, 저장 처리 코드는 유지했습니다.
+도전과제·활동 상태 등 시스템 정보의 표시 지원은 실행 환경에 따라 다릅니다.
+
+[검사 범위]
+확인된 미번역 107항목을 수정한 뒤 실제 실행 파일에서 다시 읽어 대조했습니다.
+문자열 길이와 참조, 도전과제 27개의 연결, 입력·저장 관련 실제 명령을 검사했습니다.
+원본/기존 v1.2.9 자료로 구성한 ISO 구조에 실제 배포 EXE를 적용하여
+158개 대상의 결과와 입력 보존을 확인했습니다.
+모든 챕터·난이도·특수 상황을 Xenia에서 직접 플레이한 검수를 뜻하지 않습니다.
+
+[원본 ISO 기준 해시]
+MD5: a1c8c272378c3ac0bae34c61ff0fc0aa
+SHA-1: 13cfb703350719c4e22cfd83100d100e94cb661f
+패치 전 일본판 원본 ISO 기준입니다. 패치 후 ISO의 값은 달라집니다.
+
+게임 ISO, Xenia, 세이브 파일, 트레이너 및 테스트용 도구는 포함하지 않습니다.
+
+항상 최신 안내:
+https://github.com/slimshadykor-cmd/korean-patches/tree/main/xbox360/onechanbara
+v1.3.0 배포 페이지:
+https://github.com/slimshadykor-cmd/korean-patches/releases/tag/onechanbara-v1.3.0
+'''
+hashes='일본판 원본 ISO 기준 해시\n\nMD5: a1c8c272378c3ac0bae34c61ff0fc0aa\nSHA-1: 13cfb703350719c4e22cfd83100d100e94cb661f\n\n패치 전 원본 ISO 기준입니다. 패치 ZIP이나 패치 후 ISO의 해시가 아닙니다.\n'
+for name,s in [('먼저읽기.txt',readme),('원본ISO_해시.txt',hashes)]:
+    (D/name).write_bytes(s.replace('\n','\r\n').encode('utf-8-sig'));shutil.copyfile(D/name,B/name)
+public=['Onechanbara_ISO_Korean_v1.3.0.exe','먼저읽기.txt','원본ISO_해시.txt']
+release=D/'Onechanbara_ISO_Korean_v1.3.0_Release.zip'
+with zipfile.ZipFile(release,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
+    for name in public:
+        info=zipfile.ZipInfo(name,date_time=(2026,10,24,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
+        z.writestr(info,(D/name).read_bytes(),compresslevel=6)
+with zipfile.ZipFile(release) as z:assert z.testzip() is None and z.namelist()==public
+meta={'version':'1.3.0','release_bytes':release.stat().st_size,'release_sha256':sha(release.read_bytes()),'exe_sha256':sha((D/public[0]).read_bytes()),'release_files':public,'test_and_trainer_assets_excluded':True,'images_changed':False,'game_title_version_image':'v1.2.9','actual_xenia_gameplay_tested':False}
+(R/'audit/release_validation.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2))
+notes='''# 오네찬바라 볼텍스 ~기혈을 잇는 자들~ 한글패치 v1.3.0
+
+한글화: **슬림쉐이디**
+
+## 이번 변경
+
+- 코스튬 이름 입력 안내·저장 데이터 명칭 4개를 한글화했습니다.
+- 도전과제 제목·설명, 활동 상태, 게임 소개 등의 시스템 정보 103항목을 한글화했습니다.
+- 기존 한글화와 대사·여신상·팔찌 수정, **v1.2.9 로딩 개선**을 모두 포함합니다.
+- 도전과제 ID와 이벤트·오브젝트 식별값, 저장 처리 및 로딩 코드는 유지합니다.
+
+**패치 프로그램과 파일명에서 v1.3.0을 확인해 주세요.** 이번에는 이미지 수정을 제외하여 게임 타이틀 화면에는 **v1.2.9**가 그대로 표시됩니다.
+
+## 다운로드
+
+[**Onechanbara_ISO_Korean_v1.3.0_Release.zip 받기**](https://github.com/slimshadykor-cmd/korean-patches/releases/download/onechanbara-v1.3.0/Onechanbara_ISO_Korean_v1.3.0_Release.zip)
+
+ZIP에는 패치 EXE, 사용 안내문, 원본 ISO 해시 안내만 들어 있습니다.
+
+## 적용 방법
+
+1. 게임을 종료하고 배포 ZIP을 풉니다.
+2. `Onechanbara_ISO_Korean_v1.3.0.exe`를 실행합니다.
+3. 일본판 원본 또는 지원되는 기존 한글판 ISO를 선택합니다.
+4. 새 ISO의 저장 위치와 이름을 지정합니다.
+5. 완료 후 지정한 위치의 새 ISO를 Xenia에서 직접 불러옵니다.
+
+게임 ISO 자체를 압축 해제할 필요는 없습니다. 입력 ISO를 보존하고 새 파일을 만듭니다. 이전 패치를 순서대로 적용할 필요 없이 이번 패치를 한 번 적용하면 됩니다.
+
+일본판 원본, 정식 v1.2.2~v1.2.9 한글판, 기존 지원 GoddessFix1·Loading Test01 적용판을 지원합니다. Windows 64비트와 .NET Framework 4.8, 새 ISO 저장 공간 및 약 500MB의 임시 공간이 필요합니다.
+
+## 검사 범위
+
+미번역 107항목을 수정한 뒤 실행 파일에서 재추출해 대조했습니다. 문자열 길이·참조, 도전과제 27개의 연결, 입력·저장 관련 실제 명령을 검사했고, 원본과 v1.2.9 자료로 구성한 ISO 구조에 배포 EXE를 적용하여 158개 대상과 입력 보존을 확인했습니다. 모든 챕터·난이도·특수 상황을 Xenia에서 직접 플레이한 검수는 아닙니다.
+
+도전과제·활동 상태 등 시스템 정보의 표시 지원은 실행 환경에 따라 다릅니다. 이미지·영상과 기존 게임 내 문구는 유지했습니다. 간단한 영어 표기도 유지합니다.
+
+## 원본 ISO 기준 해시
+
+| 항목 | 값 |
+| --- | --- |
+| MD5 | `a1c8c272378c3ac0bae34c61ff0fc0aa` |
+| SHA-1 | `13cfb703350719c4e22cfd83100d100e94cb661f` |
+
+패치 전 일본판 원본 ISO의 기준값입니다. 게임 ISO·Xenia·세이브·트레이너·테스트 도구는 포함하지 않습니다.
+
+[항상 최신 안내](https://github.com/slimshadykor-cmd/korean-patches/tree/main/xbox360/onechanbara) · [이전 v1.2.9 배포](https://github.com/slimshadykor-cmd/korean-patches/releases/tag/onechanbara-v1.2.9)
+'''
+(B/'release-notes.md').write_text(notes)
+(R/'publication/onechanbara-README.md').write_text('[← Xbox 360 한글패치 목록](../README.md)\n\n'+notes)
+print(meta,flush=True)

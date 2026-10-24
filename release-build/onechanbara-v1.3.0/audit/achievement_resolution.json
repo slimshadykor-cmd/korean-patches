@@ -1,0 +1,164 @@
+[
+  {
+    "id": 7,
+    "label_id": "퀘스트 칭호: 『엽기의 여인』 획득",
+    "earned_description_id": "퀘스트 No.1 『엽기의 여인』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.1 『엽기의 여인』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 8,
+    "label_id": "퀘스트 칭호: 『학살자』 획득",
+    "earned_description_id": "퀘스트 No.2 『학살자』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.2 『학살자』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 9,
+    "label_id": "퀘스트 칭호: 『피화장』 획득",
+    "earned_description_id": "퀘스트 No.3 『피화장』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.3 『피화장』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 10,
+    "label_id": "퀘스트 칭호: 『광기의 욕망』 획득",
+    "earned_description_id": "퀘스트 No.4 『광기의 욕망』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.4 『광기의 욕망』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 11,
+    "label_id": "퀘스트 칭호: 『빈사의 고양』 획득",
+    "earned_description_id": "퀘스트 No.5 『빈사의 고양』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.5 『빈사의 고양』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 12,
+    "label_id": "퀘스트 칭호: 『블러디 소드』 획득",
+    "earned_description_id": "퀘스트 No.6 『블러디 소드』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.6 『블러디 소드』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 13,
+    "label_id": "퀘스트 칭호: 『여제의 춤』 획득",
+    "earned_description_id": "퀘스트 No.7 『여제의 춤』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.7 『여제의 춤』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 14,
+    "label_id": "퀘스트 칭호: 『연속 처치왕』 획득",
+    "earned_description_id": "퀘스트 No.8 『연속 처치왕』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.8 『연속 처치왕』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 15,
+    "label_id": "퀘스트 칭호: 『무상의 여왕』 획득",
+    "earned_description_id": "퀘스트 No.9 『무상의 여왕』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.9 『무상의 여왕』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 16,
+    "label_id": "퀘스트 칭호: 『순살의 미녀』 획득",
+    "earned_description_id": "퀘스트 No.10 『순살의 미녀』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.10 『순살의 미녀』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 17,
+    "label_id": "퀘스트 칭호: 『쿨 마스터』 획득",
+    "earned_description_id": "퀘스트 No.11 『쿨 마스터』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.11 『쿨 마스터』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 18,
+    "label_id": "퀘스트 칭호: 『좀비 피어서』 획득",
+    "earned_description_id": "퀘스트 No.12 『좀비 피어서』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.12 『좀비 피어서』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 19,
+    "label_id": "퀘스트 칭호: 『테크니컬 마스터』 획득",
+    "earned_description_id": "퀘스트 No.13 『테크니컬 마스터』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.13 『테크니컬 마스터』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 20,
+    "label_id": "퀘스트 칭호: 『망아의 경지』 획득",
+    "earned_description_id": "퀘스트 No.14 『망아의 경지』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.14 『망아의 경지』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 21,
+    "label_id": "퀘스트 칭호: 『기혈 폭주』 획득",
+    "earned_description_id": "퀘스트 No.15 『기혈 폭주』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.15 『기혈 폭주』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 22,
+    "label_id": "퀘스트 칭호: 『회피의 춤』 획득",
+    "earned_description_id": "퀘스트 No.16 『회피의 춤』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.16 『회피의 춤』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 23,
+    "label_id": "퀘스트 칭호: 『반격의 섬광』 획득",
+    "earned_description_id": "퀘스트 No.17 『반격의 섬광』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.17 『반격의 섬광』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 24,
+    "label_id": "퀘스트 칭호: 『히트 앤 런』 획득",
+    "earned_description_id": "퀘스트 No.18 『히트 앤 런』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.18 『히트 앤 런』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 25,
+    "label_id": "퀘스트 칭호: 『총탄의 비』 획득",
+    "earned_description_id": "퀘스트 No.19 『총탄의 비』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.19 『총탄의 비』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 26,
+    "label_id": "퀘스트 칭호: 『심연에 도달』 획득",
+    "earned_description_id": "퀘스트 No.20 『심연에 도달』(Lv1~3)를 달성했습니다.",
+    "unearned_description_id": "퀘스트 No.20 『심연에 도달』(Lv1~3)를 달성하세요."
+  },
+  {
+    "id": 27,
+    "label_id": "스토리 모드: NORMAL 난이도 클리어",
+    "earned_description_id": "NORMAL 난이도로 스토리 모드를 클리어했습니다.",
+    "unearned_description_id": "NORMAL 난이도로 스토리 모드를 클리어하세요."
+  },
+  {
+    "id": 28,
+    "label_id": "스토리 모드: HARD 난이도 클리어",
+    "earned_description_id": "HARD 난이도로 스토리 모드를 클리어했습니다.",
+    "unearned_description_id": "HARD 난이도로 스토리 모드를 클리어하세요."
+  },
+  {
+    "id": 29,
+    "label_id": "스토리 모드: VIOLENT 난이도 클리어",
+    "earned_description_id": "VIOLENT 난이도로 스토리 모드를 클리어했습니다.",
+    "unearned_description_id": "VIOLENT 난이도로 스토리 모드를 클리어하세요."
+  },
+  {
+    "id": 30,
+    "label_id": "스토리 모드: BERSERK 난이도 클리어",
+    "earned_description_id": "BERSERK 난이도로 스토리 모드를 클리어했습니다.",
+    "unearned_description_id": "BERSERK 난이도로 스토리 모드를 클리어하세요."
+  },
+  {
+    "id": 31,
+    "label_id": "아야: 특전 모두 획득",
+    "earned_description_id": "캐릭터 「아야」의 특전을 모두 획득했습니다.",
+    "unearned_description_id": "캐릭터 「아야」의 특전을 모두 획득하세요."
+  },
+  {
+    "id": 32,
+    "label_id": "사키: 특전 모두 획득",
+    "earned_description_id": "캐릭터 「사키」의 특전을 모두 획득했습니다.",
+    "unearned_description_id": "캐릭터 「사키」의 특전을 모두 획득하세요."
+  },
+  {
+    "id": 33,
+    "label_id": "안나: 특전 모두 획득",
+    "earned_description_id": "캐릭터 「안나」의 특전을 모두 획득했습니다.",
+    "unearned_description_id": "캐릭터 「안나」의 특전을 모두 획득하세요."
+  }
+]

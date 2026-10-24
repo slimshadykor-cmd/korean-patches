@@ -1,0 +1,15 @@
+{
+  "version": "1.3.0",
+  "release_bytes": 319262974,
+  "release_sha256": "584a4808c00f6053aad5d91a6b54623ecb6b3c6b73f1230da10d13b022f0d502",
+  "exe_sha256": "0af0aa5047ca4796b46ae2c200862aaec681aa1a1d30c6f5176392726be2bfee",
+  "release_files": [
+    "Onechanbara_ISO_Korean_v1.3.0.exe",
+    "먼저읽기.txt",
+    "원본ISO_해시.txt"
+  ],
+  "test_and_trainer_assets_excluded": true,
+  "images_changed": false,
+  "game_title_version_image": "v1.2.9",
+  "actual_xenia_gameplay_tested": false
+}

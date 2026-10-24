@@ -1,0 +1,6 @@
+﻿일본판 원본 ISO 기준 해시
+
+MD5: a1c8c272378c3ac0bae34c61ff0fc0aa
+SHA-1: 13cfb703350719c4e22cfd83100d100e94cb661f
+
+패치 전 원본 ISO 기준입니다. 패치 ZIP이나 패치 후 ISO의 해시가 아닙니다.

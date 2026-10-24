@@ -1,0 +1,51 @@
+{
+  "version": "1.3.0",
+  "baseline_xex_sha256": "1d5ca57194a51bf60eee37f9612f30f275381c85c480b5210a0d0e5895e4573c",
+  "result_xex_sha256": "857a33335f8453265a0a35a064169c4e0ffa85ab5d8eb85d2385193317d74fd5",
+  "translated_records": 107,
+  "utf16_records": 4,
+  "utf8_records": 103,
+  "xstr_original_bytes": 9113,
+  "xstr_result_bytes": 7158,
+  "freed_bytes": 1955,
+  "string_ids_and_placeholders_preserved": true,
+  "resource_offsets_preserved": true,
+  "permitted_logical_ranges": [
+    [
+      212624,
+      212660
+    ],
+    [
+      233836,
+      233856
+    ],
+    [
+      233856,
+      233870
+    ],
+    [
+      233892,
+      233908
+    ],
+    [
+      87493306,
+      87502419
+    ],
+    [
+      87491300,
+      87491304
+    ],
+    [
+      87490580,
+      87490584
+    ],
+    [
+      87491312,
+      87491320
+    ]
+  ],
+  "changed_logical_bytes": 9033,
+  "images_modified": false,
+  "loading_code_modified": false,
+  "actual_xenia_gameplay_tested": false
+}
