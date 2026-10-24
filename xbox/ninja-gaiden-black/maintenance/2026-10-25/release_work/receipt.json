@@ -1,0 +1,13 @@
+{
+  "file": "deliverables/NGB_Korean_Patch_v1.8.zip",
+  "sha256": "558f55599302f9403faa1da290e35f3e3e1a711ee3d6aea103cfbda3405c9da8",
+  "bytes": 62861980,
+  "same_as_test5": 2720,
+  "packaging_changes": [
+    "VALIDATION.json",
+    "README_KO.txt",
+    "ngb_native11/patch_gui.py",
+    "ngb_native11/assets/build_plan.json"
+  ],
+  "xbe_sha256": "a1462dc3a6e0679915d1f601e2a0216c9e4b4c7db6a46d44486d7ac3c8bf0261"
+}

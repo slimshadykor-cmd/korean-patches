@@ -1,0 +1,20 @@
+{
+  "symbols": {
+    "mark_text_gate": 15696816,
+    "mark_selected": 15696988,
+    "mark_loop": 15697083,
+    "mark_done": 15697209,
+    "zero": 15697216,
+    "one": 15697220,
+    "alpha_scale": 15697224,
+    "black_rects": 15697228,
+    "storm_rects": 15697760,
+    "__bss_start": 15699968,
+    "_edata": 15699968,
+    "_end": 15699968
+  },
+  "hook": "0xef8119",
+  "sha256": "a1462dc3a6e0679915d1f601e2a0216c9e4b4c7db6a46d44486d7ac3c8bf0261",
+  "test5_bytes_changed": 28,
+  "preservation": "Only text-draw call, section length/hash/header fields; appended mark renderer. All save/load/mode/skip instructions byte-identical to TEST5."
+}

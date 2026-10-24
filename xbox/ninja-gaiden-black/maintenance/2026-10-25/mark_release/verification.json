@@ -1,0 +1,6 @@
+{
+  "cases": 108,
+  "game_state_changes": false,
+  "save_code_byte_identical_to_test5": true,
+  "scope": "Native x86 overlay execution and captured draw descriptors. GPU calls mocked; actual xemu mark appearance unverified."
+}
