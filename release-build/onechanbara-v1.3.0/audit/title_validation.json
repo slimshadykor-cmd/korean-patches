@@ -1,0 +1,19 @@
+{
+  "version": "1.3.0",
+  "previous_version_recipe_byte_exact": true,
+  "source_render_difference_box": [
+    220,
+    684,
+    253,
+    703
+  ],
+  "other_archive_entries_byte_identical": true,
+  "dimensions": [
+    1280,
+    720
+  ],
+  "jpeg_quality": 98,
+  "archive_size": 2595584,
+  "result_sha256": "0942123e7aca903ffa4b32154b789ba8f24288d756ebb8d845efd70934b5b6bd",
+  "actual_gameplay_screenshot": false
+}

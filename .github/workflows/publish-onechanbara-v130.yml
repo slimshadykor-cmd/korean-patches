@@ -46,7 +46,10 @@ jobs:
               --notes-file release-build/onechanbara-v1.3.0/release-notes.md
           else
             existing_target=$(gh release view onechanbara-v1.3.0 --json targetCommitish --jq .targetCommitish)
-            test "$existing_target" = "$GITHUB_SHA"
+            # Authorized same-version asset replacement; preserve the existing release URL/tag.
+            test "$existing_target" = "b9251a66b11dc0982f286f8aeabf46b4375c7b0c"
+            old_digest=$(gh api repos/slimshadykor-cmd/korean-patches/releases/tags/onechanbara-v1.3.0 --jq '.assets[] | select(.name == "Onechanbara_ISO_Korean_v1.3.0_Release.zip") | .digest')
+            test "$old_digest" = "sha256:584a4808c00f6053aad5d91a6b54623ecb6b3c6b73f1230da10d13b022f0d502"
           fi
           gh release upload onechanbara-v1.3.0 \
             release-dist/Onechanbara_ISO_Korean_v1.3.0_Release.zip --clobber

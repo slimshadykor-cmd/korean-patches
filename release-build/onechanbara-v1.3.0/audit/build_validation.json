@@ -1,17 +1,19 @@
 {
   "version": "1.3.0",
-  "exe_sha256": "0af0aa5047ca4796b46ae2c200862aaec681aa1a1d30c6f5176392726be2bfee",
+  "exe_sha256": "cab7dc6a18f3b0b3e9af6b4890e71e3e02e96aeb5aa6922396eb5ceca3c49f16",
   "exe_bytes": 400676352,
   "manifest_paths": 158,
   "unique_payloads": 140,
   "changed_game_files_from_v129": [
-    "default.xex"
+    "default.xex",
+    "Media/Menu/title2d.cat"
   ],
-  "unchanged_other_manifest_paths": 157,
+  "unchanged_other_manifest_paths": 156,
   "core_and_extraction_logic_unchanged": true,
   "prior_input_hashes_retained": true,
   "v129_upgrade_supported": true,
-  "images_modified": false,
-  "title_image_still_shows": "v1.2.9",
+  "images_modified": true,
+  "title_image_shows": "v1.3.0",
+  "earlier_v130_upgrade_supported": true,
   "windows_gui_executed": false
 }

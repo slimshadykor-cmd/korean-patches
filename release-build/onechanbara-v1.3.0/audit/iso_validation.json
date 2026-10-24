@@ -16,6 +16,14 @@
       "input_and_unrelated_data_preserved": true,
       "shipping_exe_core_executed": true,
       "temporary_payload_files_cleaned": true
+    },
+    {
+      "input": "earlier-v1.3.0",
+      "base": "0x0",
+      "all_158_targets_byte_exact": true,
+      "input_and_unrelated_data_preserved": true,
+      "shipping_exe_core_executed": true,
+      "temporary_payload_files_cleaned": true
     }
   ],
   "rejections": [
@@ -33,12 +41,6 @@
   "windows_gui_runtime_tested": false,
   "actual_xenia_gameplay_tested": false,
   "empty_directory_observations_linux_harness": [
-    {
-      "input": "input.iso",
-      "output": "output.iso",
-      "empty_patch_directories": 1,
-      "remaining_payload_files": 0
-    },
     {
       "input": "output.iso",
       "output": "repeat.iso",
@@ -60,6 +62,12 @@
     {
       "input": "input.iso",
       "output": "bad.iso",
+      "empty_patch_directories": 2,
+      "remaining_payload_files": 0
+    },
+    {
+      "input": "input.iso",
+      "output": "output.iso",
       "empty_patch_directories": 2,
       "remaining_payload_files": 0
     },

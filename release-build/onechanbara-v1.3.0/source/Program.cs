@@ -7,7 +7,7 @@ using OnechanbaraPatch;
 class PatchWindow:Form {
  Button select;TextBox log;bool busy;
  public PatchWindow(){Text="오네찬바라 볼텍스 ISO 한글패치 v1.3.0 (시스템 문구 보완)";ClientSize=new Size(740,490);MinimumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Malgun Gothic",10);
-  Controls.Add(new Label{Text="~기혈을 잇는 자들~  |  한글화 슬림쉐이디\n일본판 원본 / v1.2.2~v1.2.9 한글판 / Loading Test01 적용판을 v1.3.0로 만듭니다.",Location=new Point(20,18),Size=new Size(700,58)});
+  Controls.Add(new Label{Text="~기혈을 잇는 자들~  |  한글화 슬림쉐이디\n일본판 원본 / 기존 한글판 / 초기 v1.3.0을 타이틀 버전 보완 v1.3.0으로 만듭니다.",Location=new Point(20,18),Size=new Size(700,58)});
   select=new Button{Text="원본 / 기존 한글판 ISO 선택하여 v1.3.0 적용",Location=new Point(20,88),Size=new Size(700,44),Anchor=AnchorStyles.Top|AnchorStyles.Left|AnchorStyles.Right};Controls.Add(select);
   log=new TextBox{Multiline=true,ReadOnly=true,ScrollBars=ScrollBars.Vertical,Location=new Point(20,150),Size=new Size(700,318),Anchor=AnchorStyles.Top|AnchorStyles.Bottom|AnchorStyles.Left|AnchorStyles.Right};Controls.Add(log);
   select.Click+=async delegate{string source,target;

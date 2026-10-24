@@ -3,7 +3,7 @@ import json,zipfile,hashlib,shutil
 R=Path(__file__).resolve().parent.parent;D=R/'deliverables';B=R/'publication/release-build/onechanbara-v1.3.0';B.mkdir(parents=True,exist_ok=True)
 sha=lambda b:hashlib.sha256(b).hexdigest()
 assert json.loads((R/'audit/text_validation.json').read_text())['confirmed_records_resolved']==107
-assert len(json.loads((R/'audit/iso_validation.json').read_text())['tests'])==2
+assert len(json.loads((R/'audit/iso_validation.json').read_text())['tests'])>=2
 readme='''오네찬바라 볼텍스 ~기혈을 잇는 자들~ 한글패치 v1.3.0
 한글화 슬림쉐이디
 
@@ -16,11 +16,12 @@ readme='''오네찬바라 볼텍스 ~기혈을 잇는 자들~ 한글패치 v1.3.
 
 [버전 확인]
 패치 프로그램 제목과 배포 파일명에서 v1.3.0을 확인해 주세요.
-이번 업데이트는 이미지 수정 제외 방침에 따라 타이틀 이미지를 유지했습니다.
-따라서 게임 타이틀 화면의 표기는 v1.2.9로 남아 있습니다.
+게임 타이틀 화면 왼쪽 하단에도 v1.3.0이 표시됩니다.
+같은 v1.3.0의 타이틀 버전 표시 보완본입니다. 이전에 받은 분은 다시 받아 적용해 주세요.
 
 [준비물]
 - 일본판 원본 ISO 또는 정식 v1.2.2~v1.2.9 한글판 ISO
+- 타이틀 화면에 v1.2.9가 표시되는 초기 v1.3.0 적용판도 재적용 가능
 - 지원 한글판의 GoddessFix1 적용판 및 기존 지원 Loading Test01 적용판도 사용 가능
 - Windows 64비트, .NET Framework 4.8
 - 새 ISO를 저장할 여유 공간과 약 500MB의 임시 공간
@@ -39,7 +40,7 @@ readme='''오네찬바라 볼텍스 ~기혈을 잇는 자들~ 한글패치 v1.3.
 
 [유지한 내용]
 v1.2.9의 로딩 처리 코드와 기존 대사·지역·아이템·메뉴·영상 자막을 유지합니다.
-이미지·텍스처·영상, 간단한 영어 난이도 표기는 이번에 변경하지 않았습니다.
+타이틀 화면의 버전 표기를 v1.3.0으로 맞췄습니다. 그 밖의 이미지·영상과 간단한 영어 난이도 표기는 유지했습니다.
 도전과제 ID, 이벤트와 오브젝트 식별자, 저장 처리 코드는 유지했습니다.
 도전과제·활동 상태 등 시스템 정보의 표시 지원은 실행 환경에 따라 다릅니다.
 
@@ -72,7 +73,7 @@ with zipfile.ZipFile(release,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
         info=zipfile.ZipInfo(name,date_time=(2026,10,24,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
         z.writestr(info,(D/name).read_bytes(),compresslevel=6)
 with zipfile.ZipFile(release) as z:assert z.testzip() is None and z.namelist()==public
-meta={'version':'1.3.0','release_bytes':release.stat().st_size,'release_sha256':sha(release.read_bytes()),'exe_sha256':sha((D/public[0]).read_bytes()),'release_files':public,'test_and_trainer_assets_excluded':True,'images_changed':False,'game_title_version_image':'v1.2.9','actual_xenia_gameplay_tested':False}
+meta={'version':'1.3.0','release_bytes':release.stat().st_size,'release_sha256':sha(release.read_bytes()),'exe_sha256':sha((D/public[0]).read_bytes()),'release_files':public,'test_and_trainer_assets_excluded':True,'images_changed':True,'game_title_version_image':'v1.3.0','replacement_of_earlier_v130':True,'actual_xenia_gameplay_tested':False}
 (R/'audit/release_validation.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2))
 notes='''# 오네찬바라 볼텍스 ~기혈을 잇는 자들~ 한글패치 v1.3.0
 
@@ -85,7 +86,9 @@ notes='''# 오네찬바라 볼텍스 ~기혈을 잇는 자들~ 한글패치 v1.3
 - 기존 한글화와 대사·여신상·팔찌 수정, **v1.2.9 로딩 개선**을 모두 포함합니다.
 - 도전과제 ID와 이벤트·오브젝트 식별값, 저장 처리 및 로딩 코드는 유지합니다.
 
-**패치 프로그램과 파일명에서 v1.3.0을 확인해 주세요.** 이번에는 이미지 수정을 제외하여 게임 타이틀 화면에는 **v1.2.9**가 그대로 표시됩니다.
+**게임 타이틀 화면 왼쪽 하단과 패치 프로그램에 v1.3.0이 표시됩니다.**
+
+타이틀 버전 표시를 보완한 파일로 교체했습니다. 앞서 v1.3.0을 받으신 분은 ZIP을 다시 받아 적용해 주세요. 기존 v1.3.0 ISO에도 적용할 수 있습니다.
 
 ## 다운로드
 
@@ -107,9 +110,9 @@ ZIP에는 패치 EXE, 사용 안내문, 원본 ISO 해시 안내만 들어 있�
 
 ## 검사 범위
 
-미번역 107항목을 수정한 뒤 실행 파일에서 재추출해 대조했습니다. 문자열 길이·참조, 도전과제 27개의 연결, 입력·저장 관련 실제 명령을 검사했고, 원본과 v1.2.9 자료로 구성한 ISO 구조에 배포 EXE를 적용하여 158개 대상과 입력 보존을 확인했습니다. 모든 챕터·난이도·특수 상황을 Xenia에서 직접 플레이한 검수는 아닙니다.
+미번역 107항목을 수정한 뒤 실행 파일에서 재추출해 대조했습니다. 문자열 길이·참조, 도전과제 27개의 연결, 입력·저장 관련 실제 명령을 검사했고, 원본·v1.2.9·초기 v1.3.0 자료로 구성한 ISO 구조에 배포 EXE를 적용하여 158개 대상과 입력 보존을 확인했습니다. 모든 챕터·난이도·특수 상황을 Xenia에서 직접 플레이한 검수는 아닙니다.
 
-도전과제·활동 상태 등 시스템 정보의 표시 지원은 실행 환경에 따라 다릅니다. 이미지·영상과 기존 게임 내 문구는 유지했습니다. 간단한 영어 표기도 유지합니다.
+도전과제·활동 상태 등 시스템 정보의 표시 지원은 실행 환경에 따라 다릅니다. 타이틀 버전 표기를 제외한 이미지·영상과 기존 게임 내 문구는 유지했습니다. 간단한 영어 표기도 유지합니다.
 
 ## 원본 ISO 기준 해시
 

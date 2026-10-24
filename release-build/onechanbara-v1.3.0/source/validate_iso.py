@@ -36,7 +36,7 @@ for rel,row in rows.items():
     priorraw=(A/'package/payload'/prior[4]).read_bytes()
     current[rel]=delta(original[rel],priorraw) if prior[5]=='delta' else priorraw
     assert sha(expected[rel])==row[2] and sha(current[rel])==prior[2]
-    if rel!='default.xex':assert row==prior
+    if rel not in ['default.xex','Media/Menu/title2d.cat']:assert row==prior
 original['untouched.bin']=b'UNCHANGED INPUT SENTINEL\0'*100
 DOTNET=R/'deps/sdk/dotnet';EXE=R/'deliverables/Onechanbara_ISO_Korean_v1.3.0.exe';tests=[];rejections=[];empty_temp_observations=[]
 with tempfile.TemporaryDirectory(prefix='iso-verify-',dir=R) as tempdir:
@@ -57,10 +57,11 @@ with tempfile.TemporaryDirectory(prefix='iso-verify-',dir=R) as tempdir:
         assert not leftover_payloads and not Path(str(dst)+'.partial').exists(),runtime_files
         if remaining:empty_temp_observations.append({'input':src.name,'output':dst.name,'empty_patch_directories':len(remaining),'remaining_payload_files':0})
         return p
-    for version,base in [('original',0),('v1.2.9',0xfd90000)]:
+    for version,base in [('original',0),('v1.2.9',0xfd90000),('earlier-v1.3.0',0)]:
         if '--v129-only' in sys.argv and version=='original':continue
         files=dict(original)
         if version!='original':files.update(current)
+        if version=='earlier-v1.3.0':files['default.xex']=expected['default.xex']
         src=tmp/'input.iso';dst=tmp/'output.iso';create_iso(src,files,base);before=digest(src)
         run(src,dst);assert digest(src)==before
         entries=read_entries(dst,base);assert set(entries)==set(files)
