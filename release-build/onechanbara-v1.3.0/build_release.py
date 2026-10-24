@@ -48,7 +48,7 @@ def main():
     with zipfile.ZipFile(release,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
         for name in public_files:
             info=zipfile.ZipInfo(name,date_time=(2026,10,24,0,0,0))
-            info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
+            info.create_system=3;info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
             z.writestr(info,(args.out/name).read_bytes(),compresslevel=6)
     with zipfile.ZipFile(release) as z:
         assert z.testzip() is None and z.namelist()==public_files
