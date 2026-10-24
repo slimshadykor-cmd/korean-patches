@@ -1,0 +1,30 @@
+name: Add latest patch links to previous release notes
+
+on:
+  push:
+    branches: [maintenance/release-navigation-20261024]
+    paths:
+      - '.github/workflows/release-navigation-20261024.yml'
+      - 'maintenance/release-navigation-20261024/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-navigation-20261024
+  cancel-in-progress: false
+
+jobs:
+  update-notes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify reviewed destinations and current release bodies
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 maintenance/release-navigation-20261024/apply_navigation.py maintenance/release-navigation-20261024/plan.json
+      - name: Add navigation and verify preserved release metadata and assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 maintenance/release-navigation-20261024/apply_navigation.py maintenance/release-navigation-20261024/plan.json --apply
