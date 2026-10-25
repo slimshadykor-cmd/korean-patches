@@ -11,12 +11,13 @@ def api(path,data=None,method=None):
  with urllib.request.urlopen(urllib.request.Request(API+path,None if data is None else json.dumps(data).encode(),h,method=method or ('GET' if data is None else 'POST')),timeout=120) as f:return json.load(f)
 def assemble(base):
  m=json.loads(gzip.decompress((R/'manifest.json.gz').read_bytes()))
+ local_validation=base is not None
  if base is None:
   base=R/'base.zip';urllib.request.urlretrieve(m['base_url'],base)
- assert sha(base.read_bytes())==m['base_sha256']
+ assert sha(base.read_bytes())==m['local_validation_base_sha256' if local_validation else 'base_sha256']
  assert sha((R/'payload.zip').read_bytes())==m['payload_sha256']
  with zipfile.ZipFile(base) as b,zipfile.ZipFile(R/'payload.zip') as p,zipfile.ZipFile(R/NAME,'w') as z:
-  original=json.loads(b.read('NGB_Korean_Patch_v1.8/ngb_native11/assets/build_plan.json'))
+  original=json.loads(b.read('NGB_Korean_Patch_v2.0/ngb_native11/assets/build_plan.json'))
   def dec(v):
    kind,data=v
    if kind=='ref':
