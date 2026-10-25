@@ -1,4 +1,4 @@
-name: Publish NGB v1.8 and notify v1.7 visitors
+name: Update NGB previous-version navigation
 on:
   push:
     branches:
@@ -12,13 +12,12 @@ jobs:
   publish:
     if: github.repository == 'slimshadykor-cmd/korean-patches'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
-      - name: Check out verified release inputs
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Publish v1.8 and add the v1.7 upgrade notice
+      - name: Link all previous NGB releases to current v1.8
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 .release-upload/ngb-v1.8/publish.py
+        run: python3 .release-upload/ngb-v1.8/update_navigation.py
