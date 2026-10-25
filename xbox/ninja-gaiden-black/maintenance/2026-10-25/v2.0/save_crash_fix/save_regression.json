@@ -1,0 +1,899 @@
+{
+  "sha256": "b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849",
+  "scope": "Audit cross-mode serialization using the newly captured Black gameplay progress.\n\nThis is NOT a replay of the newly reported BLACK save-menu crash. Only the\nprogress bytes come from the new RAM dump; OS/file I/O, heap, and signing remain\nmodeled as in test_native.Machine. Native serializer/compressor/readers run.\n",
+  "capture_bytes": 95328,
+  "capture_sha256": "95793c6ec332af7492d07cb47c6a82d249c81ca411383686892c428264630863",
+  "nonzero_capture_bytes": 33082,
+  "cases": [
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "aligned",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "direct",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "generic",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "warm",
+      "reader": "alternate",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "direct",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "generic",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        0,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        1,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        0,
+        1
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        1,
+        0
+      ],
+      "operations": 2,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        0,
+        1,
+        0
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    },
+    {
+      "heap": "null",
+      "lifecycle": "fresh_cpu",
+      "reader": "alternate",
+      "modes": [
+        1,
+        0,
+        1
+      ],
+      "operations": 3,
+      "serialized_length": 95400,
+      "pass": true
+    }
+  ],
+  "case_count": 72,
+  "write_read_pairs": 168
+}

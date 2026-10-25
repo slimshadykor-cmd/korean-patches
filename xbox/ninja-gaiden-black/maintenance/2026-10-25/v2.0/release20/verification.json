@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "supported_xbe_inputs": [
+    "original.xbe",
+    "profile_fix/test6.xbe",
+    "save_probe/test7.xbe",
+    "save_probe8/test8.xbe",
+    "save_fix9/test9.xbe",
+    "crash_analysis/memory_fix.xbe",
+    "ui_audit/memory_fix.xbe",
+    "save_crash_fix/fixed.xbe",
+    "release20/fixed.xbe"
+  ],
+  "actual_patcher_iso_cases": [
+    [
+      "original.xbe",
+      0
+    ],
+    [
+      "original.xbe",
+      405798912
+    ],
+    [
+      "save_crash_fix/fixed.xbe",
+      0
+    ],
+    [
+      "save_crash_fix/fixed.xbe",
+      405798912
+    ],
+    [
+      "release20/fixed.xbe",
+      0
+    ],
+    [
+      "release20/fixed.xbe",
+      405798912
+    ]
+  ],
+  "files_hash_checked": 2724,
+  "version_member_roundtrip_and_tamper_check": true,
+  "scope": "Real sprite in synthetic AFS/ISO; no complete original game ISO or xemu execution. Earlier runtime regressions reused; executable changes only cache generation stamp and section digest."
+}

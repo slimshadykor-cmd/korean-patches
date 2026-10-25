@@ -1,0 +1,54 @@
+Independent compact-art correction review
+
+Candidate SHA-256:
+b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849
+
+Source review:
+- All six original sprite descriptors (144 bytes) exactly match the currently
+  registered large XPR descriptors in the captured RAM. The original texture
+  base is zero; registration changes only the descriptor texture-index field
+  by adding that base. Static original descriptors are therefore equivalent.
+- Compatibility tables preserve white at texture slot1 and scroll at slot5,
+  despite compact registration using one or two densely packed resources.
+- Private object texture counts remain zero, including on native parser-error
+  unregister. Actual registration counts are passed explicitly as arguments.
+  Thus private unregister does not erase foreign global sprite-table slots.
+- Allocation failure returns0 without partial state. Registration/count failure
+  releases the private allocation and clears its runtime state before retry.
+- ensure/release preserve nonvolatile registers. Full-scene wrapper preserves
+  integer flags/registers and FPU/SSE state and releases all cache types even
+  when no large-art allocation exists.
+- Pixel/palette copy sizes agree with unchanged source data: white1152bytes,
+  scroll66560bytes; compact totals3200 and69760bytes including headers/padding.
+
+Captured-RAM replay:
+Four final cases passed: badge only, scroll only, badge then scroll, scroll then
+badge. Each uses the NEW BLACK save-screen crash RAM. Native release returns
+243pages. The added XBE code/data page is explicitly charged through a real
+4096byte native allocation, leaving242pages before compact art.
+
+Badge consumes1page; scroll consumes18pages. Repeated cached loads consume no
+additional pages. The original failing native render-list constructor succeeds
+in every case. With both compact resources retained,222pages remain after that
+constructor. Full-scene compact cleanup returns to241pages, accounting for the
+new resident code page and one heap page committed by the constructor.
+
+Shared sprite-table bytes and original embedded art remain unchanged. Private
+cache pointers, ready flags, runtime resource tables and counts are cleared.
+
+Harness correction:
+The first scroll replay exposed stale alias tracking in the previous harness.
+Native contiguous allocation relocates existing physical image pages. Example:
+VAe6a000 moved from physical1133000 to1053000, then the allocator reused1133000
+for compact art. The old harness wrongly mirrored those writes into e6a000.
+The corrected harness tracks physical backing and PTE changes. All four final
+results use that correction; no candidate game-code change was needed for it.
+
+Limits:
+This is not live xemu, a complete XBE boot, or hardware/GPU/thread execution.
+Kernel critical sections are bypassed in the single-threaded replay. The extra
+resident-page cost is real in the allocator, while its code VA mapping is
+modeled. Cleanup begins by releasing the captured OLD large save-menu art to
+model its absence under the new code. This is not a user-facing hotpatch.
+
+Exact machine-readable results: compact_summary.json and its four case files.

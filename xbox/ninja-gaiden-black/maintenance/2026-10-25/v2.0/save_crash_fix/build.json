@@ -1,0 +1,98 @@
+{
+  "symbols": {
+    "WHITE_SOURCE": 15226368,
+    "SCROLL_SOURCE": 15623808,
+    "RELEASE_LARGE": 15994354,
+    "ensure_badge": 15994480,
+    "ensure_scroll": 15994487,
+    "ensure_compact": 15994492,
+    "register_art": 15994615,
+    "ensure_ok": 15994687,
+    "ensure_failed": 15994694,
+    "ensure_return": 15994703,
+    "release_compact": 15994708,
+    "release_wait": 15994735,
+    "release_next": 15994746,
+    "release_done": 15994780,
+    "scene_gate": 15994785,
+    "white_record": 15994864,
+    "scroll_record": 15995008,
+    "white_header": 15995152,
+    "scroll_header": 15995232,
+    "white_header_end": 15995232,
+    "scroll_header_end": 15995368,
+    "__bss_start": 15998976,
+    "_edata": 15998976,
+    "_end": 15998976
+  },
+  "hooks": [
+    {
+      "site": "0xef841a",
+      "old": "e87bc1f0ff",
+      "new": "e8518a0400",
+      "reason": "ensure_badge"
+    },
+    {
+      "site": "0xef7e76",
+      "old": "e81fc7f0ff",
+      "new": "e8fc8f0400",
+      "reason": "ensure_scroll"
+    },
+    {
+      "site": "0x21a9b0",
+      "old": "e90064d200",
+      "new": "e9ec65d200",
+      "reason": "scene_gate"
+    },
+    {
+      "site": "0xe04525",
+      "old": "03059c49e000",
+      "new": "05144ae00090",
+      "reason": "static sprite descriptors"
+    },
+    {
+      "site": "0xe04538",
+      "old": "a19c49e000",
+      "new": "b8144ae000",
+      "reason": "static sprite descriptors"
+    },
+    {
+      "site": "0xe0453f",
+      "old": "a19c49e000",
+      "new": "b8144ae000",
+      "reason": "static sprite descriptors"
+    },
+    {
+      "site": "0xef8436",
+      "old": "b449e000",
+      "new": "2810f400",
+      "reason": "badge compatibility resource table"
+    },
+    {
+      "site": "0xef7ec3",
+      "old": "b449e000",
+      "new": "b810f400",
+      "reason": "scroll compatibility resource table"
+    },
+    {
+      "site": "0xef7eca",
+      "old": "c449e000",
+      "new": "c810f400",
+      "reason": "scroll compatibility resource table"
+    },
+    {
+      "site": "0xef7ed1",
+      "old": "d449e000",
+      "new": "d810f400",
+      "reason": "scroll compatibility resource table"
+    }
+  ],
+  "base_sha256": "295ab4601e27d161c2dda92c50e70ab1738e990e482252953183a3ab31dcda78",
+  "sha256": "b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849",
+  "bytes": 6119912,
+  "added_bytes": 888,
+  "white_source": "0xe85600",
+  "scroll_source": "0xee6680",
+  "scope": "Split unchanged gameplay art from the full chooser/costume XPR.\n\nOnly compact headers/code are appended. Pixel/palette payloads are copied from\nthe existing immutable embedded XPR; no new image or translation content.\n",
+  "xemu_verified": false
+}

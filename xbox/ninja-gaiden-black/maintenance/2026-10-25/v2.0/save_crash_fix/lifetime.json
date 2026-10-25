@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "sha256": "b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849",
+  "scope": "All compact cache failure/retry and mixed scene lifetime paths.\nNative parser/unregister/resource wait code; physical alloc/free and terminal\nGPU completion modeled. CPU/FPU, shared registry, and mode state are checked.\n",
+  "cases": [
+    {
+      "mode": 0,
+      "kind": "allocation/parser failure and retry",
+      "client": "badge"
+    },
+    {
+      "mode": 0,
+      "kind": "allocation/parser failure and retry",
+      "client": "scroll"
+    },
+    {
+      "mode": 0,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "large",
+        "badge",
+        "scroll"
+      ]
+    },
+    {
+      "mode": 0,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "large",
+        "scroll",
+        "badge"
+      ]
+    },
+    {
+      "mode": 0,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "badge",
+        "large",
+        "scroll"
+      ]
+    },
+    {
+      "mode": 0,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "badge",
+        "scroll",
+        "large"
+      ]
+    },
+    {
+      "mode": 0,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "scroll",
+        "large",
+        "badge"
+      ]
+    },
+    {
+      "mode": 0,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "scroll",
+        "badge",
+        "large"
+      ]
+    },
+    {
+      "mode": 1,
+      "kind": "allocation/parser failure and retry",
+      "client": "badge"
+    },
+    {
+      "mode": 1,
+      "kind": "allocation/parser failure and retry",
+      "client": "scroll"
+    },
+    {
+      "mode": 1,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "large",
+        "badge",
+        "scroll"
+      ]
+    },
+    {
+      "mode": 1,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "large",
+        "scroll",
+        "badge"
+      ]
+    },
+    {
+      "mode": 1,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "badge",
+        "large",
+        "scroll"
+      ]
+    },
+    {
+      "mode": 1,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "badge",
+        "scroll",
+        "large"
+      ]
+    },
+    {
+      "mode": 1,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "scroll",
+        "large",
+        "badge"
+      ]
+    },
+    {
+      "mode": 1,
+      "kind": "mixed cache full scene release",
+      "order": [
+        "scroll",
+        "badge",
+        "large"
+      ]
+    }
+  ]
+}

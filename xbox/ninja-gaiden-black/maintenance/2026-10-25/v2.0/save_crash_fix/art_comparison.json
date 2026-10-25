@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "cases": 52,
+  "native_geometry_and_payload_identical": true,
+  "scope": "Native sprite geometry and list lifecycle, modeled physical allocations/GPU.\nRun on old and new XBE; compare coordinate/color/UV outputs and pixel/palette\ncontents independently of their allocation addresses. Native costume textures\n0x750..0x754 are absent from this synthetic scene; custom art is exercised.\nNot live xemu rendering.\n",
+  "sha256": "b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849",
+  "allocation_bytes": {
+    "scroll": 69760,
+    "badge_black": 3200,
+    "badge_storm": 3200
+  },
+  "other_custom_art_bytes": 993280
+}

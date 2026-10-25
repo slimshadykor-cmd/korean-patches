@@ -1,0 +1,203 @@
+{
+  "status": "PASS",
+  "sha256": "b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849",
+  "candidate_sha256": "b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849",
+  "input_ram_sha256": "502df9aec5db804fba3ccb51ab79346190643054fbfe894da9faf56c6117fc98",
+  "captured_mode": "BLACK (0)",
+  "case_count": 4,
+  "additional_xbe_resident_pages_charged": 1,
+  "large_xpr_pages_released": 243,
+  "badge_allocation_pages": 1,
+  "scroll_allocation_pages": 18,
+  "cached_loads_allocate_again": false,
+  "native_render_constructor_succeeded": true,
+  "shared_sprite_registry_preserved": true,
+  "immutable_embedded_art_unchanged": true,
+  "scene_cleanup_clears_all_private_cache_records": true,
+  "cases": [
+    {
+      "file": "compact_badge.json",
+      "order": [
+        "badge"
+      ],
+      "steps": [
+        {
+          "step": "release previous large XPR",
+          "pages": 243
+        },
+        {
+          "step": "charge candidate additional resident page",
+          "pages": 242,
+          "pointer": "0x813b6000",
+          "virtual": "0xf41000",
+          "physical": "0x13b6000"
+        },
+        {
+          "step": "load badge",
+          "pages": 241,
+          "used_pages": 1,
+          "pointer": "0x813b5000"
+        },
+        {
+          "step": "cached badge",
+          "pages": 241
+        },
+        {
+          "step": "native render sentinel success",
+          "pages": 240,
+          "pointer": "0xf6c010"
+        },
+        {
+          "step": "scene cleanup of all compact caches",
+          "pages": 241
+        }
+      ],
+      "pte_relocation_count": 2,
+      "passed": true
+    },
+    {
+      "file": "compact_scroll.json",
+      "order": [
+        "scroll"
+      ],
+      "steps": [
+        {
+          "step": "release previous large XPR",
+          "pages": 243
+        },
+        {
+          "step": "charge candidate additional resident page",
+          "pages": 242,
+          "pointer": "0x813b6000",
+          "virtual": "0xf41000",
+          "physical": "0x13b6000"
+        },
+        {
+          "step": "load scroll",
+          "pages": 224,
+          "used_pages": 18,
+          "pointer": "0x81133000"
+        },
+        {
+          "step": "cached scroll",
+          "pages": 224
+        },
+        {
+          "step": "native render sentinel success",
+          "pages": 223,
+          "pointer": "0xf6c010"
+        },
+        {
+          "step": "scene cleanup of all compact caches",
+          "pages": 241
+        }
+      ],
+      "pte_relocation_count": 19,
+      "passed": true
+    },
+    {
+      "file": "compact_badge_scroll.json",
+      "order": [
+        "badge",
+        "scroll"
+      ],
+      "steps": [
+        {
+          "step": "release previous large XPR",
+          "pages": 243
+        },
+        {
+          "step": "charge candidate additional resident page",
+          "pages": 242,
+          "pointer": "0x813b6000",
+          "virtual": "0xf41000",
+          "physical": "0x13b6000"
+        },
+        {
+          "step": "load badge",
+          "pages": 241,
+          "used_pages": 1,
+          "pointer": "0x813b5000"
+        },
+        {
+          "step": "cached badge",
+          "pages": 241
+        },
+        {
+          "step": "load scroll",
+          "pages": 223,
+          "used_pages": 18,
+          "pointer": "0x81133000"
+        },
+        {
+          "step": "cached scroll",
+          "pages": 223
+        },
+        {
+          "step": "native render sentinel success",
+          "pages": 222,
+          "pointer": "0xf6c010"
+        },
+        {
+          "step": "scene cleanup of all compact caches",
+          "pages": 241
+        }
+      ],
+      "pte_relocation_count": 20,
+      "passed": true
+    },
+    {
+      "file": "compact_scroll_badge.json",
+      "order": [
+        "scroll",
+        "badge"
+      ],
+      "steps": [
+        {
+          "step": "release previous large XPR",
+          "pages": 243
+        },
+        {
+          "step": "charge candidate additional resident page",
+          "pages": 242,
+          "pointer": "0x813b6000",
+          "virtual": "0xf41000",
+          "physical": "0x13b6000"
+        },
+        {
+          "step": "load scroll",
+          "pages": 224,
+          "used_pages": 18,
+          "pointer": "0x81133000"
+        },
+        {
+          "step": "cached scroll",
+          "pages": 224
+        },
+        {
+          "step": "load badge",
+          "pages": 223,
+          "used_pages": 1,
+          "pointer": "0x813b5000"
+        },
+        {
+          "step": "cached badge",
+          "pages": 223
+        },
+        {
+          "step": "native render sentinel success",
+          "pages": 222,
+          "pointer": "0xf6c010"
+        },
+        {
+          "step": "scene cleanup of all compact caches",
+          "pages": 241
+        }
+      ],
+      "pte_relocation_count": 20,
+      "passed": true
+    }
+  ],
+  "scope": "Offline captured-RAM Unicorn replay. Native physical allocator, heap allocator, compact XPR parsing/registration and new cleanup execute. New XBE resident-page cost is charged through native XMemAlloc(4096), then the extra candidate VA is modeled onto that physical allocation. Physical backing and existing PTE relocations are tracked. Kernel critical sections bypassed; GPU fence completion can be modeled. Not live xemu, not a full XBE boot, not actual Storm RAM or threaded/GPU execution. Each replay begins by freeing the captured old large XPR; this models removing the old save-menu reload, not a live hotpatch for users.",
+  "harness_correction": "Initial scroll replay with stale original aliases incorrectly mirrored new contiguous graphics writes into an image VA whose PTE the kernel had relocated. The PTE-aware replay corrects this; candidate bytes did not change. Example e6a000 moved from physical1133000 to1053000. All four final results use corrected PTE tracking."
+}
