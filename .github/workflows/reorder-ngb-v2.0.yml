@@ -1,0 +1,22 @@
+name: Put common NGB v2.0 download first
+on:
+  push:
+    branches: [maintenance/ngb-v2.0-description-20261025]
+permissions:
+  contents: write
+concurrency:
+  group: ngb-v2.0-publication
+  cancel-in-progress: false
+jobs:
+  reorder:
+    if: github.repository == 'slimshadykor-cmd/korean-patches'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Move candidate notes below common release without changing assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .release-upload/ngb-v2.0-hakux/reorder_release.py
