@@ -1,0 +1,26 @@
+{
+  "path": "/workspace/scratch/532a055fcd9d/hakux_audit/unified/NGB_Korean_Patch_v2.0.zip",
+  "bytes": 63152660,
+  "sha256": "cf92f7dc22b44f0ff6d76ac688435223de33b47ff4f7124ba321b36e53424464",
+  "xbe_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c",
+  "manifest_files": 2724,
+  "changed_files": [
+    "README_KO.txt",
+    "VALIDATION.json",
+    "launch_patch.py",
+    "ngb_native11/assets/build_plan.json",
+    "ngb_native11/patch_gui.py",
+    "CHANGELOG_KO.txt"
+  ],
+  "all_game_data_and_patch_operations_unchanged": true,
+  "runtime_user_report": {
+    "date": "2026-10-25",
+    "source": "User relayed the hakuX reporter feedback in this conversation",
+    "emulator": "hakuX 1.1.0",
+    "scope": "New Game works and progression through Chapter 1 reported normal",
+    "mode": "not specified",
+    "save_and_reload_separately_confirmed": false,
+    "all_chapters_confirmed": false,
+    "xemu_confirmation_of_this_menu_change": false
+  }
+}

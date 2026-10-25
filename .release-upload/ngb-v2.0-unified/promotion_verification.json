@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "final_package_sha256": "cf92f7dc22b44f0ff6d76ac688435223de33b47ff4f7124ba321b36e53424464",
+  "exact_low_memory_xbe_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c",
+  "supported_inputs": [
+    {
+      "input_sha256": "667b6c04e0952ebf39848ea59ab8f8457ae3136c3d115f268557d861eeade6ce",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "1b06de256086d7a6fd900046145833becb2eb129b7113ac85e7a69913a7d8576",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "45bbe17683ae2e0322d82a6cb000cc4454ad9ee27542807d6c26798478608ea5",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "4cd31ab16b32b2479719b1dab7f9665c5e3d7933281f9b0ddfe7d9650f9c1d7b",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "9292b666a043bfcdcec77fbd6f303bab5bc8a7886650ffeac88593e2d5f4ff7c",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "1dc846a2d01559df29e94fb42f129df29edacbd56a25a4f9d8b07d481bbb43ec",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "a1462dc3a6e0679915d1f601e2a0216c9e4b4c7db6a46d44486d7ac3c8bf0261",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "c6db72020912104183e46d35ec4d1ec555a662bbb799934469470be702beafa5",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    },
+    {
+      "input_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c",
+      "output_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+    }
+  ],
+  "comparison": "Each resulting XBE is byte-identical to the hakuX reporter candidate; same engine and game patches. CPU/runtime behavior tests reused only for this identical executable."
+}
