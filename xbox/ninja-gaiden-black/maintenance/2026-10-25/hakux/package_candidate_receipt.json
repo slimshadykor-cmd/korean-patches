@@ -1,0 +1,9 @@
+{
+  "path": "/workspace/scratch/532a055fcd9d/hakux_audit/deliverables/NGB_Korean_Patch_v2.0_hakuX.zip",
+  "bytes": 63183552,
+  "sha256": "c168b1a891823ac29bfc247a249fdf596f7d8c1607c8f721147c315e0f33a062",
+  "xbe_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c",
+  "manifest_files": 2724,
+  "hakux_verified": false,
+  "public_changed": false
+}

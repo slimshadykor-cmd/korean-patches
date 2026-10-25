@@ -1,0 +1,118 @@
+{
+  "scope": "CPU-only input path with native next-screen call modeled; not hakuX execution",
+  "cases": [
+    {
+      "kind": "input_accept",
+      "player": 0,
+      "mode": 0,
+      "key": "0x100",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 0,
+      "mode": 0,
+      "key": "0x10",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 0,
+      "mode": 1,
+      "key": "0x100",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 0,
+      "mode": 1,
+      "key": "0x10",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 1,
+      "mode": 0,
+      "key": "0x100",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 1,
+      "mode": 0,
+      "key": "0x10",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 1,
+      "mode": 1,
+      "key": "0x100",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 1,
+      "mode": 1,
+      "key": "0x10",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 2,
+      "mode": 0,
+      "key": "0x100",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 2,
+      "mode": 0,
+      "key": "0x10",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 2,
+      "mode": 1,
+      "key": "0x100",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 2,
+      "mode": 1,
+      "key": "0x10",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 3,
+      "mode": 0,
+      "key": "0x100",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 3,
+      "mode": 0,
+      "key": "0x10",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 3,
+      "mode": 1,
+      "key": "0x100",
+      "pass_": true
+    },
+    {
+      "kind": "input_accept",
+      "player": 3,
+      "mode": 1,
+      "key": "0x10",
+      "pass_": true
+    }
+  ],
+  "candidate_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c"
+}

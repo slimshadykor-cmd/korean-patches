@@ -1,0 +1,49 @@
+{
+  "scope": "Native compact menu parse/release/retry and screen switching.\n540 KiB total allocation budget from the reporter log is modeled; actual\nphysical-page compaction, GPU/FEX and Android execution are not reproduced.\n",
+  "sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c",
+  "cases": [
+    {
+      "mode": 0,
+      "client": "chooser",
+      "allocation_failure_retry": true,
+      "partial_parse_failures": 2,
+      "passed": true
+    },
+    {
+      "mode": 0,
+      "client": "costumes",
+      "allocation_failure_retry": true,
+      "partial_parse_failures": 3,
+      "passed": true
+    },
+    {
+      "mode": 0,
+      "kind": "screen switch + scene release",
+      "cycles": 12,
+      "peak_pages": 130,
+      "passed": true
+    },
+    {
+      "mode": 1,
+      "client": "chooser",
+      "allocation_failure_retry": true,
+      "partial_parse_failures": 2,
+      "passed": true
+    },
+    {
+      "mode": 1,
+      "client": "costumes",
+      "allocation_failure_retry": true,
+      "partial_parse_failures": 3,
+      "passed": true
+    },
+    {
+      "mode": 1,
+      "kind": "screen switch + scene release",
+      "cycles": 12,
+      "peak_pages": 130,
+      "passed": true
+    }
+  ],
+  "status": "PASS"
+}

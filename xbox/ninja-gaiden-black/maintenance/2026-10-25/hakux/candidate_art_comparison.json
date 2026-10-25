@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "cases": 52,
+  "baseline_xbe_sha256": "b3b67d53ce67b272206e433de587935e37818950e968c2ea363b002479228849",
+  "candidate_xbe_sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c",
+  "compared_fields": [
+    "client",
+    "width",
+    "language",
+    "geometry",
+    "payloads"
+  ],
+  "scope": "Byte-identical payload and geometry emitted by CPU test; real GPU/hakuX screen rendering not executed."
+}

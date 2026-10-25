@@ -1,0 +1,68 @@
+{
+  "scope": "Split the unchanged full XPR into two screen-specific allocations.\nCode and tiny headers occupy proven zero tail padding in the embedded XPR.\nNo image bytes, virtual image size, save code or gameplay logic are changed.\n",
+  "base_sha256": "c6db72020912104183e46d35ec4d1ec555a662bbb799934469470be702beafa5",
+  "sha256": "c04e774df621566c60cbfb929a675ca4f375074205366c16e947bb858b66c97c",
+  "code_va": "0xef6a80",
+  "code_bytes": 940,
+  "symbols": {
+    "COSTUME_SIZE": 398336,
+    "CHOOSER_SIZE": 528512,
+    "TEX0_SOURCE": 14701056,
+    "TEX1_SOURCE": 15226368,
+    "TEX2_SOURCE": 15227520,
+    "TEX3_SOURCE": 15359616,
+    "TEX4_SOURCE": 15491712,
+    "ensure_chooser": 15690368,
+    "ensure_costumes": 15690375,
+    "ensure_profile": 15690380,
+    "switch_profile": 15690407,
+    "allocate": 15690421,
+    "copy_payload": 15690489,
+    "parse": 15690508,
+    "ensure_ok": 15690618,
+    "failed": 15690625,
+    "ensure_return": 15690649,
+    "current_profile": 15690656,
+    "temporary_resources": 15690660,
+    "chooser_profile": 15690708,
+    "costume_profile": 15690732,
+    "chooser_payload": 15690756,
+    "costume_payload": 15690780,
+    "chooser_header": 15690812,
+    "chooser_header_end": 15691044,
+    "costume_header": 15691044,
+    "costume_header_end": 15691308,
+    "__bss_start": 15691776,
+    "_edata": 15691776,
+    "_end": 15691776
+  },
+  "hooks": [
+    {
+      "address": "0xe0459a",
+      "old": "833d8c49e00001",
+      "new": "e9e1240f009090",
+      "reason": "compact chooser loader"
+    },
+    {
+      "address": "0xef7ae5",
+      "old": "e8b0caf0ff",
+      "new": "e89defffff",
+      "reason": "compact costume loader"
+    },
+    {
+      "address": "0xe049a8",
+      "old": "06000000",
+      "new": "00000000",
+      "reason": "private resource parser must not clear global slots"
+    }
+  ],
+  "chooser_bytes": 528512,
+  "chooser_pages": 130,
+  "costume_bytes": 398336,
+  "costume_pages": 98,
+  "embedded_art_sha256": "c01322eb2280a3d1b30f7faa9e688f0e603ec1ea91ffff31efdbf88f7901f019",
+  "image_size_unchanged": true,
+  "all_six_art_payloads_unchanged": true,
+  "hakux_verified": false,
+  "public_changed": false
+}
