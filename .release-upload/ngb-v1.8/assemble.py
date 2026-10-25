@@ -29,3 +29,4 @@ def assemble(base_path,payload_path,manifest_path,out_path):
 if __name__=='__main__':
  import sys
  print(assemble(*sys.argv[1:]))
+
