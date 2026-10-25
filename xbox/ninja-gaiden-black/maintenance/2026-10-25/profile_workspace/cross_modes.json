@@ -1,0 +1,49 @@
+{
+  "cases": [
+    {
+      "sequence": [
+        0,
+        0
+      ],
+      "result": "PASS"
+    },
+    {
+      "sequence": [
+        0,
+        1
+      ],
+      "result": "PASS"
+    },
+    {
+      "sequence": [
+        1,
+        0
+      ],
+      "result": "PASS"
+    },
+    {
+      "sequence": [
+        1,
+        1
+      ],
+      "result": "PASS"
+    },
+    {
+      "sequence": [
+        1,
+        0,
+        1
+      ],
+      "result": "PASS"
+    },
+    {
+      "sequence": [
+        0,
+        1,
+        0
+      ],
+      "result": "PASS"
+    }
+  ],
+  "scope": "Native save serializer/reader/internal allocator, fresh CPU after each overwrite; host file operations and Xbox signing mocked. Not xemu playback."
+}

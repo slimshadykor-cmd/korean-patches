@@ -1,0 +1,15 @@
+{
+  "symbols": {
+    "profile_workspace_gate": 15698576,
+    "native": 15698637,
+    "profile_workspace": 15698656,
+    "__bss_start": 15716352,
+    "_edata": 15716352,
+    "_end": 15716352
+  },
+  "base_sha256": "a1462dc3a6e0679915d1f601e2a0216c9e4b4c7db6a46d44486d7ac3c8bf0261",
+  "sha256": "1b06de256086d7a6fd900046145833becb2eb129b7113ac85e7a69913a7d8576",
+  "bytes": 5839584,
+  "preserved": "save write, actual mode restoration, menu marks, cutscene skip and all translations unchanged",
+  "scope": "Only default system settings read workspace; native parsing/checksum/error behavior retained"
+}

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-25",
+  "release": "https://github.com/slimshadykor-cmd/korean-patches/releases/tag/ngb-v1.8",
+  "release_id": 422631745,
+  "publication_commit": "2bc7198912edb3389b143b14707858c226f5b283",
+  "workflow_run": 40164036454,
+  "workflow_conclusion": "success",
+  "public_download_sha256": "7f0290a56db8bc4690fd4dda9cb75e48e1c910a480c62e545c799cf022e67837",
+  "bytes": 62881407,
+  "description_verified": true,
+  "xemu_confirmation": "User reported TEST6 working on 2026-10-25",
+  "all_environments_validated": false
+}

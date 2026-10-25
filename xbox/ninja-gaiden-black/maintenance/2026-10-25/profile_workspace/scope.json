@@ -1,0 +1,5 @@
+{
+  "cases": 64,
+  "result": "PASS",
+  "condition": "Only default work buffer for exact system settings target; provided work buffers and other read targets unchanged"
+}

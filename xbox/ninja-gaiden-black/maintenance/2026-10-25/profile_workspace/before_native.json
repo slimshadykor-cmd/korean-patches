@@ -1,0 +1,101 @@
+[
+  {
+    "allocation": "aligned",
+    "file": "valid",
+    "status": "00000000",
+    "R": "00000000",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": [
+      1360,
+      2504,
+      4168,
+      1330,
+      257,
+      1032
+    ]
+  },
+  {
+    "allocation": "aligned",
+    "file": "truncated",
+    "status": "FFFFFFFD",
+    "R": "FFFFFFFD",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": []
+  },
+  {
+    "allocation": "aligned",
+    "file": "bad_signature",
+    "status": "FFFFFFFA",
+    "R": "FFFFFFFA",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": [
+      1360
+    ]
+  },
+  {
+    "allocation": "misaligned",
+    "file": "valid",
+    "status": "FFFFFFF9",
+    "R": "00000000",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": []
+  },
+  {
+    "allocation": "misaligned",
+    "file": "truncated",
+    "status": "FFFFFFF9",
+    "R": "00000000",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": []
+  },
+  {
+    "allocation": "misaligned",
+    "file": "bad_signature",
+    "status": "FFFFFFF9",
+    "R": "00000000",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": []
+  },
+  {
+    "allocation": "null",
+    "file": "valid",
+    "status": "FFFFFFF9",
+    "R": "00000000",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": []
+  },
+  {
+    "allocation": "null",
+    "file": "truncated",
+    "status": "FFFFFFF9",
+    "R": "00000000",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": []
+  },
+  {
+    "allocation": "null",
+    "file": "bad_signature",
+    "status": "FFFFFFF9",
+    "R": "00000000",
+    "outer_allocations": [
+      278528
+    ],
+    "inner_native_allocations": []
+  }
+]
