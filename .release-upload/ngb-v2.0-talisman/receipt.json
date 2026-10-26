@@ -1,0 +1,22 @@
+{
+  "path": "/workspace/scratch/532a055fcd9d/rebirth_work/public_release/NGB_Korean_Patch_v2.0.zip",
+  "bytes": 63167958,
+  "sha256": "192bb7941aee3d5a0fc18a2aace770e5080d20ffdeb2c31de99d7d5530f89235",
+  "xbe_sha256": "1ed80090b4b2872dbd1d896ae7571eaa0ff660672f09c5dbbe2d1745ec1d8b88",
+  "manifest_files": 2724,
+  "changed_files": [
+    "README_KO.txt",
+    "VALIDATION.json",
+    "ngb_native11/assets/build_plan.json",
+    "ngb_native11/patch_gui.py",
+    "CHANGELOG_KO.txt"
+  ],
+  "all_game_data_and_patch_operations_unchanged_from_confirmed_candidate": true,
+  "runtime_user_report": {
+    "date": "2026-10-26",
+    "source": "User confirmation in this conversation",
+    "statement": "아까 테스트한 수정본이 잘되는 것을 확인했고 공용 v2.0 교체를 요청함",
+    "scope": "Talisman equipment candidate reported working; individual test cases and emulator version were not specified",
+    "all_chapters_confirmed": false
+  }
+}

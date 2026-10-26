@@ -1,7 +1,7 @@
-name: Publish NGB v2.0 integrated release
+name: Publish NGB v2.0 talisman equipment update
 on:
   push:
-    branches: [publish/ngb-v2.0-20261025]
+    branches: [publish/ngb-v2.0-talisman-20261026]
 permissions:
   contents: write
 concurrency:
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Assemble, verify and publish v2.0; update previous notices
+      - name: Assemble verified public package and replace existing v2.0 assets
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 .release-upload/ngb-v2.0/publish.py
+        run: python3 .release-upload/ngb-v2.0-talisman/publish.py
