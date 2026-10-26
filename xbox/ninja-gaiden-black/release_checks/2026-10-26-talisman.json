@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-26",
+  "release_tag": "ngb-v2.0",
+  "asset_name": "NGB_Korean_Patch_v2.0.zip",
+  "promotion": {
+    "path": "/workspace/scratch/532a055fcd9d/rebirth_work/public_release/NGB_Korean_Patch_v2.0.zip",
+    "bytes": 63167958,
+    "sha256": "192bb7941aee3d5a0fc18a2aace770e5080d20ffdeb2c31de99d7d5530f89235",
+    "xbe_sha256": "1ed80090b4b2872dbd1d896ae7571eaa0ff660672f09c5dbbe2d1745ec1d8b88",
+    "manifest_files": 2724,
+    "changed_files": [
+      "README_KO.txt",
+      "VALIDATION.json",
+      "ngb_native11/assets/build_plan.json",
+      "ngb_native11/patch_gui.py",
+      "CHANGELOG_KO.txt"
+    ],
+    "all_game_data_and_patch_operations_unchanged_from_confirmed_candidate": true,
+    "runtime_user_report": {
+      "date": "2026-10-26",
+      "source": "User confirmation in this conversation",
+      "statement": "아까 테스트한 수정본이 잘되는 것을 확인했고 공용 v2.0 교체를 요청함",
+      "scope": "Talisman equipment candidate reported working; individual test cases and emulator version were not specified",
+      "all_chapters_confirmed": false
+    }
+  },
+  "package_verification": {
+    "status": "PASS",
+    "supported_xbe_inputs": [
+      "storm_save_audit/recovery/work9/original.xbe",
+      "storm_save_audit/recovery/work9/profile_fix/test6.xbe",
+      "storm_save_audit/recovery/work9/save_probe/test7.xbe",
+      "storm_save_audit/recovery/work9/save_probe8/test8.xbe",
+      "storm_save_audit/recovery/work9/save_fix9/test9.xbe",
+      "storm_save_audit/recovery/work9/test5.xbe",
+      "storm_save_audit/recovery/work9/mark_release/final.xbe",
+      "hakux_audit/recovery/work/save_crash_fix/fixed.xbe",
+      "hakux_audit/reconstructed_v2.xbe",
+      "hakux_audit/menu_memory_candidate.xbe",
+      "rebirth_work/candidate.xbe"
+    ],
+    "actual_patcher_iso_cases": [
+      [
+        "storm_save_audit/recovery/work9/original.xbe",
+        0
+      ],
+      [
+        "storm_save_audit/recovery/work9/original.xbe",
+        405798912
+      ],
+      [
+        "hakux_audit/recovery/work/save_crash_fix/fixed.xbe",
+        0
+      ],
+      [
+        "hakux_audit/recovery/work/save_crash_fix/fixed.xbe",
+        405798912
+      ],
+      [
+        "hakux_audit/reconstructed_v2.xbe",
+        0
+      ],
+      [
+        "hakux_audit/reconstructed_v2.xbe",
+        405798912
+      ],
+      [
+        "hakux_audit/menu_memory_candidate.xbe",
+        0
+      ],
+      [
+        "hakux_audit/menu_memory_candidate.xbe",
+        405798912
+      ],
+      [
+        "rebirth_work/candidate.xbe",
+        0
+      ],
+      [
+        "rebirth_work/candidate.xbe",
+        405798912
+      ]
+    ],
+    "files_hash_checked": 2724,
+    "version_member_roundtrip_and_tamper_check": true,
+    "scope": "Real sprite in synthetic AFS/ISO; no complete original game ISO or xemu execution. Candidate changes limited to two talisman input/footer hooks, embedded zero padding, and section hashes; serialization and low-memory menu code unchanged. Physical compaction, Windows GUI, Android GPU and actual hakuX execution not tested."
+  },
+  "source_candidate_sha256": "5aba66019452bcfbe5e721003635364553285cae9f383caada362ea436280719",
+  "publication_branch": "publish/ngb-v2.0-talisman-20261026",
+  "unchanged_game_files_and_patch_operations": true,
+  "verification_note": "CPU results for the byte-identical candidate were reused; public package application paths and file hashes were rechecked. The user reported the candidate working, without specifying an emulator build or exhaustive case list."
+}
