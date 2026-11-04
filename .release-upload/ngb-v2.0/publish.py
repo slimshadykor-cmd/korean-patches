@@ -1,47 +1,64 @@
+"""Replace only the v2.1 assets on the existing release after exact verification."""
 from pathlib import Path
-import os,json,zipfile,gzip,hashlib,urllib.request,subprocess,copy
-R=Path(__file__).parent;REPO='slimshadykor-cmd/korean-patches';API='https://api.github.com/repos/'+REPO;TAG='ngb-v2.0';NAME='NGB_Korean_Patch_v2.0.zip';sha=lambda b:hashlib.sha256(b).hexdigest()
+import sys,os,json,hashlib,urllib.request,urllib.parse,base64,time
+ROOT=Path(__file__).resolve().parent
+sys.path.insert(0,str(ROOT/'universal'))
+from reconstruct import reconstruct
+REPO='slimshadykor-cmd/korean-patches';API='https://api.github.com/repos/'+REPO;TAG='ngb-v2.0';NAME='NGB_Korean_Patch_v2.1.zip'
+OLD='114020f6e8a89b262057a30fa1b7adcdbf61f87d07ee7b856074c025587032d2';NEW='633519fea4aa5e0d86a0dfd928d311f0253f0bf61f6c0abae9b613192f60c999';V20='192bb7941aee3d5a0fc18a2aace770e5080d20ffdeb2c31de99d7d5530f89235'
+MARK='아래는 보존한 v2.0 설치·기능·검증 기록입니다.'
+sha=lambda b:hashlib.sha256(b).hexdigest()
 def api(path,data=None,method=None):
- h={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'}
- with urllib.request.urlopen(urllib.request.Request(API+path,None if data is None else json.dumps(data).encode(),h,method=method or ('GET' if data is None else 'POST')),timeout=120) as f:return json.load(f)
-def assemble():
- m=json.loads(gzip.decompress((R/'manifest.json.gz').read_bytes()));base=R/'base.zip';urllib.request.urlretrieve('https://github.com/'+REPO+'/releases/download/ngb-v1.8/NGB_Korean_Patch_v1.8.zip',base);assert sha(base.read_bytes())==m['base_sha256']
- assert sha((R/'payload.zip').read_bytes())==m['payload_sha256']
- with zipfile.ZipFile(base) as b,zipfile.ZipFile(R/'payload.zip') as p,zipfile.ZipFile(R/NAME,'w') as z:
-  original=json.loads(b.read('NGB_Korean_Patch_v1.8/ngb_native11/assets/build_plan.json'))
-  def dec(v):
-   kind,data=v
-   if kind=='ref':
-    o=original
-    for k in data:o=o[k]
-    return o
-   if kind=='dict':return {k:dec(x) for k,x in data}
-   if kind=='list':return [dec(x) for x in data]
-   assert kind=='value';return data
-  plan=json.dumps(dec(json.loads(gzip.decompress((R/'plan_delta.json.gz').read_bytes()))),ensure_ascii=False,indent=2).encode()
-  for e in m['files']:
-   data=plan if e['source']=='plan' else (b if e['source']=='base' else p).read(e['entry']);assert sha(data)==e['sha256'],e['name'];i=zipfile.ZipInfo(e['name'],tuple(e['info']['date_time']))
-   for k,v in e['info'].items():
-    if k!='date_time':setattr(i,k,bytes.fromhex(v) if k in ['extra','comment'] else v)
-   z.writestr(i,data,compress_type=i.compress_type,compresslevel=6)
- assert sha((R/NAME).read_bytes())==m['output_sha256']
- with zipfile.ZipFile(R/NAME) as z:assert z.testzip() is None
- return m
-if __name__=='__main__':
- assert os.environ['GITHUB_REPOSITORY']==REPO
- m=assemble();releases=api('/releases?per_page=100');old=[r for r in releases if r['tag_name'].startswith('ngb-') and r['tag_name']!=TAG]
- rel=next((r for r in releases if r['tag_name']==TAG),None)
- body=(R/'RELEASE_NOTES.md').read_text()
- if rel is None:rel=api('/releases',{'tag_name':TAG,'target_commitish':os.environ['GITHUB_SHA'],'name':'닌자가이덴 블랙 한글패치 v2.0 폭풍','body':body,'draft':True,'prerelease':False})
- for f in [R/NAME,R/'SHA256SUMS.txt']:
-  subprocess.run(['gh','release','upload',TAG,str(f),'--repo',REPO,'--clobber'],check=True)
- after=api('/releases/'+str(rel['id']));asset=next(a for a in after['assets'] if a['name']==NAME);assert asset['digest']=='sha256:'+m['output_sha256']
- api('/releases/'+str(rel['id']),{'body':body,'draft':False,'make_latest':'true'},'PATCH')
- url='https://github.com/'+REPO+'/releases/download/'+TAG+'/'+NAME
- with urllib.request.urlopen(url+'?verify=v20',timeout=180) as f:assert sha(f.read())==m['output_sha256']
- # Replace obsolete release bodies: no old download/version navigation links remain.
- results=[]
- for r in old:
-  notice=f"# 이전 버전 {r['tag_name'].removeprefix('ngb-')} 안내\n\n이 버전의 배포 안내는 v2.0으로 통합되었습니다.\n\n**[닌자가이덴 블랙 v2.0 다운로드·업데이트 안내](https://github.com/{REPO}/releases/tag/{TAG})**\n\n이후 수정도 같은 v2.0 페이지에서 파일과 수정 날짜를 갱신합니다. 기존 버전의 설치 안내·다운로드 링크는 혼동을 줄이기 위해 정리했습니다.\n\n날짜별 누적 변경 내용은 v2.0 페이지에서 확인해 주세요. 기존 게임 내 저장은 유지되며 지원하는 원본 또는 기존 한글 ISO에 적용할 수 있습니다.\n"
-  api('/releases/'+str(r['id']),{'body':notice},'PATCH');verify=api('/releases/'+str(r['id']));assert verify['body']==notice;results.append(r['tag_name'])
- print(json.dumps({'status':'PASS','release':url,'sha256':m['output_sha256'],'previous_notices':results,'old_assets_preserved':True}))
+ req=urllib.request.Request(API+path,data=None if data is None else json.dumps(data).encode(),method=method,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json','X-GitHub-Api-Version':'2022-11-28'})
+ with urllib.request.urlopen(req,timeout=120) as f:
+  b=f.read();return json.loads(b) if b else None
+def download(url):
+ with urllib.request.urlopen(url,timeout=180) as f:return f.read()
+def upload(rel,name,payload,mime):
+ url=rel['upload_url'].split('{')[0]+'?name='+urllib.parse.quote(name)
+ req=urllib.request.Request(url,data=payload,method='POST',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Content-Type':mime})
+ with urllib.request.urlopen(req,timeout=240) as f:r=json.load(f)
+ assert r['digest']=='sha256:'+sha(payload);return r
+def swap(rel,name,payload,mime,label,expected_old=None):
+ assets=api('/releases/'+str(rel['id']))['assets'];old=next((a for a in assets if a['name']==name),None)
+ digest='sha256:'+sha(payload)
+ if old and old.get('digest')==digest:return old
+ if expected_old is not None:assert old and old.get('digest')=='sha256:'+expected_old,'Concurrent asset change'
+ staging=name+'.uploading';backup=name+'.previous'
+ assert not any(a['name'] in (staging,backup) for a in assets),'Prior interrupted replacement requires review'
+ staged=upload(rel,staging,payload,mime)
+ # The previous asset stays available until the full new upload has been verified.
+ if old:api('/releases/assets/'+str(old['id']),{'name':backup},'PATCH')
+ try:new=api('/releases/assets/'+str(staged['id']),{'name':name,'label':label},'PATCH')
+ except Exception:
+  if old:api('/releases/assets/'+str(old['id']),{'name':name},'PATCH')
+  raise
+ assert new['digest']==digest
+ assert sha(download(new['browser_download_url']+'?verify='+sha(payload)[:16]))==sha(payload)
+ if old:api('/releases/assets/'+str(old['id']),method='DELETE')
+ return new
+
+def main():
+ rel=api('/releases/tags/'+TAG);assert rel['html_url']=='https://github.com/'+REPO+'/releases/tag/'+TAG
+ preserved={a['id']:(a['name'],a.get('digest')) for a in rel['assets'] if a['name'] not in (NAME,'SHA256SUMS-v2.1.txt')}
+ assert next(a for a in rel['assets'] if a['name']=='NGB_Korean_Patch_v2.0.zip')['digest']=='sha256:'+V20
+ old=next(a for a in rel['assets'] if a['name']==NAME)
+ if old['digest']=='sha256:'+NEW:
+  out=download(old['browser_download_url']+'?verify='+NEW[:16]);assert sha(out)==NEW
+ else:
+  assert old['digest']=='sha256:'+OLD
+  source=download(old['browser_download_url']+'?verify='+OLD[:16]);encoded=''.join(p.read_text() for p in sorted((ROOT/'universal').glob('recipe-*.txt')));out=reconstruct(source,encoded)
+ assert sha(out)==NEW and len(out)==70804026
+ prefix=(ROOT/'universal/notes_prefix.md').read_text();assert rel['body'].count(MARK)==1
+ notes=prefix+MARK+rel['body'].split(MARK,1)[1]
+ readme=api('/contents/xbox/ninja-gaiden-black/README.md?ref=main');body=base64.b64decode(readme['content']).decode();assert body.count(MARK)==1
+ newreadme=prefix+MARK+body.split(MARK,1)[1]
+ asset=swap(rel,NAME,out,'application/zip','v2.1 — 기기 선택 없는 공용 패처',expected_old=OLD if old['digest']!='sha256:'+NEW else None)
+ sums=(NEW+'  '+NAME+'\n').encode();swap(rel,'SHA256SUMS-v2.1.txt',sums,'text/plain; charset=utf-8','v2.1 공용 수정본 SHA-256')
+ api('/releases/'+str(rel['id']),{'name':'닌자가이덴 블랙 한글패치 v2.1 / v2.0','body':notes},'PATCH')
+ if body!=newreadme:api('/contents/xbox/ninja-gaiden-black/README.md',{'message':'Document NGB v2.1 common output and verification scope','branch':'main','sha':readme['sha'],'content':base64.b64encode(newreadme.encode()).decode()},'PUT')
+ final=api('/releases/tags/'+TAG);assert final['body']==notes
+ actual={a['id']:(a['name'],a.get('digest')) for a in final['assets'] if a['name'] not in (NAME,'SHA256SUMS-v2.1.txt')};assert actual==preserved
+ assert next(a for a in final['assets'] if a['name']==NAME)['digest']=='sha256:'+NEW
+ print(json.dumps({'status':'PASS','release_url':final['html_url'],'sha256':NEW,'v2.0_and_other_assets_preserved':True,'public_download_verified':True}))
+if __name__=='__main__':main()
