@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT/'universal'))
 from reconstruct import reconstruct
 REPO='slimshadykor-cmd/korean-patches';API='https://api.github.com/repos/'+REPO;TAG='ngb-v2.0';NAME='NGB_Korean_Patch_v2.1.zip'
-OLD='114020f6e8a89b262057a30fa1b7adcdbf61f87d07ee7b856074c025587032d2';NEW='633519fea4aa5e0d86a0dfd928d311f0253f0bf61f6c0abae9b613192f60c999';V20='192bb7941aee3d5a0fc18a2aace770e5080d20ffdeb2c31de99d7d5530f89235'
+OLD='633519fea4aa5e0d86a0dfd928d311f0253f0bf61f6c0abae9b613192f60c999';NEW='7187793812d562495272b3f4c4f6ffdc3732b6eb9d4eec1493856745c67bb1f3';V20='192bb7941aee3d5a0fc18a2aace770e5080d20ffdeb2c31de99d7d5530f89235'
 MARK='아래는 보존한 v2.0 설치·기능·검증 기록입니다.'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def api(path,data=None,method=None):
@@ -48,7 +48,7 @@ def main():
  else:
   assert old['digest']=='sha256:'+OLD
   source=download(old['browser_download_url']+'?verify='+OLD[:16]);encoded=''.join(p.read_text() for p in sorted((ROOT/'universal').glob('recipe-*.txt')));out=reconstruct(source,encoded)
- assert sha(out)==NEW and len(out)==70804026
+ assert sha(out)==NEW and len(out)==70807651
  prefix=(ROOT/'universal/notes_prefix.md').read_text();assert rel['body'].count(MARK)==1
  notes=prefix+MARK+rel['body'].split(MARK,1)[1]
  readme=api('/contents/xbox/ninja-gaiden-black/README.md?ref=main');body=base64.b64decode(readme['content']).decode();assert body.count(MARK)==1
