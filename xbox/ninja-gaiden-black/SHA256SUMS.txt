@@ -1,1 +1,2 @@
-9d272fc640eb560289150bd6ab44f8d1d8499ccacef6c449e06839b798677ab4  NGB_Korean_Patch_v2.0.zip
+192bb7941aee3d5a0fc18a2aace770e5080d20ffdeb2c31de99d7d5530f89235  NGB_Korean_Patch_v2.0.zip
+114020f6e8a89b262057a30fa1b7adcdbf61f87d07ee7b856074c025587032d2  NGB_Korean_Patch_v2.1.zip
