@@ -1,0 +1,52 @@
+{
+  "date_utc": "2026-11-04T04:17:55.771761+00:00",
+  "candidate_sha256": "0819eeca3408f6514bb10cd88573fe1076da2cc57fc3a2847e7ff7d5847ef560",
+  "xefu_new_game_verified": true,
+  "first_stage_input_verified": true,
+  "hardware_verified": false,
+  "game_mode": "Black (default left selection)",
+  "environment": {
+    "host": "Linux x86_64",
+    "emulator": "Xenia Edge b65dd25 (2026-11-03)",
+    "xefu": "xefu3.xex via xbox.xex dispatcher",
+    "xefu_sha256": "6c708e2dc9bf2ded2456c29e9bfa9a48ae671cd36944a09b9433a2f31b9607e3",
+    "graphics": "Vulkan llvmpipe",
+    "audio": "nop (not tested)",
+    "input": "keyboard; A=J, Start=X, forward=W"
+  },
+  "stages_verified": [
+    "title",
+    "main menu Korean heading",
+    "Black/Storm selection Korean artwork",
+    "Black New Game Korean introduction",
+    "chapter 1 ready",
+    "first-stage real-time cutscene",
+    "first-stage HUD",
+    "forward input with position/camera displacement",
+    "Start input opened Korean inventory menu"
+  ],
+  "evidence_images": [
+    "01_title.png",
+    "02_main_menu.png",
+    "03_mode_selection.png",
+    "04_new_game_intro_ko.png",
+    "05_story_ko.png",
+    "06_chapter1_ready.png",
+    "07_first_stage_cutscene.png",
+    "08_player_hud.png",
+    "09_after_movement.png",
+    "10_pause_inventory_ko.png"
+  ],
+  "fatal_guest_error": false,
+  "host_crash": false,
+  "runtime_probe": "Read-only /proc/self/mem compiler context sampling; no guest state modification",
+  "limits": [
+    "Xbox 360 hardware not tested",
+    "Storm gameplay not tested",
+    "Later chapters, complete saves and all costumes not tested",
+    "Windows GUI not run",
+    "Sound not tested",
+    "Complete rendering correctness not tested"
+  ],
+  "baseline": "Original XBE reached first-stage HUD and responded to Start with inventory menu under same emulator settings."
+}
