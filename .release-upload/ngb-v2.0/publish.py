@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT/'universal'))
 from reconstruct import reconstruct
 REPO='slimshadykor-cmd/korean-patches';API='https://api.github.com/repos/'+REPO;TAG='ngb-v2.0';NAME='NGB_Korean_Patch_v2.1.zip'
-OLD='633519fea4aa5e0d86a0dfd928d311f0253f0bf61f6c0abae9b613192f60c999';NEW='7187793812d562495272b3f4c4f6ffdc3732b6eb9d4eec1493856745c67bb1f3';V20='192bb7941aee3d5a0fc18a2aace770e5080d20ffdeb2c31de99d7d5530f89235'
+OLD='7187793812d562495272b3f4c4f6ffdc3732b6eb9d4eec1493856745c67bb1f3';NEW='6aaa28e6f28f288ca22480c7e009966c32331ea4f522f13637ac0a083b6f17c9';V20='192bb7941aee3d5a0fc18a2aace770e5080d20ffdeb2c31de99d7d5530f89235'
 MARK='아래는 보존한 v2.0 설치·기능·검증 기록입니다.'
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def api(path,data=None,method=None):
@@ -48,15 +48,15 @@ def main():
  else:
   assert old['digest']=='sha256:'+OLD
   source=download(old['browser_download_url']+'?verify='+OLD[:16]);encoded=''.join(p.read_text() for p in sorted((ROOT/'universal').glob('recipe-*.txt')));out=reconstruct(source,encoded)
- assert sha(out)==NEW and len(out)==70807651
+ assert sha(out)==NEW and len(out)==70822467
  prefix=(ROOT/'universal/notes_prefix.md').read_text();assert rel['body'].count(MARK)==1
  notes=prefix+MARK+rel['body'].split(MARK,1)[1]
  readme=api('/contents/xbox/ninja-gaiden-black/README.md?ref=main');body=base64.b64decode(readme['content']).decode();assert body.count(MARK)==1
  newreadme=prefix+MARK+body.split(MARK,1)[1]
- asset=swap(rel,NAME,out,'application/zip','v2.1 — 기기 선택 없는 공용 패처',expected_old=OLD if old['digest']!='sha256:'+NEW else None)
+ asset=swap(rel,NAME,out,'application/zip','v2.1 — 공용 패처 · 제목 위치 보완',expected_old=OLD if old['digest']!='sha256:'+NEW else None)
  sums=(NEW+'  '+NAME+'\n').encode();swap(rel,'SHA256SUMS-v2.1.txt',sums,'text/plain; charset=utf-8','v2.1 공용 수정본 SHA-256')
  api('/releases/'+str(rel['id']),{'name':'닌자가이덴 블랙 한글패치 v2.1 / v2.0','body':notes},'PATCH')
- if body!=newreadme:api('/contents/xbox/ninja-gaiden-black/README.md',{'message':'Document NGB v2.1 common output and verification scope','branch':'main','sha':readme['sha'],'content':base64.b64encode(newreadme.encode()).decode()},'PUT')
+ if body!=newreadme:api('/contents/xbox/ninja-gaiden-black/README.md',{'message':'Document NGB v2.1 title alignment and warning region behavior','branch':'main','sha':readme['sha'],'content':base64.b64encode(newreadme.encode()).decode()},'PUT')
  final=api('/releases/tags/'+TAG);assert final['body']==notes
  actual={a['id']:(a['name'],a.get('digest')) for a in final['assets'] if a['name'] not in (NAME,'SHA256SUMS-v2.1.txt')};assert actual==preserved
  assert next(a for a in final['assets'] if a['name']==NAME)['digest']=='sha256:'+NEW
