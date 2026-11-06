@@ -30,6 +30,9 @@ def assemble(base_path=None):
   raw=gzip.decompress(old.read('payload/default.xex.opd.gz'));magic,n,count,at,k=struct.unpack_from('<4sIIII',raw);assert magic==b'OPD1' and count==1 and at==0 and n==k
   newx=patch_xex(raw[20:],json.loads((Q/'game-code-delta.json').read_text()))
   newdelta=gzip.compress(struct.pack('<4sIIII',b'OPD1',len(newx),1,0,len(newx))+newx,9,mtime=0)
+  # Python 3.13+ normalizes the gzip OS byte to 255; the tested Linux build
+  # uses 3. Preserve its exact header independently of the runner's Python.
+  newdelta=newdelta[:9]+b'\x03'+newdelta[10:]
   buffer=io.BytesIO()
   with zipfile.ZipFile(buffer,'w',zipfile.ZIP_STORED) as payload:
    for e in m['entries']:
