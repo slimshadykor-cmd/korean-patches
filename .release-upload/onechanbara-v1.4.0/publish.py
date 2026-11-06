@@ -55,12 +55,18 @@ def api(path,data=None,method=None):
  with urllib.request.urlopen(req,timeout=120) as f:return json.load(f)
 def publish():
  assert os.environ['GITHUB_REPOSITORY']==REPO
- result,m=assemble();rels=api('/releases?per_page=100');rel=next((r for r in rels if r['tag_name']==TAG),None);body=(Q/'RELEASE_NOTES.md').read_text()
+ m=json.loads((Q/'recipe.json').read_text());result=Q/m['release']['name'];rels=api('/releases?per_page=100');rel=next((r for r in rels if r['tag_name']==TAG),None);body=(Q/'RELEASE_NOTES.md').read_text()
+ existing={a['name']:a for a in rel['assets']} if rel else {}
+ expected={result.name:m['release']['sha256'],'SHA256SUMS-v1.4.0.txt':sha((Q/'SHA256SUMS-v1.4.0.txt').read_bytes())}
+ missing=[name for name,value in expected.items() if existing.get(name,{}).get('digest')!='sha256:'+value]
+ if result.name in missing:result,m=assemble()
  if rel is None:rel=api('/releases',{'tag_name':TAG,'target_commitish':os.environ['GITHUB_SHA'],'name':'오네찬바라 볼텍스 한글패치 v1.4.0 — 로딩 대폭 개선','body':body,'draft':True,'prerelease':False})
- for path in [result,Q/'SHA256SUMS-v1.4.0.txt']:
+ for path in [Q/name for name in missing]:
   subprocess.run(['gh','release','upload',TAG,str(path),'--repo',REPO,'--clobber'],check=True)
  check=api('/releases/'+str(rel['id']));asset=next(a for a in check['assets'] if a['name']==result.name);assert asset['digest']=='sha256:'+m['release']['sha256'] and asset['size']==m['release']['size']
  api('/releases/'+str(rel['id']),{'body':body,'name':'오네찬바라 볼텍스 한글패치 v1.4.0 — 로딩 대폭 개선','draft':False,'make_latest':'true'},'PATCH')
+ # Publishing replaces a draft's temporary download URL with the tagged URL.
+ asset=next(a for a in api('/releases/'+str(rel['id']))['assets'] if a['name']==result.name)
  with urllib.request.urlopen(asset['browser_download_url'],timeout=180) as f:assert sha(f.read())==m['release']['sha256']
  url='https://github.com/'+REPO+'/releases/tag/'+TAG
  notice='<!-- latest-patch-navigation:start -->\n> **최신 패치: [오네찬바라 볼텍스 v1.4.0 다운로드·설치 안내]('+url+')**\n>\n> 로딩 개선을 통합한 새 버전입니다. 기존 한글판 ISO에도 적용할 수 있습니다.\n> [게임별 최신 안내](https://github.com/'+REPO+'/tree/main/xbox360/onechanbara)\n<!-- latest-patch-navigation:end -->'
