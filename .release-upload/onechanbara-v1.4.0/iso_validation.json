@@ -1,0 +1,55 @@
+{
+  "shipped_windows_exe_core_executed_via_reflection": true,
+  "runtime": "Linux .NET 8",
+  "valid_inputs": [
+    {
+      "input": "original_assets",
+      "partition_base": "0x0",
+      "input_preserved": true,
+      "all_present_targets_match": true,
+      "unrelated_asset_preserved": true,
+      "files_checked": 141
+    },
+    {
+      "input": "v130",
+      "partition_base": "0xfd90000",
+      "input_preserved": true,
+      "all_present_targets_match": true,
+      "unrelated_asset_preserved": true,
+      "files_checked": 141
+    },
+    {
+      "input": "test02",
+      "partition_base": "0xfb20",
+      "input_preserved": true,
+      "all_present_targets_match": true,
+      "unrelated_asset_preserved": true,
+      "files_checked": 141
+    },
+    {
+      "input": "test03",
+      "partition_base": "0x20600",
+      "input_preserved": true,
+      "all_present_targets_match": true,
+      "unrelated_asset_preserved": true,
+      "files_checked": 141
+    },
+    {
+      "input": "test04",
+      "partition_base": "0x2080000",
+      "input_preserved": true,
+      "all_present_targets_match": true,
+      "unrelated_asset_preserved": true,
+      "files_checked": 141
+    }
+  ],
+  "rejections": [
+    "already patched",
+    "existing output",
+    "modified executable"
+  ],
+  "all_158_target_payloads_validated": true,
+  "fixture_description": "Supplied original UI/demo/mission/executable and existing Korean movie payloads in synthetic XDVDFS containers; full original ISO not executed",
+  "windows_gui_executed": false,
+  "full_gameplay_executed": false
+}

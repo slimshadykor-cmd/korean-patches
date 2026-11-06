@@ -1,0 +1,14 @@
+{
+  "version": "1.4.0",
+  "baseline_release_sha256": "a15c7bab95224879ed5f3ba6546813abefc2d6971f1510d79523dd2a293b4610",
+  "targets": 158,
+  "unchanged_targets": 156,
+  "changed_assets": {
+    "default.xex": "d7c0647f00e124576c3771e27c4bdbd782936515df3f4acdcfdefc331c7021ce",
+    "Media/Menu/title2d.cat": "351c95cc3c799b3ce10b5bb02ed3ab6b921560f5e79240be9f03a1469e45b54c"
+  },
+  "test04_game_executable_exact_match": true,
+  "title_jpeg_quality": 98,
+  "windows_gui_run": false,
+  "full_gameplay_run": false
+}

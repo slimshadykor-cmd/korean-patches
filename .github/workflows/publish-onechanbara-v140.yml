@@ -1,0 +1,22 @@
+name: Publish Onechanbara v1.4.0
+on:
+  push:
+    branches: [publish/onechanbara-v140-20261106]
+permissions:
+  contents: write
+concurrency:
+  group: onechanbara-v140-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'slimshadykor-cmd/korean-patches'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Reconstruct verified patch and publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .release-upload/onechanbara-v1.4.0/publish.py
