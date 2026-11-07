@@ -4,6 +4,12 @@
 
 기존 한글화·영상 자막·로딩 개선·전용 Vulkan 실행을 포함한 통합본입니다. 이번 수정은 **오네찬바라 세이브를 원래 저장 위치에서 사용하도록 연결하는 것**입니다. 그래픽·프레임·게임 속도·콤보 설정은 v1.6.0에서 바꾸지 않았습니다.
 
+## 2026-11-07 실행 연결 오류 수정
+
+`기존 자동 로그인 프로필을 찾지 못했습니다. 슬롯 0` 오류를 일으킨 저장 경로 판별을 수정했습니다. 검증 대상 Windows 빌드는 `portable.txt` 없이도 실행 폴더를 기본 위치로 사용합니다. 수정 도구의 내부 빌드는 **1.6.1.1**이며, 게임 패치 버전은 **v1.6.1**입니다.
+
+**이미 생성한 ISO는 다시 만들지 마세요.** 아래쪽 실행 연결 버튼으로 다시 연결하면 됩니다. 공통·전용 설정과 캐시가 없는 첫 설치 조건도 별도로 검사했습니다. 원래 `content` 폴더의 세이브·의상 데이터·프로필은 보존하세요. 이전 전용 폴더의 `content`도 최근 저장이 있을 수 있으므로 확인 전 삭제하지 마세요.
+
 ## 다운로드
 
 **[v1.6.1 통합 패치 ZIP](https://github.com/slimshadykor-cmd/korean-patches/releases/download/onechanbara-v1.4.0/Onechanbara_Korean_v1.6.1_Integrated.zip)** · [배포 페이지](https://github.com/slimshadykor-cmd/korean-patches/releases/tag/onechanbara-v1.4.0)
@@ -56,14 +62,14 @@ Windows 10/11 64비트, .NET Framework 4.8, Windows PowerShell 5.1. 전용 폴�
 
 전용 실행은 사용자 확인 빌드 **Xenia Canary b083312b8 (2026-10-02)**의 EXE 해시를 검사합니다. 다른 빌드에서는 연결 체크를 해제하고 한글 ISO만 만들 수 있습니다. Xenia 배포본은 포함하지 않습니다. 기존 Xenia 프로필이 필요하며, 별도 명령줄 저장 경로는 자동 판정 대상이 아닙니다.
 
-세이브 연결·양쪽 저장 보존·다른 게임 파일 보존·실패 복구 **18개 자동 검사**, 배포 EXE의 실제 ISO 처리와 v1.6.0/1.6.1 연결 검사를 통과했습니다. **실제 Windows의 새 폴더 연결과 게임 저장·불러오기는 아직 실행 검증하지 않았습니다.** 자동 검사는 Linux에서 Windows COM/프로세스를 대역으로, junction을 실제 POSIX 심볼릭 링크로 대체했습니다. 세부 범위는 ZIP의 `검수결과.txt`에 적었습니다.
+세이브 연결·양쪽 저장 보존·다른 게임 파일 보존·실패 복구 **기본 19개 + 첫 설치 5개 자동 검사**, 배포 EXE의 실제 ISO 처리와 v1.6.0/1.6.1 연결 검사를 통과했습니다. **실제 Windows의 새 폴더 연결과 게임 저장·불러오기는 아직 실행 검증하지 않았습니다.** 자동 검사는 Linux에서 Windows COM/프로세스를 대역으로, junction을 실제 POSIX 심볼릭 링크로 대체했습니다. 세부 범위는 ZIP의 `검수결과.txt`에 적었습니다.
 
 게임 ISO, Xenia, 개인 세이브와 트레이너는 포함하지 않습니다.
 
 ## 파일 확인
 
-`Onechanbara_Korean_v1.6.1_Integrated.zip` — 319,182,757 bytes
+`Onechanbara_Korean_v1.6.1_Integrated.zip` — 319,183,427 bytes
 
 ```text
-SHA-256: 74bf06fd99248c170a6acf0e6d983939b83652f53b30d22b92e27dda46ba9e0e
+SHA-256: e17999b87371eff34bf632addf88750fe73f9a8da15b72ebf2441793a251eb71
 ```
