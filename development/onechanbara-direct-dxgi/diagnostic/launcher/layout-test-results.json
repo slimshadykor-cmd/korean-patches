@@ -1,0 +1,10 @@
+{
+  "passed": 4,
+  "checks": [
+    "parent runtime fallback",
+    "adjacent runtime precedence",
+    "flat package layout",
+    "reparse runtime rejection"
+  ],
+  "windows_gui_executed": false
+}

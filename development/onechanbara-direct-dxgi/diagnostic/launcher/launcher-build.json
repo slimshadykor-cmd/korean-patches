@@ -1,0 +1,8 @@
+{
+  "artifact": "Onechanbara_Diagnostics.exe",
+  "target": "net48-x64-winforms",
+  "revision": "diagnostic-output-1",
+  "sha256": "a08b904f761f7b9bf4502ce7e9c0d4f4fb002672eb250063b9737de5ac8bdbef",
+  "native_windows_gui_test": false,
+  "gpu_test": false
+}

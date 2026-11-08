@@ -1,0 +1,115 @@
+{
+  "version": "1.7",
+  "revision": "diagnostic-output-1",
+  "stable_patch": false,
+  "source_commit": "5895522ba3fc918e7bcc3ad7cfc0acc1dae49a26",
+  "runtime": {
+    "version": "1.7",
+    "base": "b083312b8b18e07e6e410b82104191f126722794",
+    "display_revision": "diagnostic-output-1",
+    "windows_build": true,
+    "architecture": "AMD64",
+    "gpu_play_test": false,
+    "exe_bytes": 17211904,
+    "exe_sha256": "653b2fa6fa15b72e30a21da8b2ae13d89b15236740951f1218b250094248e28e",
+    "archive_sha256": "161fde286253dad9133678ca0a16b494b7a4232b9a49d102ca2d75560f722924",
+    "source_commit": "5895522ba3fc918e7bcc3ad7cfc0acc1dae49a26",
+    "run_url": "https://github.com/slimshadykor-cmd/korean-patches/actions/runs/42491162610"
+  },
+  "launcher_sha256": "a08b904f761f7b9bf4502ce7e9c0d4f4fb002672eb250063b9737de5ac8bdbef",
+  "source": {
+    "base": "b083312b8b18e07e6e410b82104191f126722794",
+    "changed_files": 16,
+    "only_ui_files": true,
+    "patch_preflight": true,
+    "bridge_cross_compile": true,
+    "frame_statistics_test": true,
+    "gpu_test": "mock protocol only",
+    "actual_gpu_test": false
+  },
+  "launcher_checks": 62,
+  "launcher_layout": {
+    "passed": 4,
+    "checks": [
+      "parent runtime fallback",
+      "adjacent runtime precedence",
+      "flat package layout",
+      "reparse runtime rejection"
+    ],
+    "windows_gui_executed": false
+  },
+  "launcher_structure": {
+    "pe_x64_gui": true,
+    "as_invoker": true,
+    "artifact_hash_verified": true,
+    "forbidden_actions_absent_in_launcher_sources": true,
+    "config_diff_checks": [
+      {
+        "mode": 0,
+        "changed_existing_keys": [
+          "GPU.Debug.trace_gpu_prefix",
+          "Logging.log_file",
+          "Storage.cache_root",
+          "Storage.content_root",
+          "Storage.storage_root",
+          "Vulkan.vulkan_allow_present_mode_mailbox"
+        ],
+        "gameplay_settings_equal": true
+      },
+      {
+        "mode": 1,
+        "changed_existing_keys": [
+          "GPU.Debug.trace_gpu_prefix",
+          "Logging.log_file",
+          "Storage.cache_root",
+          "Storage.content_root",
+          "Storage.storage_root",
+          "Vulkan.vulkan_allow_present_mode_mailbox"
+        ],
+        "gameplay_settings_equal": true
+      },
+      {
+        "mode": 2,
+        "changed_existing_keys": [
+          "GPU.Debug.trace_gpu_prefix",
+          "Logging.log_file",
+          "Storage.cache_root",
+          "Storage.content_root",
+          "Storage.storage_root",
+          "Vulkan.vulkan_allow_present_mode_mailbox",
+          "Vulkan.vulkan_direct_dxgi"
+        ],
+        "gameplay_settings_equal": true
+      }
+    ],
+    "native_windows_gui_test": false,
+    "gpu_test": false
+  },
+  "copy_protocol": {
+    "passed": 43,
+    "actual_vendor_and_bridge_methods": true,
+    "gpu_test": false,
+    "mocked": "Windows/D3D12/Vulkan objects and OS events"
+  },
+  "scheduling": {
+    "passed": 11,
+    "actual_generated_policy_methods": true,
+    "mocked_paint_context": true,
+    "gpu_test": false
+  },
+  "gpu_probe_protocol": {
+    "exact_paced_patch_applies": true,
+    "source_transform_applies": true,
+    "no_new_wait_or_submit_calls": true,
+    "gpu_probe_api_protocol_mock_test": true,
+    "physical_gpu_test": false,
+    "scope": "Vulkan final output GPU interval; may include semaphore stalls",
+    "engine_busy_time": false,
+    "d3d12_copy_gpu_time": false,
+    "guest_render_gpu_time": false
+  },
+  "physical_windows_game_test": false,
+  "hair_regression_fixed": false,
+  "performance_improvement_verified": false,
+  "unchanged_originals_policy": "No common config, shortcut, original runtime, ISO or NVIDIA profile writes. Game saves still use original content."
+}

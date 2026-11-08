@@ -1,0 +1,11 @@
+{
+  "exact_paced_patch_applies": true,
+  "source_transform_applies": true,
+  "no_new_wait_or_submit_calls": true,
+  "gpu_probe_api_protocol_mock_test": true,
+  "physical_gpu_test": false,
+  "scope": "Vulkan final output GPU interval; may include semaphore stalls",
+  "engine_busy_time": false,
+  "d3d12_copy_gpu_time": false,
+  "guest_render_gpu_time": false
+}

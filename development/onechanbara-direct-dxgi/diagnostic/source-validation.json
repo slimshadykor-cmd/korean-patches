@@ -1,0 +1,10 @@
+{
+  "base": "b083312b8b18e07e6e410b82104191f126722794",
+  "changed_files": 16,
+  "only_ui_files": true,
+  "patch_preflight": true,
+  "bridge_cross_compile": true,
+  "frame_statistics_test": true,
+  "gpu_test": "mock protocol only",
+  "actual_gpu_test": false
+}

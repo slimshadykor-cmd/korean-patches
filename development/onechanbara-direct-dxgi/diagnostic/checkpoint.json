@@ -1,0 +1,27 @@
+{
+  "version": "1.7",
+  "display_revision": "diagnostic-output-1",
+  "state": "comparison_package_verified",
+  "source_commit": "5895522ba3fc918e7bcc3ad7cfc0acc1dae49a26",
+  "run_id": 42491162610,
+  "job_id": 128763638883,
+  "base": "b083312b8b18e07e6e410b82104191f126722794",
+  "actual_gpu_test": false,
+  "stable_patch": false,
+  "source_patch_sha256": "3cd677ab7d2f8b96e8193794403b49082f8018cfde185b9f214ae2c60b402630",
+  "known_good_hair_history": "Vulkan FSI strict, user confirmed 2026-11-06T16:42:36Z; recurrence now not diagnosed",
+  "changes_scope": "UI presentation diagnostics and isolated comparison launcher",
+  "windows_build": "success",
+  "artifact_commit": "4c02e60de7f1f00d55d77f2044886714c364849d",
+  "package": {
+    "path": "/workspace/scratch/3c9b17817074/diagnostic_v17/release/Onechanbara_Diagnostics_v1.7.zip",
+    "bytes": 5677839,
+    "sha256": "11a69c0b1862168b3b96cacd00ddf96f3a02159467f1195a1223808ebfaf3539",
+    "entries": 9,
+    "runtime_sha256": "653b2fa6fa15b72e30a21da8b2ae13d89b15236740951f1218b250094248e28e",
+    "launcher_sha256": "a08b904f761f7b9bf4502ce7e9c0d4f4fb002672eb250063b9737de5ac8bdbef",
+    "source_commit": "5895522ba3fc918e7bcc3ad7cfc0acc1dae49a26",
+    "actual_gpu_test": false
+  },
+  "hair_regression_resolved": false
+}

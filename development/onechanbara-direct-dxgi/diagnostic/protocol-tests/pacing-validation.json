@@ -1,0 +1,6 @@
+{
+  "passed": 11,
+  "actual_generated_policy_methods": true,
+  "mocked_paint_context": true,
+  "gpu_test": false
+}

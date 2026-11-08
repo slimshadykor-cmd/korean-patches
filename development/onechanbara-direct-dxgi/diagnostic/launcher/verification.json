@@ -1,0 +1,47 @@
+{
+  "pe_x64_gui": true,
+  "as_invoker": true,
+  "artifact_hash_verified": true,
+  "forbidden_actions_absent_in_launcher_sources": true,
+  "config_diff_checks": [
+    {
+      "mode": 0,
+      "changed_existing_keys": [
+        "GPU.Debug.trace_gpu_prefix",
+        "Logging.log_file",
+        "Storage.cache_root",
+        "Storage.content_root",
+        "Storage.storage_root",
+        "Vulkan.vulkan_allow_present_mode_mailbox"
+      ],
+      "gameplay_settings_equal": true
+    },
+    {
+      "mode": 1,
+      "changed_existing_keys": [
+        "GPU.Debug.trace_gpu_prefix",
+        "Logging.log_file",
+        "Storage.cache_root",
+        "Storage.content_root",
+        "Storage.storage_root",
+        "Vulkan.vulkan_allow_present_mode_mailbox"
+      ],
+      "gameplay_settings_equal": true
+    },
+    {
+      "mode": 2,
+      "changed_existing_keys": [
+        "GPU.Debug.trace_gpu_prefix",
+        "Logging.log_file",
+        "Storage.cache_root",
+        "Storage.content_root",
+        "Storage.storage_root",
+        "Vulkan.vulkan_allow_present_mode_mailbox",
+        "Vulkan.vulkan_direct_dxgi"
+      ],
+      "gameplay_settings_equal": true
+    }
+  ],
+  "native_windows_gui_test": false,
+  "gpu_test": false
+}
