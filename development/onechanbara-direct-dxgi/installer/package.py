@@ -6,7 +6,7 @@ exe=release/'Onechanbara_Korean_v1.7.exe'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 meta=json.loads((runtime/'build.json').read_text())
 assert sha(runtime/'xenia_onechanbara.exe')==meta['exe_sha256']
-assert meta.get('display_revision')=='shared-image-copy-1', 'Wrong display runtime revision'
+assert meta.get('display_revision')=='paced-output-1', 'Wrong display runtime revision'
 readme='''오네찬바라 볼텍스 한글패치 v1.7 — 직접 화면 출력 통합본
 한글화 슬림쉐이디
 
@@ -18,12 +18,14 @@ readme='''오네찬바라 볼텍스 한글패치 v1.7 — 직접 화면 출력 �
 ISO를 다시 만들 필요는 없습니다.
 직전 직접 DXGI판을 설치하셨더라도 같은 버튼으로 연결하면 전용 실행파일을 갱신합니다.
 
-이번 수정 내용
-Vulkan이 화면 표시 버퍼에 직접 그리던 방식을 제거했습니다.
-별도 공유 이미지의 그리기 완료 후 DXGI가 복사하며, 다음 프레임은 그 복사가
-끝난 뒤에 이미지를 다시 사용합니다. 해상도와 게임 속도 설정은 유지합니다.
-100ms 이상 걸린 출력 단계는 xenia.log에 자동으로 기록됩니다.
-영상에서 확인된 정지와 6~8 FPS 하락이 해결됐는지는 실제 PC 재검수가 필요합니다.
+이번 수정 내용 — 내부 출력 식별자 paced-output-1
+게임 화면을 출력 스레드에서 직접 전달하도록 수정했습니다.
+게임 플레이 중에는 표시 버퍼를 16ms 안에 받지 못했다고 바로 프레임을
+포기하지 않고 기다립니다. 수직동기화는 유지하고 UI 창 처리에는 짧은 대기를 씁니다.
+화면 전달 단계별 CPU 소요 시간과 전달 함수의 성공 횟수를 매초 한 줄로 기록합니다.
+이는 GPU 실행 시간이나 실제 표시 FPS가 아니며, last_run.json에는 실행파일 해시도 남깁니다.
+이번 영상의 23~37 FPS 저하 원인이 모두 밝혀진 것은 아닙니다.
+실제 게임 성능과 동작 표현이 해결됐는지는 검증되지 않은 수정 후보입니다.
 
 원본 또는 지원하는 이전 한글 ISO라면
 [한글패치 적용 — 새 ISO 만들기]로 새 v1.7 ISO를 만드세요.
@@ -68,7 +70,7 @@ with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
   p=R/name
   assert p.is_file(), 'Missing validation: '+name
   z.write(p,'validation/'+name)
- for name in ['copy-protocol-validation.json','stage-timer-validation.json','revision-notes.txt']:
-  z.write(R.parent/'non_nv/regression_192245'/name,'validation/'+name)
+ for name in ['copy-protocol-validation.json','metrics-validation.json','pacing-validation.json','revision-notes.txt']:
+  z.write(R.parent/'non_nv/regression_204149'/name,'validation/'+name)
 with zipfile.ZipFile(target) as z:assert z.testzip() is None
 print(json.dumps({'path':str(target),'bytes':target.stat().st_size,'sha256':sha(target),'native_gpu_test':False},indent=2))

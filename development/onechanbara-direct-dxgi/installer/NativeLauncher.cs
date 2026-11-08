@@ -37,7 +37,7 @@ internal static class NativeLauncher {
     using(var p=Process.Start(new ProcessStartInfo(exe,args){UseShellExecute=false,WorkingDirectory=home})){
      if(p==null)throw new InvalidOperationException("제니아 실행을 시작하지 못했습니다.");
      p.WaitForExit();
-     var report=new Dictionary<string,object>{{"Version","1.7"},{"ExitCode",p.ExitCode},{"DriverSettingsChanged",false},{"TimeUtc",DateTime.UtcNow.ToString("o")}};
+     var report=new Dictionary<string,object>{{"Version","1.7"},{"ExitCode",p.ExitCode},{"DriverSettingsChanged",false},{"RuntimeSha256",S(r,"ExeSha256")},{"TimeUtc",DateTime.UtcNow.ToString("o")}};
      File.WriteAllText(Path.Combine(logs,"last_run.json"),new JavaScriptSerializer().Serialize(report),new UTF8Encoding(false));
      if(p.ExitCode!=0)throw new InvalidOperationException("제니아가 오류 코드 "+p.ExitCode+"로 종료됐습니다.\n오류 기록: "+Path.Combine(logs,"xenia.log"));
     }

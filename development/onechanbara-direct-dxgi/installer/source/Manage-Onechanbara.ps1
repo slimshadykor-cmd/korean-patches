@@ -1,4 +1,4 @@
-[CmdletBinding()]
+﻿[CmdletBinding()]
 param(
  [ValidateSet('Check','Install')][string]$Mode='Check',
  [string]$Root='', [string]$GamePath='', [string]$GameSha256='',
@@ -13,8 +13,8 @@ $Owner='Onechanbara.445007D2.DirectDXGI'
 $KnownExeHash='64AC262FE55E0E252FA46CEBAE006978AFA48BB109996E1304F3F64EEB9D4932'
 $RuntimeSource=Join-Path $PSScriptRoot 'xenia_onechanbara.exe'
 $LauncherSource=Join-Path $PSScriptRoot 'Onechanbara_Launcher.exe'
-$KnownRuntimeHash='13929E0D0AD3FDD3FEC7E7359DCEAEFA35165038CC46EE018A93FA86D0150CCC'
-$KnownLauncherHash='160534A30A3F66FE760CC8A8178A093B04E2923CE53048D8DA4E4F5075C6E113'
+$KnownRuntimeHash='0D1951EBB932BA7EC97AEF33172BECD064502684F012B9D8AD8D17AF37767529'
+$KnownLauncherHash='14C9A541B6B165069EF8482040C27212786BC9DE0EDA98418561801E2527E8EE'
 $Utf8=New-Object Text.UTF8Encoding($true)
 $Stage='';$Committed=$false;$GameLock=$null;$RunLock=$null;$SetupLock=$null
 $OriginalContent='';$ProfileIds=@()

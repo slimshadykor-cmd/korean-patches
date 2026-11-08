@@ -1,0 +1,31 @@
+Onechanbara v1.7 — paced-output-1
+
+Evidence
+The supplied log confirms shared-image-copy-1 was active, on RTX 3060 with
+Vulkan FSI and 2x2 draw scale. Output changed to 3840x2160 in fullscreen.
+The previous 100 ms CPU threshold emitted no slow-stage lines, so it does not
+isolate the sustained 23–37 FPS regression. The cause is not confirmed.
+
+Changes
+- A bridge-only Presenter hook uses immediate guest-output-thread presentation
+  during gameplay. Explicit UI-thread preference and active UI drawers still
+  use the UI thread; stock Vulkan/D3D12 scheduling remains unchanged.
+- Guest-output acquisition accepts normal waits beyond 16 ms (bounded at 250 ms).
+  UI acquisition retains its 16 ms budget. VSync remains Present(1, 0).
+- Per-thread CPU stage statistics include attempts versus successful presents,
+  averaged/max stages and total time, aggregated once per second.
+  "presented" counts successful DXGI calls, not physical scanout frames or GPU FPS.
+- Launcher exit receipt identifies the actual runtime by SHA-256.
+
+Validation
+7 extracted scheduling tests, 43 actual bridge/vendor tests with mocked GPU/OS
+objects, 9 actual metrics tests with deterministic clock/logger, and Windows
+component compilation passed. Complete native Windows build and packaging
+checks are recorded separately. None of these are a native GPU gameplay test.
+
+Scope
+No guest animation/combo/timing/CPU code changes. No NVIDIA profile APIs.
+No change to display resolution, render scale, occlusion, game clock, patch
+payload, save/profile location, original executable or common settings.
+The application-owned DXGI path still performs a shared-image copy; equivalent
+performance to the known-working NVIDIA profile route is not established.
