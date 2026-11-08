@@ -1608,7 +1608,7 @@
 +#endif
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc
-@@ -0,0 +1,291 @@
+@@ -0,0 +1,297 @@
 +#define OCB_DISPLAY_BUILD
 +#ifndef VK_NO_PROTOTYPES
 +#define VK_NO_PROTOTYPES
@@ -1762,7 +1762,10 @@
 +    sp.window = c.window; sp.width = static_cast<uint16_t>(c.width);
 +    sp.height = static_cast<uint16_t>(c.height);
 +    sp.imageCount = 3; sp.maximumLatency = 2; sp.syncInterval = 1;
-+    sp.flags = DVK_SWAPCHAIN_FLAG_NONE;  // No tearing, no single-buffer blit.
++    // Render to an ordinary shared image. Only D3D12 accesses DXGI backbuffers.
++    // The next Vulkan frame waits for the prior D3D12 copy, not only for its
++    // own prior Vulkan render. Keep syncInterval=1 and the same resolution.
++    sp.flags = DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG;
 +    if (!Check(dvk_createSwapChain(sp, &swap_))) { swap_ = {}; return false; }
 +    swap_ready_ = true;
 +    return true;
@@ -1779,9 +1782,12 @@
 +      contract_.Fail(); Error("Invalid image index or non-monotonic shared fence value.");
 +      return OCB_ERROR;
 +    }
-+    auto image = swap_.pSwapChainImages[pending_.imageIndex];
++    if (pending_.blitValue <= pending_.submitValue || !swap_.vkBlitImage) {
++      contract_.Fail(); Error("Invalid shared-image copy timeline."); return OCB_ERROR;
++    }
++    auto image = swap_.vkBlitImage;
 +    *out = {image, pending_.imageIndex, pending_.submitValue,
-+        ocb::display::AcquireBarrier(image, c_.queue_family, initialized_[pending_.imageIndex]),
++        ocb::display::AcquireBarrier(image, c_.queue_family, shared_image_initialized_),
 +        ocb::display::ReleaseBarrier(image, c_.queue_family)};
 +    return OCB_OK;
 +  }
@@ -1789,7 +1795,7 @@
 +    if (!frame || !cmd || contract_.state() != FrameState::Acquired ||
 +        frame->image_index != pending_.imageIndex ||
 +        frame->signal_value != pending_.submitValue ||
-+        frame->image != swap_.pSwapChainImages[pending_.imageIndex]) {
++        frame->image != swap_.vkBlitImage) {
 +      Error("Submit rejected: no acquired frame or a stale frame token."); return OCB_ERROR;
 +    }
 +    VkTimelineSemaphoreSubmitInfo ti{VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO};
@@ -1811,11 +1817,11 @@
 +    return frame && contract_.state() == FrameState::Acquired &&
 +        frame->image_index == pending_.imageIndex &&
 +        frame->signal_value == pending_.submitValue &&
-+        frame->image == swap_.pSwapChainImages[pending_.imageIndex];
++        frame->image == swap_.vkBlitImage;
 +  }
 +  int GetImages(VkImage* images, uint32_t capacity) {
 +    if (!images || capacity < 3 || !swap_ready_) return OCB_ERROR;
-+    for (uint32_t i=0; i<3; ++i) images[i] = swap_.pSwapChainImages[i];
++    for (uint32_t i=0; i<3; ++i) images[i] = swap_.vkBlitImage;
 +    return OCB_OK;
 +  }
 +  int GetSync(const OcbDisplayFrame* frame, VkSemaphore* semaphore,
@@ -1832,7 +1838,7 @@
 +      Error("Stale submitted frame."); return OCB_ERROR;
 +    }
 +    contract_.Submit(frame->image_index);
-+    initialized_[frame->image_index] = true;
++    shared_image_initialized_ = true;
 +    dvk_presentParameters_t p{};
 +    p.pSwapChain = pending_.pSwapChain; p.pCommandQueue = pending_.pCommandQueue;
 +    p.pCommandList = pending_.pCommandList; p.pFrameResources = pending_.pFrameResources;
@@ -1843,9 +1849,9 @@
 +  }
 +  int Cancel() {
 +    if (!contract_.Cancel()) { Error("Only an unsubmitted frame can be cancelled."); return OCB_ERROR; }
-+    // acquireImage reserves a signal value; no queue will ever signal it after
-+    // cancellation. Restore the per-image dependency to the previous value.
-+    pending_.pFrameResources->lastSubmitValue = pending_.waitValue;
++    // No submission has happened. Both reserved render/copy values must be
++    // discarded; the next acquire may wait only on the last real copy signal.
++    swap_.fenceValue = pending_.waitValue;
 +    return OCB_OK;
 +  }
 +  const char* error() const { return error_; }
@@ -1860,7 +1866,7 @@
 +  dvk_presentationInfo_t pending_{};
 +  PFN_vkQueueSubmit submit_ = nullptr;
 +  bool device_ready_ = false, swap_ready_ = false;
-+  std::array<bool, 3> initialized_{};
++  bool shared_image_initialized_ = false;
 +  FrameContract contract_;
 +  char error_[256]{};
 +};
@@ -2098,7 +2104,7 @@
  
 --- a/src/xenia/ui/vulkan/vulkan_presenter.cc
 +++ b/src/xenia/ui/vulkan/vulkan_presenter.cc
-@@ -8,6 +8,9 @@
+@@ -8,8 +8,12 @@
   */
  
  #include "xenia/ui/vulkan/vulkan_presenter.h"
@@ -2107,8 +2113,42 @@
 +#endif
  
  #include <cstdint>
++#include <chrono>
  
-@@ -526,6 +529,48 @@
+ #include "xenia/base/assert.h"
+ #include "xenia/base/cvar.h"
+@@ -53,6 +57,30 @@
+     "Wait for presentation queue idle before each frame to prevent semaphore "
+     "reuse. May fix rendering issues but causes significant performance loss.",
+     "Vulkan");
++
++namespace {
++class OcbDisplayStageTimer {
++ public:
++  explicit OcbDisplayStageTimer(bool active)
++      : active_(active), began_(Clock::now()) {}
++  ~OcbDisplayStageTimer() { Report(); }
++  void Stage(const char* name) {
++    if (!active_) return;
++    Report(); stage_ = name; began_ = Clock::now();
++  }
++ private:
++  using Clock = std::chrono::steady_clock;
++  void Report() const {
++    if (!active_) return;
++    const auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
++        Clock::now() - began_).count();
++    if (ms >= 100) XELOGW("Onechanbara display slow: {} took {} ms", stage_, ms);
++  }
++  bool active_;
++  const char* stage_ = "Vulkan completion wait";
++  Clock::time_point began_;
++};
++}  // namespace
+ 
+ namespace xe {
+ namespace ui {
+@@ -526,6 +554,48 @@
    const VkDevice device = vulkan_device_->device();
  
    VkFormat new_swapchain_format;
@@ -2149,7 +2189,7 @@
 +    // thread. Do not change host_present_from_non_ui_thread or guest settings.
 +    paint_context_.swapchain_is_fifo = true;
 +    new_swapchain_format = VK_FORMAT_R8G8B8A8_UNORM;
-+    XELOGI("Onechanbara direct DXGI output: {}x{}, Vulkan renderer, no driver profile",
++    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, no driver profile",
 +           new_surface_width, new_surface_height);
 +  } else
 +#endif
@@ -2157,7 +2197,7 @@
  
    // ConnectOrReconnectToSurfaceFromUIThread may be called only for the
    // ui::Surface of the current swapchain or when the old swapchain and
-@@ -647,6 +692,8 @@
+@@ -647,6 +717,8 @@
      // Successfully attached (at least for now).
    }
  
@@ -2166,7 +2206,7 @@
    // From now on, in case of failure,
    // paint_context_.DestroySwapchainAndVulkanSurface must be called before
    // returning.
-@@ -668,8 +715,10 @@
+@@ -668,8 +740,10 @@
      render_pass_attachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
      render_pass_attachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
      render_pass_attachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
@@ -2179,7 +2219,7 @@
      VkAttachmentReference render_pass_color_attachment;
      render_pass_color_attachment.attachment = 0;
      render_pass_color_attachment.layout =
-@@ -731,6 +780,17 @@
+@@ -731,6 +805,17 @@
          render_pass_attachment.loadOp == VK_ATTACHMENT_LOAD_OP_CLEAR;
    }
  
@@ -2197,7 +2237,7 @@
    // Get the swapchain images.
    paint_context_.swapchain_images.clear();
    VkResult swapchain_images_get_result;
-@@ -759,6 +819,8 @@
+@@ -759,6 +844,8 @@
      XELOGE("VulkanPresenter: Failed to get swapchain images");
      paint_context_.DestroySwapchainAndVulkanSurface();
      return SurfacePaintConnectResult::kFailure;
@@ -2206,7 +2246,7 @@
    }
  
    // Create the image views and the framebuffers.
-@@ -811,6 +873,7 @@
+@@ -811,6 +898,7 @@
      paint_context_.swapchain_framebuffers.emplace_back(image_view, framebuffer);
    }
  
@@ -2214,7 +2254,7 @@
    // Create per-swapchain-image present semaphores to avoid
    // VUID-vkQueueSubmit-pSignalSemaphores-00067 (semaphore reuse before the
    // previous present completes).
-@@ -834,6 +897,7 @@
+@@ -834,6 +922,7 @@
          present_semaphore);
    }
  
@@ -2222,7 +2262,7 @@
    is_vsync_implicit_out = paint_context_.swapchain_is_fifo;
    return SurfacePaintConnectResult::kSuccess;
  }
-@@ -1276,7 +1340,7 @@
+@@ -1276,7 +1365,7 @@
  }
  
  VkSwapchainKHR VulkanPresenter::PaintContext::PrepareForSwapchainRetirement() {
@@ -2231,7 +2271,7 @@
      completion_timeline.AwaitAllSubmissions();
      // Also wait for the presentation queue since vkQueuePresentKHR doesn't
      // signal a fence, and the present semaphores may still be in use.
-@@ -1312,6 +1376,12 @@
+@@ -1312,6 +1401,12 @@
      vulkan_device->functions().vkDestroySwapchainKHR(vulkan_device->device(),
                                                       old_swapchain, nullptr);
    }
@@ -2244,7 +2284,23 @@
    present_queue_family = UINT32_MAX;
    if (vulkan_surface != VK_NULL_HANDLE) {
      const VulkanInstance* vulkan_instance = vulkan_device->vulkan_instance();
-@@ -1441,13 +1511,29 @@
+@@ -1394,6 +1489,7 @@
+ 
+ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
+     bool execute_ui_drawers) {
++  OcbDisplayStageTimer display_timer(paint_context_.direct_dxgi != nullptr);
+   // Begin the submission in place of the one not currently potentially used on
+   // the GPU.
+   const uint64_t current_paint_submission_index =
+@@ -1401,6 +1497,7 @@
+   uint64_t paint_submission_count = uint64_t(paint_context_.submissions.size());
+   paint_context_.completion_timeline
+       .AwaitMaxSubmissionsPendingAndUpdateCompleted(paint_submission_count);
++  display_timer.Stage("command buffer preparation");
+   const PaintContext::Submission& paint_submission =
+       *paint_context_.submissions[current_paint_submission_index %
+                                   paint_submission_count];
+@@ -1441,13 +1538,31 @@
    // so we must wait for the present queue specifically.
    // TODO(has207): Proper fix requires per-swapchain-image semaphores.
    // See https://docs.vulkan.org/guide/latest/swapchain_semaphore_reuse.html
@@ -2259,12 +2315,14 @@
 +#if XE_PLATFORM_WIN32
 +  OcbDisplayFrame dxgi_frame{};
 +  if (paint_context_.direct_dxgi) {
++    display_timer.Stage("DXGI acquire");
 +    const int result = OcbDisplayAcquire(paint_context_.direct_dxgi, &dxgi_frame, 16);
 +    if (result == OCB_NOT_READY) return PaintResult::kNotPresented;
 +    if (result != OCB_OK) {
 +      XELOGE("Direct DXGI acquire: {}", OcbDisplayLastError(paint_context_.direct_dxgi));
 +      return PaintResult::kNotPresentedConnectionOutdated;
 +    }
++    display_timer.Stage("Vulkan image drawing");
 +    swapchain_image_index = dxgi_frame.image_index;
 +    dfn.vkCmdPipelineBarrier(draw_command_buffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT,
 +        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, 0, 0, nullptr, 0, nullptr,
@@ -2275,7 +2333,7 @@
    VkResult acquire_result = dfn.vkAcquireNextImageKHR(
        device, paint_context_.swapchain, UINT64_MAX, acquire_semaphore,
        VK_NULL_HANDLE, &swapchain_image_index);
-@@ -1472,6 +1558,8 @@
+@@ -1472,6 +1587,8 @@
      default:
        XELOGE("VulkanPresenter: Failed to acquire the swapchain image");
        return PaintResult::kNotPresented;
@@ -2284,7 +2342,7 @@
    }
  
    // Non-zero extents needed for both the viewport (width must not be zero) and
-@@ -2033,8 +2121,19 @@
+@@ -2033,8 +2150,19 @@
    }
  
    dfn.vkCmdEndRenderPass(draw_command_buffer);
@@ -2306,7 +2364,7 @@
  
    VkPipelineStageFlags acquire_semaphore_wait_stage =
        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
-@@ -2058,11 +2157,29 @@
+@@ -2058,11 +2186,29 @@
      paint_context_.ui_setup_command_buffer_current_index = SIZE_MAX;
    }
    command_buffers[command_buffer_count++] = draw_command_buffer;
@@ -2339,7 +2397,15 @@
    submit_info.waitSemaphoreCount = 1;
    submit_info.pWaitSemaphores = &acquire_semaphore;
    submit_info.pWaitDstStageMask = &acquire_semaphore_wait_stage;
-@@ -2085,6 +2202,9 @@
+@@ -2070,6 +2216,7 @@
+   submit_info.pCommandBuffers = command_buffers;
+   submit_info.signalSemaphoreCount = 1;
+   submit_info.pSignalSemaphores = &present_semaphore;
++  display_timer.Stage("Vulkan queue submit");
+   const VkResult submit_result =
+       paint_context_.completion_timeline.AcquireFenceAndSubmit(
+           vulkan_device_->queue_family_graphics_compute(), 0, 1, &submit_info);
+@@ -2085,6 +2232,9 @@
        paint_context_.ui_setup_command_buffers[ui_setup_command_buffer_index]
            .last_usage_submission_index = 0;
      }
@@ -2349,13 +2415,14 @@
      // The image is in an acquired state - but now, it will be in it forever.
      // To avoid that, recreate the swapchain - don't return just kNotPresented.
      return PaintResult::kNotPresentedConnectionOutdated;
-@@ -2101,6 +2221,16 @@
+@@ -2101,6 +2251,17 @@
            vk::to_string(vk::Result(ui_signal_submit_result)));
      }
    }
 +
 +#if XE_PLATFORM_WIN32
 +  if (paint_context_.direct_dxgi) {
++    display_timer.Stage("DXGI copy and present");
 +    // VulkanGPUCompletionTimeline released the Vulkan queue lock above.
 +    if (OcbDisplayPresentSubmitted(paint_context_.direct_dxgi, &dxgi_frame) == OCB_OK)
 +      return PaintResult::kPresented;
