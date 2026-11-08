@@ -1,0 +1,31 @@
+{
+  "reference_payload_sha256": "5a67598ff5e7bc9ecd7d25a91aba2e890ba0c4e0af3a6522806db429a65e9c88",
+  "config_template_sha256": "59aeee2743addf4af66236bdee68351b03d3d5342aca8166a08f02db136fff73",
+  "bridge_checks": {
+    "passed": 83,
+    "actual_vendor_bridge_and_vk_submit": true,
+    "gpu_test": false,
+    "mocked": "Windows/D3D12/Vulkan objects"
+  },
+  "original_present_policy_checks": {
+    "passed": 7,
+    "actual_presenter_policy": true,
+    "mocked": "cvars, painting state, and UI drawer list",
+    "gpu_test": false
+  },
+  "timing_log_checks": {
+    "passed": 9,
+    "actual_timer": true,
+    "mocked": "monotonic clock and logger",
+    "gpu_test": false,
+    "cases": [
+      "20 ms frames below old threshold",
+      "33 ms acquire",
+      "41 ms total",
+      "not-presented attempts counted separately",
+      "one-second log aggregation",
+      "UI thread annotation",
+      "1500 ms stall"
+    ]
+  }
+}

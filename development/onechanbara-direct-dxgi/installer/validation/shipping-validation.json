@@ -1,0 +1,15 @@
+{
+  "AssemblyVersion": "1.7.0.0",
+  "Resources": {
+    "Onechanbara_Launcher.exe": "14c9a541b6b165069ef8482040c27212786bc9de0eda98418561801e2527e8ee",
+    "Onechanbara.config.toml": "59aeee2743addf4af66236bdee68351b03d3d5342aca8166a08f02db136fff73",
+    "Manage-Onechanbara.ps1": "2931a821c7432169c5e2356240f434818c6939ce71c632270776c44e9bfbd9e0",
+    "OnechanbaraPackage.zip": "5a67598ff5e7bc9ecd7d25a91aba2e890ba0c4e0af3a6522806db429a65e9c88",
+    "xenia_onechanbara.exe": "3edec5c6b8fc06f1e5b418c4a91da8b1b503ce47f8be5ecd2de43af7b68d39d6"
+  },
+  "NativeWindowsGPU": false,
+  "ActualShippingVerifierRejectsInvalidISO": true,
+  "InstallerHashesMatchEmbeddedExecutables": true,
+  "NoDriverOrElevationInstallPath": true,
+  "BothManagedProgramsAsInvoker": true
+}

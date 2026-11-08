@@ -1,0 +1,22 @@
+{
+  "passed": 14,
+  "checks": [
+    "fresh install preserves source EXE, ISO, common settings, other game, profile and save",
+    "desktop directly starts native launcher with no PowerShell arguments",
+    "direct DXGI enabled with Vulkan FSI",
+    "original content root retained",
+    "no NVIDIA profile state or watcher installed",
+    "repeat install accepts its native shortcut and leaves unrelated files unchanged",
+    "upgrade from prior direct runtime accepts the old receipt and installs the new executable",
+    "runtime upgrade preserves originals and updates its hash receipt",
+    "failed update restores all prior managed files and shortcut",
+    "failed new install removes incomplete output and preserves inputs",
+    "migration from prior sync shortcut preserves old configs, runtime data, NVIDIA state, saves",
+    "existing isolated host settings and title patch preserved by copy",
+    "existing game shader cache reused by copy",
+    "previous working shortcut retained as a separate exact backup"
+  ],
+  "actual_production_install_script": true,
+  "native_windows": false,
+  "mocked": "COM shortcut API and original-emulator identity; real filesystem and production installer"
+}

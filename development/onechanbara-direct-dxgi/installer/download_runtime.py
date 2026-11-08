@@ -4,7 +4,7 @@ import hashlib, json, sys, urllib.request, zipfile, tempfile, re
 
 revision = sys.argv[1]
 assert re.fullmatch(r'[0-9a-f]{40}', revision)
-expected_source = 'bb56f39c5725a646358cca1e465128965387f001'
+expected_source = 'f6f80838c6827d10062218f5242f3582c60c9388'
 base = ('https://raw.githubusercontent.com/slimshadykor-cmd/korean-patches/'
         + revision + '/development/onechanbara-direct-dxgi/runtime/')
 out = Path(__file__).resolve().parent / 'runtime'
@@ -13,7 +13,7 @@ with urllib.request.urlopen(base + 'build.json', timeout=60) as response:
     metadata_bytes = response.read()
 metadata = json.loads(metadata_bytes)
 assert metadata['source_commit'] == expected_source
-assert metadata['display_revision'] == 'paced-output-1'
+assert metadata['display_revision'] == 'buffered-output-1'
 assert metadata['windows_build'] and metadata['architecture'] == 'AMD64'
 assert metadata['gpu_play_test'] is False
 name = 'Onechanbara_DirectDXGI_Runtime_v1.7.zip'
@@ -32,7 +32,7 @@ with tempfile.TemporaryDirectory(prefix='ocb-runtime-download-') as temp:
         exe = z.read('xenia_onechanbara.exe')
         assert len(exe) == metadata['exe_bytes']
         assert hashlib.sha256(exe).hexdigest() == metadata['exe_sha256']
-        assert b'paced-output-1' in exe and b'Onechanbara display stats' in exe
+        assert b'buffered-output-1' in exe and b'Onechanbara display stats' in exe
         assert b'NvAPI_DRS' not in exe
         for filename in z.namelist():
             if filename != 'build.json':

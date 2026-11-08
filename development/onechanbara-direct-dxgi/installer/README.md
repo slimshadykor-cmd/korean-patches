@@ -1,39 +1,56 @@
-# Onechanbara v1.7 application-owned DXGI output candidate
+오네찬바라 볼텍스 한글패치 v1.7 — 직접 화면 출력 통합본
+한글화 슬림쉐이디
 
-The previous `shared-image-copy-1` build was verified as active in the supplied
-log, but gameplay video still fell to 23–37 FPS. Its 100 ms CPU diagnostic
-threshold recorded no slow stages. The GPU-performance cause remains unconfirmed.
+기존 v1.7 ISO를 이미 만드셨다면
+1. 압축을 풀고 Onechanbara_Korean_v1.7.exe를 실행합니다.
+2. [기존 v1.7 ISO — 바로가기 연결]을 누릅니다.
+3. 사용 중인 v1.7 한글 ISO와 기존 xenia_canary.exe를 선택합니다.
+4. 바탕화면의 [오네찬바라] 바로가기로 실행합니다.
+ISO를 다시 만들 필요는 없습니다.
+직전 직접 DXGI판을 설치하셨더라도 같은 버튼으로 연결하면 전용 실행파일을 갱신합니다.
 
-`paced-output-1` changes the opt-in display path in two places: normal gameplay
-uses immediate guest-output-thread presentation, and acquire retains the current
-frame across ordinary waits beyond 16 ms, up to a 250 ms bound. Active emulator
-dialogs and explicit UI-thread settings retain UI presentation and its 16 ms wait.
-The standard Vulkan and D3D12 scheduling policy is unchanged. DXGI continues to
-use VSync (`Present(1, 0)`) and shared-image copying.
+이번 수정 내용 — 내부 출력 식별자 buffered-output-1
+직전 paced-output-1에서 개선한 동작 전달 방식과 수직동기화를 유지합니다.
+출력용 공유 이미지를 한 장에서 세 장으로 나누어, 다음 화면 준비와 이전 화면
+복사를 겹쳐 처리할 수 있도록 수정했습니다. 화면 그리기 완료와 복사 완료의
+동기화 신호를 분리하며, 같은 이미지는 이전 복사가 끝난 뒤에만 다시 씁니다.
+표시 순서, 게임 플레이의 출력 대기 한도, 내부배율 2×는 유지합니다.
+게임의 동작·입력 타이밍과 NVIDIA 설정은 변경하지 않습니다.
 
-Once-per-second CPU-stage aggregates distinguish successful Present calls from
-attempts. These are not GPU execution timings or physical display FPS. The
-launcher exit receipt also records the runtime SHA-256.
+직전 판의 사용자 영상에서는 반복 공격 동작은 안정됐으나, 혼전 중 35~60 FPS로
+떨어지는 구간이 남았습니다. 이번 수정은 그 출력 대기를 줄이기 위한 후보입니다.
+이 수정본의 실제 GPU 성능 향상은 아직 확인되지 않았습니다.
+화면 전달 단계별 CPU 소요 시간과 전달 함수 성공 횟수를 매초 기록합니다.
+이 값은 GPU 실행 시간이나 실제 표시 FPS와 다르며, last_run.json에 실행파일 해시도 남깁니다.
 
-Validation includes extracted scheduling tests (7), actual bridge/vendor methods
-against mocked Windows/GPU APIs (43), and deterministic metrics tests (9). Native
-Windows compilation and installer-resource checks are recorded separately.
-**No native GPU gameplay validation has passed for this revision.**
+원본 또는 지원하는 이전 한글 ISO라면
+[한글패치 적용 — 새 ISO 만들기]로 새 v1.7 ISO를 만드세요.
+입력 ISO는 보존됩니다. 한글화·로딩 개선 데이터는 기존 통합본과 동일합니다.
 
-Only `src/xenia/ui/` is modified by the complete source patch. The Korean payload,
-guest timing/animation code, resolution scale, game clock, shared save path,
-original emulator and common settings are preserved. The launcher and runtime
-contain no NVIDIA driver-profile writes. Version 1.7 remains the user-visible
-version; `paced-output-1` identifies this display revision in the log.
+이번 실행 방식
+Vulkan/FSI로 게임을 그리고 제니아 자체에서 DXGI 화면 출력을 처리합니다.
+게임 시작·종료 때 NVIDIA 프로필을 만들거나 변경하거나 제거하지 않습니다.
+바탕화면 바로가기는 일반 권한의 실행파일을 시작합니다. 실행 시 PowerShell과
+관리자 권한을 요청하는 NVIDIA 동기화 도구를 거치지 않습니다.
+설치 과정에서만 내부 설치 스크립트를 일반 권한으로 실행합니다.
 
-The full installer can update an existing v1.7 ISO shortcut without rebuilding
-the ISO. Installation is transactional and verifies the replacement runtime hash.
+전용 파일 위치
+기존 제니아 폴더\config\OnechanbaraDirect
+기본 제니아 실행파일과 공용 TOML은 교체하지 않습니다.
+프로필·저장 데이터는 기존 content 위치를 사용합니다.
+기존 전용 설정과 게임 캐시를 읽어 새 전용 폴더에 적용합니다.
+기존 바로가기가 있었다면 새 전용 폴더의 [이전 실행 바로가기.lnk]에 보관합니다.
 
-Source build:
-https://github.com/slimshadykor-cmd/korean-patches/actions/runs/42477979611
+오류 기록
+전용 폴더\logs\xenia.log
+전용 폴더\logs\last_run.json
 
-Pinned upstream:
+확인 범위
+수정한 제니아 전체의 Windows 64비트 빌드, 실행파일 구조, 설치/실패 복구 및
+한글패치 데이터 보존을 검사했습니다. 제작 환경에는 실제 Windows GPU가 없어
+게임 화면·화면 갈라짐·프레임 성능은 직접 확인하지 못했습니다.
+이전에 잘 작동한 NVIDIA 임시 프로필 방식과 성능이 같다고 보장하지 않습니다.
+
+기반 소스
 https://github.com/xenia-canary/xenia-canary/tree/b083312b8b18e07e6e410b82104191f126722794
-
-Runtime licenses remain in the runtime archive. `reproduction/` contains patch
-generation inputs; the complete authoritative patch is in `../source/`.
+https://github.com/slimshadykor-cmd/korean-patches/tree/development/onechanbara-direct-dxgi-v1.7/development/onechanbara-direct-dxgi

@@ -1,0 +1,9 @@
+Onechanbara v1.7 — buffered-output-1
+Problem: paced-output-1 restored continuous attack presentation, but uploaded busy-combat recordings still show 35–60 FPS. CPU presentation statistics show long acquire waits. This is evidence of a bottleneck candidate, not proof that every wait is unnecessary.
+Change: keep immediate guest-output presentation, 250 ms gameplay acquire bound, VSync interval 1, maximum frame latency 2, and three DXGI backbuffers. Use one ordinary shared image per backbuffer instead of one global image. Use separate Vulkan-render and D3D12-copy fence timelines, so rendering the next slot does not wait for an unrelated previous slot to finish copying. Reuse and allocator reset wait only for that slot's previous copy. Canceled acquisitions roll back only the unused global serial.
+Scope: src/xenia/ui only. Game code, timing, internal resolution, NVIDIA profiles, original emulator files, saves, and Korean assets are unchanged.
+Validation: bridge cross-compilation; 83 checks executing actual acquire, Vulkan submit, D3D copy/present and cancel/error methods against mock platform objects; 7 presenter policy and 9 timer checks. Full Windows AMD64 build passed (GitHub Actions 42483213272). Runtime SHA-256: 3edec5c6b8fc06f1e5b418c4a91da8b1b503ce47f8be5ecd2de43af7b68d39d6. User GPU performance not tested.
+
+Synchronization basis: separate producer timelines follow Microsoft's single-timeline fence guidance: https://learn.microsoft.com/en-us/windows/win32/direct3d12/user-mode-heap-synchronization
+Maximum frame latency stays 2, consistent with CPU/GPU overlap guidance: https://learn.microsoft.com/en-us/windows/uwp/gaming/reduce-latency-with-dxgi-1-3-swap-chains
+Memory tradeoff at 3840x2160: two extra RGBA8 shared images add about 63.3 MiB of image pixels, excluding driver allocation overhead. No texture, resolution or anti-aliasing reduction.
