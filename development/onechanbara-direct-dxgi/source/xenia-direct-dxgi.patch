@@ -1,3 +1,25 @@
+--- a/src/xenia/ui/presenter.cc
++++ b/src/xenia/ui/presenter.cc
+@@ -1079,7 +1079,8 @@
+   if (!cvars::host_present_from_non_ui_thread) {
+     return PaintMode::kUIThreadOnRequest;
+   }
+-  if (surface_paint_connection_has_implicit_vsync_) {
++  if (surface_paint_connection_has_implicit_vsync_ &&
++      !PreferGuestOutputThreadWithImplicitVsync()) {
+     // Don't be causing host vertical sync CPU waits in the thread generating
+     // the guest output.
+     return PaintMode::kUIThreadOnRequest;
+--- a/src/xenia/ui/presenter.h
++++ b/src/xenia/ui/presenter.h
+@@ -613,6 +613,7 @@
+   // are held by it. Call through DisconnectPaintingFromSurfaceFromUIThread to
+   // ensure the implementation is only called while the connection is active.
+   virtual void DisconnectPaintingFromSurfaceFromUIThreadImpl() = 0;
++  virtual bool PreferGuestOutputThreadWithImplicitVsync() const { return false; }
+ 
+   // The returned lock interlocks multiple consumers (but not the producer and
+   // the consumer) and must be held while accessing implementation-specific
 --- a/src/xenia/ui/vulkan/CMakeLists.txt
 +++ b/src/xenia/ui/vulkan/CMakeLists.txt
 @@ -8,6 +8,11 @@
@@ -1771,8 +1793,8 @@
 +    return true;
 +  }
 +  int Acquire(OcbDisplayFrame* out, uint32_t timeout) {
-+    if (!out || timeout > 16 || contract_.state() != FrameState::Idle) {
-+      Error("Acquire requires idle state and a timeout of 0..16 ms."); return OCB_ERROR;
++    if (!out || timeout > 250 || contract_.state() != FrameState::Idle) {
++      Error("Acquire requires idle state and a timeout of 0..250 ms."); return OCB_ERROR;
 +    }
 +    auto r = dvk_acquireImage(&swap_, &pending_, timeout);
 +    if (r.code == DVK_NOT_READY) return OCB_NOT_READY;
@@ -2117,38 +2139,84 @@
  
  #include "xenia/base/assert.h"
  #include "xenia/base/cvar.h"
-@@ -53,6 +57,30 @@
+@@ -53,6 +57,76 @@
      "Wait for presentation queue idle before each frame to prevent semaphore "
      "reuse. May fix rendering issues but causes significant performance loss.",
      "Vulkan");
 +
 +namespace {
++// CPU-side presentation timings, not GPU execution time.
++// Aggregate at most once a second per painting thread to avoid log I/O stalls.
 +class OcbDisplayStageTimer {
 + public:
-+  explicit OcbDisplayStageTimer(bool active)
-+      : active_(active), began_(Clock::now()) {}
-+  ~OcbDisplayStageTimer() { Report(); }
-+  void Stage(const char* name) {
++  explicit OcbDisplayStageTimer(bool active, bool ui_thread = false)
++      : active_(active), ui_thread_(ui_thread), began_(Clock::now()),
++        frame_began_(began_) {}
++  ~OcbDisplayStageTimer() {
 +    if (!active_) return;
-+    Report(); stage_ = name; began_ = Clock::now();
++    FinishStage();
++    const auto now = Clock::now();
++    static thread_local Statistics stats;
++    if (!stats.attempts) stats.began = frame_began_;
++    ++stats.attempts;
++    stats.presented += presented_ ? 1 : 0;
++    const double frame_ms = Milliseconds(now - frame_began_);
++    stats.total += frame_ms;
++    stats.maximum = std::max(stats.maximum, frame_ms);
++    for (size_t i = 0; i < times_.size(); ++i) {
++      stats.stages[i] += times_[i];
++      stats.max_stages[i] = std::max(stats.max_stages[i], times_[i]);
++    }
++    const double elapsed = Milliseconds(now - stats.began);
++    if (elapsed >= 1000.0) {
++      const double count = double(stats.attempts);
++      XELOGI("Onechanbara display stats: thread={} period_ms={:.1f} "
++             "attempts={} presented={} cpu_avg_ms={:.2f} cpu_max_ms={:.2f} "
++             "completion_avg_max={:.2f}/{:.2f} prepare_avg_max={:.2f}/{:.2f} "
++             "acquire_avg_max={:.2f}/{:.2f} record_avg_max={:.2f}/{:.2f} "
++             "submit_avg_max={:.2f}/{:.2f} present_avg_max={:.2f}/{:.2f}",
++             ui_thread_ ? "UI" : "guest-output", elapsed,
++             stats.attempts, stats.presented, stats.total / count, stats.maximum,
++             stats.stages[0] / count, stats.max_stages[0],
++             stats.stages[1] / count, stats.max_stages[1],
++             stats.stages[2] / count, stats.max_stages[2],
++             stats.stages[3] / count, stats.max_stages[3],
++             stats.stages[4] / count, stats.max_stages[4],
++             stats.stages[5] / count, stats.max_stages[5]);
++      stats = Statistics{};
++    }
 +  }
++  void Stage(const char*) {
++    if (!active_) return;
++    FinishStage();
++    if (stage_ + 1 < times_.size()) ++stage_;
++    began_ = Clock::now();
++  }
++  void Presented() { presented_ = true; }
 + private:
 +  using Clock = std::chrono::steady_clock;
-+  void Report() const {
-+    if (!active_) return;
-+    const auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-+        Clock::now() - began_).count();
-+    if (ms >= 100) XELOGW("Onechanbara display slow: {} took {} ms", stage_, ms);
++  struct Statistics {
++    Clock::time_point began{};
++    uint64_t attempts = 0, presented = 0;
++    double total = 0, maximum = 0;
++    std::array<double, 6> stages{}, max_stages{};
++  };
++  static double Milliseconds(Clock::duration duration) {
++    return std::chrono::duration<double, std::milli>(duration).count();
 +  }
-+  bool active_;
-+  const char* stage_ = "Vulkan completion wait";
-+  Clock::time_point began_;
++  void FinishStage() {
++    times_[stage_] += Milliseconds(Clock::now() - began_);
++  }
++  bool active_, ui_thread_, presented_ = false;
++  size_t stage_ = 0;
++  std::array<double, 6> times_{};
++  Clock::time_point began_, frame_began_;
 +};
 +}  // namespace
  
  namespace xe {
  namespace ui {
-@@ -526,6 +554,48 @@
+@@ -526,6 +600,50 @@
    const VkDevice device = vulkan_device_->device();
  
    VkFormat new_swapchain_format;
@@ -2184,12 +2252,14 @@
 +      return SurfacePaintConnectResult::kFailure;
 +    }
 +    paint_context_.swapchain_extent = {new_surface_width, new_surface_height};
++    paint_context_.direct_dxgi_ui_thread = std::this_thread::get_id();
 +    paint_context_.present_queue_family = config.queue_family;
-+    // Let Presenter's existing scheduler keep display waits off the guest GPU
-+    // thread. Do not change host_present_from_non_ui_thread or guest settings.
++    // VSync remains enabled. The bridge-specific scheduling override keeps
++    // normal gameplay presentation on the guest output thread, so a ready
++    // frame isn't replaced while waiting for a UI-thread paint notification.
 +    paint_context_.swapchain_is_fifo = true;
 +    new_swapchain_format = VK_FORMAT_R8G8B8A8_UNORM;
-+    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, no driver profile",
++    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, paced-output-1, no driver profile",
 +           new_surface_width, new_surface_height);
 +  } else
 +#endif
@@ -2197,7 +2267,7 @@
  
    // ConnectOrReconnectToSurfaceFromUIThread may be called only for the
    // ui::Surface of the current swapchain or when the old swapchain and
-@@ -647,6 +717,8 @@
+@@ -647,6 +765,8 @@
      // Successfully attached (at least for now).
    }
  
@@ -2206,7 +2276,7 @@
    // From now on, in case of failure,
    // paint_context_.DestroySwapchainAndVulkanSurface must be called before
    // returning.
-@@ -668,8 +740,10 @@
+@@ -668,8 +788,10 @@
      render_pass_attachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
      render_pass_attachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
      render_pass_attachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
@@ -2219,7 +2289,7 @@
      VkAttachmentReference render_pass_color_attachment;
      render_pass_color_attachment.attachment = 0;
      render_pass_color_attachment.layout =
-@@ -731,6 +805,17 @@
+@@ -731,6 +853,17 @@
          render_pass_attachment.loadOp == VK_ATTACHMENT_LOAD_OP_CLEAR;
    }
  
@@ -2237,7 +2307,7 @@
    // Get the swapchain images.
    paint_context_.swapchain_images.clear();
    VkResult swapchain_images_get_result;
-@@ -759,6 +844,8 @@
+@@ -759,6 +892,8 @@
      XELOGE("VulkanPresenter: Failed to get swapchain images");
      paint_context_.DestroySwapchainAndVulkanSurface();
      return SurfacePaintConnectResult::kFailure;
@@ -2246,7 +2316,7 @@
    }
  
    // Create the image views and the framebuffers.
-@@ -811,6 +898,7 @@
+@@ -811,6 +946,7 @@
      paint_context_.swapchain_framebuffers.emplace_back(image_view, framebuffer);
    }
  
@@ -2254,7 +2324,7 @@
    // Create per-swapchain-image present semaphores to avoid
    // VUID-vkQueueSubmit-pSignalSemaphores-00067 (semaphore reuse before the
    // previous present completes).
-@@ -834,6 +922,7 @@
+@@ -834,6 +970,7 @@
          present_semaphore);
    }
  
@@ -2262,7 +2332,7 @@
    is_vsync_implicit_out = paint_context_.swapchain_is_fifo;
    return SurfacePaintConnectResult::kSuccess;
  }
-@@ -1276,7 +1365,7 @@
+@@ -1276,7 +1413,7 @@
  }
  
  VkSwapchainKHR VulkanPresenter::PaintContext::PrepareForSwapchainRetirement() {
@@ -2271,7 +2341,7 @@
      completion_timeline.AwaitAllSubmissions();
      // Also wait for the presentation queue since vkQueuePresentKHR doesn't
      // signal a fence, and the present semaphores may still be in use.
-@@ -1312,6 +1401,12 @@
+@@ -1312,6 +1449,12 @@
      vulkan_device->functions().vkDestroySwapchainKHR(vulkan_device->device(),
                                                       old_swapchain, nullptr);
    }
@@ -2284,15 +2354,16 @@
    present_queue_family = UINT32_MAX;
    if (vulkan_surface != VK_NULL_HANDLE) {
      const VulkanInstance* vulkan_instance = vulkan_device->vulkan_instance();
-@@ -1394,6 +1489,7 @@
+@@ -1394,6 +1537,8 @@
  
  Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
      bool execute_ui_drawers) {
-+  OcbDisplayStageTimer display_timer(paint_context_.direct_dxgi != nullptr);
++  OcbDisplayStageTimer display_timer(paint_context_.direct_dxgi != nullptr,
++      std::this_thread::get_id() == paint_context_.direct_dxgi_ui_thread);
    // Begin the submission in place of the one not currently potentially used on
    // the GPU.
    const uint64_t current_paint_submission_index =
-@@ -1401,6 +1497,7 @@
+@@ -1401,6 +1546,7 @@
    uint64_t paint_submission_count = uint64_t(paint_context_.submissions.size());
    paint_context_.completion_timeline
        .AwaitMaxSubmissionsPendingAndUpdateCompleted(paint_submission_count);
@@ -2300,7 +2371,7 @@
    const PaintContext::Submission& paint_submission =
        *paint_context_.submissions[current_paint_submission_index %
                                    paint_submission_count];
-@@ -1441,13 +1538,31 @@
+@@ -1441,13 +1587,36 @@
    // so we must wait for the present queue specifically.
    // TODO(has207): Proper fix requires per-swapchain-image semaphores.
    // See https://docs.vulkan.org/guide/latest/swapchain_semaphore_reuse.html
@@ -2315,8 +2386,13 @@
 +#if XE_PLATFORM_WIN32
 +  OcbDisplayFrame dxgi_frame{};
 +  if (paint_context_.direct_dxgi) {
++    // Retain the current gameplay frame across normal 16.7 / 33.3 / 50 ms
++    // presentation waits. UI paints retain the short responsiveness bound.
++    const bool ui_paint = std::this_thread::get_id() ==
++        paint_context_.direct_dxgi_ui_thread;
 +    display_timer.Stage("DXGI acquire");
-+    const int result = OcbDisplayAcquire(paint_context_.direct_dxgi, &dxgi_frame, 16);
++    const int result = OcbDisplayAcquire(paint_context_.direct_dxgi, &dxgi_frame,
++                                         ui_paint ? 16 : 250);
 +    if (result == OCB_NOT_READY) return PaintResult::kNotPresented;
 +    if (result != OCB_OK) {
 +      XELOGE("Direct DXGI acquire: {}", OcbDisplayLastError(paint_context_.direct_dxgi));
@@ -2333,7 +2409,7 @@
    VkResult acquire_result = dfn.vkAcquireNextImageKHR(
        device, paint_context_.swapchain, UINT64_MAX, acquire_semaphore,
        VK_NULL_HANDLE, &swapchain_image_index);
-@@ -1472,6 +1587,8 @@
+@@ -1472,6 +1641,8 @@
      default:
        XELOGE("VulkanPresenter: Failed to acquire the swapchain image");
        return PaintResult::kNotPresented;
@@ -2342,7 +2418,7 @@
    }
  
    // Non-zero extents needed for both the viewport (width must not be zero) and
-@@ -2033,8 +2150,19 @@
+@@ -2033,8 +2204,19 @@
    }
  
    dfn.vkCmdEndRenderPass(draw_command_buffer);
@@ -2364,7 +2440,7 @@
  
    VkPipelineStageFlags acquire_semaphore_wait_stage =
        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
-@@ -2058,11 +2186,29 @@
+@@ -2058,11 +2240,29 @@
      paint_context_.ui_setup_command_buffer_current_index = SIZE_MAX;
    }
    command_buffers[command_buffer_count++] = draw_command_buffer;
@@ -2397,7 +2473,7 @@
    submit_info.waitSemaphoreCount = 1;
    submit_info.pWaitSemaphores = &acquire_semaphore;
    submit_info.pWaitDstStageMask = &acquire_semaphore_wait_stage;
-@@ -2070,6 +2216,7 @@
+@@ -2070,6 +2270,7 @@
    submit_info.pCommandBuffers = command_buffers;
    submit_info.signalSemaphoreCount = 1;
    submit_info.pSignalSemaphores = &present_semaphore;
@@ -2405,7 +2481,7 @@
    const VkResult submit_result =
        paint_context_.completion_timeline.AcquireFenceAndSubmit(
            vulkan_device_->queue_family_graphics_compute(), 0, 1, &submit_info);
-@@ -2085,6 +2232,9 @@
+@@ -2085,6 +2286,9 @@
        paint_context_.ui_setup_command_buffers[ui_setup_command_buffer_index]
            .last_usage_submission_index = 0;
      }
@@ -2415,7 +2491,7 @@
      // The image is in an acquired state - but now, it will be in it forever.
      // To avoid that, recreate the swapchain - don't return just kNotPresented.
      return PaintResult::kNotPresentedConnectionOutdated;
-@@ -2101,6 +2251,17 @@
+@@ -2101,6 +2305,19 @@
            vk::to_string(vk::Result(ui_signal_submit_result)));
      }
    }
@@ -2424,8 +2500,10 @@
 +  if (paint_context_.direct_dxgi) {
 +    display_timer.Stage("DXGI copy and present");
 +    // VulkanGPUCompletionTimeline released the Vulkan queue lock above.
-+    if (OcbDisplayPresentSubmitted(paint_context_.direct_dxgi, &dxgi_frame) == OCB_OK)
++    if (OcbDisplayPresentSubmitted(paint_context_.direct_dxgi, &dxgi_frame) == OCB_OK) {
++      display_timer.Presented();
 +      return PaintResult::kPresented;
++    }
 +    XELOGE("Direct DXGI present: {}", OcbDisplayLastError(paint_context_.direct_dxgi));
 +    return PaintResult::kNotPresentedConnectionOutdated;
 +  }
@@ -2435,12 +2513,31 @@
    present_info.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
 --- a/src/xenia/ui/vulkan/vulkan_presenter.h
 +++ b/src/xenia/ui/vulkan/vulkan_presenter.h
-@@ -433,6 +433,8 @@
+@@ -15,6 +15,7 @@
+ #include <cstddef>
+ #include <cstdint>
+ #include <memory>
++#include <thread>
+ #include <utility>
+ #include <vector>
+ 
+@@ -155,6 +156,9 @@
+       uint32_t new_surface_height, bool was_paintable,
+       bool& is_vsync_implicit_out) override;
+   void DisconnectPaintingFromSurfaceFromUIThreadImpl() override;
++  bool PreferGuestOutputThreadWithImplicitVsync() const override {
++    return paint_context_.direct_dxgi != nullptr;
++  }
+ 
+   bool RefreshGuestOutputImpl(
+       uint32_t mailbox_index, uint32_t frontbuffer_width,
+@@ -433,6 +437,9 @@
      VkFormat swapchain_render_pass_format = VK_FORMAT_UNDEFINED;
      bool swapchain_render_pass_clear_load_op = false;
  
 +    // Windows bridge owns imported images and DXGI swapchain. No DRS profile.
 +    void* direct_dxgi = nullptr;
++    std::thread::id direct_dxgi_ui_thread;
      VkSurfaceKHR vulkan_surface = VK_NULL_HANDLE;
      uint32_t present_queue_family = UINT32_MAX;
      VkSwapchainKHR swapchain = VK_NULL_HANDLE;

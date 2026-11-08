@@ -1,0 +1,6 @@
+{
+  "passed": 7,
+  "actual_presenter_policy": true,
+  "mocked": "cvars, painting state, and UI drawer list",
+  "gpu_test": false
+}

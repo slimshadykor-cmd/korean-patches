@@ -16,6 +16,16 @@ def replace(name,old,new):
     assert s.count(old)==1,(name,old[:100],s.count(old))
     files[name]=s.replace(old,new)
 vp='src/xenia/ui/vulkan/'
+# The opt-in bridge may apply backpressure on the guest output thread.
+# Default Vulkan and D3D12 presentation keep the original scheduling policy.
+replace('src/xenia/ui/presenter.h',
+        '  virtual void DisconnectPaintingFromSurfaceFromUIThreadImpl() = 0;',
+        '''  virtual void DisconnectPaintingFromSurfaceFromUIThreadImpl() = 0;
+  virtual bool PreferGuestOutputThreadWithImplicitVsync() const { return false; }''')
+replace('src/xenia/ui/presenter.cc',
+        '  if (surface_paint_connection_has_implicit_vsync_) {',
+        '''  if (surface_paint_connection_has_implicit_vsync_ &&
+      !PreferGuestOutputThreadWithImplicitVsync()) {''')
 for f in ['vulkan_device.cc','vulkan_device.h']:
     files[vp+f]=(bridge/'xenia_device_preparation'/f).read_text()
 provider=vp+'vulkan_provider.cc'
@@ -28,8 +38,15 @@ s=load(provider)
 assert s.count('with_presentation);')==2
 files[provider]=s.replace('with_presentation);','with_presentation, with_presentation && cvars::vulkan_direct_dxgi);')
 h=vp+'vulkan_presenter.h'
+replace(h, '#include <memory>', '#include <memory>\n#include <thread>')
+replace(h, '  void DisconnectPaintingFromSurfaceFromUIThreadImpl() override;',
+        '''  void DisconnectPaintingFromSurfaceFromUIThreadImpl() override;
+  bool PreferGuestOutputThreadWithImplicitVsync() const override {
+    return paint_context_.direct_dxgi != nullptr;
+  }''')
 replace(h,'    VkSurfaceKHR vulkan_surface = VK_NULL_HANDLE;','''    // Windows bridge owns imported images and DXGI swapchain. No DRS profile.
     void* direct_dxgi = nullptr;
+    std::thread::id direct_dxgi_ui_thread;
     VkSurfaceKHR vulkan_surface = VK_NULL_HANDLE;''')
 cc=vp+'vulkan_presenter.cc'
 replace(cc,'#include "xenia/ui/vulkan/vulkan_presenter.h"','''#include "xenia/ui/vulkan/vulkan_presenter.h"
@@ -69,12 +86,14 @@ replace(cc,'  VkFormat new_swapchain_format;','''  VkFormat new_swapchain_format
       return SurfacePaintConnectResult::kFailure;
     }
     paint_context_.swapchain_extent = {new_surface_width, new_surface_height};
+    paint_context_.direct_dxgi_ui_thread = std::this_thread::get_id();
     paint_context_.present_queue_family = config.queue_family;
-    // Let Presenter's existing scheduler keep display waits off the guest GPU
-    // thread. Do not change host_present_from_non_ui_thread or guest settings.
+    // VSync remains enabled. The bridge-specific scheduling override keeps
+    // normal gameplay presentation on the guest output thread, so a ready
+    // frame isn't replaced while waiting for a UI-thread paint notification.
     paint_context_.swapchain_is_fifo = true;
     new_swapchain_format = VK_FORMAT_R8G8B8A8_UNORM;
-    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, no driver profile",
+    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, paced-output-1, no driver profile",
            new_surface_width, new_surface_height);
   } else
 #endif
@@ -120,7 +139,12 @@ replace(cc,'  uint32_t swapchain_image_index;\n  VkResult acquire_result = dfn.v
 #if XE_PLATFORM_WIN32
   OcbDisplayFrame dxgi_frame{};
   if (paint_context_.direct_dxgi) {
-    const int result = OcbDisplayAcquire(paint_context_.direct_dxgi, &dxgi_frame, 16);
+    // Retain the current gameplay frame across normal 16.7 / 33.3 / 50 ms
+    // presentation waits. UI paints retain the short responsiveness bound.
+    const bool ui_paint = std::this_thread::get_id() ==
+        paint_context_.direct_dxgi_ui_thread;
+    const int result = OcbDisplayAcquire(paint_context_.direct_dxgi, &dxgi_frame,
+                                         ui_paint ? 16 : 250);
     if (result == OCB_NOT_READY) return PaintResult::kNotPresented;
     if (result != OCB_OK) {
       XELOGE("Direct DXGI acquire: {}", OcbDisplayLastError(paint_context_.direct_dxgi));
@@ -183,8 +207,10 @@ replace(cc,'\n    // The image is in an acquired state - but now, it will be in 
 replace(cc,'  VkPresentInfoKHR present_info;','''#if XE_PLATFORM_WIN32
   if (paint_context_.direct_dxgi) {
     // VulkanGPUCompletionTimeline released the Vulkan queue lock above.
-    if (OcbDisplayPresentSubmitted(paint_context_.direct_dxgi, &dxgi_frame) == OCB_OK)
+    if (OcbDisplayPresentSubmitted(paint_context_.direct_dxgi, &dxgi_frame) == OCB_OK) {
+      display_timer.Presented();
       return PaintResult::kPresented;
+    }
     XELOGE("Direct DXGI present: {}", OcbDisplayLastError(paint_context_.direct_dxgi));
     return PaintResult::kNotPresentedConnectionOutdated;
   }
@@ -193,32 +219,10 @@ replace(cc,'  VkPresentInfoKHR present_info;','''#if XE_PLATFORM_WIN32
   VkPresentInfoKHR present_info;''')
 # Time only the modified display path. Slow calls go to the existing Xenia log.
 replace(cc,'#include <cstdint>', '#include <cstdint>\n#include <chrono>')
-replace(cc,'namespace xe {','''namespace {
-class OcbDisplayStageTimer {
- public:
-  explicit OcbDisplayStageTimer(bool active)
-      : active_(active), began_(Clock::now()) {}
-  ~OcbDisplayStageTimer() { Report(); }
-  void Stage(const char* name) {
-    if (!active_) return;
-    Report(); stage_ = name; began_ = Clock::now();
-  }
- private:
-  using Clock = std::chrono::steady_clock;
-  void Report() const {
-    if (!active_) return;
-    const auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-        Clock::now() - began_).count();
-    if (ms >= 100) XELOGW("Onechanbara display slow: {} took {} ms", stage_, ms);
-  }
-  bool active_;
-  const char* stage_ = "Vulkan completion wait";
-  Clock::time_point began_;
-};
-}  // namespace
-
-namespace xe {''')
-replace(cc,'''  // Begin the submission in place of the one not currently potentially used on''','''  OcbDisplayStageTimer display_timer(paint_context_.direct_dxgi != nullptr);
+replace(cc,'namespace xe {',
+        (root/'integration/display_metrics.inc').read_text()+'\nnamespace xe {')
+replace(cc,'''  // Begin the submission in place of the one not currently potentially used on''','''  OcbDisplayStageTimer display_timer(paint_context_.direct_dxgi != nullptr,
+      std::this_thread::get_id() == paint_context_.direct_dxgi_ui_thread);
   // Begin the submission in place of the one not currently potentially used on''')
 replace(cc,'''  const PaintContext::Submission& paint_submission =''','''  display_timer.Stage("command buffer preparation");
   const PaintContext::Submission& paint_submission =''')

@@ -1,0 +1,15 @@
+{
+  "passed": 9,
+  "actual_timer": true,
+  "mocked": "monotonic clock and logger",
+  "gpu_test": false,
+  "cases": [
+    "20 ms frames below old threshold",
+    "33 ms acquire",
+    "41 ms total",
+    "not-presented attempts counted separately",
+    "one-second log aggregation",
+    "UI thread annotation",
+    "1500 ms stall"
+  ]
+}
