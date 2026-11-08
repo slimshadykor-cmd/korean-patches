@@ -1,13 +1,13 @@
 {
   "version": "1.7",
   "base": "b083312b8b18e07e6e410b82104191f126722794",
-  "display_revision": "paced-output-1",
+  "display_revision": "buffered-output-1",
   "windows_build": true,
   "architecture": "AMD64",
   "gpu_play_test": false,
-  "exe_bytes": 17200640,
-  "exe_sha256": "0d1951ebb932ba7ec97aef33172becd064502684f012b9d8ad8d17af37767529",
-  "archive_sha256": "e92cf939a867b8b4d7d614968d4c7fbdc15356a731e823f0cf37c695d2867298",
-  "source_commit": "bb56f39c5725a646358cca1e465128965387f001",
-  "run_url": "https://github.com/slimshadykor-cmd/korean-patches/actions/runs/42477979611"
+  "exe_bytes": 17201152,
+  "exe_sha256": "3edec5c6b8fc06f1e5b418c4a91da8b1b503ce47f8be5ecd2de43af7b68d39d6",
+  "archive_sha256": "e2239f6859ee2a7dbe4be22c1ffad6c3bb179fe5e12be56d8a2c56e65a3a353a",
+  "source_commit": "f6f80838c6827d10062218f5242f3582c60c9388",
+  "run_url": "https://github.com/slimshadykor-cmd/korean-patches/actions/runs/42483213272"
 }
