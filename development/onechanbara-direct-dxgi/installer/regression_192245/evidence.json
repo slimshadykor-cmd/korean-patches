@@ -1,0 +1,41 @@
+{
+  "previous_overlay_samples": {
+    "2026-11-08_17-15-55": {
+      "min": 51,
+      "max": 60,
+      "samples": 23
+    },
+    "2026-11-08_17-16-21": {
+      "min": 48,
+      "max": 60,
+      "samples": 26
+    },
+    "2026-11-08_17-16-49": {
+      "min": 49,
+      "max": 60,
+      "samples": 78
+    }
+  },
+  "new_video_observation": {
+    "file": "2026-11-08 19-22-45.mkv",
+    "repeated_picture_seconds": [
+      [
+        20.6,
+        25.0
+      ],
+      [
+        26.3,
+        38.1
+      ]
+    ],
+    "late_overlay_values": [
+      15,
+      6,
+      8
+    ]
+  },
+  "same_scene_controlled_benchmark": false,
+  "root_cause_confirmed": false,
+  "revision": "shared-image-copy-1",
+  "actual_gpu_retest_passed": false
+}

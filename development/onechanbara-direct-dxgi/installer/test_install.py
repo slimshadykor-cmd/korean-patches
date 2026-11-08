@@ -1,5 +1,5 @@
 from pathlib import Path
-import tempfile,hashlib,json,subprocess,tomllib,shutil
+import tempfile,hashlib,json,subprocess,tomllib,shutil,re
 R=Path(__file__).resolve().parent;PS='/tmp/onechanbara_pwsh/pwsh';checks=[]
 def h(p):return hashlib.sha256(p.read_bytes()).hexdigest().upper()
 def ok(x,msg):
@@ -10,7 +10,8 @@ with tempfile.TemporaryDirectory(prefix='ocb-direct-install-') as temp:
  (bundle/'xenia_onechanbara.exe').write_bytes(b'fixture Windows emulator, not a usable game executable')
  shutil.copyfile(R/'release/Onechanbara_Launcher.exe',bundle/'Onechanbara_Launcher.exe')
  source=(R/'source/Manage-Onechanbara.ps1').read_text(encoding='utf-8-sig')
- source=source.replace('__RUNTIME_SHA256__',h(bundle/'xenia_onechanbara.exe')).replace('__LAUNCHER_SHA256__',h(bundle/'Onechanbara_Launcher.exe'))
+ source=re.sub(r"(?m)^\$KnownRuntimeHash='[^']+'",lambda _:"$KnownRuntimeHash='"+h(bundle/'xenia_onechanbara.exe')+"'",source)
+ source=re.sub(r"(?m)^\$KnownLauncherHash='[^']+'",lambda _:"$KnownLauncherHash='"+h(bundle/'Onechanbara_Launcher.exe')+"'",source)
  (bundle/'Manage-Onechanbara.ps1').write_text(source,encoding='utf-8-sig')
  def fixture(name,legacy=False):
   p=T/name;p.mkdir();(p/'desktop').mkdir();(p/'config').mkdir()
@@ -52,6 +53,13 @@ with tempfile.TemporaryDirectory(prefix='ocb-direct-install-') as temp:
  ok(cfg['Storage']['content_root']==str(p/'content'),'original content root retained')
  ok(not(home/'SyncToggle').exists(),'no NVIDIA profile state or watcher installed')
  run(p);ok(snap(p)==before,'repeat install accepts its native shortcut and leaves unrelated files unchanged')
+ old_runtime=(home/'runtime/xenia_onechanbara.exe').read_bytes()
+ (bundle/'xenia_onechanbara.exe').write_bytes(b'new candidate emulator fixture with a different SHA256')
+ source=re.sub(r"(?m)^\$KnownRuntimeHash='[^']+'",lambda _:"$KnownRuntimeHash='"+h(bundle/'xenia_onechanbara.exe')+"'",source)
+ (bundle/'Manage-Onechanbara.ps1').write_text(source,encoding='utf-8-sig')
+ run(p)
+ ok((home/'runtime/xenia_onechanbara.exe').read_bytes()!=old_runtime and h(home/'runtime/xenia_onechanbara.exe')==h(bundle/'xenia_onechanbara.exe'),'upgrade from prior direct runtime accepts the old receipt and installs the new executable')
+ ok(snap(p)==before and json.loads((home/'install.json').read_text(encoding='utf-8-sig'))['ExeSha256']==h(bundle/'xenia_onechanbara.exe'),'runtime upgrade preserves originals and updates its hash receipt')
  prior=snap(p,True);priorlink=link.read_bytes();run(p,True)
  # Backups may be added, but every pre-existing file and shortcut must survive.
  ok(all(h(p/k)==v for k,v in prior.items()) and link.read_bytes()==priorlink,'failed update restores all prior managed files and shortcut')

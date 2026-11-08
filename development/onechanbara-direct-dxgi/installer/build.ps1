@@ -26,7 +26,14 @@ if($LauncherOnly){exit 0}
 $runtime=Join-Path $root 'runtime/xenia_onechanbara.exe'
 $launcher=Join-Path $release 'Onechanbara_Launcher.exe'
 $script=Join-Path $source 'Manage-Onechanbara.ps1'
-$text=[IO.File]::ReadAllText($script).Replace('__RUNTIME_SHA256__',(Get-FileHash -LiteralPath $runtime -Algorithm SHA256).Hash).Replace('__LAUNCHER_SHA256__',(Get-FileHash -LiteralPath $launcher -Algorithm SHA256).Hash)
+$text=[IO.File]::ReadAllText($script)
+foreach($binding in @(@('KnownRuntimeHash',$runtime),@('KnownLauncherHash',$launcher))){
+ $pattern='(?m)^\$'+$binding[0]+"='[^']+'"
+ if([regex]::Matches($text,$pattern).Count-ne1){throw ('Missing unique executable hash binding: '+$binding[0])}
+ $replacement='$'+$binding[0]+"='"+(Get-FileHash -LiteralPath $binding[1] -Algorithm SHA256).Hash+"'"
+ $evaluator=[Text.RegularExpressions.MatchEvaluator]({param($m)$replacement}.GetNewClosure())
+ $text=[regex]::Replace($text,$pattern,$evaluator)
+}
 [IO.File]::WriteAllText($script,$text,[Text.UTF8Encoding]::new($true))
 $files=@();foreach($f in 'IsoCore.cs','Standalone.cs','LauncherGlue.cs','Program.cs','AssemblyInfo.cs'){$files+=Join-Path $source $f}
 $resources=@{'OnechanbaraPackage.zip'=(Join-Path $base 'payload.zip');'Manage-Onechanbara.ps1'=$script;'Onechanbara.config.toml'=(Join-Path $source 'Onechanbara.config.toml');'xenia_onechanbara.exe'=$runtime;'Onechanbara_Launcher.exe'=$launcher}

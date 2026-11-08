@@ -1,0 +1,6 @@
+{
+  "passed": 4,
+  "actual_stage_timer": true,
+  "mocked": "Xenia logger",
+  "gpu_test": false
+}

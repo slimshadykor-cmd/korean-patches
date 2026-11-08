@@ -1,11 +1,13 @@
 # Onechanbara v1.7 direct DXGI integrated installer
 
-Shipping source snapshot. Full Xenia build: https://github.com/slimshadykor-cmd/korean-patches/actions/runs/42468237049
+Revision: `shared-image-copy-1`. Follow-up to the captured freeze and low-FPS result of the first direct-backbuffer candidate. This revision renders to one shared image, waits for the previous D3D12 copy before reuse, and copies to DXGI backbuffers. No NVIDIA profiles are created or changed.
 
-Package SHA-256: `109a1393e8e462bb3125c82bf24134ba9206573d774c3ca7fe3e0f5adc0df4bb`
+Full Windows build: https://github.com/slimshadykor-cmd/korean-patches/actions/runs/42471903537
 
-The installer embeds the unchanged v1.7 localization payload, the native Xenia build and an asInvoker native launcher. It creates no NVIDIA profiles. The shared emulator/config and original content location are preserved.
+Package SHA-256: `3cb398331c6716d4a6d69c9e4b26e4d2674ffeeeb99f4fa4878740740e500ed5`
 
-12 installation and rollback checks passed with a real filesystem and mocked shortcut COM/original emulator identity. Resource/hash/version/rejection checks passed on the shipping managed assembly. No native Windows GPU gameplay test was possible. See the validation JSON files.
+33 synchronization checks execute production methods with mocked Windows/GPU objects. Four logging checks exercise the production slow-stage timer with a mocked logger. Fourteen installation/filesystem checks include upgrading an existing direct runtime to a different executable hash, rollback, and preservation of original EXE/config/save data. The shipping assembly resource/hash/version/ISO-rejection/manifest checks passed. Full Windows native emulator build passed.
 
-The build script records the original workspace layout: direct_v17 alongside integrated_v17 (payload, NET48 references) and non_nv/integration (NativeLauncher.cs). The runtime is in the adjacent runtime directory of this branch. Source hashes in Manage-Onechanbara.ps1 are the final shipping hashes; fixture tests originally ran before hash substitution. Original icon and localization payload are available in the integrated distribution, not duplicated here.
+No actual Windows GPU gameplay test has been performed. The captured freeze root cause has not been established, and this revision is a candidate pending the user's GPU test. See `regression_192245/revision-notes.txt`.
+
+The build script records the original workspace layout: direct_v17 alongside integrated_v17 (localization payload and NET48 references) and non_nv/integration (NativeLauncher.cs). The native runtime and its provenance are in the adjacent runtime directory of this branch. The unchanged icon and localization payload are included in the integrated distribution and are not duplicated in this source snapshot. Rebuild refreshes both embedded executable hashes, including when replacing previously substituted values.

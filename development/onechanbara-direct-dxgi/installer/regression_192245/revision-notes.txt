@@ -1,0 +1,34 @@
+Onechanbara v1.7 shared-image-copy-1
+
+Observed evidence:
+User capture 2026-11-08 19-22-45.mkv. Approximate repeated-picture spans
+20.6-25.0 s and 26.3-38.1 s; later overlay readings 15, 6, 8 FPS.
+This establishes a failed gameplay result for the first direct DXGI candidate.
+It does NOT by itself establish whether the emulated GPU, presentation, capture
+or a driver interaction caused each delay.
+
+Changed scope:
+- Renderer still Vulkan FSI. Original game/localization payload unchanged.
+- DXGI backbuffer is no longer imported as the Vulkan render target.
+- One shared image is rendered in Vulkan and copied by the D3D12 queue.
+- Wait value is the previous copy-completion value, signal values cover rendering
+  then copy. Layout initialized state belongs to the shared image, not each slot.
+- Cancellation discards both unsubmitted reserved values.
+- Existing Xenia log records display stages taking at least 100 ms.
+- Native original Xenia executable and NVIDIA settings remain untouched.
+- Installer build refreshes both embedded executable hashes on every rebuild.
+
+Checks:
+33 checks execute extracted production acquisition/present/cancel/image selection
+methods with mocked Windows/GPU API objects, including backbuffer rotation,
+render-to-copy dependency, timeout, cancellation and common-image layout.
+This is a protocol regression check, not a real GPU test.
+Windows cross compilation and exact application of all 12 source-file hashes
+succeeded. The full native Windows build is tracked separately in build.json.
+14 installer checks include upgrading an installed direct runtime with a different
+hash and retaining source/config/save data. COM shortcut and original emulator
+identity are mocked in that filesystem test.
+
+Limit:
+No Windows GPU or user's machine is available in the build environment. This is
+a revised candidate, not a confirmed fix for the captured freeze.

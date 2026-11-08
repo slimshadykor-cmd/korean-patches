@@ -1,5 +1,5 @@
 {
-  "passed": 12,
+  "passed": 14,
   "checks": [
     "fresh install preserves source EXE, ISO, common settings, other game, profile and save",
     "desktop directly starts native launcher with no PowerShell arguments",
@@ -7,6 +7,8 @@
     "original content root retained",
     "no NVIDIA profile state or watcher installed",
     "repeat install accepts its native shortcut and leaves unrelated files unchanged",
+    "upgrade from prior direct runtime accepts the old receipt and installs the new executable",
+    "runtime upgrade preserves originals and updates its hash receipt",
     "failed update restores all prior managed files and shortcut",
     "failed new install removes incomplete output and preserves inputs",
     "migration from prior sync shortcut preserves old configs, runtime data, NVIDIA state, saves",

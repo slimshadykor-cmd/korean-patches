@@ -28,6 +28,12 @@ if(-not$rejected){throw 'Actual shipping verifier accepted an invalid ISO'}
 $result.ActualShippingVerifierRejectsInvalidISO=$true
 $script=[IO.File]::ReadAllText($expected['Manage-Onechanbara.ps1'])
 if($script.Contains('__RUNTIME_SHA256__')-or$script.Contains('__LAUNCHER_SHA256__')){throw 'Unresolved resource hash placeholder'}
+foreach($binding in @(@('KnownRuntimeHash','xenia_onechanbara.exe'),@('KnownLauncherHash','Onechanbara_Launcher.exe'))){
+ $pattern='(?m)^\$'+$binding[0]+"='([0-9A-Fa-f]{64})'"
+ $matches=[regex]::Matches($script,$pattern)
+ if($matches.Count-ne1-or$matches[0].Groups[1].Value.ToLowerInvariant()-cne$result.Resources[$binding[1]]){throw ('Embedded executable hash mismatch: '+$binding[0])}
+}
+$result.InstallerHashesMatchEmbeddedExecutables=$true
 foreach($badText in 'Install-Sync.ps1','NvidiaTemporary.cs','RunAs','EnsureProfile','SaveSettings'){
  if($script.Contains($badText)){throw ('Driver/elevation path present: '+$badText)}
 }
