@@ -1,6 +1,92 @@
+--- /dev/null
++++ b/src/xenia/ui/onechanbara_diagnostic_statistics.h
+@@ -0,0 +1,48 @@
++#pragma once
++#include <algorithm>
++#include <array>
++#include <chrono>
++#include <cstdint>
++
++// Owned by one presenter. Its existing painting ownership serializes access.
++// These are CPU/API-delivery measurements, never monitor scanout measurements.
++struct OcbDisplayStatistics {
++  using Clock = std::chrono::steady_clock;
++  Clock::time_point began{};
++  uint64_t attempts = 0, presented = 0, ui_attempts = 0;
++  uint64_t consumed = 0, submitted = 0, produced_latest = 0, consumed_latest = 0;
++  double total = 0, maximum = 0;
++  std::array<double, 6> stages{}, max_stages{};
++  double latency_wait = 0, latency_wait_max = 0;
++  double allocator_wait = 0, allocator_wait_max = 0;
++  uint64_t acquire_calls = 0, acquire_timeouts = 0, acquire_errors = 0;
++  uint64_t id_first = 0, id_last = 0, id_previous = 0;
++  uint64_t id_gaps = 0, id_max_gap = 0, id_duplicates = 0, id_regressions = 0;
++  uint64_t frame_samples = 0;
++  double age_total_ms = 0, age_max_ms = 0;
++  uint64_t generation = 0;
++  void NewWindow() {
++    const uint64_t previous = id_previous, gen = generation;
++    *this = {};
++    id_previous = previous;
++    generation = gen;
++  }
++  void RecordFrame(uint64_t id, double age_ms) {
++    if (!id) return;
++    if (!id_first) id_first = id;
++    id_last = id;
++    if (id_previous) {
++      if (id == id_previous) ++id_duplicates;
++      else if (id < id_previous) ++id_regressions;
++      else {
++        const uint64_t gap = id - id_previous - 1;
++        id_gaps += gap;
++        id_max_gap = std::max(id_max_gap, gap);
++      }
++    }
++    id_previous = id;
++    ++frame_samples;
++    age_total_ms += age_ms;
++    age_max_ms = std::max(age_max_ms, age_ms);
++  }
++};
 --- a/src/xenia/ui/presenter.cc
 +++ b/src/xenia/ui/presenter.cc
-@@ -1079,7 +1079,8 @@
+@@ -8,6 +8,7 @@
+  */
+ 
+ #include "xenia/ui/presenter.h"
++#include <chrono>
+ 
+ #include "xenia/base/assert.h"
+ #include "xenia/base/cvar.h"
+@@ -68,6 +69,9 @@
+     "maintain aspect ratio without letterboxing or stretching.",
+     "Display");
+ 
++DEFINE_bool(onechanbara_diagnostics, false,
++            "Collect CPU/API frame-delivery diagnostics for Onechanbara.", "Display");
++
+ namespace xe {
+ namespace ui {
+ 
+@@ -378,6 +382,16 @@
+       return false;
+     }
+     guest_output_active_last_refresh_ = false;
++  }
++
++  if (cvars::onechanbara_diagnostics) {
++    // Metadata travels under the existing mailbox release/acquire protocol.
++    // No extra image handoff, lock or synchronization is introduced.
++    writable_properties.diagnostic_id =
++        diagnostic_produced_.fetch_add(1, std::memory_order_relaxed) + 1;
++    writable_properties.diagnostic_publish_ns =
++        std::chrono::duration_cast<std::chrono::nanoseconds>(
++            std::chrono::steady_clock::now().time_since_epoch()).count();
+   }
+ 
+   // Make the new image the next to present on the host (the "ready" one),
+@@ -1079,7 +1093,8 @@
    if (!cvars::host_present_from_non_ui_thread) {
      return PaintMode::kUIThreadOnRequest;
    }
@@ -12,11 +98,24 @@
      return PaintMode::kUIThreadOnRequest;
 --- a/src/xenia/ui/presenter.h
 +++ b/src/xenia/ui/presenter.h
-@@ -613,6 +613,7 @@
+@@ -369,6 +369,8 @@
+     uint32_t display_aspect_ratio_x;
+     uint32_t display_aspect_ratio_y;
+     bool is_8bpc;
++    uint64_t diagnostic_id = 0;
++    int64_t diagnostic_publish_ns = 0;
+ 
+     GuestOutputProperties() { SetToInactive(); }
+ 
+@@ -613,6 +615,11 @@
    // are held by it. Call through DisconnectPaintingFromSurfaceFromUIThread to
    // ensure the implementation is only called while the connection is active.
    virtual void DisconnectPaintingFromSurfaceFromUIThreadImpl() = 0;
 +  virtual bool PreferGuestOutputThreadWithImplicitVsync() const { return false; }
++  uint64_t DiagnosticProduced() const {
++    return diagnostic_produced_.load(std::memory_order_relaxed);
++  }
++  std::atomic<uint64_t> diagnostic_produced_{0};
  
    // The returned lock interlocks multiple consumers (but not the producer and
    // the consumer) and must be held while accessing implementation-specific
@@ -97,6 +196,226 @@
 +  return b;
 +}
 +}  // namespace ocb::display
+--- /dev/null
++++ b/src/xenia/ui/vulkan/onechanbara_display/ocb_gpu_timing.h
+@@ -0,0 +1,217 @@
++// Diagnostic-only GPU timestamp interval for the final Vulkan presentation pass.
++// This interval can include semaphore stalls and other queue overlap. It is NOT
++// engine-busy time, Xbox 360 frame render time, or a scanout metric.
++#ifndef XENIA_UI_VULKAN_OCB_GPU_TIMING_H_
++#define XENIA_UI_VULKAN_OCB_GPU_TIMING_H_
++
++#include <algorithm>
++#include <array>
++#include <chrono>
++#include <cmath>
++#include <cstdint>
++#include <vector>
++
++#include <vulkan/vulkan.h>
++#include "xenia/base/logging.h"
++
++class OcbVulkanOutputGpuTiming {
++ public:
++  struct Context {
++    VkDevice device;
++    VkPhysicalDevice physical_device;
++    uint32_t queue_family;
++    PFN_vkGetDeviceProcAddr get_device_proc;
++    PFN_vkGetPhysicalDeviceProperties get_properties;
++    PFN_vkGetPhysicalDeviceQueueFamilyProperties get_families;
++  };
++
++  // Call under the presenter's existing paint lock, after its normal completion
++  // update. A full diagnostic ring skips this sample; it never waits.
++  int Begin(bool enabled, const Context& context, VkCommandBuffer command_buffer,
++            uint64_t submission, uint64_t completed_submission) {
++    if (!enabled) return -1;
++    if (!initialized_) Initialize(context);
++    if (!pool_) return -1;
++    Collect(completed_submission);
++    const uint32_t slot = uint32_t(submission % kSlotCount);
++    if (slots_[slot].pending) {
++      ++skipped_;
++      Flush(false);
++      return -1;
++    }
++    // Command reset is ordered before both writes, needs no hostQueryReset.
++    reset_query_(command_buffer, pool_, slot * 2, 2);
++    // TOP->BOTTOM measures the output command interval, including semaphore
++    // stalls. No added barrier serializes the GPU merely for measurement.
++    write_timestamp_(command_buffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT,
++                     pool_, slot * 2);
++    slots_[slot].submission = submission;
++    slots_[slot].ended = false;
++    return int(slot);
++  }
++
++  void End(int slot, VkCommandBuffer command_buffer) {
++    if (slot < 0) return;
++    write_timestamp_(command_buffer, VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT,
++                     pool_, uint32_t(slot) * 2 + 1);
++    slots_[slot].ended = true;
++  }
++
++  // Only mark a sample live after the normal queue submission succeeded.
++  // An early-return or failed submission can be reset on the next attempt.
++  void Submitted(int slot) {
++    if (slot >= 0 && slots_[slot].ended) slots_[slot].pending = true;
++  }
++
++  // Caller has already performed its normal swapchain retirement wait.
++  // This method must never introduce a new queue/device wait.
++  void DestroyAfterIdle() {
++    if (pool_) {
++      Collect(UINT64_MAX);
++      Flush(true);
++      destroy_query_(context_.device, pool_, nullptr);
++    }
++    pool_ = VK_NULL_HANDLE;
++    initialized_ = false;
++    for (auto& slot : slots_) slot = Slot{};
++    samples_ = skipped_ = unavailable_ = errors_ = 0;
++    total_ms_ = maximum_ms_ = 0;
++    first_submission_ = last_submission_ = 0;
++  }
++
++  static uint64_t TickDelta(uint64_t start, uint64_t end, uint32_t valid_bits) {
++    const uint64_t mask = valid_bits >= 64 ? UINT64_MAX
++        : (uint64_t(1) << valid_bits) - 1;
++    return (end - start) & mask;
++  }
++
++ private:
++  using Clock = std::chrono::steady_clock;
++  static constexpr uint32_t kSlotCount = 8;
++  struct Slot {
++    uint64_t submission = 0;
++    bool pending = false;
++    bool ended = false;
++  };
++  void Initialize(const Context& context) {
++    initialized_ = true;
++    context_ = context;
++    began_ = Clock::now();
++    if (!context.device || !context.physical_device ||
++        !context.get_device_proc || !context.get_properties ||
++        !context.get_families) {
++      XELOGI("Onechanbara GPU output probe: unavailable missing API context");
++      return;
++    }
++    uint32_t count = 0;
++    context.get_families(context.physical_device, &count, nullptr);
++    std::vector<VkQueueFamilyProperties> families(count);
++    context.get_families(context.physical_device, &count, families.data());
++    VkPhysicalDeviceProperties properties{};
++    context.get_properties(context.physical_device, &properties);
++    if (context.queue_family >= count) return;
++    valid_bits_ = families[context.queue_family].timestampValidBits;
++    timestamp_period_ = properties.limits.timestampPeriod;
++    if (!valid_bits_ || valid_bits_ > 64 ||
++        !(timestamp_period_ > 0) || !std::isfinite(timestamp_period_)) {
++      XELOGI("Onechanbara GPU output probe: unavailable timestamp support");
++      return;
++    }
++#define OCB_LOAD_QUERY(member, name) \
++    member = reinterpret_cast<PFN_##name>( \
++        context.get_device_proc(context.device, #name));
++    OCB_LOAD_QUERY(create_query_, vkCreateQueryPool)
++    OCB_LOAD_QUERY(destroy_query_, vkDestroyQueryPool)
++    OCB_LOAD_QUERY(reset_query_, vkCmdResetQueryPool)
++    OCB_LOAD_QUERY(write_timestamp_, vkCmdWriteTimestamp)
++    OCB_LOAD_QUERY(get_results_, vkGetQueryPoolResults)
++#undef OCB_LOAD_QUERY
++    if (!create_query_ || !destroy_query_ || !reset_query_ ||
++        !write_timestamp_ || !get_results_) {
++      XELOGI("Onechanbara GPU output probe: unavailable query functions");
++      return;
++    }
++    VkQueryPoolCreateInfo info{VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO};
++    info.queryType = VK_QUERY_TYPE_TIMESTAMP;
++    info.queryCount = kSlotCount * 2;
++    if (create_query_(context.device, &info, nullptr, &pool_) != VK_SUCCESS) {
++      pool_ = VK_NULL_HANDLE;
++      XELOGI("Onechanbara GPU output probe: unavailable query allocation");
++      return;
++    }
++    XELOGI("Onechanbara GPU output probe: enabled scope=final-output-interval "
++           "timestamp_bits={} timestamp_period_ns={} ring={} no-extra-waits "
++           "includes-semaphore-stalls=true engine-busy=false",
++           valid_bits_, timestamp_period_, kSlotCount);
++  }
++
++  void Collect(uint64_t completed_submission) {
++    for (uint32_t i = 0; i < kSlotCount; ++i) {
++      auto& slot = slots_[i];
++      if (!slot.pending || slot.submission > completed_submission) continue;
++      // Timestamp and availability are both 64-bit. No WAIT_BIT, no PARTIAL.
++      uint64_t results[4]{};
++      const VkResult result = get_results_(context_.device, pool_, i * 2, 2,
++          sizeof(results), results, sizeof(uint64_t) * 2,
++          VK_QUERY_RESULT_64_BIT | VK_QUERY_RESULT_WITH_AVAILABILITY_BIT);
++      if (result == VK_NOT_READY ||
++          (result == VK_SUCCESS && (!results[1] || !results[3]))) {
++        ++unavailable_;
++        continue;
++      }
++      slot.pending = false;
++      if (result != VK_SUCCESS) {
++        ++errors_;
++        continue;
++      }
++      const double ms = double(TickDelta(results[0], results[2], valid_bits_)) *
++          timestamp_period_ / 1000000.0;
++      // A timestamp counter with N bits wraps every 2^N * period nanoseconds.
++      // Unwrapping more than one full counter period is impossible from a pair;
++      // timestamp_bits and period are logged so analysts can reject that case.
++      total_ms_ += ms;
++      maximum_ms_ = std::max(maximum_ms_, ms);
++      if (!samples_) first_submission_ = last_submission_ = slot.submission;
++      first_submission_ = std::min(first_submission_, slot.submission);
++      last_submission_ = std::max(last_submission_, slot.submission);
++      ++samples_;
++    }
++    Flush(false);
++  }
++
++  void Flush(bool force) {
++    const auto now = Clock::now();
++    const double elapsed = std::chrono::duration<double, std::milli>(now - began_).count();
++    if ((!force && elapsed < 1000) || !(samples_ || skipped_ || unavailable_ || errors_)) return;
++    XELOGI("Onechanbara GPU output stats: period_ms={:.1f} samples={} "
++           "gpu_output_interval_avg_ms={:.4f} gpu_output_interval_max_ms={:.4f} "
++           "min_submission={} max_submission={} skipped={} unavailable={} "
++           "query_errors={} scope=final-output-interval scanout=false "
++           "guest-render=false engine-busy=false includes-semaphore-stalls=true",
++           elapsed, samples_, samples_ ? total_ms_ / double(samples_) : 0.0,
++           maximum_ms_, first_submission_, last_submission_, skipped_,
++           unavailable_, errors_);
++    began_ = now;
++    samples_ = skipped_ = unavailable_ = errors_ = 0;
++    total_ms_ = maximum_ms_ = 0;
++    first_submission_ = last_submission_ = 0;
++  }
++
++  bool initialized_ = false;
++  Context context_{};
++  VkQueryPool pool_ = VK_NULL_HANDLE;
++  uint32_t valid_bits_ = 0;
++  double timestamp_period_ = 0;
++  std::array<Slot, kSlotCount> slots_{};
++  PFN_vkCreateQueryPool create_query_ = nullptr;
++  PFN_vkDestroyQueryPool destroy_query_ = nullptr;
++  PFN_vkCmdResetQueryPool reset_query_ = nullptr;
++  PFN_vkCmdWriteTimestamp write_timestamp_ = nullptr;
++  PFN_vkGetQueryPoolResults get_results_ = nullptr;
++  Clock::time_point began_{};
++  uint64_t samples_ = 0, skipped_ = 0, unavailable_ = 0, errors_ = 0;
++  uint64_t first_submission_ = 0, last_submission_ = 0;
++  double total_ms_ = 0, maximum_ms_ = 0;
++};
++
++#endif  // XENIA_UI_VULKAN_OCB_GPU_TIMING_H_
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE
 @@ -0,0 +1,121 @@
@@ -224,7 +543,7 @@
 \ No newline at end of file
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch
-@@ -0,0 +1,341 @@
+@@ -0,0 +1,78 @@
 +--- upstream/vk_dxgi.h
 ++++ vendor/vk_dxgi.h
 +@@ -81,7 +81,7 @@
@@ -236,52 +555,7 @@
 + 
 + typedef struct
 + {
-+@@ -141,6 +141,8 @@
-+ typedef struct dvk_perFrameResources_t
-+ {
-+   dvk_sharedImage_t        sharedImage       = {};
-++  VkImage                  vkBlitImage       = VK_NULL_HANDLE;
-++  dvk_sharedImage_t        blitImage         = {};
-+   ID3D12CommandAllocator * pCommandAllocator = nullptr;
-+   uint64_t                 lastSubmitValue   = 0;
-+   uint64_t                 lastBlitValue     = 0;
-+@@ -168,8 +170,6 @@
-+   dvk_perFrameResources_t * pPerFrameResources           = nullptr;
-+   size_t                    pImportedSwapChainImageCount = 0;
-+ 
-+-  VkImage           vkBlitImage = VK_NULL_HANDLE;
-+-  dvk_sharedImage_t pBlitImage  = {};
-+ 
-+   VkImage * pExternalSwapChainImages = nullptr;
-+   VkImage * pSwapChainImages         = nullptr;
-+@@ -178,6 +178,10 @@
-+   HANDLE        fenceSharedHandle = INVALID_HANDLE_VALUE;
-+   VkSemaphore   semaphore         = VK_NULL_HANDLE;
-+   uint64_t      fenceValue        = 0;
-++  // One producer per timeline: Vulkan renders, D3D12 copies.
-++  ID3D12Fence * pCopyFence = nullptr;
-++  HANDLE copyFenceSharedHandle = INVALID_HANDLE_VALUE;
-++  VkSemaphore copySemaphore = VK_NULL_HANDLE;
-+ 
-+   VkImageUsageFlags usage        = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
-+   uint32_t          syncInterval = 1;
-+@@ -225,6 +229,7 @@
-+   dvk_perFrameResources_t *   pFrameResources = nullptr;
-+ 
-+   ID3D12Fence * pFence          = nullptr;
-++  ID3D12Fence * pCopyFence = nullptr;
-+   uint32_t      imageIndex      = 0;
-+   VkSemaphore   waitSemaphore   = VK_NULL_HANDLE;
-+   uint64_t      waitValue       = 0;
-+@@ -244,6 +249,7 @@
-+   dvk_perFrameResources_t *   pFrameResources = nullptr;
-+ 
-+   ID3D12Fence * pFence      = nullptr;
-++  ID3D12Fence * pCopyFence = nullptr;
-+   uint64_t      submitValue = 0;
-+   uint64_t      blitValue   = 0;
-+ 
-+@@ -264,7 +270,8 @@
++@@ -264,7 +264,8 @@
 + 
 + typedef enum dvk_result_e
 + {
@@ -291,7 +565,7 @@
 +   DVK_ERROR,
 +   DVK_ERROR_VULKAN,
 +   DVK_ERROR_DXGI,
-+@@ -292,7 +299,7 @@
++@@ -292,7 +293,7 @@
 + [[nodiscard]] static dvk_result_t dvk_resizeSwapChain( dvk_dxgiSwapChain_t * pSwapChain, uint16_t width, uint16_t height ) noexcept;
 + [[nodiscard]] static dvk_result_t dvk_changeSwapChainFormat( dvk_dxgiSwapChain_t * pSwapChain, VkFormat format ) noexcept;
 + 
@@ -300,7 +574,7 @@
 + [[nodiscard]] static dvk_result_t dvk_presentImage( const dvk_presentParameters_t & presentParameters ) noexcept;
 + 
 + [[nodiscard]] static dvk_result_t dvk_getSwapChainInfo( const dvk_dxgiSwapChain_t & swapChain, dvk_swapChainInfo_t * pInfo ) noexcept;
-+@@ -467,8 +474,14 @@
++@@ -467,8 +468,14 @@
 +              DXGI_SWAP_CHAIN_FLAG_FRAME_LATENCY_WAITABLE_OBJECT,
 +   };
 + 
@@ -316,94 +590,7 @@
 + 
 +   if ( FAILED( result ) )
 +   {
-+@@ -572,6 +585,64 @@
-+     };
-+   }
-+ 
-++  if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
-++  {
-++  result = parameters.pDeviceContext->pD3D12Device->CreateFence( 0, D3D12_FENCE_FLAG_SHARED, IID_PPV_ARGS( &pSwapChain->pCopyFence ) );
-++  if ( FAILED( result ) )
-++  {
-++    dvk_destroySwapChain( pSwapChain );
-++    return dvk_result_t{
-++      .code    = DVK_ERROR_DX12,
-++      .message = DVK_PREPEND( "Failed to create the Fence object" ),
-++    };
-++  }
-++
-++  VkSemaphoreTypeCreateInfo typeInfo = { .sType = VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO, .semaphoreType = VK_SEMAPHORE_TYPE_TIMELINE };
-++
-++  VkSemaphoreCreateInfo semaphoreCreateInfo = {
-++    VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
-++  };
-++  typeInfo.pNext            = semaphoreCreateInfo.pNext;
-++  semaphoreCreateInfo.pNext = &typeInfo;
-++
-++  VkResult vulkanResult = pSwapChain->pFunctions->vkCreateSemaphore( parameters.pVulkanContext->device, &semaphoreCreateInfo, nullptr, &pSwapChain->copySemaphore );
-++  if ( vulkanResult != VK_SUCCESS )
-++  {
-++    dvk_destroySwapChain( pSwapChain );
-++    return dvk_result_t{
-++      .code    = DVK_ERROR_VULKAN,
-++      .message = DVK_PREPEND( "Failed to create the semaphore object" ),
-++    };
-++  }
-++
-++  result = parameters.pDeviceContext->pD3D12Device->CreateSharedHandle( pSwapChain->pCopyFence, nullptr, GENERIC_ALL, nullptr, &pSwapChain->copyFenceSharedHandle );
-++  if ( FAILED( result ) )
-++  {
-++    dvk_destroySwapChain( pSwapChain );
-++    return dvk_result_t{
-++      .code    = DVK_ERROR_DX12,
-++      .message = DVK_PREPEND( "Failed to get the fence shared handle" ),
-++    };
-++  }
-++
-++  VkImportSemaphoreWin32HandleInfoKHR importSemaphoreInfo = {
-++    .sType      = VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
-++    .semaphore  = pSwapChain->copySemaphore,
-++    .handleType = VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT,
-++    .handle     = pSwapChain->copyFenceSharedHandle,
-++  };
-++  vulkanResult = pSwapChain->pFunctions->vkImportSemaphoreWin32HandleKHR( parameters.pVulkanContext->device, &importSemaphoreInfo );
-++  if ( vulkanResult != VK_SUCCESS )
-++  {
-++    dvk_destroySwapChain( pSwapChain );
-++    return dvk_result_t{
-++      .code    = DVK_ERROR_VULKAN,
-++      .message = DVK_PREPEND( "Failed to import the fence shared handle" ),
-++    };
-++  }
-++
-++  }
-++
-+   return dvk_result_t{ .code = DVK_OK };
-+ }
-+ 
-+@@ -587,6 +658,21 @@
-+     __dvk_waitIdle( pSwapChain );
-+   }
-+ 
-++  if ( pSwapChain->copySemaphore != VK_NULL_HANDLE )
-++  {
-++    pSwapChain->pFunctions->vkDestroySemaphore( pSwapChain->pVulkanContext->device, pSwapChain->copySemaphore, nullptr );
-++    pSwapChain->copySemaphore = VK_NULL_HANDLE;
-++  }
-++  if ( pSwapChain->copyFenceSharedHandle != INVALID_HANDLE_VALUE )
-++  {
-++    CloseHandle( pSwapChain->copyFenceSharedHandle );
-++    pSwapChain->copyFenceSharedHandle = INVALID_HANDLE_VALUE;
-++  }
-++  if ( pSwapChain->pCopyFence != nullptr )
-++  {
-++    pSwapChain->pCopyFence->Release();
-++    pSwapChain->pCopyFence = nullptr;
-++  }
-+   if ( pSwapChain->semaphore != VK_NULL_HANDLE )
-+   {
-+     pSwapChain->pFunctions->vkDestroySemaphore( pSwapChain->pVulkanContext->device, pSwapChain->semaphore, nullptr );
-+@@ -690,19 +776,19 @@
++@@ -690,19 +697,19 @@
 +   return __dvk_createSwapChainObjects( pSwapChain );
 + }
 + 
@@ -426,118 +613,7 @@
 +     }
 +     return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Error while waiting for the presentation event" ) };
 +   }
-+@@ -717,9 +803,9 @@
-+ 
-+   if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
-+   {
-+-    if ( pFrameResources->lastBlitValue != 0 && pSwapChain->pFence->GetCompletedValue() < pFrameResources->lastBlitValue )
-+-    {
-+-      HRESULT dxResult = pSwapChain->pFence->SetEventOnCompletion( pFrameResources->lastBlitValue, nullptr );
-++    if ( pFrameResources->lastBlitValue != 0 && pSwapChain->pCopyFence->GetCompletedValue() < pFrameResources->lastBlitValue )
-++    {
-++      HRESULT dxResult = pSwapChain->pCopyFence->SetEventOnCompletion( pFrameResources->lastBlitValue, nullptr );
-+       if ( FAILED( dxResult ) )
-+       {
-+         return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error waiting for the blit fence to be signaled" ) };
-+@@ -750,7 +836,7 @@
-+     dst.Type      = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX;
-+     src.Type      = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX;
-+     dst.pResource = pFrameResources->sharedImage.pImage;
-+-    src.pResource = pSwapChain->pBlitImage.pImage;
-++    src.pResource = pFrameResources->blitImage.pImage;
-+     pSwapChain->pDeviceContext->pCommandList->CopyTextureRegion( &dst, 0, 0, 0, &src, nullptr );
-+ 
-+     barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
-+@@ -766,10 +852,11 @@
-+       };
-+     }
-+ 
-+-    // When bliting the image to the backbuffer the synchronization is sequential, waiting on the single blit buffer
-+-    waitFenceValue   = pSwapChain->fenceValue;
-++    // Reuse only this slot's image. Other slots may render while D3D12 copies.
-++    // Equal values on TWO distinct timelines cannot signal each other early.
-++    waitFenceValue   = pFrameResources->lastBlitValue;
-+     submitFenceValue = ++pSwapChain->fenceValue;
-+-    blitFenceValue   = ++pSwapChain->fenceValue;
-++    blitFenceValue   = submitFenceValue;
-+   }
-+   else
-+   {
-+@@ -786,8 +873,9 @@
-+                                                                   : nullptr,
-+                                                .pFrameResources = pFrameResources,
-+                                                .pFence          = pSwapChain->pFence,
-++                                               .pCopyFence      = pSwapChain->pCopyFence,
-+                                                .imageIndex      = imageIndex,
-+-                                               .waitSemaphore   = pSwapChain->semaphore,
-++                                               .waitSemaphore   = pSwapChain->pCopyFence ? pSwapChain->copySemaphore : pSwapChain->semaphore,
-+                                                .waitValue       = waitFenceValue,
-+                                                .submitSemaphore = pSwapChain->semaphore,
-+                                                .submitValue     = submitFenceValue,
-+@@ -811,7 +899,7 @@
-+   {
-+     presentParameters.pCommandQueue->ExecuteCommandLists( 1, ( (ID3D12CommandList **)&presentParameters.pCommandList ) );
-+ 
-+-    result = presentParameters.pCommandQueue->Signal( presentParameters.pFence, presentParameters.blitValue );
-++    result = presentParameters.pCommandQueue->Signal( presentParameters.pCopyFence, presentParameters.blitValue );
-+     if ( FAILED( result ) )
-+     {
-+       return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Failed to signal the blit fence" ) };
-+@@ -908,7 +996,7 @@
-+   }
-+ 
-+   // Create the blit image used for rendering and copy to the swapchain
-+-  if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
-++  for ( size_t slot = 0; slot < swapChainImageCount && __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ); ++slot )
-+   {
-+     D3D12_RESOURCE_DESC blitImageDesc = {};
-+     blitImageDesc.Width               = swapChainDesc.BufferDesc.Width;
-+@@ -925,7 +1013,7 @@
-+     heapProps.Type                  = D3D12_HEAP_TYPE_DEFAULT;
-+ 
-+     result = pSwapChain->pDeviceContext->pD3D12Device->CreateCommittedResource(
-+-      &heapProps, D3D12_HEAP_FLAG_SHARED, &blitImageDesc, D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS( &pSwapChain->pBlitImage.pImage ) );
-++      &heapProps, D3D12_HEAP_FLAG_SHARED, &blitImageDesc, D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS( &pSwapChain->pPerFrameResources[slot].blitImage.pImage ) );
-+     if ( FAILED( result ) )
-+     {
-+       __dvk_destroySwapChainObjects( pSwapChain );
-+@@ -935,8 +1023,8 @@
-+       };
-+     }
-+ 
-+-    pSwapChain->pBlitImage.pVkImage = &pSwapChain->vkBlitImage;
-+-    const dvk_result_t dvkResult    = __dvk_createSharedImage( pSwapChain, &pSwapChain->pBlitImage );
-++    pSwapChain->pPerFrameResources[slot].blitImage.pVkImage = &pSwapChain->pPerFrameResources[slot].vkBlitImage;
-++    const dvk_result_t dvkResult    = __dvk_createSharedImage( pSwapChain, &pSwapChain->pPerFrameResources[slot].blitImage );
-+     if ( dvk_isError( dvkResult ) )
-+     {
-+       __dvk_destroySwapChainObjects( pSwapChain );
-+@@ -973,7 +1061,7 @@
-+     {
-+       if ( pSwapChain->pExternalSwapChainImages != nullptr )
-+       {
-+-        pSwapChain->pExternalSwapChainImages[idx] = pSwapChain->vkBlitImage;
-++        pSwapChain->pExternalSwapChainImages[idx] = pPerFrameResources->vkBlitImage;
-+       }
-+ 
-+       result = pSwapChain->pDeviceContext->pD3D12Device->CreateCommandAllocator( D3D12_COMMAND_LIST_TYPE_DIRECT,
-+@@ -1018,6 +1106,7 @@
-+     {
-+       dvk_perFrameResources_t * pImportedSwapChainImage = &pSwapChain->pPerFrameResources[idx];
-+       __dvk_destroySharedImage( pSwapChain, &pImportedSwapChainImage->sharedImage );
-++      __dvk_destroySharedImage( pSwapChain, &pImportedSwapChainImage->blitImage );
-+ 
-+       if ( pImportedSwapChainImage->pCommandAllocator != nullptr )
-+       {
-+@@ -1027,7 +1116,6 @@
-+     }
-+   }
-+ 
-+-  __dvk_destroySharedImage( pSwapChain, &pSwapChain->pBlitImage );
-+ 
-+   pSwapChain->pAllocator->free( pSwapChain->pPerFrameResources, pSwapChain->pAllocator->pContext );
-+   pSwapChain->pPerFrameResources = nullptr;
-+@@ -1174,7 +1262,7 @@
++@@ -1174,7 +1181,7 @@
 + 
 + inline void __dvk_destroySharedImage( const dvk_dxgiSwapChain_t * pSwapChain, dvk_sharedImage_t * pSharedImage ) noexcept
 + {
@@ -546,29 +622,9 @@
 +   {
 +     pSwapChain->pFunctions->vkDestroyImage( pSwapChain->pVulkanContext->device, *pSharedImage->pVkImage, pSwapChain->pVulkanContext->pAllocationCallbacks );
 +     *pSharedImage->pVkImage = VK_NULL_HANDLE;
-+@@ -1292,14 +1380,15 @@
-+     return dvk_result_t{ .code = DVK_ERROR_VULKAN, .message = DVK_PREPEND( "Error waiting for vulkan device idle" ) };
-+   }
-+ 
-+-  HRESULT result = pSwapChain->pDeviceContext->pCommandQueue->Signal( pSwapChain->pFence, ++pSwapChain->fenceValue );
-++  ID3D12Fence * drainFence = pSwapChain->pCopyFence ? pSwapChain->pCopyFence : pSwapChain->pFence;
-++  HRESULT result = pSwapChain->pDeviceContext->pCommandQueue->Signal( drainFence, ++pSwapChain->fenceValue );
-+   if ( FAILED( result ) )
-+   {
-+     return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error signaling the D3D12 fence" ) };
-+   }
-+-  if ( pSwapChain->pFence->GetCompletedValue() < pSwapChain->fenceValue )
-+-  {
-+-    result = pSwapChain->pFence->SetEventOnCompletion( pSwapChain->fenceValue, nullptr );
-++  if ( drainFence->GetCompletedValue() < pSwapChain->fenceValue )
-++  {
-++    result = drainFence->SetEventOnCompletion( pSwapChain->fenceValue, nullptr );
-+     if ( FAILED( result ) )
-+     {
-+       return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error waiting for fence event" ) };
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h
-@@ -0,0 +1,1404 @@
+@@ -0,0 +1,1335 @@
 +/*
 +=============================================================================================
 +    DXGI-VULKAN SWAPCHAIN INTEROP LIBRARY (dvk)
@@ -712,8 +768,6 @@
 +typedef struct dvk_perFrameResources_t
 +{
 +  dvk_sharedImage_t        sharedImage       = {};
-+  VkImage                  vkBlitImage       = VK_NULL_HANDLE;
-+  dvk_sharedImage_t        blitImage         = {};
 +  ID3D12CommandAllocator * pCommandAllocator = nullptr;
 +  uint64_t                 lastSubmitValue   = 0;
 +  uint64_t                 lastBlitValue     = 0;
@@ -728,8 +782,11 @@
 +
 +typedef uint8_t dvk_swapChainFlags_e;
 +
++#include <chrono>
 +typedef struct dvk_dxgiSwapChain_t
 +{
++  bool diagnostics = false;
++  double diagnostic_latency_ms = 0, diagnostic_allocator_ms = 0;
 +  dvk_functions_t *         pFunctions     = nullptr;
 +  dvk_allocator_t *         pAllocator     = nullptr;
 +  dvk_dxgiDeviceContext_t * pDeviceContext = nullptr;
@@ -741,6 +798,8 @@
 +  dvk_perFrameResources_t * pPerFrameResources           = nullptr;
 +  size_t                    pImportedSwapChainImageCount = 0;
 +
++  VkImage           vkBlitImage = VK_NULL_HANDLE;
++  dvk_sharedImage_t pBlitImage  = {};
 +
 +  VkImage * pExternalSwapChainImages = nullptr;
 +  VkImage * pSwapChainImages         = nullptr;
@@ -749,10 +808,6 @@
 +  HANDLE        fenceSharedHandle = INVALID_HANDLE_VALUE;
 +  VkSemaphore   semaphore         = VK_NULL_HANDLE;
 +  uint64_t      fenceValue        = 0;
-+  // One producer per timeline: Vulkan renders, D3D12 copies.
-+  ID3D12Fence * pCopyFence = nullptr;
-+  HANDLE copyFenceSharedHandle = INVALID_HANDLE_VALUE;
-+  VkSemaphore copySemaphore = VK_NULL_HANDLE;
 +
 +  VkImageUsageFlags usage        = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
 +  uint32_t          syncInterval = 1;
@@ -800,7 +855,6 @@
 +  dvk_perFrameResources_t *   pFrameResources = nullptr;
 +
 +  ID3D12Fence * pFence          = nullptr;
-+  ID3D12Fence * pCopyFence = nullptr;
 +  uint32_t      imageIndex      = 0;
 +  VkSemaphore   waitSemaphore   = VK_NULL_HANDLE;
 +  uint64_t      waitValue       = 0;
@@ -820,7 +874,6 @@
 +  dvk_perFrameResources_t *   pFrameResources = nullptr;
 +
 +  ID3D12Fence * pFence      = nullptr;
-+  ID3D12Fence * pCopyFence = nullptr;
 +  uint64_t      submitValue = 0;
 +  uint64_t      blitValue   = 0;
 +
@@ -1156,64 +1209,6 @@
 +    };
 +  }
 +
-+  if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
-+  {
-+  result = parameters.pDeviceContext->pD3D12Device->CreateFence( 0, D3D12_FENCE_FLAG_SHARED, IID_PPV_ARGS( &pSwapChain->pCopyFence ) );
-+  if ( FAILED( result ) )
-+  {
-+    dvk_destroySwapChain( pSwapChain );
-+    return dvk_result_t{
-+      .code    = DVK_ERROR_DX12,
-+      .message = DVK_PREPEND( "Failed to create the Fence object" ),
-+    };
-+  }
-+
-+  VkSemaphoreTypeCreateInfo typeInfo = { .sType = VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO, .semaphoreType = VK_SEMAPHORE_TYPE_TIMELINE };
-+
-+  VkSemaphoreCreateInfo semaphoreCreateInfo = {
-+    VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
-+  };
-+  typeInfo.pNext            = semaphoreCreateInfo.pNext;
-+  semaphoreCreateInfo.pNext = &typeInfo;
-+
-+  VkResult vulkanResult = pSwapChain->pFunctions->vkCreateSemaphore( parameters.pVulkanContext->device, &semaphoreCreateInfo, nullptr, &pSwapChain->copySemaphore );
-+  if ( vulkanResult != VK_SUCCESS )
-+  {
-+    dvk_destroySwapChain( pSwapChain );
-+    return dvk_result_t{
-+      .code    = DVK_ERROR_VULKAN,
-+      .message = DVK_PREPEND( "Failed to create the semaphore object" ),
-+    };
-+  }
-+
-+  result = parameters.pDeviceContext->pD3D12Device->CreateSharedHandle( pSwapChain->pCopyFence, nullptr, GENERIC_ALL, nullptr, &pSwapChain->copyFenceSharedHandle );
-+  if ( FAILED( result ) )
-+  {
-+    dvk_destroySwapChain( pSwapChain );
-+    return dvk_result_t{
-+      .code    = DVK_ERROR_DX12,
-+      .message = DVK_PREPEND( "Failed to get the fence shared handle" ),
-+    };
-+  }
-+
-+  VkImportSemaphoreWin32HandleInfoKHR importSemaphoreInfo = {
-+    .sType      = VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
-+    .semaphore  = pSwapChain->copySemaphore,
-+    .handleType = VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT,
-+    .handle     = pSwapChain->copyFenceSharedHandle,
-+  };
-+  vulkanResult = pSwapChain->pFunctions->vkImportSemaphoreWin32HandleKHR( parameters.pVulkanContext->device, &importSemaphoreInfo );
-+  if ( vulkanResult != VK_SUCCESS )
-+  {
-+    dvk_destroySwapChain( pSwapChain );
-+    return dvk_result_t{
-+      .code    = DVK_ERROR_VULKAN,
-+      .message = DVK_PREPEND( "Failed to import the fence shared handle" ),
-+    };
-+  }
-+
-+  }
-+
 +  return dvk_result_t{ .code = DVK_OK };
 +}
 +
@@ -1229,21 +1224,6 @@
 +    __dvk_waitIdle( pSwapChain );
 +  }
 +
-+  if ( pSwapChain->copySemaphore != VK_NULL_HANDLE )
-+  {
-+    pSwapChain->pFunctions->vkDestroySemaphore( pSwapChain->pVulkanContext->device, pSwapChain->copySemaphore, nullptr );
-+    pSwapChain->copySemaphore = VK_NULL_HANDLE;
-+  }
-+  if ( pSwapChain->copyFenceSharedHandle != INVALID_HANDLE_VALUE )
-+  {
-+    CloseHandle( pSwapChain->copyFenceSharedHandle );
-+    pSwapChain->copyFenceSharedHandle = INVALID_HANDLE_VALUE;
-+  }
-+  if ( pSwapChain->pCopyFence != nullptr )
-+  {
-+    pSwapChain->pCopyFence->Release();
-+    pSwapChain->pCopyFence = nullptr;
-+  }
 +  if ( pSwapChain->semaphore != VK_NULL_HANDLE )
 +  {
 +    pSwapChain->pFunctions->vkDestroySemaphore( pSwapChain->pVulkanContext->device, pSwapChain->semaphore, nullptr );
@@ -1354,7 +1334,14 @@
 +    return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Presentation info cannot be null" ) };
 +  }
 +
++  std::chrono::steady_clock::time_point diagnostic_began{};
++  if (pSwapChain->diagnostics) {
++    pSwapChain->diagnostic_latency_ms = pSwapChain->diagnostic_allocator_ms = 0;
++    diagnostic_began = std::chrono::steady_clock::now();
++  }
 +  const DWORD result = WaitForSingleObjectEx( pSwapChain->presentationWaitHandle, timeoutMs, false );
++  if (pSwapChain->diagnostics) pSwapChain->diagnostic_latency_ms =
++      std::chrono::duration<double,std::milli>(std::chrono::steady_clock::now()-diagnostic_began).count();
 +  if ( result != WAIT_OBJECT_0 )
 +  {
 +    if ( result == WAIT_TIMEOUT )
@@ -1374,9 +1361,12 @@
 +
 +  if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
 +  {
-+    if ( pFrameResources->lastBlitValue != 0 && pSwapChain->pCopyFence->GetCompletedValue() < pFrameResources->lastBlitValue )
++    if ( pFrameResources->lastBlitValue != 0 && pSwapChain->pFence->GetCompletedValue() < pFrameResources->lastBlitValue )
 +    {
-+      HRESULT dxResult = pSwapChain->pCopyFence->SetEventOnCompletion( pFrameResources->lastBlitValue, nullptr );
++      if (pSwapChain->diagnostics) diagnostic_began = std::chrono::steady_clock::now();
++      HRESULT dxResult = pSwapChain->pFence->SetEventOnCompletion( pFrameResources->lastBlitValue, nullptr );
++      if (pSwapChain->diagnostics) pSwapChain->diagnostic_allocator_ms =
++          std::chrono::duration<double,std::milli>(std::chrono::steady_clock::now()-diagnostic_began).count();
 +      if ( FAILED( dxResult ) )
 +      {
 +        return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error waiting for the blit fence to be signaled" ) };
@@ -1407,7 +1397,7 @@
 +    dst.Type      = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX;
 +    src.Type      = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX;
 +    dst.pResource = pFrameResources->sharedImage.pImage;
-+    src.pResource = pFrameResources->blitImage.pImage;
++    src.pResource = pSwapChain->pBlitImage.pImage;
 +    pSwapChain->pDeviceContext->pCommandList->CopyTextureRegion( &dst, 0, 0, 0, &src, nullptr );
 +
 +    barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
@@ -1423,11 +1413,10 @@
 +      };
 +    }
 +
-+    // Reuse only this slot's image. Other slots may render while D3D12 copies.
-+    // Equal values on TWO distinct timelines cannot signal each other early.
-+    waitFenceValue   = pFrameResources->lastBlitValue;
++    // When bliting the image to the backbuffer the synchronization is sequential, waiting on the single blit buffer
++    waitFenceValue   = pSwapChain->fenceValue;
 +    submitFenceValue = ++pSwapChain->fenceValue;
-+    blitFenceValue   = submitFenceValue;
++    blitFenceValue   = ++pSwapChain->fenceValue;
 +  }
 +  else
 +  {
@@ -1444,9 +1433,8 @@
 +                                                                  : nullptr,
 +                                               .pFrameResources = pFrameResources,
 +                                               .pFence          = pSwapChain->pFence,
-+                                               .pCopyFence      = pSwapChain->pCopyFence,
 +                                               .imageIndex      = imageIndex,
-+                                               .waitSemaphore   = pSwapChain->pCopyFence ? pSwapChain->copySemaphore : pSwapChain->semaphore,
++                                               .waitSemaphore   = pSwapChain->semaphore,
 +                                               .waitValue       = waitFenceValue,
 +                                               .submitSemaphore = pSwapChain->semaphore,
 +                                               .submitValue     = submitFenceValue,
@@ -1470,7 +1458,7 @@
 +  {
 +    presentParameters.pCommandQueue->ExecuteCommandLists( 1, ( (ID3D12CommandList **)&presentParameters.pCommandList ) );
 +
-+    result = presentParameters.pCommandQueue->Signal( presentParameters.pCopyFence, presentParameters.blitValue );
++    result = presentParameters.pCommandQueue->Signal( presentParameters.pFence, presentParameters.blitValue );
 +    if ( FAILED( result ) )
 +    {
 +      return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Failed to signal the blit fence" ) };
@@ -1567,7 +1555,7 @@
 +  }
 +
 +  // Create the blit image used for rendering and copy to the swapchain
-+  for ( size_t slot = 0; slot < swapChainImageCount && __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ); ++slot )
++  if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
 +  {
 +    D3D12_RESOURCE_DESC blitImageDesc = {};
 +    blitImageDesc.Width               = swapChainDesc.BufferDesc.Width;
@@ -1584,7 +1572,7 @@
 +    heapProps.Type                  = D3D12_HEAP_TYPE_DEFAULT;
 +
 +    result = pSwapChain->pDeviceContext->pD3D12Device->CreateCommittedResource(
-+      &heapProps, D3D12_HEAP_FLAG_SHARED, &blitImageDesc, D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS( &pSwapChain->pPerFrameResources[slot].blitImage.pImage ) );
++      &heapProps, D3D12_HEAP_FLAG_SHARED, &blitImageDesc, D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS( &pSwapChain->pBlitImage.pImage ) );
 +    if ( FAILED( result ) )
 +    {
 +      __dvk_destroySwapChainObjects( pSwapChain );
@@ -1594,8 +1582,8 @@
 +      };
 +    }
 +
-+    pSwapChain->pPerFrameResources[slot].blitImage.pVkImage = &pSwapChain->pPerFrameResources[slot].vkBlitImage;
-+    const dvk_result_t dvkResult    = __dvk_createSharedImage( pSwapChain, &pSwapChain->pPerFrameResources[slot].blitImage );
++    pSwapChain->pBlitImage.pVkImage = &pSwapChain->vkBlitImage;
++    const dvk_result_t dvkResult    = __dvk_createSharedImage( pSwapChain, &pSwapChain->pBlitImage );
 +    if ( dvk_isError( dvkResult ) )
 +    {
 +      __dvk_destroySwapChainObjects( pSwapChain );
@@ -1632,7 +1620,7 @@
 +    {
 +      if ( pSwapChain->pExternalSwapChainImages != nullptr )
 +      {
-+        pSwapChain->pExternalSwapChainImages[idx] = pPerFrameResources->vkBlitImage;
++        pSwapChain->pExternalSwapChainImages[idx] = pSwapChain->vkBlitImage;
 +      }
 +
 +      result = pSwapChain->pDeviceContext->pD3D12Device->CreateCommandAllocator( D3D12_COMMAND_LIST_TYPE_DIRECT,
@@ -1677,7 +1665,6 @@
 +    {
 +      dvk_perFrameResources_t * pImportedSwapChainImage = &pSwapChain->pPerFrameResources[idx];
 +      __dvk_destroySharedImage( pSwapChain, &pImportedSwapChainImage->sharedImage );
-+      __dvk_destroySharedImage( pSwapChain, &pImportedSwapChainImage->blitImage );
 +
 +      if ( pImportedSwapChainImage->pCommandAllocator != nullptr )
 +      {
@@ -1687,6 +1674,7 @@
 +    }
 +  }
 +
++  __dvk_destroySharedImage( pSwapChain, &pSwapChain->pBlitImage );
 +
 +  pSwapChain->pAllocator->free( pSwapChain->pPerFrameResources, pSwapChain->pAllocator->pContext );
 +  pSwapChain->pPerFrameResources = nullptr;
@@ -1951,15 +1939,14 @@
 +    return dvk_result_t{ .code = DVK_ERROR_VULKAN, .message = DVK_PREPEND( "Error waiting for vulkan device idle" ) };
 +  }
 +
-+  ID3D12Fence * drainFence = pSwapChain->pCopyFence ? pSwapChain->pCopyFence : pSwapChain->pFence;
-+  HRESULT result = pSwapChain->pDeviceContext->pCommandQueue->Signal( drainFence, ++pSwapChain->fenceValue );
++  HRESULT result = pSwapChain->pDeviceContext->pCommandQueue->Signal( pSwapChain->pFence, ++pSwapChain->fenceValue );
 +  if ( FAILED( result ) )
 +  {
 +    return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error signaling the D3D12 fence" ) };
 +  }
-+  if ( drainFence->GetCompletedValue() < pSwapChain->fenceValue )
++  if ( pSwapChain->pFence->GetCompletedValue() < pSwapChain->fenceValue )
 +  {
-+    result = drainFence->SetEventOnCompletion( pSwapChain->fenceValue, nullptr );
++    result = pSwapChain->pFence->SetEventOnCompletion( pSwapChain->fenceValue, nullptr );
 +    if ( FAILED( result ) )
 +    {
 +      return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error waiting for fence event" ) };
@@ -1975,7 +1962,7 @@
 +#endif
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc
-@@ -0,0 +1,302 @@
+@@ -0,0 +1,305 @@
 +#define OCB_DISPLAY_BUILD
 +#ifndef VK_NO_PROTOTYPES
 +#define VK_NO_PROTOTYPES
@@ -2129,13 +2116,18 @@
 +    sp.window = c.window; sp.width = static_cast<uint16_t>(c.width);
 +    sp.height = static_cast<uint16_t>(c.height);
 +    sp.imageCount = 3; sp.maximumLatency = 2; sp.syncInterval = 1;
-+    // Three ordinary shared images; only D3D12 accesses DXGI backbuffers.
-+    // Reuse waits on the same slot's copy, never an unrelated previous frame.
-+    // Separate render/copy timelines retain strict per-resource ownership.
++    // Render to an ordinary shared image. Only D3D12 accesses DXGI backbuffers.
++    // The next Vulkan frame waits for the prior D3D12 copy, not only for its
++    // own prior Vulkan render. Keep syncInterval=1 and the same resolution.
 +    sp.flags = DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG;
 +    if (!Check(dvk_createSwapChain(sp, &swap_))) { swap_ = {}; return false; }
 +    swap_ready_ = true;
++    swap_.diagnostics = c.diagnostics;
 +    return true;
++  }
++  void AcquireTimings(OcbDisplayAcquireTimings* t) const {
++    if (t) { t->latency_ms = swap_.diagnostic_latency_ms;
++             t->allocator_ms = swap_.diagnostic_allocator_ms; }
 +  }
 +  int Acquire(OcbDisplayFrame* out, uint32_t timeout) {
 +    if (!out || timeout > 250 || contract_.state() != FrameState::Idle) {
@@ -2149,14 +2141,12 @@
 +      contract_.Fail(); Error("Invalid image index or non-monotonic shared fence value.");
 +      return OCB_ERROR;
 +    }
-+    if (pending_.blitValue != pending_.submitValue ||
-+        !swap_.pPerFrameResources[pending_.imageIndex].vkBlitImage ||
-+        pending_.waitSemaphore == pending_.submitSemaphore) {
++    if (pending_.blitValue <= pending_.submitValue || !swap_.vkBlitImage) {
 +      contract_.Fail(); Error("Invalid shared-image copy timeline."); return OCB_ERROR;
 +    }
-+    auto image = swap_.pPerFrameResources[pending_.imageIndex].vkBlitImage;
++    auto image = swap_.vkBlitImage;
 +    *out = {image, pending_.imageIndex, pending_.submitValue,
-+        ocb::display::AcquireBarrier(image, c_.queue_family, shared_image_initialized_[pending_.imageIndex]),
++        ocb::display::AcquireBarrier(image, c_.queue_family, shared_image_initialized_),
 +        ocb::display::ReleaseBarrier(image, c_.queue_family)};
 +    return OCB_OK;
 +  }
@@ -2164,7 +2154,7 @@
 +    if (!frame || !cmd || contract_.state() != FrameState::Acquired ||
 +        frame->image_index != pending_.imageIndex ||
 +        frame->signal_value != pending_.submitValue ||
-+        frame->image != swap_.pPerFrameResources[pending_.imageIndex].vkBlitImage) {
++        frame->image != swap_.vkBlitImage) {
 +      Error("Submit rejected: no acquired frame or a stale frame token."); return OCB_ERROR;
 +    }
 +    VkTimelineSemaphoreSubmitInfo ti{VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO};
@@ -2186,21 +2176,19 @@
 +    return frame && contract_.state() == FrameState::Acquired &&
 +        frame->image_index == pending_.imageIndex &&
 +        frame->signal_value == pending_.submitValue &&
-+        frame->image == swap_.pPerFrameResources[pending_.imageIndex].vkBlitImage;
++        frame->image == swap_.vkBlitImage;
 +  }
 +  int GetImages(VkImage* images, uint32_t capacity) {
 +    if (!images || capacity < 3 || !swap_ready_) return OCB_ERROR;
-+    for (uint32_t i=0; i<3; ++i) images[i] = swap_.pPerFrameResources[i].vkBlitImage;
++    for (uint32_t i=0; i<3; ++i) images[i] = swap_.vkBlitImage;
 +    return OCB_OK;
 +  }
-+  int GetSync(const OcbDisplayFrame* frame, VkSemaphore* wait_semaphore,
-+              VkSemaphore* signal_semaphore,
++  int GetSync(const OcbDisplayFrame* frame, VkSemaphore* semaphore,
 +              uint64_t* wait_value, uint64_t* signal_value) {
-+    if (!ValidFrame(frame) || !wait_semaphore || !signal_semaphore || !wait_value || !signal_value) {
++    if (!ValidFrame(frame) || !semaphore || !wait_value || !signal_value) {
 +      Error("Invalid synchronization request."); return OCB_ERROR;
 +    }
-+    *wait_semaphore = pending_.waitSemaphore;
-+    *signal_semaphore = pending_.submitSemaphore;
++    *semaphore = pending_.waitSemaphore;
 +    *wait_value = pending_.waitValue; *signal_value = pending_.submitValue;
 +    return OCB_OK;
 +  }
@@ -2209,21 +2197,20 @@
 +      Error("Stale submitted frame."); return OCB_ERROR;
 +    }
 +    contract_.Submit(frame->image_index);
-+    shared_image_initialized_[pending_.imageIndex] = true;
++    shared_image_initialized_ = true;
 +    dvk_presentParameters_t p{};
 +    p.pSwapChain = pending_.pSwapChain; p.pCommandQueue = pending_.pCommandQueue;
 +    p.pCommandList = pending_.pCommandList; p.pFrameResources = pending_.pFrameResources;
-+    p.pFence = pending_.pFence; p.pCopyFence = pending_.pCopyFence;
-+    p.submitValue = pending_.submitValue;
++    p.pFence = pending_.pFence; p.submitValue = pending_.submitValue;
 +    p.blitValue = pending_.blitValue; p.syncInterval = 1; p.allowTearing = false;
 +    if (!Check(dvk_presentImage(p))) { contract_.Fail(); return OCB_ERROR; }
 +    contract_.Presented(); return OCB_OK;
 +  }
 +  int Cancel() {
 +    if (!contract_.Cancel()) { Error("Only an unsubmitted frame can be cancelled."); return OCB_ERROR; }
-+    // Roll back the unused global serial, NOT this slot's older reuse value.
-+    // Neither GPU timeline has been signaled for this canceled frame.
-+    swap_.fenceValue = pending_.submitValue - 1;
++    // No submission has happened. Both reserved render/copy values must be
++    // discarded; the next acquire may wait only on the last real copy signal.
++    swap_.fenceValue = pending_.waitValue;
 +    return OCB_OK;
 +  }
 +  const char* error() const { return error_; }
@@ -2238,7 +2225,7 @@
 +  dvk_presentationInfo_t pending_{};
 +  PFN_vkQueueSubmit submit_ = nullptr;
 +  bool device_ready_ = false, swap_ready_ = false;
-+  std::array<bool, 3> shared_image_initialized_{};
++  bool shared_image_initialized_ = false;
 +  FrameContract contract_;
 +  char error_[256]{};
 +};
@@ -2268,11 +2255,14 @@
 +  return p ? static_cast<Bridge*>(p)->GetImages(images, capacity) : OCB_ERROR;
 +}
 +extern "C" int OcbDisplayGetSync(void* p, const OcbDisplayFrame* f,
-+    VkSemaphore* wsem, VkSemaphore* ssem, uint64_t* w, uint64_t* v) {
-+  return p ? static_cast<Bridge*>(p)->GetSync(f, wsem, ssem, w, v) : OCB_ERROR;
++    VkSemaphore* s, uint64_t* w, uint64_t* v) {
++  return p ? static_cast<Bridge*>(p)->GetSync(f, s, w, v) : OCB_ERROR;
 +}
 +extern "C" int OcbDisplayPresentSubmitted(void* p, const OcbDisplayFrame* f) {
 +  return p ? static_cast<Bridge*>(p)->PresentSubmitted(f) : OCB_ERROR;
++}
++extern "C" void OcbDisplayGetAcquireTimings(void* p, OcbDisplayAcquireTimings* t) {
++  if (p) static_cast<Bridge*>(p)->AcquireTimings(t);
 +}
 +extern "C" const char* OcbDisplayLastError(void* p) {
 +  return p ? static_cast<Bridge*>(p)->error() : "Null display handle.";
@@ -2280,7 +2270,7 @@
 +extern "C" void OcbDisplayDestroy(void* p) { delete static_cast<Bridge*>(p); }
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h
-@@ -0,0 +1,72 @@
+@@ -0,0 +1,74 @@
 +#pragma once
 +#ifndef NOMINMAX
 +#define NOMINMAX
@@ -2295,8 +2285,8 @@
 +
 +// Development component, NOT a drop-in Xenia plug-in. The caller owns the
 +// VkInstance/VkDevice, queue synchronization, image views and command buffers.
-+// Calls for one handle are serialized by the presenter's painting mutex.
-+// The guest-output thread applies bounded display backpressure during gameplay.
++// All calls for one handle run on the same presentation thread. The Xenia GPU
++// emulation thread must not wait on DXGI frame latency.
 +#ifdef OCB_DISPLAY_STATIC
 +#define OCB_DISPLAY_API
 +#elif defined(OCB_DISPLAY_BUILD)
@@ -2318,9 +2308,11 @@
 +  // VkDevice enabled state cannot be queried after creation. These must be
 +  // copied from the actual VkDeviceCreateInfo, not inferred from support.
 +  VkBool32 timeline_enabled;
++  bool diagnostics = false;
 +  uint32_t enabled_extension_count;
 +  const char* const* enabled_extensions;
 +};
++struct OcbDisplayAcquireTimings { double latency_ms, allocator_ms; };
 +struct OcbDisplayFrame {
 +  VkImage image;
 +  uint32_t image_index;
@@ -2335,10 +2327,10 @@
 +                                      uint32_t error_capacity);
 +// Returns NOT_READY on a bounded DXGI wait, not a fatal initialization error.
 +OCB_DISPLAY_API int OcbDisplayAcquire(void*, OcbDisplayFrame*, uint32_t timeout_ms);
++OCB_DISPLAY_API void OcbDisplayGetAcquireTimings(void*, OcbDisplayAcquireTimings*);
 +OCB_DISPLAY_API int OcbDisplayGetImages(void*, VkImage* images, uint32_t capacity);
 +OCB_DISPLAY_API int OcbDisplayGetSync(void*, const OcbDisplayFrame*,
-+    VkSemaphore* wait_semaphore, VkSemaphore* signal_semaphore,
-+    uint64_t* wait_value, uint64_t* signal_value);
++    VkSemaphore* semaphore, uint64_t* wait_value, uint64_t* signal_value);
 +// Call ONLY after the caller's vkQueueSubmit succeeds. No Vulkan queue lock may
 +// be held here: DXGI presentation can wait for the display.
 +OCB_DISPLAY_API int OcbDisplayPresentSubmitted(void*, const OcbDisplayFrame*);
@@ -2490,87 +2482,118 @@
  
  #include "xenia/base/assert.h"
  #include "xenia/base/cvar.h"
-@@ -53,6 +57,76 @@
+@@ -53,6 +57,106 @@
      "Wait for presentation queue idle before each frame to prevent semaphore "
      "reuse. May fix rendering issues but causes significant performance loss.",
      "Vulkan");
 +
++DECLARE_bool(onechanbara_diagnostics);
++DECLARE_bool(onechanbara_guest_output);
++
 +namespace {
-+// CPU-side presentation timings, not GPU execution time.
-+// Aggregate at most once a second per painting thread to avoid log I/O stalls.
 +class OcbDisplayStageTimer {
 + public:
-+  explicit OcbDisplayStageTimer(bool active, bool ui_thread = false)
-+      : active_(active), ui_thread_(ui_thread), began_(Clock::now()),
-+        frame_began_(began_) {}
++  using Clock = std::chrono::steady_clock;
++  OcbDisplayStageTimer(OcbDisplayStatistics& stats, bool active,
++                      bool ui_thread, bool direct)
++      : stats_(stats), active_(active), ui_thread_(ui_thread), direct_(direct) {
++    if (active_) began_ = frame_began_ = Clock::now();
++  }
 +  ~OcbDisplayStageTimer() {
 +    if (!active_) return;
 +    FinishStage();
 +    const auto now = Clock::now();
-+    static thread_local Statistics stats;
-+    if (!stats.attempts) stats.began = frame_began_;
-+    ++stats.attempts;
-+    stats.presented += presented_ ? 1 : 0;
++    if (!stats_.attempts) stats_.began = frame_began_;
++    ++stats_.attempts;
++    stats_.ui_attempts += ui_thread_;
++    stats_.presented += presented_;
 +    const double frame_ms = Milliseconds(now - frame_began_);
-+    stats.total += frame_ms;
-+    stats.maximum = std::max(stats.maximum, frame_ms);
++    stats_.total += frame_ms;
++    stats_.maximum = std::max(stats_.maximum, frame_ms);
 +    for (size_t i = 0; i < times_.size(); ++i) {
-+      stats.stages[i] += times_[i];
-+      stats.max_stages[i] = std::max(stats.max_stages[i], times_[i]);
++      stats_.stages[i] += times_[i];
++      stats_.max_stages[i] = std::max(stats_.max_stages[i], times_[i]);
 +    }
-+    const double elapsed = Milliseconds(now - stats.began);
-+    if (elapsed >= 1000.0) {
-+      const double count = double(stats.attempts);
-+      XELOGI("Onechanbara display stats: thread={} period_ms={:.1f} "
-+             "attempts={} presented={} cpu_avg_ms={:.2f} cpu_max_ms={:.2f} "
-+             "completion_avg_max={:.2f}/{:.2f} prepare_avg_max={:.2f}/{:.2f} "
-+             "acquire_avg_max={:.2f}/{:.2f} record_avg_max={:.2f}/{:.2f} "
-+             "submit_avg_max={:.2f}/{:.2f} present_avg_max={:.2f}/{:.2f}",
-+             ui_thread_ ? "UI" : "guest-output", elapsed,
-+             stats.attempts, stats.presented, stats.total / count, stats.maximum,
-+             stats.stages[0] / count, stats.max_stages[0],
-+             stats.stages[1] / count, stats.max_stages[1],
-+             stats.stages[2] / count, stats.max_stages[2],
-+             stats.stages[3] / count, stats.max_stages[3],
-+             stats.stages[4] / count, stats.max_stages[4],
-+             stats.stages[5] / count, stats.max_stages[5]);
-+      stats = Statistics{};
++    if (presented_ && id_) {
++      const auto ns = std::chrono::duration_cast<std::chrono::nanoseconds>(
++          now.time_since_epoch()).count();
++      stats_.RecordFrame(id_, ns >= publish_ns_ ? double(ns-publish_ns_)/1.0e6 : 0.0);
 +    }
++    const double elapsed = Milliseconds(now-stats_.began);
++    if (elapsed < 1000.0) return;
++    const double n = double(stats_.attempts);
++    const double a = double(std::max<uint64_t>(1, stats_.acquire_calls));
++    const double f = double(std::max<uint64_t>(1, stats_.frame_samples));
++    XELOGI("Onechanbara diagnostic CPU: path={} generation={} steady_ns={} period_ms={:.1f} "
++           "attempts={} present_api_ok={} ui_calls={} guest_calls={} "
++           "cpu_avg_max={:.3f}/{:.3f} completion_avg_max={:.3f}/{:.3f} "
++           "prepare_avg_max={:.3f}/{:.3f} acquire_avg_max={:.3f}/{:.3f} "
++           "record_avg_max={:.3f}/{:.3f} submit_avg_max={:.3f}/{:.3f} "
++           "present_avg_max={:.3f}/{:.3f} latency_wait_avg_max={:.3f}/{:.3f} "
++           "allocator_wait_avg_max={:.3f}/{:.3f} acquire_calls={} acquire_timeouts={} acquire_errors={} "
++           "consumed_calls={} submitted={} allocated_latest_id={} consumed_latest_id={} "
++           "id_first={} id_last={} id_gaps={} id_max_gap={} duplicates={} regressions={} "
++           "publish_to_api_avg_max_ms={:.3f}/{:.3f}",
++           direct_ ? "direct" : "native", stats_.generation,
++           std::chrono::duration_cast<std::chrono::nanoseconds>(now.time_since_epoch()).count(),
++           elapsed,stats_.attempts,stats_.presented,stats_.ui_attempts,
++           stats_.attempts-stats_.ui_attempts,stats_.total/n,stats_.maximum,
++           stats_.stages[0]/n,stats_.max_stages[0],stats_.stages[1]/n,stats_.max_stages[1],
++           stats_.stages[2]/n,stats_.max_stages[2],stats_.stages[3]/n,stats_.max_stages[3],
++           stats_.stages[4]/n,stats_.max_stages[4],stats_.stages[5]/n,stats_.max_stages[5],
++           stats_.latency_wait/a,stats_.latency_wait_max,
++           stats_.allocator_wait/a,stats_.allocator_wait_max,
++           stats_.acquire_calls,stats_.acquire_timeouts,stats_.acquire_errors,
++           stats_.consumed,stats_.submitted,stats_.produced_latest,stats_.consumed_latest,
++           stats_.id_first,stats_.id_last,stats_.id_gaps,stats_.id_max_gap,
++           stats_.id_duplicates,stats_.id_regressions,stats_.age_total_ms/f,stats_.age_max_ms);
++    stats_.NewWindow();
 +  }
-+  void Stage(const char*) {
++  void Stage(size_t stage) {
 +    if (!active_) return;
 +    FinishStage();
-+    if (stage_ + 1 < times_.size()) ++stage_;
++    stage_ = stage;
 +    began_ = Clock::now();
 +  }
++  void Acquired(double latency, double allocator, int result) {
++    if (!active_) return;
++    ++stats_.acquire_calls;
++    stats_.latency_wait += latency;
++    stats_.latency_wait_max = std::max(stats_.latency_wait_max,latency);
++    stats_.allocator_wait += allocator;
++    stats_.allocator_wait_max = std::max(stats_.allocator_wait_max,allocator);
++    stats_.acquire_timeouts += result == 1;
++    stats_.acquire_errors += result < 0;
++  }
++  void Frame(uint64_t id, int64_t publish_ns, uint64_t produced) {
++    if (!active_) return;
++    id_ = id; publish_ns_ = publish_ns;
++    ++stats_.consumed; stats_.produced_latest = produced; stats_.consumed_latest = id;
++  }
++  void Submitted() { if (active_) ++stats_.submitted; }
 +  void Presented() { presented_ = true; }
 + private:
-+  using Clock = std::chrono::steady_clock;
-+  struct Statistics {
-+    Clock::time_point began{};
-+    uint64_t attempts = 0, presented = 0;
-+    double total = 0, maximum = 0;
-+    std::array<double, 6> stages{}, max_stages{};
-+  };
-+  static double Milliseconds(Clock::duration duration) {
-+    return std::chrono::duration<double, std::milli>(duration).count();
++  static double Milliseconds(Clock::duration t) {
++    return std::chrono::duration<double,std::milli>(t).count();
 +  }
-+  void FinishStage() {
-+    times_[stage_] += Milliseconds(Clock::now() - began_);
-+  }
-+  bool active_, ui_thread_, presented_ = false;
++  void FinishStage() { times_[stage_] += Milliseconds(Clock::now()-began_); }
++  OcbDisplayStatistics& stats_;
++  bool active_, ui_thread_, direct_, presented_ = false;
 +  size_t stage_ = 0;
-+  std::array<double, 6> times_{};
-+  Clock::time_point began_, frame_began_;
++  uint64_t id_ = 0;
++  int64_t publish_ns_ = 0;
++  std::array<double,6> times_{};
++  Clock::time_point began_{}, frame_began_{};
 +};
 +}  // namespace
  
  namespace xe {
  namespace ui {
-@@ -526,6 +600,50 @@
+@@ -526,6 +630,52 @@
    const VkDevice device = vulkan_device_->device();
  
    VkFormat new_swapchain_format;
++  paint_context_.direct_dxgi_ui_thread = std::this_thread::get_id();
 +
 +#if XE_PLATFORM_WIN32
 +  if (vulkan_device_->dxgi_display_enabled()) {
@@ -2594,6 +2617,7 @@
 +    config.window = window_surface.hwnd();
 +    config.width = new_surface_width; config.height = new_surface_height;
 +    config.timeline_enabled = VK_TRUE;
++    config.diagnostics = cvars::onechanbara_diagnostics;
 +    config.enabled_extension_count = 2;
 +    config.enabled_extensions = sharing_extensions;
 +    char error[256]{};
@@ -2610,7 +2634,7 @@
 +    // frame isn't replaced while waiting for a UI-thread paint notification.
 +    paint_context_.swapchain_is_fifo = true;
 +    new_swapchain_format = VK_FORMAT_R8G8B8A8_UNORM;
-+    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image ring, buffered-output-1, no driver profile",
++    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, diagnostic-output-1, no driver profile",
 +           new_surface_width, new_surface_height);
 +  } else
 +#endif
@@ -2618,7 +2642,7 @@
  
    // ConnectOrReconnectToSurfaceFromUIThread may be called only for the
    // ui::Surface of the current swapchain or when the old swapchain and
-@@ -647,6 +765,8 @@
+@@ -647,6 +797,8 @@
      // Successfully attached (at least for now).
    }
  
@@ -2627,7 +2651,7 @@
    // From now on, in case of failure,
    // paint_context_.DestroySwapchainAndVulkanSurface must be called before
    // returning.
-@@ -668,8 +788,10 @@
+@@ -668,8 +820,10 @@
      render_pass_attachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
      render_pass_attachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
      render_pass_attachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
@@ -2640,7 +2664,7 @@
      VkAttachmentReference render_pass_color_attachment;
      render_pass_color_attachment.attachment = 0;
      render_pass_color_attachment.layout =
-@@ -731,6 +853,17 @@
+@@ -731,6 +885,17 @@
          render_pass_attachment.loadOp == VK_ATTACHMENT_LOAD_OP_CLEAR;
    }
  
@@ -2658,7 +2682,7 @@
    // Get the swapchain images.
    paint_context_.swapchain_images.clear();
    VkResult swapchain_images_get_result;
-@@ -759,6 +892,8 @@
+@@ -759,6 +924,8 @@
      XELOGE("VulkanPresenter: Failed to get swapchain images");
      paint_context_.DestroySwapchainAndVulkanSurface();
      return SurfacePaintConnectResult::kFailure;
@@ -2667,7 +2691,7 @@
    }
  
    // Create the image views and the framebuffers.
-@@ -811,6 +946,7 @@
+@@ -811,6 +978,7 @@
      paint_context_.swapchain_framebuffers.emplace_back(image_view, framebuffer);
    }
  
@@ -2675,24 +2699,36 @@
    // Create per-swapchain-image present semaphores to avoid
    // VUID-vkQueueSubmit-pSignalSemaphores-00067 (semaphore reuse before the
    // previous present completes).
-@@ -834,6 +970,7 @@
+@@ -834,7 +1002,17 @@
          present_semaphore);
    }
  
 +  }
    is_vsync_implicit_out = paint_context_.swapchain_is_fifo;
++  if (cvars::onechanbara_diagnostics) {
++    diagnostic_cpu_ = {};
++    diagnostic_cpu_.generation = ++diagnostic_generation_;
++    XELOGI("Onechanbara diagnostic connection: revision=diagnostic-output-1 generation={} path={} "
++           "guest_preference={} implicit_vsync={} width={} height={} dxgi_ui_timeout_ms=16 dxgi_guest_timeout_ms=250 native_acquire_timeout_ns=UINT64_MAX",
++           diagnostic_generation_, paint_context_.direct_dxgi ? "direct" : "native",
++           cvars::onechanbara_guest_output, is_vsync_implicit_out,
++           paint_context_.swapchain_extent.width, paint_context_.swapchain_extent.height);
++  }
    return SurfacePaintConnectResult::kSuccess;
  }
-@@ -1276,7 +1413,7 @@
+ 
+@@ -1276,8 +1454,9 @@
  }
  
  VkSwapchainKHR VulkanPresenter::PaintContext::PrepareForSwapchainRetirement() {
 -  if (swapchain != VK_NULL_HANDLE) {
 +  if (swapchain != VK_NULL_HANDLE || direct_dxgi) {
      completion_timeline.AwaitAllSubmissions();
++    gpu_output_timing.DestroyAfterIdle();
      // Also wait for the presentation queue since vkQueuePresentKHR doesn't
      // signal a fence, and the present semaphores may still be in use.
-@@ -1312,6 +1449,12 @@
+     if (present_queue_family != UINT32_MAX) {
+@@ -1312,6 +1491,12 @@
      vulkan_device->functions().vkDestroySwapchainKHR(vulkan_device->device(),
                                                       old_swapchain, nullptr);
    }
@@ -2705,24 +2741,33 @@
    present_queue_family = UINT32_MAX;
    if (vulkan_surface != VK_NULL_HANDLE) {
      const VulkanInstance* vulkan_instance = vulkan_device->vulkan_instance();
-@@ -1394,6 +1537,8 @@
+@@ -1392,8 +1577,17 @@
+   return true;
+ }
  
++bool VulkanPresenter::PreferGuestOutputThreadWithImplicitVsync() const {
++  // With diagnostics disabled, retain native Xenia's scheduling policy.
++  return cvars::onechanbara_guest_output &&
++      (paint_context_.direct_dxgi != nullptr || cvars::onechanbara_diagnostics);
++}
++
  Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
      bool execute_ui_drawers) {
-+  OcbDisplayStageTimer display_timer(paint_context_.direct_dxgi != nullptr,
-+      std::this_thread::get_id() == paint_context_.direct_dxgi_ui_thread);
++  OcbDisplayStageTimer display_timer(diagnostic_cpu_, cvars::onechanbara_diagnostics,
++      std::this_thread::get_id() == paint_context_.direct_dxgi_ui_thread,
++      paint_context_.direct_dxgi != nullptr);
    // Begin the submission in place of the one not currently potentially used on
    // the GPU.
    const uint64_t current_paint_submission_index =
-@@ -1401,6 +1546,7 @@
+@@ -1401,6 +1595,7 @@
    uint64_t paint_submission_count = uint64_t(paint_context_.submissions.size());
    paint_context_.completion_timeline
        .AwaitMaxSubmissionsPendingAndUpdateCompleted(paint_submission_count);
-+  display_timer.Stage("command buffer preparation");
++  display_timer.Stage(1);
    const PaintContext::Submission& paint_submission =
        *paint_context_.submissions[current_paint_submission_index %
                                    paint_submission_count];
-@@ -1441,13 +1587,36 @@
+@@ -1441,13 +1636,42 @@
    // so we must wait for the present queue specifically.
    // TODO(has207): Proper fix requires per-swapchain-image semaphores.
    // See https://docs.vulkan.org/guide/latest/swapchain_semaphore_reuse.html
@@ -2741,15 +2786,20 @@
 +    // presentation waits. UI paints retain the short responsiveness bound.
 +    const bool ui_paint = std::this_thread::get_id() ==
 +        paint_context_.direct_dxgi_ui_thread;
-+    display_timer.Stage("DXGI acquire");
++    display_timer.Stage(2);
 +    const int result = OcbDisplayAcquire(paint_context_.direct_dxgi, &dxgi_frame,
 +                                         ui_paint ? 16 : 250);
++    if (cvars::onechanbara_diagnostics) {
++      OcbDisplayAcquireTimings t{};
++      OcbDisplayGetAcquireTimings(paint_context_.direct_dxgi, &t);
++      display_timer.Acquired(t.latency_ms, t.allocator_ms, result);
++    }
 +    if (result == OCB_NOT_READY) return PaintResult::kNotPresented;
 +    if (result != OCB_OK) {
 +      XELOGE("Direct DXGI acquire: {}", OcbDisplayLastError(paint_context_.direct_dxgi));
 +      return PaintResult::kNotPresentedConnectionOutdated;
 +    }
-+    display_timer.Stage("Vulkan image drawing");
++    display_timer.Stage(3);
 +    swapchain_image_index = dxgi_frame.image_index;
 +    dfn.vkCmdPipelineBarrier(draw_command_buffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT,
 +        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, 0, 0, nullptr, 0, nullptr,
@@ -2757,19 +2807,48 @@
 +  } else
 +#endif
 +  {
++  display_timer.Stage(2);
    VkResult acquire_result = dfn.vkAcquireNextImageKHR(
        device, paint_context_.swapchain, UINT64_MAX, acquire_semaphore,
        VK_NULL_HANDLE, &swapchain_image_index);
-@@ -1472,6 +1641,8 @@
-     default:
-       XELOGE("VulkanPresenter: Failed to acquire the swapchain image");
+@@ -1474,6 +1698,24 @@
        return PaintResult::kNotPresented;
-+  }
-+
    }
  
++  }
++
++  display_timer.Stage(3);
++  // Optional timestamps cover the final presentation GPU interval,
++  // possibly including semaphore stalls. They are not engine-busy time.
++  // The existing completion update suffices; the probe never adds a wait.
++  const auto& gpu_timing_ifn = vulkan_device_->vulkan_instance()->functions();
++  const OcbVulkanOutputGpuTiming::Context gpu_timing_context{
++      device, vulkan_device_->physical_device(),
++      vulkan_device_->queue_family_graphics_compute(),
++      gpu_timing_ifn.vkGetDeviceProcAddr,
++      gpu_timing_ifn.vkGetPhysicalDeviceProperties,
++      gpu_timing_ifn.vkGetPhysicalDeviceQueueFamilyProperties};
++  const int gpu_timing_slot = paint_context_.gpu_output_timing.Begin(
++      cvars::onechanbara_diagnostics, gpu_timing_context, draw_command_buffer,
++      current_paint_submission_index,
++      paint_context_.completion_timeline.GetCompletedSubmissionFromLastUpdate());
++
    // Non-zero extents needed for both the viewport (width must not be zero) and
-@@ -2033,8 +2204,19 @@
+   // the guest output rectangle.
+   assert_not_zero(paint_context_.swapchain_extent.width);
+@@ -1531,6 +1773,11 @@
+     // multiple threads can't paint the main target at the same time).
+   }
+ 
++  if (cvars::onechanbara_diagnostics) {
++    display_timer.Frame(guest_output_properties.diagnostic_id,
++                        guest_output_properties.diagnostic_publish_ns,
++                        DiagnosticProduced());
++  }
+   if (guest_output_image) {
+     VkExtent2D max_framebuffer_extent =
+         util::GetMax2DFramebufferExtent(vulkan_device_->properties());
+@@ -2033,8 +2280,20 @@
    }
  
    dfn.vkCmdEndRenderPass(draw_command_buffer);
@@ -2782,6 +2861,7 @@
 +        1, &dxgi_frame.release_barrier);
 +  }
 +#endif
++  paint_context_.gpu_output_timing.End(gpu_timing_slot, draw_command_buffer);
 +  if (dfn.vkEndCommandBuffer(draw_command_buffer) != VK_SUCCESS) {
 +#if XE_PLATFORM_WIN32
 +    if (paint_context_.direct_dxgi) OcbDisplayCancel(paint_context_.direct_dxgi);
@@ -2791,7 +2871,7 @@
  
    VkPipelineStageFlags acquire_semaphore_wait_stage =
        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
-@@ -2058,11 +2240,28 @@
+@@ -2058,11 +2317,29 @@
      paint_context_.ui_setup_command_buffer_current_index = SIZE_MAX;
    }
    command_buffers[command_buffer_count++] = draw_command_buffer;
@@ -2803,10 +2883,11 @@
 +#if XE_PLATFORM_WIN32
 +  if (paint_context_.direct_dxgi) {
 +    if (OcbDisplayGetSync(paint_context_.direct_dxgi, &dxgi_frame, &acquire_semaphore,
-+                         &present_semaphore, &dxgi_wait_value, &dxgi_signal_value) != OCB_OK) {
++                         &dxgi_wait_value, &dxgi_signal_value) != OCB_OK) {
 +      OcbDisplayCancel(paint_context_.direct_dxgi);
 +      return PaintResult::kNotPresentedConnectionOutdated;
 +    }
++    present_semaphore = acquire_semaphore;
 +    dxgi_timeline.waitSemaphoreValueCount = 1;
 +    dxgi_timeline.pWaitSemaphoreValues = &dxgi_wait_value;
 +    dxgi_timeline.signalSemaphoreValueCount = 1;
@@ -2823,15 +2904,15 @@
    submit_info.waitSemaphoreCount = 1;
    submit_info.pWaitSemaphores = &acquire_semaphore;
    submit_info.pWaitDstStageMask = &acquire_semaphore_wait_stage;
-@@ -2070,6 +2269,7 @@
+@@ -2070,6 +2347,7 @@
    submit_info.pCommandBuffers = command_buffers;
    submit_info.signalSemaphoreCount = 1;
    submit_info.pSignalSemaphores = &present_semaphore;
-+  display_timer.Stage("Vulkan queue submit");
++  display_timer.Stage(4);
    const VkResult submit_result =
        paint_context_.completion_timeline.AcquireFenceAndSubmit(
            vulkan_device_->queue_family_graphics_compute(), 0, 1, &submit_info);
-@@ -2085,6 +2285,9 @@
+@@ -2085,10 +2363,15 @@
        paint_context_.ui_setup_command_buffers[ui_setup_command_buffer_index]
            .last_usage_submission_index = 0;
      }
@@ -2841,14 +2922,19 @@
      // The image is in an acquired state - but now, it will be in it forever.
      // To avoid that, recreate the swapchain - don't return just kNotPresented.
      return PaintResult::kNotPresentedConnectionOutdated;
-@@ -2101,6 +2304,19 @@
-           vk::to_string(vk::Result(ui_signal_submit_result)));
+   }
++  display_timer.Submitted();
++  paint_context_.gpu_output_timing.Submitted(gpu_timing_slot);
+   if (execute_ui_drawers) {
+     // Also update the completion timeline providing submission indices to UI
+     // draw callbacks if submission is successful.
+@@ -2102,6 +2385,20 @@
      }
    }
-+
+ 
 +#if XE_PLATFORM_WIN32
 +  if (paint_context_.direct_dxgi) {
-+    display_timer.Stage("DXGI copy and present");
++    display_timer.Stage(5);
 +    // VulkanGPUCompletionTimeline released the Vulkan queue lock above.
 +    if (OcbDisplayPresentSubmitted(paint_context_.direct_dxgi, &dxgi_frame) == OCB_OK) {
 +      display_timer.Presented();
@@ -2858,30 +2944,60 @@
 +    return PaintResult::kNotPresentedConnectionOutdated;
 +  }
 +#endif
- 
++
++  display_timer.Stage(5);
    VkPresentInfoKHR present_info;
    present_info.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+   present_info.pNext = nullptr;
+@@ -2120,8 +2417,10 @@
+   }
+   switch (present_result) {
+     case VK_SUCCESS:
++      display_timer.Presented();
+       return PaintResult::kPresented;
+     case VK_SUBOPTIMAL_KHR:
++      display_timer.Presented();
+       return PaintResult::kPresentedSuboptimal;
+     case VK_ERROR_DEVICE_LOST:
+       XELOGE(
 --- a/src/xenia/ui/vulkan/vulkan_presenter.h
 +++ b/src/xenia/ui/vulkan/vulkan_presenter.h
-@@ -15,6 +15,7 @@
+@@ -15,6 +15,8 @@
  #include <cstddef>
  #include <cstdint>
  #include <memory>
 +#include <thread>
++#include "xenia/ui/onechanbara_diagnostic_statistics.h"
  #include <utility>
  #include <vector>
  
-@@ -155,6 +156,9 @@
+@@ -24,6 +26,7 @@
+ #include "xenia/ui/vulkan/ui_samplers.h"
+ #include "xenia/ui/vulkan/vulkan_device.h"
+ #include "xenia/ui/vulkan/vulkan_gpu_completion_timeline.h"
++#include "xenia/ui/vulkan/onechanbara_display/ocb_gpu_timing.h"
+ #include "xenia/ui/vulkan/vulkan_instance.h"
+ 
+ namespace xe {
+@@ -155,6 +158,9 @@
        uint32_t new_surface_height, bool was_paintable,
        bool& is_vsync_implicit_out) override;
    void DisconnectPaintingFromSurfaceFromUIThreadImpl() override;
-+  bool PreferGuestOutputThreadWithImplicitVsync() const override {
-+    return paint_context_.direct_dxgi != nullptr;
-+  }
++  bool PreferGuestOutputThreadWithImplicitVsync() const override;
++  OcbDisplayStatistics diagnostic_cpu_{};
++  uint64_t diagnostic_generation_ = 0;
  
    bool RefreshGuestOutputImpl(
        uint32_t mailbox_index, uint32_t frontbuffer_width,
-@@ -433,6 +437,9 @@
+@@ -389,6 +395,7 @@
+     std::array<std::unique_ptr<PaintContext::Submission>, kSubmissionCount>
+         submissions;
+     VulkanGPUCompletionTimeline completion_timeline;
++    OcbVulkanOutputGpuTiming gpu_output_timing;
+ 
+     std::array<GuestOutputPaintPipeline, size_t(GuestOutputPaintEffect::kCount)>
+         guest_output_paint_pipelines;
+@@ -433,6 +440,9 @@
      VkFormat swapchain_render_pass_format = VK_FORMAT_UNDEFINED;
      bool swapchain_render_pass_clear_load_op = false;
  
@@ -2893,18 +3009,21 @@
      VkSwapchainKHR swapchain = VK_NULL_HANDLE;
 --- a/src/xenia/ui/vulkan/vulkan_provider.cc
 +++ b/src/xenia/ui/vulkan/vulkan_provider.cc
-@@ -27,6 +27,10 @@
+@@ -27,6 +27,13 @@
               "Index of the preferred Vulkan physical device, or -1 to use any "
               "compatible device.",
               "Vulkan");
 +
++DEFINE_bool(onechanbara_guest_output, true,
++            "Diagnostic scheduling choice; retain the original UI safety checks.",
++            "Vulkan");
 +DEFINE_bool(vulkan_direct_dxgi, false,
 +            "Use application-owned DXGI output with Vulkan rendering on Windows.",
 +            "Vulkan");
  
  namespace xe {
  namespace ui {
-@@ -72,14 +76,14 @@
+@@ -72,14 +79,14 @@
      provider->vulkan_device_ = VulkanDevice::CreateIfSupported(
          provider->vulkan_instance_.get(),
          physical_devices[preferred_physical_device_index], with_gpu_emulation,

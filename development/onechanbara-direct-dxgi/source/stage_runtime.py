@@ -9,13 +9,15 @@ assert data[:2]==b'MZ' and data[offset:offset+4]==b'PE\0\0'
 assert struct.unpack_from('<H',data,offset+4)[0]==0x8664, 'Not AMD64'
 assert b'vulkan_direct_dxgi' in data, 'New display option missing'
 assert b'Onechanbara direct DXGI output' in data, 'New display implementation missing'
-assert b'shared image ring' in data, 'Shared image ring implementation missing'
-assert b'Onechanbara display stats' in data, 'Presentation statistics missing'
-assert b'buffered-output-1' in data, 'Paced output implementation missing'
+assert b'shared image copy' in data, 'Shared image copy implementation missing'
+assert b'Onechanbara diagnostic CPU' in data, 'CPU diagnostics missing'
+assert b'Onechanbara GPU output' in data, 'GPU diagnostics missing'
+assert b'onechanbara_guest_output' in data, 'Scheduling selector missing'
+assert b'diagnostic-output-1' in data, 'Paced output implementation missing'
 assert b'NvAPI_DRS' not in data, 'Unexpected profile-management implementation'
 out=Path('../runtime-output');out.mkdir(exist_ok=True)
 metadata={'version':'1.7','base':'b083312b8b18e07e6e410b82104191f126722794',
-          'display_revision':'buffered-output-1','windows_build':True,'architecture':'AMD64','gpu_play_test':False,
+          'display_revision':'diagnostic-output-1','windows_build':True,'architecture':'AMD64','gpu_play_test':False,
           'exe_bytes':len(data),'exe_sha256':hashlib.sha256(data).hexdigest()}
 with zipfile.ZipFile(out/'Onechanbara_DirectDXGI_Runtime_v1.7.zip','w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
     z.writestr('xenia_onechanbara.exe',data)
