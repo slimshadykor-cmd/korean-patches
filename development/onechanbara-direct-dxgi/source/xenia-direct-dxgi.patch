@@ -1,0 +1,2409 @@
+--- a/src/xenia/ui/vulkan/CMakeLists.txt
++++ b/src/xenia/ui/vulkan/CMakeLists.txt
+@@ -8,6 +8,11 @@
+ )
+ target_link_libraries(xenia-ui-vulkan PUBLIC xenia-base xenia-ui)
+ xe_target_defaults(xenia-ui-vulkan)
++if(WIN32)
++  target_sources(xenia-ui-vulkan PRIVATE
++    ${CMAKE_CURRENT_SOURCE_DIR}/onechanbara_display/vulkan_dxgi_bridge.cc)
++  target_compile_definitions(xenia-ui-vulkan PRIVATE OCB_DISPLAY_STATIC)
++endif()
+ 
+ if(XENIA_BUILD_MISC)
+   # Vulkan window demo
+--- /dev/null
++++ b/src/xenia/ui/vulkan/onechanbara_display/frame_contract.h
+@@ -0,0 +1,60 @@
++// Onechanbara display bridge development. No game state or driver profile access.
++#pragma once
++#include <cstdint>
++#include <vulkan/vulkan_core.h>
++
++namespace ocb::display {
++enum class FrameState { Idle, Acquired, Submitted, Failed };
++class FrameContract {
++ public:
++  bool Acquire(uint32_t index, uint64_t wait, uint64_t signal) {
++    if (state_ != FrameState::Idle || index >= 3 || !signal ||
++        signal <= wait || signal <= last_signal_) return false;
++    index_ = index; signal_ = signal; state_ = FrameState::Acquired;
++    return true;
++  }
++  bool Submit(uint32_t index) {
++    if (state_ != FrameState::Acquired || index != index_) return false;
++    last_signal_ = signal_; state_ = FrameState::Submitted;
++    return true;
++  }
++  bool Presented() {
++    if (state_ != FrameState::Submitted) return false;
++    state_ = FrameState::Idle; return true;
++  }
++  bool Cancel() {
++    if (state_ != FrameState::Acquired) return false;
++    state_ = FrameState::Idle; return true;
++  }
++  void Fail() { state_ = FrameState::Failed; }
++  FrameState state() const { return state_; }
++ private:
++  FrameState state_ = FrameState::Idle;
++  uint32_t index_ = 0;
++  uint64_t signal_ = 0, last_signal_ = 0;
++};
++
++inline VkImageMemoryBarrier AcquireBarrier(VkImage image, uint32_t family,
++                                           bool initialized) {
++  VkImageMemoryBarrier b{};
++  b.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
++  b.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_COLOR_ATTACHMENT_READ_BIT;
++  b.oldLayout = initialized ? VK_IMAGE_LAYOUT_GENERAL : VK_IMAGE_LAYOUT_UNDEFINED;
++  b.newLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
++  b.srcQueueFamilyIndex = VK_QUEUE_FAMILY_EXTERNAL;
++  b.dstQueueFamilyIndex = family;
++  b.image = image;
++  b.subresourceRange = {VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1};
++  return b;
++}
++inline VkImageMemoryBarrier ReleaseBarrier(VkImage image, uint32_t family) {
++  auto b = AcquireBarrier(image, family, true);
++  b.srcAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_COLOR_ATTACHMENT_READ_BIT;
++  b.dstAccessMask = 0;
++  b.oldLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
++  b.newLayout = VK_IMAGE_LAYOUT_GENERAL;
++  b.srcQueueFamilyIndex = family;
++  b.dstQueueFamilyIndex = VK_QUEUE_FAMILY_EXTERNAL;
++  return b;
++}
++}  // namespace ocb::display
+--- /dev/null
++++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE
+@@ -0,0 +1,121 @@
++Creative Commons Legal Code
++
++CC0 1.0 Universal
++
++    CREATIVE COMMONS CORPORATION IS NOT A LAW FIRM AND DOES NOT PROVIDE
++    LEGAL SERVICES. DISTRIBUTION OF THIS DOCUMENT DOES NOT CREATE AN
++    ATTORNEY-CLIENT RELATIONSHIP. CREATIVE COMMONS PROVIDES THIS
++    INFORMATION ON AN "AS-IS" BASIS. CREATIVE COMMONS MAKES NO WARRANTIES
++    REGARDING THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS
++    PROVIDED HEREUNDER, AND DISCLAIMS LIABILITY FOR DAMAGES RESULTING FROM
++    THE USE OF THIS DOCUMENT OR THE INFORMATION OR WORKS PROVIDED
++    HEREUNDER.
++
++Statement of Purpose
++
++The laws of most jurisdictions throughout the world automatically confer
++exclusive Copyright and Related Rights (defined below) upon the creator
++and subsequent owner(s) (each and all, an "owner") of an original work of
++authorship and/or a database (each, a "Work").
++
++Certain owners wish to permanently relinquish those rights to a Work for
++the purpose of contributing to a commons of creative, cultural and
++scientific works ("Commons") that the public can reliably and without fear
++of later claims of infringement build upon, modify, incorporate in other
++works, reuse and redistribute as freely as possible in any form whatsoever
++and for any purposes, including without limitation commercial purposes.
++These owners may contribute to the Commons to promote the ideal of a free
++culture and the further production of creative, cultural and scientific
++works, or to gain reputation or greater distribution for their Work in
++part through the use and efforts of others.
++
++For these and/or other purposes and motivations, and without any
++expectation of additional consideration or compensation, the person
++associating CC0 with a Work (the "Affirmer"), to the extent that he or she
++is an owner of Copyright and Related Rights in the Work, voluntarily
++elects to apply CC0 to the Work and publicly distribute the Work under its
++terms, with knowledge of his or her Copyright and Related Rights in the
++Work and the meaning and intended legal effect of CC0 on those rights.
++
++1. Copyright and Related Rights. A Work made available under CC0 may be
++protected by copyright and related or neighboring rights ("Copyright and
++Related Rights"). Copyright and Related Rights include, but are not
++limited to, the following:
++
++  i. the right to reproduce, adapt, distribute, perform, display,
++     communicate, and translate a Work;
++ ii. moral rights retained by the original author(s) and/or performer(s);
++iii. publicity and privacy rights pertaining to a person's image or
++     likeness depicted in a Work;
++ iv. rights protecting against unfair competition in regards to a Work,
++     subject to the limitations in paragraph 4(a), below;
++  v. rights protecting the extraction, dissemination, use and reuse of data
++     in a Work;
++ vi. database rights (such as those arising under Directive 96/9/EC of the
++     European Parliament and of the Council of 11 March 1996 on the legal
++     protection of databases, and under any national implementation
++     thereof, including any amended or successor version of such
++     directive); and
++vii. other similar, equivalent or corresponding rights throughout the
++     world based on applicable law or treaty, and any national
++     implementations thereof.
++
++2. Waiver. To the greatest extent permitted by, but not in contravention
++of, applicable law, Affirmer hereby overtly, fully, permanently,
++irrevocably and unconditionally waives, abandons, and surrenders all of
++Affirmer's Copyright and Related Rights and associated claims and causes
++of action, whether now known or unknown (including existing as well as
++future claims and causes of action), in the Work (i) in all territories
++worldwide, (ii) for the maximum duration provided by applicable law or
++treaty (including future time extensions), (iii) in any current or future
++medium and for any number of copies, and (iv) for any purpose whatsoever,
++including without limitation commercial, advertising or promotional
++purposes (the "Waiver"). Affirmer makes the Waiver for the benefit of each
++member of the public at large and to the detriment of Affirmer's heirs and
++successors, fully intending that such Waiver shall not be subject to
++revocation, rescission, cancellation, termination, or any other legal or
++equitable action to disrupt the quiet enjoyment of the Work by the public
++as contemplated by Affirmer's express Statement of Purpose.
++
++3. Public License Fallback. Should any part of the Waiver for any reason
++be judged legally invalid or ineffective under applicable law, then the
++Waiver shall be preserved to the maximum extent permitted taking into
++account Affirmer's express Statement of Purpose. In addition, to the
++extent the Waiver is so judged Affirmer hereby grants to each affected
++person a royalty-free, non transferable, non sublicensable, non exclusive,
++irrevocable and unconditional license to exercise Affirmer's Copyright and
++Related Rights in the Work (i) in all territories worldwide, (ii) for the
++maximum duration provided by applicable law or treaty (including future
++time extensions), (iii) in any current or future medium and for any number
++of copies, and (iv) for any purpose whatsoever, including without
++limitation commercial, advertising or promotional purposes (the
++"License"). The License shall be deemed effective as of the date CC0 was
++applied by Affirmer to the Work. Should any part of the License for any
++reason be judged legally invalid or ineffective under applicable law, such
++partial invalidity or ineffectiveness shall not invalidate the remainder
++of the License, and in such case Affirmer hereby affirms that he or she
++will not (i) exercise any of his or her remaining Copyright and Related
++Rights in the Work or (ii) assert any associated claims and causes of
++action with respect to the Work, in either case contrary to Affirmer's
++express Statement of Purpose.
++
++4. Limitations and Disclaimers.
++
++ a. No trademark or patent rights held by Affirmer are waived, abandoned,
++    surrendered, licensed or otherwise affected by this document.
++ b. Affirmer offers the Work as-is and makes no representations or
++    warranties of any kind concerning the Work, express, implied,
++    statutory or otherwise, including without limitation warranties of
++    title, merchantability, fitness for a particular purpose, non
++    infringement, or the absence of latent or other defects, accuracy, or
++    the present or absence of errors, whether or not discoverable, all to
++    the greatest extent permissible under applicable law.
++ c. Affirmer disclaims responsibility for clearing rights of other persons
++    that may apply to the Work or any use thereof, including without
++    limitation any person's Copyright and Related Rights in the Work.
++    Further, Affirmer disclaims responsibility for obtaining any necessary
++    consents, permissions or other rights required for any use of the
++    Work.
++ d. Affirmer understands and acknowledges that Creative Commons is not a
++    party to this document and has no duty or obligation with respect to
++    this CC0 or use of the Work.
+\ No newline at end of file
+--- /dev/null
++++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch
+@@ -0,0 +1,78 @@
++--- upstream/vk_dxgi.h
+++++ vendor/vk_dxgi.h
++@@ -81,7 +81,7 @@
++ struct ID3D12GraphicsCommandList;
++ struct ID3D12Resource;
++ struct ID3D12Fence;
++-enum D3D_FEATURE_LEVEL : int;
+++#include <d3dcommon.h>
++ 
++ typedef struct
++ {
++@@ -264,7 +264,8 @@
++ 
++ typedef enum dvk_result_e
++ {
++-  DVK_OK,
+++  DVK_NOT_READY = -1,
+++  DVK_OK = 0,
++   DVK_ERROR,
++   DVK_ERROR_VULKAN,
++   DVK_ERROR_DXGI,
++@@ -292,7 +293,7 @@
++ [[nodiscard]] static dvk_result_t dvk_resizeSwapChain( dvk_dxgiSwapChain_t * pSwapChain, uint16_t width, uint16_t height ) noexcept;
++ [[nodiscard]] static dvk_result_t dvk_changeSwapChainFormat( dvk_dxgiSwapChain_t * pSwapChain, VkFormat format ) noexcept;
++ 
++-[[nodiscard]] static dvk_result_t dvk_acquireImage( dvk_dxgiSwapChain_t * pSwapChain, dvk_presentationInfo_t * pPresentationInfo ) noexcept;
+++[[nodiscard]] static dvk_result_t dvk_acquireImage( dvk_dxgiSwapChain_t * pSwapChain, dvk_presentationInfo_t * pPresentationInfo, DWORD timeoutMs = 1000 ) noexcept;
++ [[nodiscard]] static dvk_result_t dvk_presentImage( const dvk_presentParameters_t & presentParameters ) noexcept;
++ 
++ [[nodiscard]] static dvk_result_t dvk_getSwapChainInfo( const dvk_dxgiSwapChain_t & swapChain, dvk_swapChainInfo_t * pInfo ) noexcept;
++@@ -467,8 +468,14 @@
++              DXGI_SWAP_CHAIN_FLAG_FRAME_LATENCY_WAITABLE_OBJECT,
++   };
++ 
+++  IDXGISwapChain1 * baseSwapChain = nullptr;
++   HRESULT result = parameters.pDeviceContext->pDxgiFactory->CreateSwapChainForHwnd(
++-    parameters.pDeviceContext->pCommandQueue, parameters.window, &swapChainDesc, NULL, NULL, (IDXGISwapChain1 **)&pSwapChain->pSwapChain );
+++    parameters.pDeviceContext->pCommandQueue, parameters.window, &swapChainDesc, NULL, NULL, &baseSwapChain );
+++  if ( SUCCEEDED( result ) )
+++  {
+++    result = baseSwapChain->QueryInterface( IID_PPV_ARGS( &pSwapChain->pSwapChain ) );
+++    baseSwapChain->Release();
+++  }
++ 
++   if ( FAILED( result ) )
++   {
++@@ -690,19 +697,19 @@
++   return __dvk_createSwapChainObjects( pSwapChain );
++ }
++ 
++-static dvk_result_t dvk_acquireImage( dvk_dxgiSwapChain_t * pSwapChain, dvk_presentationInfo_t * pPresentationInfo ) noexcept
+++static dvk_result_t dvk_acquireImage( dvk_dxgiSwapChain_t * pSwapChain, dvk_presentationInfo_t * pPresentationInfo, DWORD timeoutMs ) noexcept
++ {
++   if ( pPresentationInfo == nullptr )
++   {
++     return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Presentation info cannot be null" ) };
++   }
++ 
++-  const DWORD result = WaitForSingleObjectEx( pSwapChain->presentationWaitHandle, 1000, true );
+++  const DWORD result = WaitForSingleObjectEx( pSwapChain->presentationWaitHandle, timeoutMs, false );
++   if ( result != WAIT_OBJECT_0 )
++   {
++     if ( result == WAIT_TIMEOUT )
++     {
++-      return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Timeout while waiting for the presentation event" ) };
+++      return dvk_result_t{ .code = DVK_NOT_READY, .message = DVK_PREPEND( "Presentation event is not ready" ) };
++     }
++     return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Error while waiting for the presentation event" ) };
++   }
++@@ -1174,7 +1181,7 @@
++ 
++ inline void __dvk_destroySharedImage( const dvk_dxgiSwapChain_t * pSwapChain, dvk_sharedImage_t * pSharedImage ) noexcept
++ {
++-  if ( pSharedImage->pVkImage != nullptr && pSharedImage->pVkImage != VK_NULL_HANDLE )
+++  if ( pSharedImage->pVkImage != nullptr && *pSharedImage->pVkImage != VK_NULL_HANDLE )
++   {
++     pSwapChain->pFunctions->vkDestroyImage( pSwapChain->pVulkanContext->device, *pSharedImage->pVkImage, pSwapChain->pVulkanContext->pAllocationCallbacks );
++     *pSharedImage->pVkImage = VK_NULL_HANDLE;
+--- /dev/null
++++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h
+@@ -0,0 +1,1322 @@
++/*
++=============================================================================================
++    DXGI-VULKAN SWAPCHAIN INTEROP LIBRARY (dvk)
++    VERSION 1.3.1
++=============================================================================================
++
++    A header-only C++ library for managing a DXGI swapchain within a Vulkan
++    rendering context on Windows.
++
++    Why use this?
++    Vulkan's native Win32 presentation can sometimes struggle with precise frame pacing,
++    latency control, and tearing behaviors. By delegating the swapchain and presentation
++    to DXGI (DirectX Graphics Infrastructure) and rendering with Vulkan, you gain access
++    to DXGI Waitable Objects for perfect CPU-to-display pacing and robust HDR/VRR support,
++    while keeping your rendering pipeline purely in Vulkan.
++
++=============================================================================================
++    CHANGELOG
++=============================================================================================
++
++    v1.3.1
++      - Increase robustness of the swapchain blit path
++      - Ensure the blit path is selected if unordered access usage is required for the framebuffer
++
++    v1.3.0
++      - Add an option to copy to the present target instead of sharing the resource
++
++    v1.2.1
++      - Make failing to acquire the debug layers not a hard fail
++
++    v1.2.0
++      - Add support for changing the swap chain format
++
++    v1.1.1
++      - Minor type cleanup
++      - Fix missing swap chain deletion
++
++    v1.1.0
++      - Add support for external swap chain images
++      - Add a method to query the swap chain information
++
++    v1.0.0
++      - Initial release
++
++=============================================================================================
++    PREREQUISITES
++=============================================================================================
++
++    * VULKAN EXTENSIONS: Your Vulkan device MUST be created with the following extensions
++        - VK_KHR_external_memory_win32
++        - VK_KHR_external_semaphore_win32
++        - VK_KHR_timeline_semaphore
++
++    * TIMELINE SEMAPHORES: You must enable the `timelineSemaphore` feature when creating
++      your Vulkan Logical Device.
++
++=============================================================================================
++*/
++
++#ifndef DX_SWAP_VK_H
++#  define DX_SWAP_VK_H 1
++
++#  include <vulkan/vulkan.h>
++#  include <vulkan/vulkan_win32.h>
++
++#  ifndef DVK_PREPEND_MESSAGE
++#    define DVK_PREPEND_MESSAGE "[DVK] "
++#  endif
++#  define DVK_PREPEND( str ) DVK_PREPEND_MESSAGE str
++
++static const char * dvk_required_vulkan_extensions[] = { VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME,
++                                                         VK_KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME,
++                                                         VK_KHR_TIMELINE_SEMAPHORE_EXTENSION_NAME };
++
++struct IUnknown;
++struct IDXGIFactory5;
++struct IDXGISwapChain3;
++struct ID3D12Device5;
++struct ID3D12CommandAllocator;
++struct ID3D12CommandQueue;
++struct ID3D12GraphicsCommandList;
++struct ID3D12Resource;
++struct ID3D12Fence;
++#include <d3dcommon.h>
++
++typedef struct
++{
++  void * ( *allocate )( size_t size, size_t alignment, void * pContext );
++  void ( *free )( void * pAddress, void * pContext );
++
++  void * pContext;
++} dvk_allocator_t;
++
++typedef HRESULT( WINAPI * PFN_CREATE_DXGIFACTORY2 )( UINT, REFIID, void ** );
++typedef HRESULT( WINAPI * PFN_D3D12_CREATE_DEVICE )( _In_opt_ IUnknown *, D3D_FEATURE_LEVEL, _In_ REFIID, _COM_Outptr_opt_ void ** );
++typedef HRESULT( WINAPI * PFN_D3D12_GET_DEBUG_INTERFACE )( _In_ REFIID, _COM_Outptr_opt_ void ** );
++
++typedef struct dvk_functions_t
++{
++  PFN_CREATE_DXGIFACTORY2       pCreateFactory     = nullptr;
++  PFN_D3D12_CREATE_DEVICE       pCreateDevice      = nullptr;
++  PFN_D3D12_GET_DEBUG_INTERFACE pGetDebugInterface = nullptr;
++
++  PFN_vkCreateImage                       vkCreateImage                       = nullptr;
++  PFN_vkGetMemoryWin32HandlePropertiesKHR vkGetMemoryWin32HandlePropertiesKHR = nullptr;
++  PFN_vkGetImageMemoryRequirements        vkGetImageMemoryRequirements        = nullptr;
++  PFN_vkGetPhysicalDeviceMemoryProperties vkGetPhysicalDeviceMemoryProperties = nullptr;
++  PFN_vkAllocateMemory                    vkAllocateMemory                    = nullptr;
++  PFN_vkBindImageMemory                   vkBindImageMemory                   = nullptr;
++  PFN_vkCreateSemaphore                   vkCreateSemaphore                   = nullptr;
++  PFN_vkImportSemaphoreWin32HandleKHR     vkImportSemaphoreWin32HandleKHR     = nullptr;
++  PFN_vkDestroyImage                      vkDestroyImage                      = nullptr;
++  PFN_vkFreeMemory                        vkFreeMemory                        = nullptr;
++  PFN_vkDestroySemaphore                  vkDestroySemaphore                  = nullptr;
++  PFN_vkDeviceWaitIdle                    vkDeviceWaitIdle                    = nullptr;
++} dvk_functions_t;
++
++typedef struct dvk_vulkanContext_t
++{
++  VkPhysicalDevice        physicalDevice       = VK_NULL_HANDLE;
++  VkDevice                device               = VK_NULL_HANDLE;
++  VkAllocationCallbacks * pAllocationCallbacks = nullptr;
++} dvk_vulkanContext_t;
++
++typedef struct dvk_dxgiDeviceContext_t
++{
++  IDXGIFactory5 *             pDxgiFactory  = nullptr;
++  ID3D12Device5 *             pD3D12Device  = nullptr;
++  ID3D12CommandQueue *        pCommandQueue = nullptr;
++  ID3D12GraphicsCommandList * pCommandList  = nullptr;
++} dvk_dxgiDeviceContext_t;
++
++typedef struct dvk_sharedImage_t
++{
++  ID3D12Resource * pImage   = nullptr;
++  VkImage *        pVkImage = nullptr;
++  VkDeviceMemory   memory   = VK_NULL_HANDLE;
++  HANDLE           handle   = INVALID_HANDLE_VALUE;
++} dvk_sharedImage_t;
++
++typedef struct dvk_perFrameResources_t
++{
++  dvk_sharedImage_t        sharedImage       = {};
++  ID3D12CommandAllocator * pCommandAllocator = nullptr;
++  uint64_t                 lastSubmitValue   = 0;
++  uint64_t                 lastBlitValue     = 0;
++} dvk_perFrameResources_t;
++
++typedef enum dvk_swapChainFlagBits_e
++{
++  DVK_SWAPCHAIN_FLAG_NONE            = 0x00000000,
++  DVK_SWAPCHAIN_ALLOW_TEARING_FLAG   = 0x00000001,
++  DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG = 0x00000002,
++} dvk_swapChainFlagBits_e;
++
++typedef uint8_t dvk_swapChainFlags_e;
++
++typedef struct dvk_dxgiSwapChain_t
++{
++  dvk_functions_t *         pFunctions     = nullptr;
++  dvk_allocator_t *         pAllocator     = nullptr;
++  dvk_dxgiDeviceContext_t * pDeviceContext = nullptr;
++  dvk_vulkanContext_t *     pVulkanContext = nullptr;
++
++  IDXGISwapChain3 * pSwapChain             = nullptr;
++  HANDLE            presentationWaitHandle = NULL;
++
++  dvk_perFrameResources_t * pPerFrameResources           = nullptr;
++  size_t                    pImportedSwapChainImageCount = 0;
++
++  VkImage           vkBlitImage = VK_NULL_HANDLE;
++  dvk_sharedImage_t pBlitImage  = {};
++
++  VkImage * pExternalSwapChainImages = nullptr;
++  VkImage * pSwapChainImages         = nullptr;
++
++  ID3D12Fence * pFence            = nullptr;
++  HANDLE        fenceSharedHandle = INVALID_HANDLE_VALUE;
++  VkSemaphore   semaphore         = VK_NULL_HANDLE;
++  uint64_t      fenceValue        = 0;
++
++  VkImageUsageFlags usage        = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
++  uint32_t          syncInterval = 1;
++
++  dvk_swapChainFlags_e flags = DVK_SWAPCHAIN_FLAG_NONE;
++} dvk_dxgiSwapChain_t;
++
++typedef struct dvk_createDeviceParameters_t
++{
++  dvk_functions_t * pFunctions = nullptr;
++
++  LUID deviceLuid        = {};
++  bool enableDebugLayers = false;
++
++} dvk_createDeviceParameters_t;
++
++typedef struct dvk_createSwapChainParameters_t
++{
++  dvk_functions_t *         pFunctions     = nullptr;
++  dvk_allocator_t *         pAllocator     = nullptr;
++  dvk_dxgiDeviceContext_t * pDeviceContext = nullptr;
++  dvk_vulkanContext_t *     pVulkanContext = nullptr;
++
++  HWND      window                   = {};
++  VkImage * pExternalSwapChainImages = nullptr;
++
++  uint16_t width  = 1;
++  uint16_t height = 1;
++
++  VkFormat          format = VK_FORMAT_R8G8B8A8_UNORM;
++  VkImageUsageFlags usage  = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
++
++  uint8_t imageCount     = 2;
++  uint8_t maximumLatency = 1;
++
++  uint32_t             syncInterval = 1;
++  dvk_swapChainFlags_e flags        = DVK_SWAPCHAIN_FLAG_NONE;
++} dvk_createSwapChainParameters_t;
++
++typedef struct dvk_presentationInfo_t
++{
++  IDXGISwapChain3 *           pSwapChain      = nullptr;
++  ID3D12CommandQueue *        pCommandQueue   = nullptr;
++  ID3D12GraphicsCommandList * pCommandList    = nullptr;
++  dvk_perFrameResources_t *   pFrameResources = nullptr;
++
++  ID3D12Fence * pFence          = nullptr;
++  uint32_t      imageIndex      = 0;
++  VkSemaphore   waitSemaphore   = VK_NULL_HANDLE;
++  uint64_t      waitValue       = 0;
++  VkSemaphore   submitSemaphore = VK_NULL_HANDLE;
++  uint64_t      submitValue     = 0;
++  uint64_t      blitValue       = 0;
++
++  bool     allowTearing = false;
++  uint32_t syncInterval = 1;
++} dvk_presentationInfo_t;
++
++typedef struct dvk_presentParameters_t
++{
++  IDXGISwapChain3 *           pSwapChain      = nullptr;
++  ID3D12CommandQueue *        pCommandQueue   = nullptr;
++  ID3D12GraphicsCommandList * pCommandList    = nullptr;
++  dvk_perFrameResources_t *   pFrameResources = nullptr;
++
++  ID3D12Fence * pFence      = nullptr;
++  uint64_t      submitValue = 0;
++  uint64_t      blitValue   = 0;
++
++  bool     allowTearing = false;
++  uint32_t syncInterval = 1;
++
++} dvk_presentParameters_t;
++
++typedef struct dvk_swapChainInfo_t
++{
++  uint8_t imageCount;
++
++  uint16_t width;
++  uint16_t height;
++
++  VkFormat format;
++} dvk_swapChainInfo_t;
++
++typedef enum dvk_result_e
++{
++  DVK_NOT_READY = -1,
++  DVK_OK = 0,
++  DVK_ERROR,
++  DVK_ERROR_VULKAN,
++  DVK_ERROR_DXGI,
++  DVK_ERROR_DX12,
++  DVK_ERROR_ALLOCATOR,
++} dvk_result_e;
++
++typedef struct dvk_result_t
++{
++  dvk_result_e code;
++  char         message[128];
++} dvk_result_t;
++
++[[nodiscard]] static bool dvk_isError( const dvk_result_t & result ) noexcept
++{
++  return result.code >= DVK_ERROR;
++}
++
++[[nodiscard]] static dvk_result_t dvk_createDevice( const dvk_createDeviceParameters_t & parameters, dvk_dxgiDeviceContext_t * pContext ) noexcept;
++static void                       dvk_destroyDevice( const dvk_dxgiDeviceContext_t & context ) noexcept;
++
++[[nodiscard]] static dvk_result_t dvk_createSwapChain( const dvk_createSwapChainParameters_t & parameters, dvk_dxgiSwapChain_t * pSwapChain ) noexcept;
++static void                       dvk_destroySwapChain( dvk_dxgiSwapChain_t * pSwapChain ) noexcept;
++
++[[nodiscard]] static dvk_result_t dvk_resizeSwapChain( dvk_dxgiSwapChain_t * pSwapChain, uint16_t width, uint16_t height ) noexcept;
++[[nodiscard]] static dvk_result_t dvk_changeSwapChainFormat( dvk_dxgiSwapChain_t * pSwapChain, VkFormat format ) noexcept;
++
++[[nodiscard]] static dvk_result_t dvk_acquireImage( dvk_dxgiSwapChain_t * pSwapChain, dvk_presentationInfo_t * pPresentationInfo, DWORD timeoutMs = 1000 ) noexcept;
++[[nodiscard]] static dvk_result_t dvk_presentImage( const dvk_presentParameters_t & presentParameters ) noexcept;
++
++[[nodiscard]] static dvk_result_t dvk_getSwapChainInfo( const dvk_dxgiSwapChain_t & swapChain, dvk_swapChainInfo_t * pInfo ) noexcept;
++
++#endif
++
++#ifdef DX_SWAP_VK_IMPLEMENTATION
++
++#  include <d3d12.h>
++#  include <dxgi1_6.h>
++#  include <stdio.h>
++
++// =======================
++// Internal functions
++static dvk_result_t         __dvk_createSwapChainObjects( dvk_dxgiSwapChain_t * pSwapChain ) noexcept;
++static void                 __dvk_destroySwapChainObjects( dvk_dxgiSwapChain_t * pSwapChain ) noexcept;
++static dvk_result_t         __dvk_createSharedImage( const dvk_dxgiSwapChain_t * pSwapChain, dvk_sharedImage_t * pSharedImage ) noexcept;
++static void                 __dvk_destroySharedImage( const dvk_dxgiSwapChain_t * pSwapChain, dvk_sharedImage_t * pSharedImage ) noexcept;
++inline DXGI_FORMAT          __dvk_toDxgiFormat( VkFormat format ) noexcept;
++inline VkFormat             __dvk_toVkFormat( DXGI_FORMAT format ) noexcept;
++inline DXGI_USAGE           __dvk_toDxgiUsage( VkImageUsageFlags usage ) noexcept;
++inline D3D12_RESOURCE_FLAGS __dvk_toD3D12Usage( VkImageUsageFlags usage ) noexcept;
++inline VkImageUsageFlags    __dvk_toVkUsage( DXGI_USAGE usage ) noexcept;
++static dvk_result_t         __dvk_waitIdle( dvk_dxgiSwapChain_t * pSwapChain ) noexcept;
++static bool                 __dvk_hasSwapChainFlag( dvk_swapChainFlags_e flags, dvk_swapChainFlagBits_e testFlag ) noexcept;
++
++// =======================
++
++static dvk_result_t dvk_createDevice( const dvk_createDeviceParameters_t & parameters, dvk_dxgiDeviceContext_t * pContext ) noexcept
++{
++  HRESULT result = parameters.pFunctions->pCreateFactory( NULL, IID_PPV_ARGS( &pContext->pDxgiFactory ) );
++  if ( FAILED( result ) )
++  {
++    dvk_destroyDevice( *pContext );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DXGI,
++      .message = DVK_PREPEND( "Failed to create the DXGI factory" ),
++    };
++  }
++
++  if ( parameters.enableDebugLayers )
++  {
++    ID3D12Debug * pDebugController;
++    result = parameters.pFunctions->pGetDebugInterface( IID_PPV_ARGS( &pDebugController ) );
++    if ( SUCCEEDED( result ) )
++    {
++      ID3D12Debug1 * pDebugController1;
++      result = pDebugController->QueryInterface( IID_PPV_ARGS( &pDebugController1 ) );
++      if ( SUCCEEDED( result ) )
++      {
++        pDebugController1->EnableDebugLayer();
++        pDebugController1->SetEnableGPUBasedValidation( true );
++        pDebugController1->Release();
++      }
++
++      pDebugController->Release();
++    }
++  }
++
++  IDXGIAdapter * pDxgiAdapter = nullptr;
++  result                      = pContext->pDxgiFactory->EnumAdapterByLuid( parameters.deviceLuid, IID_PPV_ARGS( &pDxgiAdapter ) );
++  if ( FAILED( result ) )
++  {
++    dvk_destroyDevice( *pContext );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DXGI,
++      .message = DVK_PREPEND( "Failed to get the adapter by LUID" ),
++    };
++  }
++
++  result = parameters.pFunctions->pCreateDevice( pDxgiAdapter, D3D_FEATURE_LEVEL_11_0, IID_PPV_ARGS( &pContext->pD3D12Device ) );
++  if ( FAILED( result ) )
++  {
++    dvk_destroyDevice( *pContext );
++    pDxgiAdapter->Release();
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to create the DX12 device" ),
++    };
++  }
++  pDxgiAdapter->Release();
++
++  constexpr D3D12_COMMAND_QUEUE_DESC commandQueueDesc = {
++    D3D12_COMMAND_LIST_TYPE_DIRECT, D3D12_COMMAND_QUEUE_PRIORITY_NORMAL, D3D12_COMMAND_QUEUE_FLAG_NONE, 0
++  };
++
++  result = pContext->pD3D12Device->CreateCommandQueue( &commandQueueDesc, IID_PPV_ARGS( &pContext->pCommandQueue ) );
++  if ( FAILED( result ) )
++  {
++    dvk_destroyDevice( *pContext );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to create the DX12 command queue" ),
++    };
++  }
++
++  result =
++    pContext->pD3D12Device->CreateCommandList1( 0, D3D12_COMMAND_LIST_TYPE_DIRECT, D3D12_COMMAND_LIST_FLAG_NONE, IID_PPV_ARGS( &pContext->pCommandList ) );
++  if ( FAILED( result ) )
++  {
++    dvk_destroyDevice( *pContext );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to create the DX12 command list" ),
++    };
++  }
++
++  return dvk_result_t{ .code = DVK_OK };
++}
++
++static void dvk_destroyDevice( const dvk_dxgiDeviceContext_t & context ) noexcept
++{
++  if ( context.pCommandList != nullptr )
++  {
++    context.pCommandList->Release();
++  }
++  if ( context.pCommandQueue != nullptr )
++  {
++    context.pCommandQueue->Release();
++  }
++  if ( context.pD3D12Device != nullptr )
++  {
++    context.pD3D12Device->Release();
++  }
++  if ( context.pDxgiFactory != nullptr )
++  {
++    context.pDxgiFactory->Release();
++  }
++}
++
++static dvk_result_t dvk_createSwapChain( const dvk_createSwapChainParameters_t & parameters, dvk_dxgiSwapChain_t * pSwapChain ) noexcept
++{
++  dvk_swapChainFlags_e modifiedFlags = parameters.flags;
++  // DX12 forbids unordered access to presentable resources, if the application requires this usage, force blit mode
++  if ( parameters.usage & VK_IMAGE_USAGE_STORAGE_BIT )
++  {
++    modifiedFlags |= DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG;
++  }
++
++  pSwapChain->pFunctions               = parameters.pFunctions;
++  pSwapChain->pAllocator               = parameters.pAllocator;
++  pSwapChain->pDeviceContext           = parameters.pDeviceContext;
++  pSwapChain->pVulkanContext           = parameters.pVulkanContext;
++  pSwapChain->syncInterval             = parameters.syncInterval;
++  pSwapChain->flags                    = modifiedFlags;
++  pSwapChain->pExternalSwapChainImages = parameters.pExternalSwapChainImages;
++  pSwapChain->usage                    = parameters.usage;
++
++  const DXGI_FORMAT format = __dvk_toDxgiFormat( parameters.format );
++  if ( format == DXGI_FORMAT_UNKNOWN )
++  {
++    return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Invalid swap chain format" ) };
++  }
++
++  const DXGI_SWAP_CHAIN_DESC1 swapChainDesc = {
++    .Width  = parameters.width,
++    .Height = parameters.height,
++    .Format = format,
++    .Stereo = false,
++    .SampleDesc =
++      DXGI_SAMPLE_DESC{
++        .Count   = 1,
++        .Quality = 0,
++      },
++    .BufferUsage =
++      __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) ? DXGI_USAGE_RENDER_TARGET_OUTPUT : __dvk_toDxgiUsage( parameters.usage ),
++    .BufferCount = parameters.imageCount,
++    .Scaling     = DXGI_SCALING_NONE,
++    .SwapEffect  = DXGI_SWAP_EFFECT_FLIP_DISCARD,
++    .AlphaMode   = DXGI_ALPHA_MODE_IGNORE,
++    .Flags       = ( __dvk_hasSwapChainFlag( parameters.flags, DVK_SWAPCHAIN_ALLOW_TEARING_FLAG ) ? DXGI_SWAP_CHAIN_FLAG_ALLOW_TEARING : 0u ) |
++             DXGI_SWAP_CHAIN_FLAG_FRAME_LATENCY_WAITABLE_OBJECT,
++  };
++
++  IDXGISwapChain1 * baseSwapChain = nullptr;
++  HRESULT result = parameters.pDeviceContext->pDxgiFactory->CreateSwapChainForHwnd(
++    parameters.pDeviceContext->pCommandQueue, parameters.window, &swapChainDesc, NULL, NULL, &baseSwapChain );
++  if ( SUCCEEDED( result ) )
++  {
++    result = baseSwapChain->QueryInterface( IID_PPV_ARGS( &pSwapChain->pSwapChain ) );
++    baseSwapChain->Release();
++  }
++
++  if ( FAILED( result ) )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to create the DX12 swap chain" ),
++    };
++  }
++
++  pSwapChain->presentationWaitHandle = pSwapChain->pSwapChain->GetFrameLatencyWaitableObject();
++  // The failure case is defined as `NULL` in the specs:
++  // https://learn.microsoft.com/en-us/windows/win32/api/dxgi1_3/nf-dxgi1_3-idxgiswapchain2-getframelatencywaitableobject#return-value
++  if ( pSwapChain->presentationWaitHandle == NULL )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to get the presentation waitable object" ),
++    };
++  }
++
++  result = pSwapChain->pSwapChain->SetMaximumFrameLatency( parameters.maximumLatency );
++  if ( FAILED( result ) )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to set the maximum frame latency" ),
++    };
++  }
++
++  result = parameters.pDeviceContext->pDxgiFactory->MakeWindowAssociation( parameters.window, DXGI_MWA_NO_WINDOW_CHANGES );
++  if ( FAILED( result ) )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to set the window association" ),
++    };
++  }
++
++  const dvk_result_t dvkResult = __dvk_createSwapChainObjects( pSwapChain );
++  if ( dvk_isError( dvkResult ) )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvkResult;
++  }
++
++  result = parameters.pDeviceContext->pD3D12Device->CreateFence( 0, D3D12_FENCE_FLAG_SHARED, IID_PPV_ARGS( &pSwapChain->pFence ) );
++  if ( FAILED( result ) )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to create the Fence object" ),
++    };
++  }
++
++  VkSemaphoreTypeCreateInfo typeInfo = { .sType = VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO, .semaphoreType = VK_SEMAPHORE_TYPE_TIMELINE };
++
++  VkSemaphoreCreateInfo semaphoreCreateInfo = {
++    VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
++  };
++  typeInfo.pNext            = semaphoreCreateInfo.pNext;
++  semaphoreCreateInfo.pNext = &typeInfo;
++
++  VkResult vulkanResult = pSwapChain->pFunctions->vkCreateSemaphore( parameters.pVulkanContext->device, &semaphoreCreateInfo, nullptr, &pSwapChain->semaphore );
++  if ( vulkanResult != VK_SUCCESS )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvk_result_t{
++      .code    = DVK_ERROR_VULKAN,
++      .message = DVK_PREPEND( "Failed to create the semaphore object" ),
++    };
++  }
++
++  result = parameters.pDeviceContext->pD3D12Device->CreateSharedHandle( pSwapChain->pFence, nullptr, GENERIC_ALL, nullptr, &pSwapChain->fenceSharedHandle );
++  if ( FAILED( result ) )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to get the fence shared handle" ),
++    };
++  }
++
++  VkImportSemaphoreWin32HandleInfoKHR importSemaphoreInfo = {
++    .sType      = VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR,
++    .semaphore  = pSwapChain->semaphore,
++    .handleType = VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT,
++    .handle     = pSwapChain->fenceSharedHandle,
++  };
++  vulkanResult = pSwapChain->pFunctions->vkImportSemaphoreWin32HandleKHR( parameters.pVulkanContext->device, &importSemaphoreInfo );
++  if ( vulkanResult != VK_SUCCESS )
++  {
++    dvk_destroySwapChain( pSwapChain );
++    return dvk_result_t{
++      .code    = DVK_ERROR_VULKAN,
++      .message = DVK_PREPEND( "Failed to import the fence shared handle" ),
++    };
++  }
++
++  return dvk_result_t{ .code = DVK_OK };
++}
++
++static void dvk_destroySwapChain( dvk_dxgiSwapChain_t * pSwapChain ) noexcept
++{
++  if ( pSwapChain == nullptr )
++  {
++    return;
++  }
++
++  if ( pSwapChain->pFence )
++  {
++    __dvk_waitIdle( pSwapChain );
++  }
++
++  if ( pSwapChain->semaphore != VK_NULL_HANDLE )
++  {
++    pSwapChain->pFunctions->vkDestroySemaphore( pSwapChain->pVulkanContext->device, pSwapChain->semaphore, nullptr );
++    pSwapChain->semaphore = VK_NULL_HANDLE;
++  }
++  if ( pSwapChain->fenceSharedHandle != INVALID_HANDLE_VALUE )
++  {
++    CloseHandle( pSwapChain->fenceSharedHandle );
++    pSwapChain->fenceSharedHandle = INVALID_HANDLE_VALUE;
++  }
++  if ( pSwapChain->pFence != nullptr )
++  {
++    pSwapChain->pFence->Release();
++    pSwapChain->pFence = nullptr;
++  }
++  if ( pSwapChain->presentationWaitHandle != NULL )
++  {
++    CloseHandle( pSwapChain->presentationWaitHandle );
++    pSwapChain->presentationWaitHandle = NULL;
++  }
++
++  __dvk_destroySwapChainObjects( pSwapChain );
++
++  if ( pSwapChain->pSwapChain != nullptr )
++  {
++    pSwapChain->pSwapChain->Release();
++    pSwapChain->pSwapChain = nullptr;
++  }
++}
++
++static dvk_result_t dvk_resizeSwapChain( dvk_dxgiSwapChain_t * pSwapChain, uint16_t width, uint16_t height ) noexcept
++{
++  const dvk_result_t dvkResult = __dvk_waitIdle( pSwapChain );
++  if ( dvk_isError( dvkResult ) )
++  {
++    return dvkResult;
++  }
++
++  DXGI_SWAP_CHAIN_DESC swapChainDesc;
++  HRESULT              result = pSwapChain->pSwapChain->GetDesc( &swapChainDesc );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to get the swap chain description" ),
++    };
++  }
++  const uint32_t    swapChainImageCount = swapChainDesc.BufferCount;
++  const DXGI_FORMAT swapChainFormat     = swapChainDesc.BufferDesc.Format;
++
++  __dvk_destroySwapChainObjects( pSwapChain );
++
++  result = pSwapChain->pSwapChain->ResizeBuffers( swapChainImageCount, width, height, swapChainFormat, swapChainDesc.Flags );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{
++      .code    = DVK_ERROR_DXGI,
++      .message = DVK_PREPEND( "Failed to resize the DXGI buffer" ),
++    };
++  }
++
++  return __dvk_createSwapChainObjects( pSwapChain );
++}
++
++inline dvk_result_t dvk_changeSwapChainFormat( dvk_dxgiSwapChain_t * pSwapChain, VkFormat format ) noexcept
++{
++  const dvk_result_t dvkResult = __dvk_waitIdle( pSwapChain );
++  if ( dvk_isError( dvkResult ) )
++  {
++    return dvkResult;
++  }
++
++  DXGI_SWAP_CHAIN_DESC swapChainDesc;
++  HRESULT              result = pSwapChain->pSwapChain->GetDesc( &swapChainDesc );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to get the swap chain description" ),
++    };
++  }
++  const uint32_t    swapChainImageCount = swapChainDesc.BufferCount;
++  const DXGI_FORMAT swapChainFormat     = __dvk_toDxgiFormat( format );
++  if ( swapChainFormat == DXGI_FORMAT_UNKNOWN )
++  {
++    return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Invalid swap chain format" ) };
++  }
++
++  __dvk_destroySwapChainObjects( pSwapChain );
++
++  result = pSwapChain->pSwapChain->ResizeBuffers(
++    swapChainImageCount, swapChainDesc.BufferDesc.Width, swapChainDesc.BufferDesc.Height, swapChainFormat, swapChainDesc.Flags );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{
++      .code    = DVK_ERROR_DXGI,
++      .message = DVK_PREPEND( "Failed to resize the DXGI buffer" ),
++    };
++  }
++
++  return __dvk_createSwapChainObjects( pSwapChain );
++}
++
++static dvk_result_t dvk_acquireImage( dvk_dxgiSwapChain_t * pSwapChain, dvk_presentationInfo_t * pPresentationInfo, DWORD timeoutMs ) noexcept
++{
++  if ( pPresentationInfo == nullptr )
++  {
++    return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Presentation info cannot be null" ) };
++  }
++
++  const DWORD result = WaitForSingleObjectEx( pSwapChain->presentationWaitHandle, timeoutMs, false );
++  if ( result != WAIT_OBJECT_0 )
++  {
++    if ( result == WAIT_TIMEOUT )
++    {
++      return dvk_result_t{ .code = DVK_NOT_READY, .message = DVK_PREPEND( "Presentation event is not ready" ) };
++    }
++    return dvk_result_t{ .code = DVK_ERROR, .message = DVK_PREPEND( "Error while waiting for the presentation event" ) };
++  }
++
++  const uint32_t imageIndex = pSwapChain->pSwapChain->GetCurrentBackBufferIndex();
++
++  dvk_perFrameResources_t * pFrameResources = &pSwapChain->pPerFrameResources[imageIndex];
++
++  uint64_t waitFenceValue   = 0;
++  uint64_t submitFenceValue = 0;
++  uint64_t blitFenceValue   = 0;
++
++  if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
++  {
++    if ( pFrameResources->lastBlitValue != 0 && pSwapChain->pFence->GetCompletedValue() < pFrameResources->lastBlitValue )
++    {
++      HRESULT dxResult = pSwapChain->pFence->SetEventOnCompletion( pFrameResources->lastBlitValue, nullptr );
++      if ( FAILED( dxResult ) )
++      {
++        return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error waiting for the blit fence to be signaled" ) };
++      }
++    }
++
++    HRESULT dxResult = pFrameResources->pCommandAllocator->Reset();
++    if ( FAILED( dxResult ) )
++    {
++      return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Failed to reset the frame command allocator" ) };
++    }
++
++    dxResult = pSwapChain->pDeviceContext->pCommandList->Reset( pFrameResources->pCommandAllocator, nullptr );
++    if ( FAILED( dxResult ) )
++    {
++      return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Failed to reset the command list" ) };
++    }
++
++    D3D12_RESOURCE_BARRIER barrier = {};
++    barrier.Type                   = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
++    barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
++    barrier.Transition.pResource   = pFrameResources->sharedImage.pImage;
++    barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_PRESENT;
++    barrier.Transition.StateAfter  = D3D12_RESOURCE_STATE_COPY_DEST;
++    pSwapChain->pDeviceContext->pCommandList->ResourceBarrier( 1, &barrier );
++
++    D3D12_TEXTURE_COPY_LOCATION dst = {}, src = {};
++    dst.Type      = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX;
++    src.Type      = D3D12_TEXTURE_COPY_TYPE_SUBRESOURCE_INDEX;
++    dst.pResource = pFrameResources->sharedImage.pImage;
++    src.pResource = pSwapChain->pBlitImage.pImage;
++    pSwapChain->pDeviceContext->pCommandList->CopyTextureRegion( &dst, 0, 0, 0, &src, nullptr );
++
++    barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_DEST;
++    barrier.Transition.StateAfter  = D3D12_RESOURCE_STATE_PRESENT;
++    pSwapChain->pDeviceContext->pCommandList->ResourceBarrier( 1, &barrier );
++
++    dxResult = pSwapChain->pDeviceContext->pCommandList->Close();
++    if ( FAILED( dxResult ) )
++    {
++      return dvk_result_t{
++        .code    = DVK_ERROR_DX12,
++        .message = DVK_PREPEND( "Failed to close the command list" ),
++      };
++    }
++
++    // When bliting the image to the backbuffer the synchronization is sequential, waiting on the single blit buffer
++    waitFenceValue   = pSwapChain->fenceValue;
++    submitFenceValue = ++pSwapChain->fenceValue;
++    blitFenceValue   = ++pSwapChain->fenceValue;
++  }
++  else
++  {
++    // When sharing the memory, the synchronization is parallel: each present waits on its own back buffer
++    waitFenceValue                   = pFrameResources->lastSubmitValue;
++    submitFenceValue                 = ++pSwapChain->fenceValue;
++    pFrameResources->lastSubmitValue = submitFenceValue;
++  }
++
++  *pPresentationInfo = dvk_presentationInfo_t{ .pSwapChain      = pSwapChain->pSwapChain,
++                                               .pCommandQueue   = pSwapChain->pDeviceContext->pCommandQueue,
++                                               .pCommandList    = __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG )
++                                                                  ? pSwapChain->pDeviceContext->pCommandList
++                                                                  : nullptr,
++                                               .pFrameResources = pFrameResources,
++                                               .pFence          = pSwapChain->pFence,
++                                               .imageIndex      = imageIndex,
++                                               .waitSemaphore   = pSwapChain->semaphore,
++                                               .waitValue       = waitFenceValue,
++                                               .submitSemaphore = pSwapChain->semaphore,
++                                               .submitValue     = submitFenceValue,
++                                               .blitValue       = blitFenceValue,
++                                               .allowTearing    = __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_ALLOW_TEARING_FLAG ),
++                                               .syncInterval    = pSwapChain->syncInterval };
++
++  return dvk_result_t{ .code = DVK_OK };
++}
++
++static dvk_result_t dvk_presentImage( const dvk_presentParameters_t & presentParameters ) noexcept
++{
++  HRESULT result = presentParameters.pCommandQueue->Wait( presentParameters.pFence, presentParameters.submitValue );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Failed to wait for the VK submit fence" ) };
++  }
++
++  // A non null command list here means that we are doing a blit to back buffer
++  if ( presentParameters.pCommandList != nullptr )
++  {
++    presentParameters.pCommandQueue->ExecuteCommandLists( 1, ( (ID3D12CommandList **)&presentParameters.pCommandList ) );
++
++    result = presentParameters.pCommandQueue->Signal( presentParameters.pFence, presentParameters.blitValue );
++    if ( FAILED( result ) )
++    {
++      return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Failed to signal the blit fence" ) };
++    }
++  }
++  presentParameters.pFrameResources->lastBlitValue = presentParameters.blitValue;
++
++  const bool vsyncEnabled = presentParameters.syncInterval != 0;
++  const UINT flags        = ( !vsyncEnabled && presentParameters.allowTearing ) ? DXGI_PRESENT_ALLOW_TEARING : 0x0;
++
++  result = presentParameters.pSwapChain->Present( presentParameters.syncInterval, flags );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Failed to present the swap chain buffer" ) };
++  }
++
++  return dvk_result_t{ .code = DVK_OK };
++}
++
++static dvk_result_t dvk_getSwapChainInfo( const dvk_dxgiSwapChain_t & swapChain, dvk_swapChainInfo_t * pInfo ) noexcept
++{
++  if ( pInfo == nullptr )
++  {
++    return dvk_result_t{ .code = DVK_ERROR, .message = "Swap chain info cannot be null" };
++  }
++
++  DXGI_SWAP_CHAIN_DESC swapChainDesc;
++  HRESULT              result = swapChain.pSwapChain->GetDesc( &swapChainDesc );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to get the swap chain description" ),
++    };
++  }
++
++  *pInfo = dvk_swapChainInfo_t{
++    .imageCount = (uint8_t)swapChainDesc.BufferCount,
++    .width      = (uint16_t)swapChainDesc.BufferDesc.Width,
++    .height     = (uint16_t)swapChainDesc.BufferDesc.Height,
++    .format     = __dvk_toVkFormat( swapChainDesc.BufferDesc.Format ),
++  };
++
++  return dvk_result_t{ .code = DVK_OK };
++}
++
++static dvk_result_t __dvk_createSwapChainObjects( dvk_dxgiSwapChain_t * pSwapChain ) noexcept
++{
++  DXGI_SWAP_CHAIN_DESC swapChainDesc;
++  HRESULT              result = pSwapChain->pSwapChain->GetDesc( &swapChainDesc );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to get the swap chain description" ),
++    };
++  }
++  const uint32_t swapChainImageCount       = swapChainDesc.BufferCount;
++  pSwapChain->pImportedSwapChainImageCount = swapChainImageCount;
++
++  // If we are not using an external array of swap chain images, allocate one
++  if ( pSwapChain->pExternalSwapChainImages == nullptr )
++  {
++    pSwapChain->pSwapChainImages =
++      (VkImage *)pSwapChain->pAllocator->allocate( swapChainImageCount * sizeof( VkImage ), 16u, pSwapChain->pAllocator->pContext );
++    if ( pSwapChain->pSwapChainImages == nullptr )
++    {
++      return dvk_result_t{
++        .code    = DVK_ERROR_ALLOCATOR,
++        .message = DVK_PREPEND( "Failed to allocate the memory for the vulkan swap chain images" ),
++      };
++    }
++    for ( size_t idx = 0; idx < swapChainImageCount; ++idx )
++    {
++      pSwapChain->pSwapChainImages[idx] = VK_NULL_HANDLE;
++    }
++  }
++
++  {
++    pSwapChain->pPerFrameResources = (dvk_perFrameResources_t *)pSwapChain->pAllocator->allocate(
++      swapChainImageCount * sizeof( dvk_perFrameResources_t ), 16u, pSwapChain->pAllocator->pContext );
++    if ( pSwapChain->pPerFrameResources == nullptr )
++    {
++      return dvk_result_t{
++        .code    = DVK_ERROR_ALLOCATOR,
++        .message = DVK_PREPEND( "Failed to allocate the memory for the dx12 swap chain images" ),
++      };
++    }
++
++    for ( size_t idx = 0; idx < swapChainImageCount; ++idx )
++    {
++      pSwapChain->pPerFrameResources[idx] = dvk_perFrameResources_t{};
++    }
++  }
++
++  // Create the blit image used for rendering and copy to the swapchain
++  if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
++  {
++    D3D12_RESOURCE_DESC blitImageDesc = {};
++    blitImageDesc.Width               = swapChainDesc.BufferDesc.Width;
++    blitImageDesc.Height              = swapChainDesc.BufferDesc.Height;
++    blitImageDesc.Format              = swapChainDesc.BufferDesc.Format;
++    blitImageDesc.Flags               = __dvk_toD3D12Usage( pSwapChain->usage );
++    blitImageDesc.SampleDesc.Count    = 1;
++    blitImageDesc.DepthOrArraySize    = 1;
++    blitImageDesc.MipLevels           = 1;
++    blitImageDesc.Layout              = D3D12_TEXTURE_LAYOUT_UNKNOWN;
++    blitImageDesc.Dimension           = D3D12_RESOURCE_DIMENSION_TEXTURE2D;
++
++    D3D12_HEAP_PROPERTIES heapProps = {};
++    heapProps.Type                  = D3D12_HEAP_TYPE_DEFAULT;
++
++    result = pSwapChain->pDeviceContext->pD3D12Device->CreateCommittedResource(
++      &heapProps, D3D12_HEAP_FLAG_SHARED, &blitImageDesc, D3D12_RESOURCE_STATE_COMMON, nullptr, IID_PPV_ARGS( &pSwapChain->pBlitImage.pImage ) );
++    if ( FAILED( result ) )
++    {
++      __dvk_destroySwapChainObjects( pSwapChain );
++      return dvk_result_t{
++        .code    = DVK_ERROR_DX12,
++        .message = DVK_PREPEND( "Failed to create the blit image" ),
++      };
++    }
++
++    pSwapChain->pBlitImage.pVkImage = &pSwapChain->vkBlitImage;
++    const dvk_result_t dvkResult    = __dvk_createSharedImage( pSwapChain, &pSwapChain->pBlitImage );
++    if ( dvk_isError( dvkResult ) )
++    {
++      __dvk_destroySwapChainObjects( pSwapChain );
++      return dvkResult;
++    }
++  }
++
++  for ( size_t idx = 0; idx < swapChainImageCount; ++idx )
++  {
++    dvk_perFrameResources_t * pPerFrameResources = &pSwapChain->pPerFrameResources[idx];
++    result                                       = pSwapChain->pSwapChain->GetBuffer( (uint32_t)idx, IID_PPV_ARGS( &pPerFrameResources->sharedImage.pImage ) );
++    if ( FAILED( result ) )
++    {
++      __dvk_destroySwapChainObjects( pSwapChain );
++      return dvk_result_t{
++        .code    = DVK_ERROR_DX12,
++        .message = DVK_PREPEND( "Failed to get the swap chain images" ),
++      };
++    }
++
++    wchar_t imageName[32];
++    _snwprintf_s( imageName, _countof( imageName ), _TRUNCATE, L"SwapChainImage-%zu", idx );
++    result = pPerFrameResources->sharedImage.pImage->SetName( imageName );
++    if ( FAILED( result ) )
++    {
++      __dvk_destroySwapChainObjects( pSwapChain );
++      return dvk_result_t{
++        .code    = DVK_ERROR_DX12,
++        .message = DVK_PREPEND( "Failed to set the swap chain image name" ),
++      };
++    }
++
++    if ( __dvk_hasSwapChainFlag( pSwapChain->flags, DVK_SWAPCHAIN_BACKBUFFER_BLIT_FLAG ) )
++    {
++      if ( pSwapChain->pExternalSwapChainImages != nullptr )
++      {
++        pSwapChain->pExternalSwapChainImages[idx] = pSwapChain->vkBlitImage;
++      }
++
++      result = pSwapChain->pDeviceContext->pD3D12Device->CreateCommandAllocator( D3D12_COMMAND_LIST_TYPE_DIRECT,
++                                                                                 IID_PPV_ARGS( &pPerFrameResources->pCommandAllocator ) );
++      if ( FAILED( result ) )
++      {
++        __dvk_destroySwapChainObjects( pSwapChain );
++        return dvk_result_t{
++          .code    = DVK_ERROR_DX12,
++          .message = DVK_PREPEND( "Failed to create the frame command allocator" ),
++        };
++      }
++    }
++    else
++    {
++      if ( pSwapChain->pExternalSwapChainImages != nullptr )
++      {
++        pPerFrameResources->sharedImage.pVkImage = &pSwapChain->pExternalSwapChainImages[idx];
++      }
++      else
++      {
++        pPerFrameResources->sharedImage.pVkImage = &pSwapChain->pSwapChainImages[idx];
++      }
++
++      const dvk_result_t dvkResult = __dvk_createSharedImage( pSwapChain, &pPerFrameResources->sharedImage );
++      if ( dvk_isError( dvkResult ) )
++      {
++        __dvk_destroySwapChainObjects( pSwapChain );
++        return dvkResult;
++      }
++    }
++  }
++
++  return dvk_result_t{ .code = DVK_OK };
++}
++
++static void __dvk_destroySwapChainObjects( dvk_dxgiSwapChain_t * pSwapChain ) noexcept
++{
++  if ( pSwapChain->pPerFrameResources != nullptr )
++  {
++    for ( size_t idx = 0; idx < pSwapChain->pImportedSwapChainImageCount; ++idx )
++    {
++      dvk_perFrameResources_t * pImportedSwapChainImage = &pSwapChain->pPerFrameResources[idx];
++      __dvk_destroySharedImage( pSwapChain, &pImportedSwapChainImage->sharedImage );
++
++      if ( pImportedSwapChainImage->pCommandAllocator != nullptr )
++      {
++        pImportedSwapChainImage->pCommandAllocator->Release();
++        pImportedSwapChainImage->pCommandAllocator = nullptr;
++      }
++    }
++  }
++
++  __dvk_destroySharedImage( pSwapChain, &pSwapChain->pBlitImage );
++
++  pSwapChain->pAllocator->free( pSwapChain->pPerFrameResources, pSwapChain->pAllocator->pContext );
++  pSwapChain->pPerFrameResources = nullptr;
++  if ( pSwapChain->pSwapChainImages != nullptr )
++  {
++    pSwapChain->pAllocator->free( pSwapChain->pSwapChainImages, pSwapChain->pAllocator->pContext );
++    pSwapChain->pSwapChainImages = nullptr;
++  }
++  pSwapChain->pImportedSwapChainImageCount = 0;
++}
++
++inline dvk_result_t __dvk_createSharedImage( const dvk_dxgiSwapChain_t * pSwapChain, dvk_sharedImage_t * pSharedImage ) noexcept
++{
++  // This function expects the D3D12 and Vulkan images to be valid
++  if ( pSharedImage->pImage == nullptr || pSharedImage->pVkImage == nullptr )
++  {
++    return dvk_result_t{
++      .code    = DVK_ERROR,
++      .message = DVK_PREPEND( "One of the required shared image resource was invalid" ),
++    };
++  }
++
++  VkPhysicalDeviceMemoryProperties deviceMemoryProperties;
++  pSwapChain->pFunctions->vkGetPhysicalDeviceMemoryProperties( pSwapChain->pVulkanContext->physicalDevice, &deviceMemoryProperties );
++
++  const D3D12_RESOURCE_DESC imageDesc = pSharedImage->pImage->GetDesc();
++
++  VkExternalMemoryImageCreateInfo externalMemoryImageCreateInfo = {
++    .sType       = VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO,
++    .pNext       = nullptr,
++    .handleTypes = VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT,
++  };
++  VkImageCreateInfo imageCreateInfo{
++    .sType         = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO,
++    .pNext         = &externalMemoryImageCreateInfo,
++    .imageType     = VK_IMAGE_TYPE_2D,
++    .format        = __dvk_toVkFormat( imageDesc.Format ),
++    .extent        = VkExtent3D{ .width = (uint32_t)imageDesc.Width, .height = (uint32_t)imageDesc.Height, .depth = 1 },
++    .mipLevels     = 1,
++    .arrayLayers   = 1,
++    .samples       = VK_SAMPLE_COUNT_1_BIT,
++    .tiling        = VK_IMAGE_TILING_OPTIMAL,
++    .usage         = pSwapChain->usage,
++    .initialLayout = VK_IMAGE_LAYOUT_UNDEFINED,
++  };
++  VkResult vkResult = pSwapChain->pFunctions->vkCreateImage(
++    pSwapChain->pVulkanContext->device, &imageCreateInfo, pSwapChain->pVulkanContext->pAllocationCallbacks, pSharedImage->pVkImage );
++  if ( vkResult != VK_SUCCESS )
++  {
++    __dvk_destroySharedImage( pSwapChain, pSharedImage );
++    return dvk_result_t{
++      .code    = DVK_ERROR_VULKAN,
++      .message = DVK_PREPEND( "Failed to create corresponding Vulkan image" ),
++    };
++  }
++
++  HRESULT result = pSwapChain->pDeviceContext->pD3D12Device->CreateSharedHandle( pSharedImage->pImage, nullptr, GENERIC_ALL, nullptr, &pSharedImage->handle );
++  if ( FAILED( result ) )
++  {
++    __dvk_destroySharedImage( pSwapChain, pSharedImage );
++    return dvk_result_t{
++      .code    = DVK_ERROR_DX12,
++      .message = DVK_PREPEND( "Failed to create swap chain image shared handle" ),
++    };
++  }
++
++  VkMemoryWin32HandlePropertiesKHR dxgiMemoryRequirements{ .sType          = VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR,
++                                                           .pNext          = nullptr,
++                                                           .memoryTypeBits = 0xffffffff };
++  vkResult = pSwapChain->pFunctions->vkGetMemoryWin32HandlePropertiesKHR(
++    pSwapChain->pVulkanContext->device, VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT, pSharedImage->handle, &dxgiMemoryRequirements );
++  if ( vkResult != VK_SUCCESS )
++  {
++    __dvk_destroySharedImage( pSwapChain, pSharedImage );
++    return dvk_result_t{
++      .code    = DVK_ERROR_VULKAN,
++      .message = DVK_PREPEND( "Failed to get memory win32 handle properties" ),
++    };
++  }
++
++  VkMemoryRequirements vulkanMemoryRequirements;
++  pSwapChain->pFunctions->vkGetImageMemoryRequirements( pSwapChain->pVulkanContext->device, *pSharedImage->pVkImage, &vulkanMemoryRequirements );
++
++  dxgiMemoryRequirements.memoryTypeBits &= vulkanMemoryRequirements.memoryTypeBits;
++
++  uint32_t memoryTypeIndex = UINT32_MAX;
++  for ( uint32_t im = 0; im < deviceMemoryProperties.memoryTypeCount; ++im )
++  {
++    const uint32_t currentBit = 0x1 << im;
++    if ( ( dxgiMemoryRequirements.memoryTypeBits & currentBit ) == currentBit )
++    {
++      if ( deviceMemoryProperties.memoryTypes[im].propertyFlags & VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT )
++      {
++        memoryTypeIndex = im;
++        break;
++      }
++    }
++  }
++  if ( memoryTypeIndex == UINT32_MAX )
++  {
++    __dvk_destroySharedImage( pSwapChain, pSharedImage );
++    return dvk_result_t{
++      .code    = DVK_ERROR,
++      .message = DVK_PREPEND( "Failed to get find suitable memory type" ),
++    };
++  }
++
++  const VkMemoryDedicatedAllocateInfoKHR dedicatedAllocateInfo{
++    .sType = VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO, .pNext = nullptr, .image = *pSharedImage->pVkImage, .buffer = VK_NULL_HANDLE
++  };
++  const VkImportMemoryWin32HandleInfoKHR importMemoryHandle{ .sType      = VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR,
++                                                             .pNext      = &dedicatedAllocateInfo,
++                                                             .handleType = VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT_KHR,
++                                                             .handle     = pSharedImage->handle,
++                                                             .name       = nullptr };
++  const VkMemoryAllocateInfo             memoryAllocateInfo{ .sType           = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
++                                                             .pNext           = &importMemoryHandle,
++                                                             .allocationSize  = vulkanMemoryRequirements.size,
++                                                             .memoryTypeIndex = memoryTypeIndex };
++
++  vkResult = pSwapChain->pFunctions->vkAllocateMemory(
++    pSwapChain->pVulkanContext->device, &memoryAllocateInfo, pSwapChain->pVulkanContext->pAllocationCallbacks, &pSharedImage->memory );
++  if ( vkResult != VK_SUCCESS )
++  {
++    __dvk_destroySharedImage( pSwapChain, pSharedImage );
++    return dvk_result_t{
++      .code    = DVK_ERROR_VULKAN,
++      .message = DVK_PREPEND( "Failed to allocate vulkan memory for the swap chain image" ),
++    };
++  }
++
++  vkResult = pSwapChain->pFunctions->vkBindImageMemory( pSwapChain->pVulkanContext->device, *pSharedImage->pVkImage, pSharedImage->memory, 0 );
++  if ( vkResult != VK_SUCCESS )
++  {
++    __dvk_destroySharedImage( pSwapChain, pSharedImage );
++    return dvk_result_t{
++      .code    = DVK_ERROR_VULKAN,
++      .message = DVK_PREPEND( "Failed to bind vulkan image memory" ),
++    };
++  }
++
++  return dvk_result_t{ .code = DVK_OK };
++}
++
++inline void __dvk_destroySharedImage( const dvk_dxgiSwapChain_t * pSwapChain, dvk_sharedImage_t * pSharedImage ) noexcept
++{
++  if ( pSharedImage->pVkImage != nullptr && *pSharedImage->pVkImage != VK_NULL_HANDLE )
++  {
++    pSwapChain->pFunctions->vkDestroyImage( pSwapChain->pVulkanContext->device, *pSharedImage->pVkImage, pSwapChain->pVulkanContext->pAllocationCallbacks );
++    *pSharedImage->pVkImage = VK_NULL_HANDLE;
++  }
++  if ( pSharedImage->memory != VK_NULL_HANDLE )
++  {
++    pSwapChain->pFunctions->vkFreeMemory( pSwapChain->pVulkanContext->device, pSharedImage->memory, pSwapChain->pVulkanContext->pAllocationCallbacks );
++    pSharedImage->memory = VK_NULL_HANDLE;
++  }
++  if ( pSharedImage->handle != INVALID_HANDLE_VALUE )
++  {
++    CloseHandle( pSharedImage->handle );
++    pSharedImage->handle = INVALID_HANDLE_VALUE;
++  }
++  if ( pSharedImage->pImage != nullptr )
++  {
++    pSharedImage->pImage->Release();
++    pSharedImage->pImage = nullptr;
++  }
++}
++
++inline DXGI_FORMAT __dvk_toDxgiFormat( VkFormat format ) noexcept
++{
++  switch ( format )
++  {
++    case VK_FORMAT_R8G8B8A8_UNORM    : return DXGI_FORMAT_R8G8B8A8_UNORM;
++    case VK_FORMAT_R8G8B8A8_SRGB     : return DXGI_FORMAT_R8G8B8A8_UNORM_SRGB;
++    case VK_FORMAT_B8G8R8A8_UNORM    : return DXGI_FORMAT_B8G8R8A8_UNORM;
++    case VK_FORMAT_B8G8R8A8_SRGB     : return DXGI_FORMAT_B8G8R8A8_UNORM_SRGB;
++    case VK_FORMAT_R16G16B16A16_UNORM: return DXGI_FORMAT_R16G16B16A16_UNORM;
++    case VK_FORMAT_A2B10G10R10_UNORM_PACK32:
++      return DXGI_FORMAT_R10G10B10A2_UNORM;  // :TP: No this is not a mistake, Vulkan names PACK32 MSB-to-LSB, DXGI names LSB-to-MSB
++    default: return DXGI_FORMAT_UNKNOWN;
++  }
++}
++
++inline VkFormat __dvk_toVkFormat( DXGI_FORMAT format ) noexcept
++{
++  switch ( format )
++  {
++    case DXGI_FORMAT_R8G8B8A8_UNORM     : return VK_FORMAT_R8G8B8A8_UNORM;
++    case DXGI_FORMAT_R8G8B8A8_UNORM_SRGB: return VK_FORMAT_R8G8B8A8_SRGB;
++    case DXGI_FORMAT_B8G8R8A8_UNORM     : return VK_FORMAT_B8G8R8A8_UNORM;
++    case DXGI_FORMAT_B8G8R8A8_UNORM_SRGB: return VK_FORMAT_B8G8R8A8_SRGB;
++    case DXGI_FORMAT_R16G16B16A16_UNORM : return VK_FORMAT_R16G16B16A16_UNORM;
++    case DXGI_FORMAT_R10G10B10A2_UNORM:
++      return VK_FORMAT_A2B10G10R10_UNORM_PACK32;  // :TP: No this is not a mistake, Vulkan names PACK32 MSB-to-LSB, DXGI names LSB-to-MSB
++    default: return VK_FORMAT_UNDEFINED;
++  }
++}
++
++inline DXGI_USAGE __dvk_toDxgiUsage( VkImageUsageFlags usage ) noexcept
++{
++  DXGI_USAGE dxgiUsage = 0;
++
++  if ( usage & VK_IMAGE_USAGE_SAMPLED_BIT )
++  {
++    dxgiUsage |= DXGI_USAGE_SHADER_INPUT;
++  }
++  if ( usage & VK_IMAGE_USAGE_STORAGE_BIT )
++  {
++    dxgiUsage |= DXGI_USAGE_UNORDERED_ACCESS;
++  }
++  if ( usage & VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT )
++  {
++    dxgiUsage |= DXGI_USAGE_RENDER_TARGET_OUTPUT;
++  }
++  if ( usage & VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT )
++  {
++    dxgiUsage |= DXGI_USAGE_SHADER_INPUT;
++  }
++  return dxgiUsage;
++}
++
++inline D3D12_RESOURCE_FLAGS __dvk_toD3D12Usage( VkImageUsageFlags usage ) noexcept
++{
++  D3D12_RESOURCE_FLAGS d3d12Usage = D3D12_RESOURCE_FLAG_NONE;
++
++  if ( usage & VK_IMAGE_USAGE_STORAGE_BIT )
++  {
++    d3d12Usage |= D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS;
++  }
++  if ( usage & VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT )
++  {
++    d3d12Usage |= D3D12_RESOURCE_FLAG_ALLOW_RENDER_TARGET;
++  }
++  return d3d12Usage;
++}
++
++inline VkImageUsageFlags __dvk_toVkUsage( DXGI_USAGE usage ) noexcept
++{
++  VkImageUsageFlags vkUsage = 0;
++
++  if ( usage & DXGI_USAGE_SHADER_INPUT )
++  {
++    vkUsage |= VK_IMAGE_USAGE_SAMPLED_BIT;
++    vkUsage |= VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT;
++  }
++  if ( usage & DXGI_USAGE_RENDER_TARGET_OUTPUT )
++  {
++    vkUsage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
++  }
++  if ( usage & DXGI_USAGE_UNORDERED_ACCESS )
++  {
++    vkUsage |= VK_IMAGE_USAGE_STORAGE_BIT;
++  }
++  return vkUsage;
++}
++
++static dvk_result_t __dvk_waitIdle( dvk_dxgiSwapChain_t * pSwapChain ) noexcept
++{
++  const VkResult vulkanResult = pSwapChain->pFunctions->vkDeviceWaitIdle( pSwapChain->pVulkanContext->device );
++  if ( vulkanResult != VK_SUCCESS )
++  {
++    return dvk_result_t{ .code = DVK_ERROR_VULKAN, .message = DVK_PREPEND( "Error waiting for vulkan device idle" ) };
++  }
++
++  HRESULT result = pSwapChain->pDeviceContext->pCommandQueue->Signal( pSwapChain->pFence, ++pSwapChain->fenceValue );
++  if ( FAILED( result ) )
++  {
++    return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error signaling the D3D12 fence" ) };
++  }
++  if ( pSwapChain->pFence->GetCompletedValue() < pSwapChain->fenceValue )
++  {
++    result = pSwapChain->pFence->SetEventOnCompletion( pSwapChain->fenceValue, nullptr );
++    if ( FAILED( result ) )
++    {
++      return dvk_result_t{ .code = DVK_ERROR_DX12, .message = DVK_PREPEND( "Error waiting for fence event" ) };
++    }
++  }
++  return dvk_result_t{ .code = DVK_OK };
++}
++
++inline bool __dvk_hasSwapChainFlag( dvk_swapChainFlags_e flags, dvk_swapChainFlagBits_e testFlag ) noexcept
++{
++  return ( ( flags & testFlag ) != 0x00 );
++}
++#endif
+--- /dev/null
++++ b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc
+@@ -0,0 +1,291 @@
++#define OCB_DISPLAY_BUILD
++#ifndef VK_NO_PROTOTYPES
++#define VK_NO_PROTOTYPES
++#endif
++#include "vulkan_dxgi_bridge.h"
++#include "frame_contract.h"
++#include <algorithm>
++#include <array>
++#include <cstdio>
++#include <cstring>
++#include <malloc.h>
++#include <new>
++#include <vector>
++#define DX_SWAP_VK_IMPLEMENTATION
++#include "vendor/vk_dxgi.h"
++
++namespace {
++using ocb::display::FrameContract;
++using ocb::display::FrameState;
++constexpr const char* kExtensions[] = {
++    VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME,
++    VK_KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME};
++
++class Bridge {
++ public:
++  ~Bridge() {
++    if (swap_ready_) dvk_destroySwapChain(&swap_);
++    if (device_ready_) dvk_destroyDevice(dx_);
++    if (d3d12_) FreeLibrary(d3d12_);
++    if (dxgi_) FreeLibrary(dxgi_);
++  }
++  bool Error(const char* msg) {
++    std::snprintf(error_, sizeof(error_), "%s", msg); return false;
++  }
++  bool Check(dvk_result_t result) {
++    return !dvk_isError(result) || Error(result.message);
++  }
++  bool Initialize(const OcbDisplayConfig& c) {
++    c_ = c;
++    if (!c.instance || !c.physical_device || !c.device || !c.queue ||
++        !c.get_instance_proc || !c.get_device_proc || !IsWindow(c.window) ||
++        !c.width || !c.height || c.width > 65535 || c.height > 65535 ||
++        !c.timeline_enabled || !c.enabled_extensions)
++      return Error("Invalid context, extent or enabled timeline feature.");
++    for (auto name : kExtensions) {
++      bool enabled = false;
++      for (uint32_t i = 0; i < c.enabled_extension_count; ++i)
++        enabled |= c.enabled_extensions[i] &&
++                   std::strcmp(name, c.enabled_extensions[i]) == 0;
++      if (!enabled) return Error("Required Win32 sharing extension is not enabled.");
++    }
++    auto props = reinterpret_cast<PFN_vkGetPhysicalDeviceProperties2>(
++        c.get_instance_proc(c.instance, "vkGetPhysicalDeviceProperties2"));
++    auto features = reinterpret_cast<PFN_vkGetPhysicalDeviceFeatures2>(
++        c.get_instance_proc(c.instance, "vkGetPhysicalDeviceFeatures2"));
++    auto image_props = reinterpret_cast<PFN_vkGetPhysicalDeviceImageFormatProperties2>(
++        c.get_instance_proc(c.instance, "vkGetPhysicalDeviceImageFormatProperties2"));
++    auto sem_props = reinterpret_cast<PFN_vkGetPhysicalDeviceExternalSemaphoreProperties>(
++        c.get_instance_proc(c.instance, "vkGetPhysicalDeviceExternalSemaphoreProperties"));
++    auto families = reinterpret_cast<PFN_vkGetPhysicalDeviceQueueFamilyProperties>(
++        c.get_instance_proc(c.instance, "vkGetPhysicalDeviceQueueFamilyProperties"));
++    if (!props || !features || !image_props || !sem_props || !families)
++      return Error("Required Vulkan capability queries unavailable.");
++    VkPhysicalDeviceIDProperties id{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES};
++    VkPhysicalDeviceProperties2 p{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2};
++    p.pNext = &id; props(c.physical_device, &p);
++    if (p.properties.apiVersion < VK_API_VERSION_1_2 || !id.deviceLUIDValid ||
++        id.deviceNodeMask != 1)
++      return Error("This candidate requires Vulkan 1.2 and a valid single-node adapter LUID.");
++    VkPhysicalDeviceTimelineSemaphoreFeatures tf{
++        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES};
++    VkPhysicalDeviceFeatures2 f{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2};
++    f.pNext = &tf; features(c.physical_device, &f);
++    if (!tf.timelineSemaphore) return Error("Timeline semaphores are unsupported.");
++    uint32_t family_count = 0;
++    families(c.physical_device, &family_count, nullptr);
++    std::vector<VkQueueFamilyProperties> qp(family_count);
++    families(c.physical_device, &family_count, qp.data());
++    if (c.queue_family >= family_count ||
++        !(qp[c.queue_family].queueFlags & VK_QUEUE_GRAPHICS_BIT))
++      return Error("A graphics queue family is required.");
++
++    VkPhysicalDeviceExternalImageFormatInfo ei{
++        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO};
++    ei.handleType = VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT;
++    VkPhysicalDeviceImageFormatInfo2 ii{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2};
++    ii.pNext = &ei; ii.format = VK_FORMAT_R8G8B8A8_UNORM;
++    ii.type = VK_IMAGE_TYPE_2D; ii.tiling = VK_IMAGE_TILING_OPTIMAL;
++    ii.usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
++    VkExternalImageFormatProperties eo{VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES};
++    VkImageFormatProperties2 io{VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2};
++    io.pNext = &eo;
++    if (image_props(c.physical_device, &ii, &io) != VK_SUCCESS ||
++        !(eo.externalMemoryProperties.externalMemoryFeatures &
++          VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT) ||
++        !(eo.externalMemoryProperties.compatibleHandleTypes & ei.handleType) ||
++        c.width > io.imageFormatProperties.maxExtent.width ||
++        c.height > io.imageFormatProperties.maxExtent.height)
++      return Error("RGBA8 D3D12 resource import is unsupported for this extent.");
++    VkSemaphoreTypeCreateInfo st{VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO};
++    st.semaphoreType = VK_SEMAPHORE_TYPE_TIMELINE;
++    VkPhysicalDeviceExternalSemaphoreInfo si{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO};
++    si.pNext = &st; si.handleType = VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT;
++    VkExternalSemaphoreProperties so{VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES};
++    sem_props(c.physical_device, &si, &so);
++    if (!(so.externalSemaphoreFeatures & VK_EXTERNAL_SEMAPHORE_FEATURE_IMPORTABLE_BIT) ||
++        !(so.compatibleHandleTypes & si.handleType))
++      return Error("D3D12 fence timeline import is unsupported.");
++
++    dxgi_ = LoadLibraryExW(L"dxgi.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
++    d3d12_ = LoadLibraryExW(L"d3d12.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
++    if (!dxgi_ || !d3d12_) return Error("System DXGI/D3D12 unavailable.");
++    fn_.pCreateFactory = reinterpret_cast<PFN_CREATE_DXGIFACTORY2>(GetProcAddress(dxgi_, "CreateDXGIFactory2"));
++    fn_.pCreateDevice = reinterpret_cast<PFN_D3D12_CREATE_DEVICE>(GetProcAddress(d3d12_, "D3D12CreateDevice"));
++    fn_.pGetDebugInterface = reinterpret_cast<PFN_D3D12_GET_DEBUG_INTERFACE>(GetProcAddress(d3d12_, "D3D12GetDebugInterface"));
++    if (!fn_.pCreateFactory || !fn_.pCreateDevice) return Error("System DXGI exports missing.");
++#define LOAD_DEVICE(name) \
++    fn_.name = reinterpret_cast<PFN_##name>(c.get_device_proc(c.device, #name)); \
++    if (!fn_.name) return Error("Missing " #name);
++    LOAD_DEVICE(vkCreateImage)
++    LOAD_DEVICE(vkGetMemoryWin32HandlePropertiesKHR)
++    LOAD_DEVICE(vkGetImageMemoryRequirements)
++    LOAD_DEVICE(vkAllocateMemory)
++    LOAD_DEVICE(vkBindImageMemory)
++    LOAD_DEVICE(vkCreateSemaphore)
++    LOAD_DEVICE(vkImportSemaphoreWin32HandleKHR)
++    LOAD_DEVICE(vkDestroyImage)
++    LOAD_DEVICE(vkFreeMemory)
++    LOAD_DEVICE(vkDestroySemaphore)
++    LOAD_DEVICE(vkDeviceWaitIdle)
++#undef LOAD_DEVICE
++    fn_.vkGetPhysicalDeviceMemoryProperties = reinterpret_cast<PFN_vkGetPhysicalDeviceMemoryProperties>(
++        c.get_instance_proc(c.instance, "vkGetPhysicalDeviceMemoryProperties"));
++    submit_ = reinterpret_cast<PFN_vkQueueSubmit>(c.get_device_proc(c.device, "vkQueueSubmit"));
++    if (!fn_.vkGetPhysicalDeviceMemoryProperties || !submit_)
++      return Error("Required memory/queue functions missing.");
++    dvk_createDeviceParameters_t dp{}; dp.pFunctions = &fn_;
++    static_assert(sizeof(dp.deviceLuid) == VK_LUID_SIZE);
++    std::memcpy(&dp.deviceLuid, id.deviceLUID, VK_LUID_SIZE);
++    // Upstream cleans partially constructed contexts itself. Do not free twice.
++    if (!Check(dvk_createDevice(dp, &dx_))) { dx_ = {}; return false; }
++    device_ready_ = true;
++    vk_.physicalDevice = c.physical_device; vk_.device = c.device;
++    allocator_.allocate = [](size_t size, size_t alignment, void*) -> void* {
++      return _aligned_malloc(size, std::max(alignment, sizeof(void*)));
++    };
++    allocator_.free = [](void* ptr, void*) { _aligned_free(ptr); };
++    dvk_createSwapChainParameters_t sp{};
++    sp.pFunctions = &fn_; sp.pAllocator = &allocator_;
++    sp.pDeviceContext = &dx_; sp.pVulkanContext = &vk_;
++    sp.window = c.window; sp.width = static_cast<uint16_t>(c.width);
++    sp.height = static_cast<uint16_t>(c.height);
++    sp.imageCount = 3; sp.maximumLatency = 2; sp.syncInterval = 1;
++    sp.flags = DVK_SWAPCHAIN_FLAG_NONE;  // No tearing, no single-buffer blit.
++    if (!Check(dvk_createSwapChain(sp, &swap_))) { swap_ = {}; return false; }
++    swap_ready_ = true;
++    return true;
++  }
++  int Acquire(OcbDisplayFrame* out, uint32_t timeout) {
++    if (!out || timeout > 16 || contract_.state() != FrameState::Idle) {
++      Error("Acquire requires idle state and a timeout of 0..16 ms."); return OCB_ERROR;
++    }
++    auto r = dvk_acquireImage(&swap_, &pending_, timeout);
++    if (r.code == DVK_NOT_READY) return OCB_NOT_READY;
++    if (!Check(r)) { contract_.Fail(); return OCB_ERROR; }
++    if (!contract_.Acquire(pending_.imageIndex, pending_.waitValue,
++                           pending_.submitValue)) {
++      contract_.Fail(); Error("Invalid image index or non-monotonic shared fence value.");
++      return OCB_ERROR;
++    }
++    auto image = swap_.pSwapChainImages[pending_.imageIndex];
++    *out = {image, pending_.imageIndex, pending_.submitValue,
++        ocb::display::AcquireBarrier(image, c_.queue_family, initialized_[pending_.imageIndex]),
++        ocb::display::ReleaseBarrier(image, c_.queue_family)};
++    return OCB_OK;
++  }
++  int Submit(const OcbDisplayFrame* frame, VkCommandBuffer cmd, VkFence fence) {
++    if (!frame || !cmd || contract_.state() != FrameState::Acquired ||
++        frame->image_index != pending_.imageIndex ||
++        frame->signal_value != pending_.submitValue ||
++        frame->image != swap_.pSwapChainImages[pending_.imageIndex]) {
++      Error("Submit rejected: no acquired frame or a stale frame token."); return OCB_ERROR;
++    }
++    VkTimelineSemaphoreSubmitInfo ti{VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO};
++    ti.waitSemaphoreValueCount = 1; ti.pWaitSemaphoreValues = &pending_.waitValue;
++    ti.signalSemaphoreValueCount = 1; ti.pSignalSemaphoreValues = &pending_.submitValue;
++    const VkPipelineStageFlags wait_stage = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
++    VkSubmitInfo si{VK_STRUCTURE_TYPE_SUBMIT_INFO};
++    si.pNext = &ti; si.waitSemaphoreCount = 1;
++    si.pWaitSemaphores = &pending_.waitSemaphore; si.pWaitDstStageMask = &wait_stage;
++    si.commandBufferCount = 1; si.pCommandBuffers = &cmd;
++    si.signalSemaphoreCount = 1; si.pSignalSemaphores = &pending_.submitSemaphore;
++    auto vr = submit_(c_.queue, 1, &si, fence);
++    if (vr != VK_SUCCESS) {
++      contract_.Fail(); Error("Vulkan submit failed; display bridge stopped."); return OCB_ERROR;
++    }
++    return PresentSubmitted(frame);
++  }
++  bool ValidFrame(const OcbDisplayFrame* frame) {
++    return frame && contract_.state() == FrameState::Acquired &&
++        frame->image_index == pending_.imageIndex &&
++        frame->signal_value == pending_.submitValue &&
++        frame->image == swap_.pSwapChainImages[pending_.imageIndex];
++  }
++  int GetImages(VkImage* images, uint32_t capacity) {
++    if (!images || capacity < 3 || !swap_ready_) return OCB_ERROR;
++    for (uint32_t i=0; i<3; ++i) images[i] = swap_.pSwapChainImages[i];
++    return OCB_OK;
++  }
++  int GetSync(const OcbDisplayFrame* frame, VkSemaphore* semaphore,
++              uint64_t* wait_value, uint64_t* signal_value) {
++    if (!ValidFrame(frame) || !semaphore || !wait_value || !signal_value) {
++      Error("Invalid synchronization request."); return OCB_ERROR;
++    }
++    *semaphore = pending_.waitSemaphore;
++    *wait_value = pending_.waitValue; *signal_value = pending_.submitValue;
++    return OCB_OK;
++  }
++  int PresentSubmitted(const OcbDisplayFrame* frame) {
++    if (!ValidFrame(frame)) {
++      Error("Stale submitted frame."); return OCB_ERROR;
++    }
++    contract_.Submit(frame->image_index);
++    initialized_[frame->image_index] = true;
++    dvk_presentParameters_t p{};
++    p.pSwapChain = pending_.pSwapChain; p.pCommandQueue = pending_.pCommandQueue;
++    p.pCommandList = pending_.pCommandList; p.pFrameResources = pending_.pFrameResources;
++    p.pFence = pending_.pFence; p.submitValue = pending_.submitValue;
++    p.blitValue = pending_.blitValue; p.syncInterval = 1; p.allowTearing = false;
++    if (!Check(dvk_presentImage(p))) { contract_.Fail(); return OCB_ERROR; }
++    contract_.Presented(); return OCB_OK;
++  }
++  int Cancel() {
++    if (!contract_.Cancel()) { Error("Only an unsubmitted frame can be cancelled."); return OCB_ERROR; }
++    // acquireImage reserves a signal value; no queue will ever signal it after
++    // cancellation. Restore the per-image dependency to the previous value.
++    pending_.pFrameResources->lastSubmitValue = pending_.waitValue;
++    return OCB_OK;
++  }
++  const char* error() const { return error_; }
++ private:
++  OcbDisplayConfig c_{};
++  HMODULE dxgi_ = nullptr, d3d12_ = nullptr;
++  dvk_functions_t fn_{};
++  dvk_allocator_t allocator_{};
++  dvk_vulkanContext_t vk_{};
++  dvk_dxgiDeviceContext_t dx_{};
++  dvk_dxgiSwapChain_t swap_{};
++  dvk_presentationInfo_t pending_{};
++  PFN_vkQueueSubmit submit_ = nullptr;
++  bool device_ready_ = false, swap_ready_ = false;
++  std::array<bool, 3> initialized_{};
++  FrameContract contract_;
++  char error_[256]{};
++};
++}
++
++extern "C" void* OcbDisplayCreate(const OcbDisplayConfig* config, char* error, uint32_t capacity) {
++  Bridge* b = nullptr;
++  try {
++    b = new Bridge;
++    if (config && b->Initialize(*config)) return b;
++    if (error && capacity) std::snprintf(error, capacity, "%s", config ? b->error() : "Null context.");
++  } catch (...) {
++    if (error && capacity) std::snprintf(error, capacity, "Bridge initialization allocation failed.");
++  }
++  delete b; return nullptr;
++}
++extern "C" int OcbDisplayAcquire(void* p, OcbDisplayFrame* f, uint32_t timeout) {
++  return p ? static_cast<Bridge*>(p)->Acquire(f, timeout) : OCB_ERROR;
++}
++extern "C" int OcbDisplaySubmitAndPresent(void* p, const OcbDisplayFrame* f, VkCommandBuffer cmd, VkFence fence) {
++  return p ? static_cast<Bridge*>(p)->Submit(f, cmd, fence) : OCB_ERROR;
++}
++extern "C" int OcbDisplayCancel(void* p) {
++  return p ? static_cast<Bridge*>(p)->Cancel() : OCB_ERROR;
++}
++extern "C" int OcbDisplayGetImages(void* p, VkImage* images, uint32_t capacity) {
++  return p ? static_cast<Bridge*>(p)->GetImages(images, capacity) : OCB_ERROR;
++}
++extern "C" int OcbDisplayGetSync(void* p, const OcbDisplayFrame* f,
++    VkSemaphore* s, uint64_t* w, uint64_t* v) {
++  return p ? static_cast<Bridge*>(p)->GetSync(f, s, w, v) : OCB_ERROR;
++}
++extern "C" int OcbDisplayPresentSubmitted(void* p, const OcbDisplayFrame* f) {
++  return p ? static_cast<Bridge*>(p)->PresentSubmitted(f) : OCB_ERROR;
++}
++extern "C" const char* OcbDisplayLastError(void* p) {
++  return p ? static_cast<Bridge*>(p)->error() : "Null display handle.";
++}
++extern "C" void OcbDisplayDestroy(void* p) { delete static_cast<Bridge*>(p); }
+--- /dev/null
++++ b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h
+@@ -0,0 +1,71 @@
++#pragma once
++#ifndef NOMINMAX
++#define NOMINMAX
++#endif
++#ifdef OCB_DISPLAY_STATIC
++#include "xenia/base/platform_win.h"
++#else
++#include <windows.h>
++#endif
++#include <vulkan/vulkan.h>
++#include <cstdint>
++
++// Development component, NOT a drop-in Xenia plug-in. The caller owns the
++// VkInstance/VkDevice, queue synchronization, image views and command buffers.
++// All calls for one handle run on the same presentation thread. The Xenia GPU
++// emulation thread must not wait on DXGI frame latency.
++#ifdef OCB_DISPLAY_STATIC
++#define OCB_DISPLAY_API
++#elif defined(OCB_DISPLAY_BUILD)
++#define OCB_DISPLAY_API __declspec(dllexport)
++#else
++#define OCB_DISPLAY_API __declspec(dllimport)
++#endif
++
++struct OcbDisplayConfig {
++  VkInstance instance;
++  VkPhysicalDevice physical_device;
++  VkDevice device;
++  VkQueue queue;  // Must be externally synchronized by the caller during Submit.
++  uint32_t queue_family;
++  PFN_vkGetInstanceProcAddr get_instance_proc;
++  PFN_vkGetDeviceProcAddr get_device_proc;
++  HWND window;
++  uint32_t width, height;
++  // VkDevice enabled state cannot be queried after creation. These must be
++  // copied from the actual VkDeviceCreateInfo, not inferred from support.
++  VkBool32 timeline_enabled;
++  uint32_t enabled_extension_count;
++  const char* const* enabled_extensions;
++};
++struct OcbDisplayFrame {
++  VkImage image;
++  uint32_t image_index;
++  uint64_t signal_value;  // A stale acquired frame must never be submitted.
++  VkImageMemoryBarrier acquire_barrier;
++  VkImageMemoryBarrier release_barrier;
++};
++enum OcbDisplayResult : int { OCB_ERROR = -1, OCB_OK = 0, OCB_NOT_READY = 1 };
++
++extern "C" {
++OCB_DISPLAY_API void* OcbDisplayCreate(const OcbDisplayConfig*, char* error,
++                                      uint32_t error_capacity);
++// Returns NOT_READY on a bounded DXGI wait, not a fatal initialization error.
++OCB_DISPLAY_API int OcbDisplayAcquire(void*, OcbDisplayFrame*, uint32_t timeout_ms);
++OCB_DISPLAY_API int OcbDisplayGetImages(void*, VkImage* images, uint32_t capacity);
++OCB_DISPLAY_API int OcbDisplayGetSync(void*, const OcbDisplayFrame*,
++    VkSemaphore* semaphore, uint64_t* wait_value, uint64_t* signal_value);
++// Call ONLY after the caller's vkQueueSubmit succeeds. No Vulkan queue lock may
++// be held here: DXGI presentation can wait for the display.
++OCB_DISPLAY_API int OcbDisplayPresentSubmitted(void*, const OcbDisplayFrame*);
++// The command buffer must contain the supplied ownership/layout barriers around
++// its render pass. The pass starts AND ends in COLOR_ATTACHMENT_OPTIMAL.
++// No other vkQueueSubmit or binary present semaphores are used for this frame.
++OCB_DISPLAY_API int OcbDisplaySubmitAndPresent(void*, const OcbDisplayFrame*,
++                                              VkCommandBuffer, VkFence);
++OCB_DISPLAY_API int OcbDisplayCancel(void*);  // Only before SubmitAndPresent.
++OCB_DISPLAY_API const char* OcbDisplayLastError(void*);
++// Caller first destroys its image views/framebuffers after its submitted work
++// completes. Close while the VkDevice is still alive. No driver settings exist.
++OCB_DISPLAY_API void OcbDisplayDestroy(void*);
++}
+--- a/src/xenia/ui/vulkan/vulkan_device.cc
++++ b/src/xenia/ui/vulkan/vulkan_device.cc
+@@ -40,7 +40,7 @@
+ std::unique_ptr<VulkanDevice> VulkanDevice::CreateIfSupported(
+     const VulkanInstance* const vulkan_instance,
+     const VkPhysicalDevice physical_device, const bool with_gpu_emulation,
+-    const bool with_swapchain) {
++    const bool with_swapchain, const bool with_dxgi_display) {
+   assert_not_null(vulkan_instance);
+   assert_not_null(physical_device);
+ 
+@@ -102,6 +102,20 @@
+     }
+   }
+ 
++  // Opt-in development output path. The default call sites remain unchanged.
++  if (with_dxgi_display) {
++#if XE_PLATFORM_WIN32
++    if (properties.apiVersion < VK_MAKE_API_VERSION(0, 1, 2, 0) ||
++        !vulkan_instance->extensions().ext_1_1_KHR_get_physical_device_properties2) {
++      XELOGE("Direct DXGI display requires Vulkan 1.2 capability queries");
++      return nullptr;
++    }
++#else
++    XELOGE("Direct DXGI display is only available on Windows");
++    return nullptr;
++#endif
++  }
++
+   // Enable needed extensions.
+ 
+   std::unique_ptr<VulkanDevice> device(
+@@ -136,6 +150,14 @@
+ #define XE_UI_VULKAN_LOCAL_PROMOTED_EXTENSION(name, major, minor) \
+   request_promoted_extension("VK_" #name, major, minor,           \
+                              &ext_##major##_##minor##_##name);
++
++#if XE_PLATFORM_WIN32
++  if (with_dxgi_display) {
++    XE_UI_VULKAN_STRUCT_EXTENSION(KHR_external_memory_win32)
++    XE_UI_VULKAN_STRUCT_EXTENSION(KHR_external_semaphore_win32)
++    // Timeline semaphores are core in the required Vulkan 1.2 version.
++  }
++#endif
+ 
+   bool ext_KHR_portability_subset = false;
+   bool ext_1_2_KHR_driver_properties = false;
+@@ -266,6 +288,15 @@
+            properties.deviceName);
+     return nullptr;
+   }
++
++#if XE_PLATFORM_WIN32
++  if (with_dxgi_display &&
++      (!device->extensions_.ext_KHR_external_memory_win32 ||
++       !device->extensions_.ext_KHR_external_semaphore_win32)) {
++    XELOGE("Direct DXGI display requires Win32 external memory and semaphore import");
++    return nullptr;
++  }
++#endif
+ 
+   VkDeviceCreateInfo device_create_info = {
+       VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO};
+@@ -763,6 +794,14 @@
+ 
+   // Create the device.
+ 
++  if (with_dxgi_display) {
++    if (!features_1_2.supported.timelineSemaphore) {
++      XELOGE("Direct DXGI display requires timeline semaphores");
++      return nullptr;
++    }
++    features_1_2.enabled.timelineSemaphore = VK_TRUE;
++  }
++
+   const VkResult device_create_result = ifn.vkCreateDevice(
+       physical_device, &device_create_info, nullptr, &device->device_);
+   if (device_create_result != VK_SUCCESS) {
+@@ -882,6 +921,7 @@
+     }
+   }
+ 
++  device->dxgi_display_enabled_ = with_dxgi_display;
+   return device;
+ }
+ 
+--- a/src/xenia/ui/vulkan/vulkan_device.h
++++ b/src/xenia/ui/vulkan/vulkan_device.h
+@@ -25,7 +25,8 @@
+  public:
+   static std::unique_ptr<VulkanDevice> CreateIfSupported(
+       const VulkanInstance* vulkan_instance, VkPhysicalDevice physical_device,
+-      bool with_gpu_emulation, bool with_swapchain);
++      bool with_gpu_emulation, bool with_swapchain,
++      bool with_dxgi_display = false);
+ 
+   VulkanDevice(const VulkanDevice&) = delete;
+   VulkanDevice& operator=(const VulkanDevice&) = delete;
+@@ -201,12 +202,15 @@
+ #if XE_PLATFORM_WIN32
+     // VK_EXT_full_screen_exclusive (#256, Windows only)
+     bool ext_EXT_full_screen_exclusive = false;
++    bool ext_KHR_external_memory_win32 = false;
++    bool ext_KHR_external_semaphore_win32 = false;
+ #endif
+   };
+ 
+   const Extensions& extensions() const { return extensions_; }
+ 
+   VkDevice device() const { return device_; }
++  bool dxgi_display_enabled() const { return dxgi_display_enabled_; }
+ 
+   struct Functions {
+ #define XE_UI_VULKAN_FUNCTION(name) PFN_##name name = nullptr;
+@@ -331,6 +335,7 @@
+   Extensions extensions_;
+ 
+   VkDevice device_ = nullptr;
++  bool dxgi_display_enabled_ = false;
+ 
+   Functions functions_;
+ 
+--- a/src/xenia/ui/vulkan/vulkan_presenter.cc
++++ b/src/xenia/ui/vulkan/vulkan_presenter.cc
+@@ -8,6 +8,9 @@
+  */
+ 
+ #include "xenia/ui/vulkan/vulkan_presenter.h"
++#if XE_PLATFORM_WIN32
++#include "xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h"
++#endif
+ 
+ #include <cstdint>
+ 
+@@ -526,6 +529,48 @@
+   const VkDevice device = vulkan_device_->device();
+ 
+   VkFormat new_swapchain_format;
++
++#if XE_PLATFORM_WIN32
++  if (vulkan_device_->dxgi_display_enabled()) {
++    paint_context_.DestroySwapchainAndVulkanSurface();
++    if (new_surface.GetType() != Surface::kTypeIndex_Win32Hwnd ||
++        !new_surface_width || !new_surface_height) {
++      return SurfacePaintConnectResult::kFailureSurfaceUnusable;
++    }
++    const auto& window_surface = static_cast<const Win32HwndSurface&>(new_surface);
++    const char* sharing_extensions[] = {
++        VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME,
++        VK_KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME};
++    OcbDisplayConfig config{};
++    config.instance = instance;
++    config.physical_device = vulkan_device_->physical_device();
++    config.device = device;
++    config.queue_family = vulkan_device_->queue_family_graphics_compute();
++    config.queue = vulkan_device_->queue_families()[config.queue_family].queues[0]->queue;
++    config.get_instance_proc = ifn.vkGetInstanceProcAddr;
++    config.get_device_proc = ifn.vkGetDeviceProcAddr;
++    config.window = window_surface.hwnd();
++    config.width = new_surface_width; config.height = new_surface_height;
++    config.timeline_enabled = VK_TRUE;
++    config.enabled_extension_count = 2;
++    config.enabled_extensions = sharing_extensions;
++    char error[256]{};
++    paint_context_.direct_dxgi = OcbDisplayCreate(&config, error, sizeof(error));
++    if (!paint_context_.direct_dxgi) {
++      XELOGE("Vulkan direct DXGI initialization failed: {}", error);
++      return SurfacePaintConnectResult::kFailure;
++    }
++    paint_context_.swapchain_extent = {new_surface_width, new_surface_height};
++    paint_context_.present_queue_family = config.queue_family;
++    // Let Presenter's existing scheduler keep display waits off the guest GPU
++    // thread. Do not change host_present_from_non_ui_thread or guest settings.
++    paint_context_.swapchain_is_fifo = true;
++    new_swapchain_format = VK_FORMAT_R8G8B8A8_UNORM;
++    XELOGI("Onechanbara direct DXGI output: {}x{}, Vulkan renderer, no driver profile",
++           new_surface_width, new_surface_height);
++  } else
++#endif
++  {
+ 
+   // ConnectOrReconnectToSurfaceFromUIThread may be called only for the
+   // ui::Surface of the current swapchain or when the old swapchain and
+@@ -647,6 +692,8 @@
+     // Successfully attached (at least for now).
+   }
+ 
++  }  // Native Vulkan swapchain path.
++
+   // From now on, in case of failure,
+   // paint_context_.DestroySwapchainAndVulkanSurface must be called before
+   // returning.
+@@ -668,8 +715,10 @@
+     render_pass_attachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
+     render_pass_attachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
+     render_pass_attachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+-    render_pass_attachment.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+-    render_pass_attachment.finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR;
++    render_pass_attachment.initialLayout = paint_context_.direct_dxgi
++        ? VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL : VK_IMAGE_LAYOUT_UNDEFINED;
++    render_pass_attachment.finalLayout = paint_context_.direct_dxgi
++        ? VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL : VK_IMAGE_LAYOUT_PRESENT_SRC_KHR;
+     VkAttachmentReference render_pass_color_attachment;
+     render_pass_color_attachment.attachment = 0;
+     render_pass_color_attachment.layout =
+@@ -731,6 +780,17 @@
+         render_pass_attachment.loadOp == VK_ATTACHMENT_LOAD_OP_CLEAR;
+   }
+ 
++#if XE_PLATFORM_WIN32
++  if (paint_context_.direct_dxgi) {
++    paint_context_.swapchain_images.resize(3);
++    if (OcbDisplayGetImages(paint_context_.direct_dxgi,
++          paint_context_.swapchain_images.data(), 3) != OCB_OK) {
++      paint_context_.DestroySwapchainAndVulkanSurface();
++      return SurfacePaintConnectResult::kFailure;
++    }
++  } else
++#endif
++  {
+   // Get the swapchain images.
+   paint_context_.swapchain_images.clear();
+   VkResult swapchain_images_get_result;
+@@ -759,6 +819,8 @@
+     XELOGE("VulkanPresenter: Failed to get swapchain images");
+     paint_context_.DestroySwapchainAndVulkanSurface();
+     return SurfacePaintConnectResult::kFailure;
++  }
++
+   }
+ 
+   // Create the image views and the framebuffers.
+@@ -811,6 +873,7 @@
+     paint_context_.swapchain_framebuffers.emplace_back(image_view, framebuffer);
+   }
+ 
++  if (!paint_context_.direct_dxgi) {
+   // Create per-swapchain-image present semaphores to avoid
+   // VUID-vkQueueSubmit-pSignalSemaphores-00067 (semaphore reuse before the
+   // previous present completes).
+@@ -834,6 +897,7 @@
+         present_semaphore);
+   }
+ 
++  }
+   is_vsync_implicit_out = paint_context_.swapchain_is_fifo;
+   return SurfacePaintConnectResult::kSuccess;
+ }
+@@ -1276,7 +1340,7 @@
+ }
+ 
+ VkSwapchainKHR VulkanPresenter::PaintContext::PrepareForSwapchainRetirement() {
+-  if (swapchain != VK_NULL_HANDLE) {
++  if (swapchain != VK_NULL_HANDLE || direct_dxgi) {
+     completion_timeline.AwaitAllSubmissions();
+     // Also wait for the presentation queue since vkQueuePresentKHR doesn't
+     // signal a fence, and the present semaphores may still be in use.
+@@ -1312,6 +1376,12 @@
+     vulkan_device->functions().vkDestroySwapchainKHR(vulkan_device->device(),
+                                                      old_swapchain, nullptr);
+   }
++#if XE_PLATFORM_WIN32
++  if (direct_dxgi) {
++    OcbDisplayDestroy(direct_dxgi);
++    direct_dxgi = nullptr;
++  }
++#endif
+   present_queue_family = UINT32_MAX;
+   if (vulkan_surface != VK_NULL_HANDLE) {
+     const VulkanInstance* vulkan_instance = vulkan_device->vulkan_instance();
+@@ -1441,13 +1511,29 @@
+   // so we must wait for the present queue specifically.
+   // TODO(has207): Proper fix requires per-swapchain-image semaphores.
+   // See https://docs.vulkan.org/guide/latest/swapchain_semaphore_reuse.html
+-  if (cvars::vulkan_semaphore_reuse_workaround) {
++  if (!paint_context_.direct_dxgi && cvars::vulkan_semaphore_reuse_workaround) {
+     const VulkanDevice::Queue::Acquisition queue_acquisition =
+         vulkan_device_->AcquireQueue(paint_context_.present_queue_family, 0);
+     dfn.vkQueueWaitIdle(queue_acquisition.queue());
+   }
+ 
+   uint32_t swapchain_image_index;
++#if XE_PLATFORM_WIN32
++  OcbDisplayFrame dxgi_frame{};
++  if (paint_context_.direct_dxgi) {
++    const int result = OcbDisplayAcquire(paint_context_.direct_dxgi, &dxgi_frame, 16);
++    if (result == OCB_NOT_READY) return PaintResult::kNotPresented;
++    if (result != OCB_OK) {
++      XELOGE("Direct DXGI acquire: {}", OcbDisplayLastError(paint_context_.direct_dxgi));
++      return PaintResult::kNotPresentedConnectionOutdated;
++    }
++    swapchain_image_index = dxgi_frame.image_index;
++    dfn.vkCmdPipelineBarrier(draw_command_buffer, VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT,
++        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT, 0, 0, nullptr, 0, nullptr,
++        1, &dxgi_frame.acquire_barrier);
++  } else
++#endif
++  {
+   VkResult acquire_result = dfn.vkAcquireNextImageKHR(
+       device, paint_context_.swapchain, UINT64_MAX, acquire_semaphore,
+       VK_NULL_HANDLE, &swapchain_image_index);
+@@ -1472,6 +1558,8 @@
+     default:
+       XELOGE("VulkanPresenter: Failed to acquire the swapchain image");
+       return PaintResult::kNotPresented;
++  }
++
+   }
+ 
+   // Non-zero extents needed for both the viewport (width must not be zero) and
+@@ -2033,8 +2121,19 @@
+   }
+ 
+   dfn.vkCmdEndRenderPass(draw_command_buffer);
+-
+-  dfn.vkEndCommandBuffer(draw_command_buffer);
++#if XE_PLATFORM_WIN32
++  if (paint_context_.direct_dxgi) {
++    dfn.vkCmdPipelineBarrier(draw_command_buffer, VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
++        VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT, 0, 0, nullptr, 0, nullptr,
++        1, &dxgi_frame.release_barrier);
++  }
++#endif
++  if (dfn.vkEndCommandBuffer(draw_command_buffer) != VK_SUCCESS) {
++#if XE_PLATFORM_WIN32
++    if (paint_context_.direct_dxgi) OcbDisplayCancel(paint_context_.direct_dxgi);
++#endif
++    return PaintResult::kNotPresentedConnectionOutdated;
++  }
+ 
+   VkPipelineStageFlags acquire_semaphore_wait_stage =
+       VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+@@ -2058,11 +2157,29 @@
+     paint_context_.ui_setup_command_buffer_current_index = SIZE_MAX;
+   }
+   command_buffers[command_buffer_count++] = draw_command_buffer;
+-  VkSemaphore present_semaphore =
+-      paint_context_.swapchain_image_present_semaphores[swapchain_image_index];
++  VkSemaphore present_semaphore = VK_NULL_HANDLE;
++  VkTimelineSemaphoreSubmitInfo dxgi_timeline{VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO};
++  uint64_t dxgi_wait_value = 0, dxgi_signal_value = 0;
++#if XE_PLATFORM_WIN32
++  if (paint_context_.direct_dxgi) {
++    if (OcbDisplayGetSync(paint_context_.direct_dxgi, &dxgi_frame, &acquire_semaphore,
++                         &dxgi_wait_value, &dxgi_signal_value) != OCB_OK) {
++      OcbDisplayCancel(paint_context_.direct_dxgi);
++      return PaintResult::kNotPresentedConnectionOutdated;
++    }
++    present_semaphore = acquire_semaphore;
++    dxgi_timeline.waitSemaphoreValueCount = 1;
++    dxgi_timeline.pWaitSemaphoreValues = &dxgi_wait_value;
++    dxgi_timeline.signalSemaphoreValueCount = 1;
++    dxgi_timeline.pSignalSemaphoreValues = &dxgi_signal_value;
++  } else
++#endif
++  {
++    present_semaphore = paint_context_.swapchain_image_present_semaphores[swapchain_image_index];
++  }
+   VkSubmitInfo submit_info;
+   submit_info.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+-  submit_info.pNext = nullptr;
++  submit_info.pNext = paint_context_.direct_dxgi ? &dxgi_timeline : nullptr;
+   submit_info.waitSemaphoreCount = 1;
+   submit_info.pWaitSemaphores = &acquire_semaphore;
+   submit_info.pWaitDstStageMask = &acquire_semaphore_wait_stage;
+@@ -2085,6 +2202,9 @@
+       paint_context_.ui_setup_command_buffers[ui_setup_command_buffer_index]
+           .last_usage_submission_index = 0;
+     }
++#if XE_PLATFORM_WIN32
++    if (paint_context_.direct_dxgi) OcbDisplayCancel(paint_context_.direct_dxgi);
++#endif
+     // The image is in an acquired state - but now, it will be in it forever.
+     // To avoid that, recreate the swapchain - don't return just kNotPresented.
+     return PaintResult::kNotPresentedConnectionOutdated;
+@@ -2101,6 +2221,16 @@
+           vk::to_string(vk::Result(ui_signal_submit_result)));
+     }
+   }
++
++#if XE_PLATFORM_WIN32
++  if (paint_context_.direct_dxgi) {
++    // VulkanGPUCompletionTimeline released the Vulkan queue lock above.
++    if (OcbDisplayPresentSubmitted(paint_context_.direct_dxgi, &dxgi_frame) == OCB_OK)
++      return PaintResult::kPresented;
++    XELOGE("Direct DXGI present: {}", OcbDisplayLastError(paint_context_.direct_dxgi));
++    return PaintResult::kNotPresentedConnectionOutdated;
++  }
++#endif
+ 
+   VkPresentInfoKHR present_info;
+   present_info.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+--- a/src/xenia/ui/vulkan/vulkan_presenter.h
++++ b/src/xenia/ui/vulkan/vulkan_presenter.h
+@@ -433,6 +433,8 @@
+     VkFormat swapchain_render_pass_format = VK_FORMAT_UNDEFINED;
+     bool swapchain_render_pass_clear_load_op = false;
+ 
++    // Windows bridge owns imported images and DXGI swapchain. No DRS profile.
++    void* direct_dxgi = nullptr;
+     VkSurfaceKHR vulkan_surface = VK_NULL_HANDLE;
+     uint32_t present_queue_family = UINT32_MAX;
+     VkSwapchainKHR swapchain = VK_NULL_HANDLE;
+--- a/src/xenia/ui/vulkan/vulkan_provider.cc
++++ b/src/xenia/ui/vulkan/vulkan_provider.cc
+@@ -27,6 +27,10 @@
+              "Index of the preferred Vulkan physical device, or -1 to use any "
+              "compatible device.",
+              "Vulkan");
++
++DEFINE_bool(vulkan_direct_dxgi, false,
++            "Use application-owned DXGI output with Vulkan rendering on Windows.",
++            "Vulkan");
+ 
+ namespace xe {
+ namespace ui {
+@@ -72,14 +76,14 @@
+     provider->vulkan_device_ = VulkanDevice::CreateIfSupported(
+         provider->vulkan_instance_.get(),
+         physical_devices[preferred_physical_device_index], with_gpu_emulation,
+-        with_presentation);
++        with_presentation, with_presentation && cvars::vulkan_direct_dxgi);
+   }
+ 
+   if (!provider->vulkan_device_) {
+     for (const VkPhysicalDevice physical_device : physical_devices) {
+       provider->vulkan_device_ = VulkanDevice::CreateIfSupported(
+           provider->vulkan_instance_.get(), physical_device, with_gpu_emulation,
+-          with_presentation);
++          with_presentation, with_presentation && cvars::vulkan_direct_dxgi);
+       if (provider->vulkan_device_) {
+         break;
+       }

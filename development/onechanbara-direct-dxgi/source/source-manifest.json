@@ -1,0 +1,17 @@
+{
+  "base_commit": "b083312b8b18e07e6e410b82104191f126722794",
+  "files": {
+    "src/xenia/ui/vulkan/vulkan_device.cc": "c8535fb4f3b035c2112e9c7968b727e4929a11d212522238ae13de664f2c6ef9",
+    "src/xenia/ui/vulkan/vulkan_device.h": "2001c823d271c6ab48c278fe93bd6357e33ab56e25a2cc76db19b43476f41a81",
+    "src/xenia/ui/vulkan/vulkan_provider.cc": "db3e8c9d5634508aa507348d9babe2d25764ac5679e6c11f9045bc9f3a8f5090",
+    "src/xenia/ui/vulkan/vulkan_presenter.h": "e359e9be49d86c173644eaca6165a94d86bbcf1dbc879a15208711ae4a48147f",
+    "src/xenia/ui/vulkan/vulkan_presenter.cc": "5075f7561ac131ad1ef77034de20fe21d44e250fd0ddd75678ea2c344e91c26a",
+    "src/xenia/ui/vulkan/CMakeLists.txt": "c177efc11216064aed7b49e903de3bc07281758d5479ff18930ca7cdf4830176",
+    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc": "b268697b03fbe090ec7271de14dcbb47c3b26e1ab4179b7f5f93d03e65a7934b",
+    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h": "3a4af0cf28c3d2b584a5207c6fd313caa694a3229c370db56527e4f5ddf112c9",
+    "src/xenia/ui/vulkan/onechanbara_display/frame_contract.h": "334dcd89181ffbc454b27662a8d98e4bf6565dfe87856f784081a38ec32e75bb",
+    "src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h": "9d764fa97f45df1dd00957436b0a5e96f0383c1ac1a0e83512721b70d436ce07",
+    "src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE": "6d489af6292662d9e36d34ce49423784984a5f6e41d7b58f49b01264df59fa03",
+    "src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch": "5f05aeec131e92239963611942ebcb57d28ff00dfe3ec0e7eb1b4064d1f44f2c"
+  }
+}

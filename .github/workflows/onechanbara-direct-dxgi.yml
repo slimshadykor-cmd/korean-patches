@@ -1,0 +1,75 @@
+name: Build Onechanbara v1.7 direct DXGI
+on:
+  push:
+    branches: [development/onechanbara-direct-dxgi-v1.7]
+    paths:
+      - '.github/workflows/onechanbara-direct-dxgi.yml'
+      - 'development/onechanbara-direct-dxgi/source/**'
+permissions:
+  contents: write
+concurrency:
+  group: onechanbara-direct-dxgi-build
+  cancel-in-progress: true
+jobs:
+  windows:
+    if: github.repository == 'slimshadykor-cmd/korean-patches'
+    runs-on: windows-2025-vs2026
+    timeout-minutes: 60
+    env:
+      POWERSHELL_TELEMETRY_OPTOUT: 1
+    steps:
+      - name: Check out patch source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          path: patch
+          persist-credentials: false
+      - name: Check out pinned Xenia source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: xenia-canary/xenia-canary
+          ref: b083312b8b18e07e6e410b82104191f126722794
+          path: xenia
+          persist-credentials: false
+      - name: Apply exact integration patch
+        working-directory: xenia
+        run: |
+          git apply --check ../patch/development/onechanbara-direct-dxgi/source/xenia-direct-dxgi.patch
+          if ($LASTEXITCODE -ne 0) { throw 'Source patch preflight failed' }
+          git apply ../patch/development/onechanbara-direct-dxgi/source/xenia-direct-dxgi.patch
+          if ($LASTEXITCODE -ne 0) { throw 'Source patch failed' }
+      - name: Install Vulkan shader build tools
+        run: |
+          Invoke-WebRequest -Uri 'https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe' -OutFile vulkan-sdk.exe
+          $installer = Start-Process -FilePath .\vulkan-sdk.exe -ArgumentList '--accept-licenses','--default-answer','--confirm-command','install' -NoNewWindow -Wait -PassThru
+          if ($installer.ExitCode -ne 0) { throw 'Vulkan SDK installation failed' }
+          $sdk = Get-ChildItem 'C:\VulkanSDK' -Directory | Sort-Object Name -Descending | Select-Object -First 1
+          if (!$sdk) { throw 'Vulkan SDK directory missing' }
+          "VULKAN_SDK=$($sdk.FullName)" >> $env:GITHUB_ENV
+          "$($sdk.FullName)\Bin" >> $env:GITHUB_PATH
+          foreach ($tool in 'glslangValidator','spirv-opt','spirv-dis') {
+            if (!(Test-Path "$($sdk.FullName)\Bin\$tool.exe")) { throw "Missing shader tool $tool" }
+          }
+      - name: Fetch pinned dependencies
+        working-directory: xenia
+        run: |
+          $modules = (Select-String -CaseSensitive '(?<=path = )(?!third_party\/xbyak_aarch64).+' .gitmodules).Matches.Value
+          git submodule update --init --depth=1 -j 4 $modules
+          if ($LASTEXITCODE -ne 0) { throw 'Dependency checkout failed' }
+      - name: Compile complete Windows emulator
+        working-directory: xenia
+        run: |
+          python xenia-build.py build --config=Release --target=xenia-app
+          if ($LASTEXITCODE -ne 0) { throw 'Xenia build failed' }
+      - name: Validate PE and stage isolated runtime
+        working-directory: xenia
+        run: |
+          python ../patch/development/onechanbara-direct-dxgi/source/stage_runtime.py
+          if ($LASTEXITCODE -ne 0) { throw 'Runtime validation failed' }
+      - name: Store build on development branch
+        # Standard public runner only. No paid Actions artifact/cache storage.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUILD_SOURCE_SHA: ${{ github.sha }}
+          BUILD_REPOSITORY: ${{ github.repository }}
+          BUILD_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python patch/development/onechanbara-direct-dxgi/source/store_runtime.py
