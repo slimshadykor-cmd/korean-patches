@@ -7,13 +7,13 @@
     "src/xenia/ui/vulkan/vulkan_device.h": "2001c823d271c6ab48c278fe93bd6357e33ab56e25a2cc76db19b43476f41a81",
     "src/xenia/ui/vulkan/vulkan_provider.cc": "db3e8c9d5634508aa507348d9babe2d25764ac5679e6c11f9045bc9f3a8f5090",
     "src/xenia/ui/vulkan/vulkan_presenter.h": "9888643f7c1dcd3469e8dd4651037316e32bc763b7ae3f9f051a25703b3c68b4",
-    "src/xenia/ui/vulkan/vulkan_presenter.cc": "cf62dcb24e20edd7c01be95a07065f16a9c0e89de35de446a76fc43180cda11f",
+    "src/xenia/ui/vulkan/vulkan_presenter.cc": "f2c051a63f676d6e2f5b981291ae11640b156720919c20602be6615b71214d64",
     "src/xenia/ui/vulkan/CMakeLists.txt": "c177efc11216064aed7b49e903de3bc07281758d5479ff18930ca7cdf4830176",
-    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc": "ebeafcdf6409de36681d9d8012b8eea0f9857ee47db621fe280be4001eccc523",
-    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h": "3a4af0cf28c3d2b584a5207c6fd313caa694a3229c370db56527e4f5ddf112c9",
+    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc": "5117336bd10fb833cfe0ed38f0c3c53730fac227d0afd25f6ebfff2b5c1ddcf3",
+    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h": "0fd31f38e890e5cab354aee9f10ad1a95a2d4dca73520f2a07c5d534874c9aff",
     "src/xenia/ui/vulkan/onechanbara_display/frame_contract.h": "334dcd89181ffbc454b27662a8d98e4bf6565dfe87856f784081a38ec32e75bb",
-    "src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h": "9d764fa97f45df1dd00957436b0a5e96f0383c1ac1a0e83512721b70d436ce07",
+    "src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h": "6f9370b72b47e277c0d513219a1002288ffbf07a01b0d6fecdbe43304adfb516",
     "src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE": "6d489af6292662d9e36d34ce49423784984a5f6e41d7b58f49b01264df59fa03",
-    "src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch": "5f05aeec131e92239963611942ebcb57d28ff00dfe3ec0e7eb1b4064d1f44f2c"
+    "src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch": "15d0c0eb8d00ffac535bf7da623db657c933a06a1bae65357d208631bb6c4382"
   }
 }
