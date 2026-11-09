@@ -1,7 +1,21 @@
 from pathlib import Path
-import subprocess,json
-R=Path(__file__).resolve().parent;root=R.parent/'generator/non_nv';bridge_root=root/'xenia_work/src/xenia/ui/vulkan/onechanbara_display'
+import argparse,subprocess,json
+R=Path(__file__).resolve().parent;root=R.parent/'generator/non_nv'
+parser=argparse.ArgumentParser(description='Compile actual bridge methods against mocked GPU/OS objects; not a GPU validation test.')
+parser.add_argument('--xenia-source',type=Path,default=root/'xenia_work')
+parser.add_argument('--vulkan-headers',type=Path,default=root/'dependencies/Vulkan-Headers-1.3.296/include')
+parser.add_argument('--output-dir',type=Path,default=R)
+args=parser.parse_args();args.output_dir.mkdir(parents=True,exist_ok=True)
+bridge_root=args.xenia_source/'src/xenia/ui/vulkan/onechanbara_display'
 vendor=(bridge_root/'vendor/vk_dxgi.h').read_text();bridge=(bridge_root/'vulkan_dxgi_bridge.cc').read_text()
+presenter=(bridge_root.parent/'vulkan_presenter.cc').read_text()
+stage_begin=presenter.index('  VkPipelineStageFlags acquire_semaphore_wait_stage =')
+stage_end=presenter.index('  VkCommandBuffer command_buffers[2];',stage_begin)
+presenter_wait_stage='''\nVkPipelineStageFlags PresenterWaitStage(bool direct) {
+  struct { bool direct_dxgi; } paint_context_{direct};
+'''+presenter[stage_begin:stage_end]+'''  return acquire_semaphore_wait_stage;
+}
+'''
 def function(s,marker):
  start=s.index(marker);a=s.index('{',start);depth=1;i=a+1
  while depth:
@@ -9,7 +23,7 @@ def function(s,marker):
  return s[start:i]
 acquire=function(vendor,'static dvk_result_t dvk_acquireImage( dvk_dxgiSwapChain_t * pSwapChain, dvk_presentationInfo_t * pPresentationInfo, DWORD timeoutMs ) noexcept\n')
 present=function(vendor,'static dvk_result_t dvk_presentImage( const dvk_presentParameters_t & presentParameters ) noexcept\n')
-methods='\n'.join(function(bridge,m) for m in ['  int Acquire(', '  bool ValidFrame(', '  int GetImages(', '  int GetSync(', '  int PresentSubmitted(', '  int Cancel('])
+methods='\n'.join(function(bridge,m) for m in ['  int Acquire(', '  int Submit(', '  bool ValidFrame(', '  int GetImages(', '  int GetSync(', '  int PresentSubmitted(', '  int Cancel('])
 pre=r'''
 #include <cassert>
 #include <chrono>
@@ -18,12 +32,24 @@ pre=r'''
 #include <vector>
 #include <cstdio>
 #include "frame_contract.h"
+#define XE_PLATFORM_WIN32 1
 using DWORD=uint32_t;using UINT=uint32_t;using HRESULT=int;
 constexpr int WAIT_OBJECT_0=0,WAIT_TIMEOUT=258,DVK_OK=0,DVK_NOT_READY=-1,DVK_ERROR=1,DVK_ERROR_DX12=2;
 constexpr int OCB_ERROR=-1,OCB_OK=0,OCB_NOT_READY=1;
 #define FAILED(x) ((x)<0)
 #define DVK_PREPEND(x) x
 std::vector<std::string> calls;DWORD wait_result=WAIT_OBJECT_0,event_delay=0;
+VkPipelineStageFlags submitted_wait_stage=0;
+uint64_t submitted_wait_value=0,submitted_signal_value=0;
+VkResult MockSubmit(VkQueue,uint32_t count,const VkSubmitInfo* infos,VkFence){
+ assert(count==1&&infos->waitSemaphoreCount==1&&infos->signalSemaphoreCount==1);
+ assert(infos->commandBufferCount==1&&infos->pCommandBuffers[0]!=VK_NULL_HANDLE);
+ auto*timeline=static_cast<const VkTimelineSemaphoreSubmitInfo*>(infos->pNext);
+ assert(timeline&&timeline->waitSemaphoreValueCount==1&&timeline->signalSemaphoreValueCount==1);
+ submitted_wait_stage=infos->pWaitDstStageMask[0];
+ submitted_wait_value=timeline->pWaitSemaphoreValues[0];submitted_signal_value=timeline->pSignalSemaphoreValues[0];
+ calls.push_back("submit_vulkan");return VK_SUCCESS;
+}
 DWORD WaitForSingleObjectEx(void*,DWORD timeout,bool){calls.push_back("latency");return timeout<event_delay?WAIT_TIMEOUT:wait_result;}
 struct dvk_result_t{int code=0;const char*message="";};
 struct Fence{uint64_t completed=0;uint64_t GetCompletedValue(){return completed;}int SetEventOnCompletion(uint64_t v,void*){calls.push_back("allocator_wait:"+std::to_string(v));return 0;}};
@@ -59,6 +85,10 @@ struct OcbDisplayFrame{VkImage image;uint32_t image_index;uint64_t signal_value;
 post=r'''
 int main(){
  int checks=0;auto check=[&](bool b){++checks;if(!b){std::fprintf(stderr,"check %d failed\n",checks);std::abort();}};
+ // Exercise the actual presenter selection and actual bridge submit arguments.
+ // A COLOR_ATTACHMENT_OUTPUT wait cannot order an external ownership acquire.
+ check(PresenterWaitStage(false)==VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT);
+ check(PresenterWaitStage(true)==VK_PIPELINE_STAGE_ALL_COMMANDS_BIT);
  Swap swap;Queue queue;CommandList list;Fence fence;Device device{&queue,&list};Allocator allocators[3];dvk_perFrameResources_t resources[3];
  for(int i=0;i<3;++i)resources[i].pCommandAllocator=&allocators[i];
  Probe b;b.swap_={nullptr,&swap,resources,1,&fence,&device,{},0,{},1,reinterpret_cast<VkImage>(uintptr_t{9})};
@@ -86,11 +116,18 @@ int main(){
  event_delay=50;check(b.Acquire(&f,250)==OCB_OK);check(b.Cancel()==OCB_OK);
  event_delay=300;before=b.swap_.fenceValue;check(b.Acquire(&f,250)==OCB_NOT_READY);check(b.swap_.fenceValue==before);
  check(b.Acquire(&f,251)==OCB_ERROR);
+ event_delay=0;check(b.Acquire(&f,250)==OCB_OK);
+ check(f.acquire_barrier.srcQueueFamilyIndex==VK_QUEUE_FAMILY_EXTERNAL&&f.acquire_barrier.dstQueueFamilyIndex==b.c_.queue_family);
+ const auto expected_wait=b.pending_.waitValue,expected_signal=b.pending_.submitValue,expected_copy=b.pending_.blitValue;
+ calls.clear();check(b.Submit(&f,reinterpret_cast<VkCommandBuffer>(uintptr_t{1}),VK_NULL_HANDLE)==OCB_OK);
+ check(submitted_wait_stage==VK_PIPELINE_STAGE_ALL_COMMANDS_BIT);
+ check(submitted_wait_value==expected_wait&&submitted_signal_value==expected_signal);
+ check(calls==std::vector<std::string>{"submit_vulkan","wait_render:"+std::to_string(expected_signal),"execute_copy","signal_copy:"+std::to_string(expected_copy),"present:1:0"});
  std::printf("{\"passed\":%d,\"actual_vendor_and_bridge_methods\":true,\"gpu_test\":false,\"mocked\":\"Windows/D3D12/Vulkan objects and OS events\"}\n",checks);
 }
 '''
-probe='''\nstruct Probe {\nusing FrameState=ocb::display::FrameState;ocb::display::FrameContract contract_;dvk_dxgiSwapChain_t swap_{};dvk_presentationInfo_t pending_{};bool swap_ready_=true,shared_image_initialized_=false;struct{uint32_t queue_family=1;}c_;bool Error(const char*){return false;}bool Check(dvk_result_t r){return r.code==DVK_OK;}\n'''+methods+'\n};\n'
-file=R/'copy_protocol_test.cc';file.write_text(pre+acquire+'\n'+present+'\n'+probe+post)
-subprocess.run(['g++','-std=c++20','-Wall','-Wextra','-Werror','-I'+str(bridge_root),'-I'+str(root/'dependencies/Vulkan-Headers-1.3.296/include'),str(file),'-o',str(R/'copy_protocol_test')],check=True)
-r=subprocess.run([str(R/'copy_protocol_test')],check=True,capture_output=True,text=True)
-(R/'copy-protocol-validation.json').write_text(r.stdout);print(r.stdout)
+probe='''\nstruct Probe {\nusing FrameState=ocb::display::FrameState;ocb::display::FrameContract contract_;dvk_dxgiSwapChain_t swap_{};dvk_presentationInfo_t pending_{};bool swap_ready_=true,shared_image_initialized_=false;struct{uint32_t queue_family=1;VkQueue queue{};}c_;PFN_vkQueueSubmit submit_=MockSubmit;bool Error(const char*){return false;}bool Check(dvk_result_t r){return r.code==DVK_OK;}\n'''+methods+'\n};\n'
+file=args.output_dir/'copy_protocol_test.cc';file.write_text(pre+acquire+'\n'+present+'\n'+probe+presenter_wait_stage+post)
+subprocess.run(['g++','-std=c++20','-Wall','-Wextra','-Werror','-Wno-missing-field-initializers','-I'+str(bridge_root),'-I'+str(args.vulkan_headers),str(file),'-o',str(args.output_dir/'copy_protocol_test')],check=True)
+r=subprocess.run([str(args.output_dir/'copy_protocol_test')],check=True,capture_output=True,text=True)
+(args.output_dir/'copy-protocol-validation.json').write_text(r.stdout);print(r.stdout)

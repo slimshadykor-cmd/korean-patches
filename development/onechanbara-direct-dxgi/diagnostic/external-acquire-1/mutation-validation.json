@@ -1,0 +1,15 @@
+{
+  "mutations": [
+    {
+      "mutation": "presenter_old_wait",
+      "rejected": true,
+      "failed_check": 2
+    },
+    {
+      "mutation": "bridge_old_wait",
+      "rejected": true,
+      "failed_check": 49
+    }
+  ],
+  "gpu_test": false
+}

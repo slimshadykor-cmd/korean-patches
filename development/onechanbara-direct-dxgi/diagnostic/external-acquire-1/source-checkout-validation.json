@@ -1,0 +1,10 @@
+[
+  {
+    "patch_crlf": true,
+    "rejected": "Source hash mismatch: src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE"
+  },
+  {
+    "patch_crlf": false,
+    "verified_files": 16
+  }
+]

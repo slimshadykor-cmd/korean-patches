@@ -1,0 +1,15 @@
+Investigation status — 2026-11-09
+
+Observed: Saki's long ponytail outline jumps inward for one captured frame and returns. It does not entirely disappear. Mode1 21-28-23 ~4.800s; mode2 21-33-36 ~20.883s and25.350s. Aya hair remains in reviewed dialogue samples. Exact recurrence version is unknown.
+
+Baseline: mode1 (DirectDXGI on guest output) is the user's preferred mode. Mode3 performance is inadequate. The mode1 logs have no presentation-ID gaps during the diagnostic period; that does not prove every physical display frame or guest animation was correct.
+
+Confirmed code defect: external shared-image ownership acquire uses dependencyFlags0, but waited only at COLOR_ATTACHMENT_OUTPUT. Changed DirectDXGI semaphore stage to ALL_COMMANDS in both submission paths. Native output wait remains unchanged. This is a Vulkan specification correction, not proof of the hair symptom's cause.
+
+Not changed: alpha/shader translation, game/animation timing, GPU emulation options, resolution scale, frame pacing, fences, wait timeouts, NVIDIA settings, original emulator/configuration/cache.
+
+Separate finding, DEFERRED: use_fuzzy_alpha_epsilon=true only changes DXBC in pinned Xenia source; Vulkan ignores it. A Vulkan parity trial could be studied if needed, but no evidence yet ties Saki's actual draw to the relevant alpha compare. Do not combine it with the present sync correction or advertise it as the root cause. Any future implementation needs shader modification/cache identity and DXBC-consistent Less/Equal/Greater/NotEqual/NaN semantics.
+
+Validation boundary: 51 mock contract checks pass; restoring either original wait stage independently makes the corresponding regression check fail. Full Windows compile and executable fingerprint validation are required before delivery. Actual GPU game output and performance remain untested here.
+
+If the candidate leaves the localized outline movement unchanged, retain mode1 baseline and isolate the affected draw/shader/geometry next. Do not respond by broadening CPU waits, changing combo timing, or stacking unrelated setting changes.

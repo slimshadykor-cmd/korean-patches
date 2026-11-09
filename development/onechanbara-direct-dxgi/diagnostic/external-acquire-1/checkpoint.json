@@ -1,0 +1,32 @@
+{
+  "version": "1.7",
+  "candidate": "external-acquire-1",
+  "source_commit": "8d6b3d2ea51f41e9fd11943a5e6216874c22566f",
+  "run_id": 42626746831,
+  "baseline_runtime_sha256": "653b2fa6fa15b72e30a21da8b2ae13d89b15236740951f1218b250094248e28e",
+  "launcher_sha256": "fe93febb207bad63f64e68e3f52bf6ad7132e8d04252ada28c6ba85eabe2d164",
+  "hair_cause_confirmed": false,
+  "actual_gpu_test": false,
+  "alpha_parity_change_included": false,
+  "build_status": "success",
+  "observation": "Saki long ponytail outline jumps inward for one captured frame, not entire hair disappearing. Occurs in modes 1 and 2; recurrence onset unknown.",
+  "mock_sync_checks": 51,
+  "old_wait_mutations_rejected": 2,
+  "packager_independent_review": "pass",
+  "pending": "Windows build, final ZIP verification, actual user GPU result",
+  "failed_packaging_run": {
+    "id": 42622662472,
+    "compile_success": true,
+    "failure": "raw source hash check did not account for Windows CRLF checkout",
+    "delivered_to_user": false
+  },
+  "source_validation_fix": "canonical CRLF->LF only; original/LF/CRLF pass and changed-byte rejection; also runs before compilation",
+  "canonical_patch_transport": "git show blob bytes before git apply; Windows checkout simulation validates16files",
+  "job_id": 129192370583,
+  "windows_source_preflight": "passed including canonical source hash and newline/changed-byte regression",
+  "state": "paused_by_user",
+  "build_completed_at": "2026-11-09T13:57:06Z",
+  "final_package_created": false,
+  "automatic_resume": false,
+  "next_step": "Only after user resumes: reuse successful runtime from development branch, verify outer build metadata, run prepared package.py, save ZIP. Do not rebuild unchanged source. Actual Saki hair/performance result still unknown."
+}
