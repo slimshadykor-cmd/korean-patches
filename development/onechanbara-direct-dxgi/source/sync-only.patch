@@ -1,0 +1,57 @@
+--- a/src/xenia/ui/vulkan/vulkan_presenter.cc
++++ b/src/xenia/ui/vulkan/vulkan_presenter.cc
+@@ -9,6 +9,7 @@
+ 
+ #include "xenia/ui/vulkan/vulkan_presenter.h"
+ #if XE_PLATFORM_WIN32
++#include "xenia/ui/vulkan/onechanbara_display/frame_contract.h"
+ #include "xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h"
+ #endif
+ 
+@@ -671,7 +672,7 @@
+     // frame isn't replaced while waiting for a UI-thread paint notification.
+     paint_context_.swapchain_is_fifo = true;
+     new_swapchain_format = VK_FORMAT_R8G8B8A8_UNORM;
+-    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, diagnostic-output-1, no driver profile",
++    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, diagnostic-output-1, sync_revision=external-acquire-1, no driver profile",
+            new_surface_width, new_surface_height);
+   } else
+ #endif
+@@ -2297,6 +2298,11 @@
+ 
+   VkPipelineStageFlags acquire_semaphore_wait_stage =
+       VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
++#if XE_PLATFORM_WIN32
++  if (paint_context_.direct_dxgi) {
++    acquire_semaphore_wait_stage = ocb::display::kExternalAcquireWaitStage;
++  }
++#endif
+   VkCommandBuffer command_buffers[2];
+   uint32_t command_buffer_count = 0;
+   // UI setup command buffers must be accessed only if execute_ui_drawers is not
+--- a/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc
++++ b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc
+@@ -195,7 +195,7 @@
+     VkTimelineSemaphoreSubmitInfo ti{VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO};
+     ti.waitSemaphoreValueCount = 1; ti.pWaitSemaphoreValues = &pending_.waitValue;
+     ti.signalSemaphoreValueCount = 1; ti.pSignalSemaphoreValues = &pending_.submitValue;
+-    const VkPipelineStageFlags wait_stage = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
++    const VkPipelineStageFlags wait_stage = ocb::display::kExternalAcquireWaitStage;
+     VkSubmitInfo si{VK_STRUCTURE_TYPE_SUBMIT_INFO};
+     si.pNext = &ti; si.waitSemaphoreCount = 1;
+     si.pWaitSemaphores = &pending_.waitSemaphore; si.pWaitDstStageMask = &wait_stage;
+--- a/src/xenia/ui/vulkan/onechanbara_display/frame_contract.h
++++ b/src/xenia/ui/vulkan/onechanbara_display/frame_contract.h
+@@ -4,6 +4,12 @@
+ #include <vulkan/vulkan_core.h>
+ 
+ namespace ocb::display {
++// Ownership acquires are not part of a defined pipeline stage. Without
++// VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR, the
++// external semaphore wait must cover ALL_COMMANDS, including the acquire.
++inline constexpr VkPipelineStageFlags kExternalAcquireWaitStage =
++    VK_PIPELINE_STAGE_ALL_COMMANDS_BIT;
++
+ enum class FrameState { Idle, Acquired, Submitted, Failed };
+ class FrameContract {
+  public:

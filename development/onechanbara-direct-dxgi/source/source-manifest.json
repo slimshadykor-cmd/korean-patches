@@ -7,15 +7,22 @@
     "src/xenia/ui/vulkan/vulkan_device.h": "2001c823d271c6ab48c278fe93bd6357e33ab56e25a2cc76db19b43476f41a81",
     "src/xenia/ui/vulkan/vulkan_provider.cc": "efd438bb0ded02278faa8f69541963a1e06527c25291a72becee0d599e6904dd",
     "src/xenia/ui/vulkan/vulkan_presenter.h": "00fa36e438c9ba91553485da31621b27a08202d2b7ecb3c3ecdb0d5f5eebea54",
-    "src/xenia/ui/vulkan/vulkan_presenter.cc": "9a0be85b7ad594e90ae60e6e9330b318276b7ec1e6745864c047d1c84bc7f5f9",
+    "src/xenia/ui/vulkan/vulkan_presenter.cc": "6436e39d7405370b9053c7e88b4c229b8369efe810eb33f2d660652baeadab67",
     "src/xenia/ui/vulkan/CMakeLists.txt": "c177efc11216064aed7b49e903de3bc07281758d5479ff18930ca7cdf4830176",
-    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc": "c2e1900178b3abc975150de5431edd7e9cff1f02b1565998022ff492798d7d61",
+    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc": "ff6621f1df03addd48086f41b376f6ae725a6063c149692ee2d4f84bd66c28ec",
     "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h": "43652d8783ef319a63b1dcbc38170544a1a9491ad3056b49d40321ab6d701226",
-    "src/xenia/ui/vulkan/onechanbara_display/frame_contract.h": "334dcd89181ffbc454b27662a8d98e4bf6565dfe87856f784081a38ec32e75bb",
+    "src/xenia/ui/vulkan/onechanbara_display/frame_contract.h": "c0b137fbe0328503b45eaa34bfd550af2e0b1860b2225d20474649587577d1cf",
     "src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h": "586de1527147229409ca6522434d30401ed99036299bdf88c16b7159319b7afb",
     "src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE": "6d489af6292662d9e36d34ce49423784984a5f6e41d7b58f49b01264df59fa03",
     "src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch": "5f05aeec131e92239963611942ebcb57d28ff00dfe3ec0e7eb1b4064d1f44f2c",
     "src/xenia/ui/onechanbara_diagnostic_statistics.h": "0a526ef4bea1c60110c60271d4203c9fadbc144d3f17073615968dbae3424a78",
     "src/xenia/ui/vulkan/onechanbara_display/ocb_gpu_timing.h": "6bb2c9de4f485440e88d13ff9da5f1228837677a113f5fdb368d85ac8a3146a4"
-  }
+  },
+  "sync_revision": "external-acquire-1",
+  "previous_runtime_sha256": "653b2fa6fa15b72e30a21da8b2ae13d89b15236740951f1218b250094248e28e",
+  "changed_from_previous_diagnostic_runtime": [
+    "src/xenia/ui/vulkan/vulkan_presenter.cc",
+    "src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc",
+    "src/xenia/ui/vulkan/onechanbara_display/frame_contract.h"
+  ]
 }

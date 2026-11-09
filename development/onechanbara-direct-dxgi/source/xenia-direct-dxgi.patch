@@ -1,3 +1,6 @@
+diff --git a/src/xenia/ui/onechanbara_diagnostic_statistics.h b/src/xenia/ui/onechanbara_diagnostic_statistics.h
+new file mode 100644
+index 000000000..871c9c4f1
 --- /dev/null
 +++ b/src/xenia/ui/onechanbara_diagnostic_statistics.h
 @@ -0,0 +1,48 @@
@@ -49,6 +52,8 @@
 +    age_max_ms = std::max(age_max_ms, age_ms);
 +  }
 +};
+diff --git a/src/xenia/ui/presenter.cc b/src/xenia/ui/presenter.cc
+index d53a08120..80a8ee7b3 100644
 --- a/src/xenia/ui/presenter.cc
 +++ b/src/xenia/ui/presenter.cc
 @@ -8,6 +8,7 @@
@@ -59,7 +64,7 @@
  
  #include "xenia/base/assert.h"
  #include "xenia/base/cvar.h"
-@@ -68,6 +69,9 @@
+@@ -68,6 +69,9 @@ DEFINE_int32(
      "maintain aspect ratio without letterboxing or stretching.",
      "Display");
  
@@ -69,12 +74,10 @@
  namespace xe {
  namespace ui {
  
-@@ -378,6 +382,16 @@
-       return false;
-     }
+@@ -380,6 +384,16 @@ bool Presenter::RefreshGuestOutput(
      guest_output_active_last_refresh_ = false;
-+  }
-+
+   }
+ 
 +  if (cvars::onechanbara_diagnostics) {
 +    // Metadata travels under the existing mailbox release/acquire protocol.
 +    // No extra image handoff, lock or synchronization is introduced.
@@ -83,10 +86,12 @@
 +    writable_properties.diagnostic_publish_ns =
 +        std::chrono::duration_cast<std::chrono::nanoseconds>(
 +            std::chrono::steady_clock::now().time_since_epoch()).count();
-   }
- 
++  }
++
    // Make the new image the next to present on the host (the "ready" one),
-@@ -1079,7 +1093,8 @@
+   // replacing the one already specified as the next (dropping it instead of
+   // enqueueing the new image after it) to achieve the lowest latency (also,
+@@ -1079,7 +1093,8 @@ Presenter::PaintMode Presenter::GetDesiredPaintModeFromUIThread(
    if (!cvars::host_present_from_non_ui_thread) {
      return PaintMode::kUIThreadOnRequest;
    }
@@ -96,9 +101,11 @@
      // Don't be causing host vertical sync CPU waits in the thread generating
      // the guest output.
      return PaintMode::kUIThreadOnRequest;
+diff --git a/src/xenia/ui/presenter.h b/src/xenia/ui/presenter.h
+index b1d38224e..fa1e6466a 100644
 --- a/src/xenia/ui/presenter.h
 +++ b/src/xenia/ui/presenter.h
-@@ -369,6 +369,8 @@
+@@ -369,6 +369,8 @@ class Presenter {
      uint32_t display_aspect_ratio_x;
      uint32_t display_aspect_ratio_y;
      bool is_8bpc;
@@ -107,7 +114,7 @@
  
      GuestOutputProperties() { SetToInactive(); }
  
-@@ -613,6 +615,11 @@
+@@ -613,6 +615,11 @@ class Presenter {
    // are held by it. Call through DisconnectPaintingFromSurfaceFromUIThread to
    // ensure the implementation is only called while the connection is active.
    virtual void DisconnectPaintingFromSurfaceFromUIThreadImpl() = 0;
@@ -119,9 +126,11 @@
  
    // The returned lock interlocks multiple consumers (but not the producer and
    // the consumer) and must be held while accessing implementation-specific
+diff --git a/src/xenia/ui/vulkan/CMakeLists.txt b/src/xenia/ui/vulkan/CMakeLists.txt
+index 8836d4d45..884f9228e 100644
 --- a/src/xenia/ui/vulkan/CMakeLists.txt
 +++ b/src/xenia/ui/vulkan/CMakeLists.txt
-@@ -8,6 +8,11 @@
+@@ -8,6 +8,11 @@ target_include_directories(xenia-ui-vulkan PRIVATE
  )
  target_link_libraries(xenia-ui-vulkan PUBLIC xenia-base xenia-ui)
  xe_target_defaults(xenia-ui-vulkan)
@@ -133,15 +142,24 @@
  
  if(XENIA_BUILD_MISC)
    # Vulkan window demo
+diff --git a/src/xenia/ui/vulkan/onechanbara_display/frame_contract.h b/src/xenia/ui/vulkan/onechanbara_display/frame_contract.h
+new file mode 100644
+index 000000000..2ba697aae
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/frame_contract.h
-@@ -0,0 +1,60 @@
+@@ -0,0 +1,66 @@
 +// Onechanbara display bridge development. No game state or driver profile access.
 +#pragma once
 +#include <cstdint>
 +#include <vulkan/vulkan_core.h>
 +
 +namespace ocb::display {
++// Ownership acquires are not part of a defined pipeline stage. Without
++// VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR, the
++// external semaphore wait must cover ALL_COMMANDS, including the acquire.
++inline constexpr VkPipelineStageFlags kExternalAcquireWaitStage =
++    VK_PIPELINE_STAGE_ALL_COMMANDS_BIT;
++
 +enum class FrameState { Idle, Acquired, Submitted, Failed };
 +class FrameContract {
 + public:
@@ -196,6 +214,9 @@
 +  return b;
 +}
 +}  // namespace ocb::display
+diff --git a/src/xenia/ui/vulkan/onechanbara_display/ocb_gpu_timing.h b/src/xenia/ui/vulkan/onechanbara_display/ocb_gpu_timing.h
+new file mode 100644
+index 000000000..bc28b833f
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/ocb_gpu_timing.h
 @@ -0,0 +1,217 @@
@@ -416,6 +437,9 @@
 +};
 +
 +#endif  // XENIA_UI_VULKAN_OCB_GPU_TIMING_H_
+diff --git a/src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE b/src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE
+new file mode 100644
+index 000000000..1625c1793
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/LICENSE
 @@ -0,0 +1,121 @@
@@ -541,6 +565,9 @@
 +    party to this document and has no duty or obligation with respect to
 +    this CC0 or use of the Work.
 \ No newline at end of file
+diff --git a/src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch b/src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch
+new file mode 100644
+index 000000000..80cb08d8b
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/local-changes.patch
 @@ -0,0 +1,78 @@
@@ -622,6 +649,9 @@
 +   {
 +     pSwapChain->pFunctions->vkDestroyImage( pSwapChain->pVulkanContext->device, *pSharedImage->pVkImage, pSwapChain->pVulkanContext->pAllocationCallbacks );
 +     *pSharedImage->pVkImage = VK_NULL_HANDLE;
+diff --git a/src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h b/src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h
+new file mode 100644
+index 000000000..cf59969b6
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vendor/vk_dxgi.h
 @@ -0,0 +1,1335 @@
@@ -1960,6 +1990,9 @@
 +  return ( ( flags & testFlag ) != 0x00 );
 +}
 +#endif
+diff --git a/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc
+new file mode 100644
+index 000000000..1ced4c6e1
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.cc
 @@ -0,0 +1,305 @@
@@ -2160,7 +2193,7 @@
 +    VkTimelineSemaphoreSubmitInfo ti{VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO};
 +    ti.waitSemaphoreValueCount = 1; ti.pWaitSemaphoreValues = &pending_.waitValue;
 +    ti.signalSemaphoreValueCount = 1; ti.pSignalSemaphoreValues = &pending_.submitValue;
-+    const VkPipelineStageFlags wait_stage = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
++    const VkPipelineStageFlags wait_stage = ocb::display::kExternalAcquireWaitStage;
 +    VkSubmitInfo si{VK_STRUCTURE_TYPE_SUBMIT_INFO};
 +    si.pNext = &ti; si.waitSemaphoreCount = 1;
 +    si.pWaitSemaphores = &pending_.waitSemaphore; si.pWaitDstStageMask = &wait_stage;
@@ -2268,6 +2301,9 @@
 +  return p ? static_cast<Bridge*>(p)->error() : "Null display handle.";
 +}
 +extern "C" void OcbDisplayDestroy(void* p) { delete static_cast<Bridge*>(p); }
+diff --git a/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h
+new file mode 100644
+index 000000000..1db52297a
 --- /dev/null
 +++ b/src/xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h
 @@ -0,0 +1,74 @@
@@ -2345,9 +2381,11 @@
 +// completes. Close while the VkDevice is still alive. No driver settings exist.
 +OCB_DISPLAY_API void OcbDisplayDestroy(void*);
 +}
+diff --git a/src/xenia/ui/vulkan/vulkan_device.cc b/src/xenia/ui/vulkan/vulkan_device.cc
+index 5d8ab445b..34ca123a4 100644
 --- a/src/xenia/ui/vulkan/vulkan_device.cc
 +++ b/src/xenia/ui/vulkan/vulkan_device.cc
-@@ -40,7 +40,7 @@
+@@ -40,7 +40,7 @@ struct VulkanFeatures {
  std::unique_ptr<VulkanDevice> VulkanDevice::CreateIfSupported(
      const VulkanInstance* const vulkan_instance,
      const VkPhysicalDevice physical_device, const bool with_gpu_emulation,
@@ -2356,7 +2394,7 @@
    assert_not_null(vulkan_instance);
    assert_not_null(physical_device);
  
-@@ -102,6 +102,20 @@
+@@ -102,6 +102,20 @@ std::unique_ptr<VulkanDevice> VulkanDevice::CreateIfSupported(
      }
    }
  
@@ -2377,11 +2415,10 @@
    // Enable needed extensions.
  
    std::unique_ptr<VulkanDevice> device(
-@@ -136,6 +150,14 @@
- #define XE_UI_VULKAN_LOCAL_PROMOTED_EXTENSION(name, major, minor) \
+@@ -137,6 +151,14 @@ std::unique_ptr<VulkanDevice> VulkanDevice::CreateIfSupported(
    request_promoted_extension("VK_" #name, major, minor,           \
                               &ext_##major##_##minor##_##name);
-+
+ 
 +#if XE_PLATFORM_WIN32
 +  if (with_dxgi_display) {
 +    XE_UI_VULKAN_STRUCT_EXTENSION(KHR_external_memory_win32)
@@ -2389,14 +2426,14 @@
 +    // Timeline semaphores are core in the required Vulkan 1.2 version.
 +  }
 +#endif
- 
++
    bool ext_KHR_portability_subset = false;
    bool ext_1_2_KHR_driver_properties = false;
-@@ -266,6 +288,15 @@
-            properties.deviceName);
+   if (get_physical_device_properties2_supported) {
+@@ -267,6 +289,15 @@ std::unique_ptr<VulkanDevice> VulkanDevice::CreateIfSupported(
      return nullptr;
    }
-+
+ 
 +#if XE_PLATFORM_WIN32
 +  if (with_dxgi_display &&
 +      (!device->extensions_.ext_KHR_external_memory_win32 ||
@@ -2405,10 +2442,11 @@
 +    return nullptr;
 +  }
 +#endif
- 
++
    VkDeviceCreateInfo device_create_info = {
        VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO};
-@@ -763,6 +794,14 @@
+ 
+@@ -763,6 +794,14 @@ std::unique_ptr<VulkanDevice> VulkanDevice::CreateIfSupported(
  
    // Create the device.
  
@@ -2423,7 +2461,7 @@
    const VkResult device_create_result = ifn.vkCreateDevice(
        physical_device, &device_create_info, nullptr, &device->device_);
    if (device_create_result != VK_SUCCESS) {
-@@ -882,6 +921,7 @@
+@@ -882,6 +921,7 @@ std::unique_ptr<VulkanDevice> VulkanDevice::CreateIfSupported(
      }
    }
  
@@ -2431,9 +2469,11 @@
    return device;
  }
  
+diff --git a/src/xenia/ui/vulkan/vulkan_device.h b/src/xenia/ui/vulkan/vulkan_device.h
+index 3d933b176..d7b382002 100644
 --- a/src/xenia/ui/vulkan/vulkan_device.h
 +++ b/src/xenia/ui/vulkan/vulkan_device.h
-@@ -25,7 +25,8 @@
+@@ -25,7 +25,8 @@ class VulkanDevice {
   public:
    static std::unique_ptr<VulkanDevice> CreateIfSupported(
        const VulkanInstance* vulkan_instance, VkPhysicalDevice physical_device,
@@ -2443,7 +2483,7 @@
  
    VulkanDevice(const VulkanDevice&) = delete;
    VulkanDevice& operator=(const VulkanDevice&) = delete;
-@@ -201,12 +202,15 @@
+@@ -201,12 +202,15 @@ class VulkanDevice {
  #if XE_PLATFORM_WIN32
      // VK_EXT_full_screen_exclusive (#256, Windows only)
      bool ext_EXT_full_screen_exclusive = false;
@@ -2459,7 +2499,7 @@
  
    struct Functions {
  #define XE_UI_VULKAN_FUNCTION(name) PFN_##name name = nullptr;
-@@ -331,6 +335,7 @@
+@@ -331,6 +335,7 @@ class VulkanDevice {
    Extensions extensions_;
  
    VkDevice device_ = nullptr;
@@ -2467,13 +2507,16 @@
  
    Functions functions_;
  
+diff --git a/src/xenia/ui/vulkan/vulkan_presenter.cc b/src/xenia/ui/vulkan/vulkan_presenter.cc
+index 68b97e788..6ff215505 100644
 --- a/src/xenia/ui/vulkan/vulkan_presenter.cc
 +++ b/src/xenia/ui/vulkan/vulkan_presenter.cc
-@@ -8,8 +8,12 @@
+@@ -8,8 +8,13 @@
   */
  
  #include "xenia/ui/vulkan/vulkan_presenter.h"
 +#if XE_PLATFORM_WIN32
++#include "xenia/ui/vulkan/onechanbara_display/frame_contract.h"
 +#include "xenia/ui/vulkan/onechanbara_display/vulkan_dxgi_bridge.h"
 +#endif
  
@@ -2482,11 +2525,10 @@
  
  #include "xenia/base/assert.h"
  #include "xenia/base/cvar.h"
-@@ -53,6 +57,106 @@
-     "Wait for presentation queue idle before each frame to prevent semaphore "
+@@ -54,6 +59,106 @@ DEFINE_bool(
      "reuse. May fix rendering issues but causes significant performance loss.",
      "Vulkan");
-+
+ 
 +DECLARE_bool(onechanbara_diagnostics);
 +DECLARE_bool(onechanbara_guest_output);
 +
@@ -2586,10 +2628,11 @@
 +  Clock::time_point began_{}, frame_began_{};
 +};
 +}  // namespace
- 
++
  namespace xe {
  namespace ui {
-@@ -526,6 +630,52 @@
+ namespace vulkan {
+@@ -526,6 +631,52 @@ VulkanPresenter::ConnectOrReconnectPaintingToSurfaceFromUIThread(
    const VkDevice device = vulkan_device_->device();
  
    VkFormat new_swapchain_format;
@@ -2634,7 +2677,7 @@
 +    // frame isn't replaced while waiting for a UI-thread paint notification.
 +    paint_context_.swapchain_is_fifo = true;
 +    new_swapchain_format = VK_FORMAT_R8G8B8A8_UNORM;
-+    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, diagnostic-output-1, no driver profile",
++    XELOGI("Onechanbara direct DXGI output: {}x{}, shared image copy, diagnostic-output-1, sync_revision=external-acquire-1, no driver profile",
 +           new_surface_width, new_surface_height);
 +  } else
 +#endif
@@ -2642,7 +2685,7 @@
  
    // ConnectOrReconnectToSurfaceFromUIThread may be called only for the
    // ui::Surface of the current swapchain or when the old swapchain and
-@@ -647,6 +797,8 @@
+@@ -647,6 +798,8 @@ VulkanPresenter::ConnectOrReconnectPaintingToSurfaceFromUIThread(
      // Successfully attached (at least for now).
    }
  
@@ -2651,7 +2694,7 @@
    // From now on, in case of failure,
    // paint_context_.DestroySwapchainAndVulkanSurface must be called before
    // returning.
-@@ -668,8 +820,10 @@
+@@ -668,8 +821,10 @@ VulkanPresenter::ConnectOrReconnectPaintingToSurfaceFromUIThread(
      render_pass_attachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
      render_pass_attachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
      render_pass_attachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
@@ -2664,7 +2707,7 @@
      VkAttachmentReference render_pass_color_attachment;
      render_pass_color_attachment.attachment = 0;
      render_pass_color_attachment.layout =
-@@ -731,6 +885,17 @@
+@@ -731,6 +886,17 @@ VulkanPresenter::ConnectOrReconnectPaintingToSurfaceFromUIThread(
          render_pass_attachment.loadOp == VK_ATTACHMENT_LOAD_OP_CLEAR;
    }
  
@@ -2682,16 +2725,16 @@
    // Get the swapchain images.
    paint_context_.swapchain_images.clear();
    VkResult swapchain_images_get_result;
-@@ -759,6 +924,8 @@
-     XELOGE("VulkanPresenter: Failed to get swapchain images");
-     paint_context_.DestroySwapchainAndVulkanSurface();
+@@ -761,6 +927,8 @@ VulkanPresenter::ConnectOrReconnectPaintingToSurfaceFromUIThread(
      return SurfacePaintConnectResult::kFailure;
-+  }
-+
    }
  
++  }
++
    // Create the image views and the framebuffers.
-@@ -811,6 +978,7 @@
+   assert_true(paint_context_.swapchain_framebuffers.empty());
+   paint_context_.swapchain_framebuffers.reserve(
+@@ -811,6 +979,7 @@ VulkanPresenter::ConnectOrReconnectPaintingToSurfaceFromUIThread(
      paint_context_.swapchain_framebuffers.emplace_back(image_view, framebuffer);
    }
  
@@ -2699,7 +2742,7 @@
    // Create per-swapchain-image present semaphores to avoid
    // VUID-vkQueueSubmit-pSignalSemaphores-00067 (semaphore reuse before the
    // previous present completes).
-@@ -834,7 +1002,17 @@
+@@ -834,7 +1003,17 @@ VulkanPresenter::ConnectOrReconnectPaintingToSurfaceFromUIThread(
          present_semaphore);
    }
  
@@ -2717,7 +2760,7 @@
    return SurfacePaintConnectResult::kSuccess;
  }
  
-@@ -1276,8 +1454,9 @@
+@@ -1276,8 +1455,9 @@ VkSwapchainKHR VulkanPresenter::PaintContext::CreateSwapchainForVulkanSurface(
  }
  
  VkSwapchainKHR VulkanPresenter::PaintContext::PrepareForSwapchainRetirement() {
@@ -2728,7 +2771,7 @@
      // Also wait for the presentation queue since vkQueuePresentKHR doesn't
      // signal a fence, and the present semaphores may still be in use.
      if (present_queue_family != UINT32_MAX) {
-@@ -1312,6 +1491,12 @@
+@@ -1312,6 +1492,12 @@ void VulkanPresenter::PaintContext::DestroySwapchainAndVulkanSurface() {
      vulkan_device->functions().vkDestroySwapchainKHR(vulkan_device->device(),
                                                       old_swapchain, nullptr);
    }
@@ -2741,7 +2784,7 @@
    present_queue_family = UINT32_MAX;
    if (vulkan_surface != VK_NULL_HANDLE) {
      const VulkanInstance* vulkan_instance = vulkan_device->vulkan_instance();
-@@ -1392,8 +1577,17 @@
+@@ -1392,8 +1578,17 @@ bool VulkanPresenter::GuestOutputImage::Initialize() {
    return true;
  }
  
@@ -2759,7 +2802,7 @@
    // Begin the submission in place of the one not currently potentially used on
    // the GPU.
    const uint64_t current_paint_submission_index =
-@@ -1401,6 +1595,7 @@
+@@ -1401,6 +1596,7 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
    uint64_t paint_submission_count = uint64_t(paint_context_.submissions.size());
    paint_context_.completion_timeline
        .AwaitMaxSubmissionsPendingAndUpdateCompleted(paint_submission_count);
@@ -2767,7 +2810,7 @@
    const PaintContext::Submission& paint_submission =
        *paint_context_.submissions[current_paint_submission_index %
                                    paint_submission_count];
-@@ -1441,13 +1636,42 @@
+@@ -1441,13 +1637,42 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
    // so we must wait for the present queue specifically.
    // TODO(has207): Proper fix requires per-swapchain-image semaphores.
    // See https://docs.vulkan.org/guide/latest/swapchain_semaphore_reuse.html
@@ -2811,7 +2854,7 @@
    VkResult acquire_result = dfn.vkAcquireNextImageKHR(
        device, paint_context_.swapchain, UINT64_MAX, acquire_semaphore,
        VK_NULL_HANDLE, &swapchain_image_index);
-@@ -1474,6 +1698,24 @@
+@@ -1474,6 +1699,24 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
        return PaintResult::kNotPresented;
    }
  
@@ -2836,7 +2879,7 @@
    // Non-zero extents needed for both the viewport (width must not be zero) and
    // the guest output rectangle.
    assert_not_zero(paint_context_.swapchain_extent.width);
-@@ -1531,6 +1773,11 @@
+@@ -1531,6 +1774,11 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
      // multiple threads can't paint the main target at the same time).
    }
  
@@ -2848,7 +2891,7 @@
    if (guest_output_image) {
      VkExtent2D max_framebuffer_extent =
          util::GetMax2DFramebufferExtent(vulkan_device_->properties());
-@@ -2033,8 +2280,20 @@
+@@ -2033,11 +2281,28 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
    }
  
    dfn.vkCmdEndRenderPass(draw_command_buffer);
@@ -2871,7 +2914,15 @@
  
    VkPipelineStageFlags acquire_semaphore_wait_stage =
        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
-@@ -2058,11 +2317,29 @@
++#if XE_PLATFORM_WIN32
++  if (paint_context_.direct_dxgi) {
++    acquire_semaphore_wait_stage = ocb::display::kExternalAcquireWaitStage;
++  }
++#endif
+   VkCommandBuffer command_buffers[2];
+   uint32_t command_buffer_count = 0;
+   // UI setup command buffers must be accessed only if execute_ui_drawers is not
+@@ -2058,11 +2323,29 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
      paint_context_.ui_setup_command_buffer_current_index = SIZE_MAX;
    }
    command_buffers[command_buffer_count++] = draw_command_buffer;
@@ -2904,7 +2955,7 @@
    submit_info.waitSemaphoreCount = 1;
    submit_info.pWaitSemaphores = &acquire_semaphore;
    submit_info.pWaitDstStageMask = &acquire_semaphore_wait_stage;
-@@ -2070,6 +2347,7 @@
+@@ -2070,6 +2353,7 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
    submit_info.pCommandBuffers = command_buffers;
    submit_info.signalSemaphoreCount = 1;
    submit_info.pSignalSemaphores = &present_semaphore;
@@ -2912,7 +2963,7 @@
    const VkResult submit_result =
        paint_context_.completion_timeline.AcquireFenceAndSubmit(
            vulkan_device_->queue_family_graphics_compute(), 0, 1, &submit_info);
-@@ -2085,10 +2363,15 @@
+@@ -2085,10 +2369,15 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
        paint_context_.ui_setup_command_buffers[ui_setup_command_buffer_index]
            .last_usage_submission_index = 0;
      }
@@ -2928,7 +2979,7 @@
    if (execute_ui_drawers) {
      // Also update the completion timeline providing submission indices to UI
      // draw callbacks if submission is successful.
-@@ -2102,6 +2385,20 @@
+@@ -2102,6 +2391,20 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
      }
    }
  
@@ -2949,7 +3000,7 @@
    VkPresentInfoKHR present_info;
    present_info.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
    present_info.pNext = nullptr;
-@@ -2120,8 +2417,10 @@
+@@ -2120,8 +2423,10 @@ Presenter::PaintResult VulkanPresenter::PaintAndPresentImpl(
    }
    switch (present_result) {
      case VK_SUCCESS:
@@ -2960,6 +3011,8 @@
        return PaintResult::kPresentedSuboptimal;
      case VK_ERROR_DEVICE_LOST:
        XELOGE(
+diff --git a/src/xenia/ui/vulkan/vulkan_presenter.h b/src/xenia/ui/vulkan/vulkan_presenter.h
+index ee342d9c7..6314cea82 100644
 --- a/src/xenia/ui/vulkan/vulkan_presenter.h
 +++ b/src/xenia/ui/vulkan/vulkan_presenter.h
 @@ -15,6 +15,8 @@
@@ -2979,7 +3032,7 @@
  #include "xenia/ui/vulkan/vulkan_instance.h"
  
  namespace xe {
-@@ -155,6 +158,9 @@
+@@ -155,6 +158,9 @@ class VulkanPresenter final : public Presenter {
        uint32_t new_surface_height, bool was_paintable,
        bool& is_vsync_implicit_out) override;
    void DisconnectPaintingFromSurfaceFromUIThreadImpl() override;
@@ -2989,7 +3042,7 @@
  
    bool RefreshGuestOutputImpl(
        uint32_t mailbox_index, uint32_t frontbuffer_width,
-@@ -389,6 +395,7 @@
+@@ -389,6 +395,7 @@ class VulkanPresenter final : public Presenter {
      std::array<std::unique_ptr<PaintContext::Submission>, kSubmissionCount>
          submissions;
      VulkanGPUCompletionTimeline completion_timeline;
@@ -2997,7 +3050,7 @@
  
      std::array<GuestOutputPaintPipeline, size_t(GuestOutputPaintEffect::kCount)>
          guest_output_paint_pipelines;
-@@ -433,6 +440,9 @@
+@@ -433,6 +440,9 @@ class VulkanPresenter final : public Presenter {
      VkFormat swapchain_render_pass_format = VK_FORMAT_UNDEFINED;
      bool swapchain_render_pass_clear_load_op = false;
  
@@ -3007,23 +3060,25 @@
      VkSurfaceKHR vulkan_surface = VK_NULL_HANDLE;
      uint32_t present_queue_family = UINT32_MAX;
      VkSwapchainKHR swapchain = VK_NULL_HANDLE;
+diff --git a/src/xenia/ui/vulkan/vulkan_provider.cc b/src/xenia/ui/vulkan/vulkan_provider.cc
+index 41fa12fb8..b2f4dc1ee 100644
 --- a/src/xenia/ui/vulkan/vulkan_provider.cc
 +++ b/src/xenia/ui/vulkan/vulkan_provider.cc
-@@ -27,6 +27,13 @@
-              "Index of the preferred Vulkan physical device, or -1 to use any "
+@@ -28,6 +28,13 @@ DEFINE_int32(vulkan_device, -1,
               "compatible device.",
               "Vulkan");
-+
+ 
 +DEFINE_bool(onechanbara_guest_output, true,
 +            "Diagnostic scheduling choice; retain the original UI safety checks.",
 +            "Vulkan");
 +DEFINE_bool(vulkan_direct_dxgi, false,
 +            "Use application-owned DXGI output with Vulkan rendering on Windows.",
 +            "Vulkan");
- 
++
  namespace xe {
  namespace ui {
-@@ -72,14 +79,14 @@
+ namespace vulkan {
+@@ -72,14 +79,14 @@ std::unique_ptr<VulkanProvider> VulkanProvider::Create(
      provider->vulkan_device_ = VulkanDevice::CreateIfSupported(
          provider->vulkan_instance_.get(),
          physical_devices[preferred_physical_device_index], with_gpu_emulation,
