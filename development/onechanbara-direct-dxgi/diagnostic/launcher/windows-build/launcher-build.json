@@ -1,0 +1,12 @@
+{
+    "artifact":  "Onechanbara_Diagnostics.exe",
+    "target":  "net48-x64-winforms",
+    "revision":  "diagnostic-output-1",
+    "launcher_revision":  "json-bom-fix-1",
+    "sha256":  "fe93febb207bad63f64e68e3f52bf6ad7132e8d04252ada28c6ba85eabe2d164",
+    "windows_netframework_test":  true,
+    "production_lifecycle_mock_test":  true,
+    "gpu_test":  false,
+    "source_commit":  "0b71240471b975776e2349dd47770a7b35728be3",
+    "run_url":  "https://github.com/slimshadykor-cmd/korean-patches/actions/runs/42612599717"
+}

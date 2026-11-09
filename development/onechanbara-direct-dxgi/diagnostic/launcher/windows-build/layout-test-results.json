@@ -1,0 +1,12 @@
+﻿{
+    "passed":  4,
+    "checks":  [
+                   "parent runtime fallback",
+                   "adjacent runtime precedence",
+                   "flat package layout",
+                   "reparse runtime rejection"
+               ],
+    "windows_gui_executed":  false,
+    "actual_code_executed":  "Shipped Onechanbara_Diagnostics.exe via Windows PowerShell 5.1 .NET Framework",
+    "runtime":  "4.0.30319.42000"
+}
