@@ -33,9 +33,13 @@ jobs:
       - name: Apply exact integration patch
         working-directory: xenia
         run: |
-          git apply --check ../patch/development/onechanbara-direct-dxgi/source/xenia-direct-dxgi.patch
+          # Read the patch blob verbatim: CRLF conversion of the diff itself
+          # alters a no-final-newline vendor license when git apply runs.
+          python -c "from pathlib import Path; import subprocess; Path('onechanbara-integration.patch').write_bytes(subprocess.check_output(['git','-C','../patch','show','HEAD:development/onechanbara-direct-dxgi/source/xenia-direct-dxgi.patch']))"
+          if ($LASTEXITCODE -ne 0) { throw 'Canonical patch extraction failed' }
+          git apply --check onechanbara-integration.patch
           if ($LASTEXITCODE -ne 0) { throw 'Source patch preflight failed' }
-          git apply ../patch/development/onechanbara-direct-dxgi/source/xenia-direct-dxgi.patch
+          git apply onechanbara-integration.patch
           if ($LASTEXITCODE -ne 0) { throw 'Source patch failed' }
           python ../patch/development/onechanbara-direct-dxgi/source/verify_sources.py
           if ($LASTEXITCODE -ne 0) { throw 'Source fingerprint preflight failed' }
