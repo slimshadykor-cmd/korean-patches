@@ -15,10 +15,8 @@ assert b'Onechanbara GPU output' in data, 'GPU diagnostics missing'
 assert b'onechanbara_guest_output' in data, 'Scheduling selector missing'
 assert b'diagnostic-output-1' in data, 'Diagnostic protocol marker missing'
 assert b'external-acquire-1' in data, 'External acquire synchronization marker missing'
-source_dir=Path(__file__).resolve().parent
-source_manifest=json.loads((source_dir/'source-manifest.json').read_text())
-for name, expected in source_manifest['files'].items():
-    assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==expected, 'Source hash mismatch: '+name
+from verify_sources import verify_sources
+verify_sources(Path.cwd())
 assert b'NvAPI_DRS' not in data, 'Unexpected profile-management implementation'
 out=Path('../runtime-output');out.mkdir(exist_ok=True)
 metadata={'version':'1.7','base':'b083312b8b18e07e6e410b82104191f126722794',

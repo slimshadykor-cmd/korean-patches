@@ -37,6 +37,10 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Source patch preflight failed' }
           git apply ../patch/development/onechanbara-direct-dxgi/source/xenia-direct-dxgi.patch
           if ($LASTEXITCODE -ne 0) { throw 'Source patch failed' }
+          python ../patch/development/onechanbara-direct-dxgi/source/verify_sources.py
+          if ($LASTEXITCODE -ne 0) { throw 'Source fingerprint preflight failed' }
+          python ../patch/development/onechanbara-direct-dxgi/source/test_source_validation.py
+          if ($LASTEXITCODE -ne 0) { throw 'Source validation regression failed' }
       - name: Install Vulkan shader build tools
         run: |
           Invoke-WebRequest -Uri 'https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe' -OutFile vulkan-sdk.exe
