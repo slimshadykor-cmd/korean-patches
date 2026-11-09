@@ -1,11 +1,14 @@
+﻿param([string]$LauncherPath=(Join-Path $PSScriptRoot 'Onechanbara_Diagnostics.exe'))
 $ErrorActionPreference='Stop'
-Add-Type -Path (Join-Path $PSScriptRoot 'DiagnosticCore.cs')
+if([Environment]::OSVersion.Platform-ne[PlatformID]::Win32NT-or$PSVersionTable.PSEdition-ne'Desktop'){throw 'Run with Windows PowerShell 5.1 to test the shipped .NET Framework executable.'}
+[void][Reflection.Assembly]::LoadFrom((Resolve-Path -LiteralPath $LauncherPath).Path)
+Add-Type -AssemblyName System.IO.Compression.FileSystem
 $testRoot=Join-Path $PSScriptRoot ('tests/run_'+[Guid]::NewGuid().ToString('N'))
 [void][IO.Directory]::CreateDirectory($testRoot)
 $checks=[Collections.Generic.List[string]]::new()
 function Check([bool]$ok,[string]$name){if(-not$ok){throw "FAIL: $name"};$checks.Add($name)}
 function MustFail([scriptblock]$body,[string]$name){$failed=$false;try{&$body}catch{$failed=$true};Check $failed $name}
-$inputConfig=Join-Path $PSScriptRoot '../../upload/Onechanbara.config.toml'
+$inputConfig=Join-Path $PSScriptRoot '../../installer/source/Onechanbara.config.toml'
 $source=[IO.File]::ReadAllText($inputConfig)
 $sourceHash=[Onechanbara.Diagnostics.Core]::Hash($inputConfig)
 foreach($mode in 0..2){
@@ -38,9 +41,9 @@ Check ([Onechanbara.Diagnostics.Core]::Hash((Join-Path $original 'shader.bin'))-
 $read=[Onechanbara.Diagnostics.Core]::ReadJson((Join-Path $snapshot 'seed.json'));Check ($read['Mode']-ceq'fixture'-and$read['Bytes']-eq15) 'JSON metadata roundtrip'
 MustFail {[Onechanbara.Diagnostics.Core]::CopyTree($original,(Join-Path $original 'nested'),$null)} 'copy overlap blocked'
 MustFail {[Onechanbara.Diagnostics.Core]::CopyFile((Join-Path $original 'shader.bin'),(Join-Path $original 'shader.bin'))} 'original file overwrite blocked'
-$link=Join-Path $testRoot 'cache-link';New-Item -ItemType SymbolicLink -Path $link -Target $original|Out-Null
+$link=Join-Path $testRoot 'cache-link';New-Item -ItemType Junction -Path $link -Target $original|Out-Null
 MustFail {[Onechanbara.Diagnostics.Core]::SafePath($link)} 'reparse source blocked'
-$badOriginal=Join-Path $testRoot 'bad-cache';[void][IO.Directory]::CreateDirectory($badOriginal);New-Item -ItemType SymbolicLink -Path (Join-Path $badOriginal 'escape') -Target $original|Out-Null
+$badOriginal=Join-Path $testRoot 'bad-cache';[void][IO.Directory]::CreateDirectory($badOriginal);New-Item -ItemType Junction -Path (Join-Path $badOriginal 'escape') -Target $original|Out-Null
 $badTarget=Join-Path $testRoot 'bad-snapshot'
 MustFail {[Onechanbara.Diagnostics.Core]::PrepareSnapshot($badOriginal,$badTarget,'seed.json',$metadata)} 'failed snapshot does not publish incomplete cache'
 Check (-not[IO.Directory]::Exists($badTarget)) 'failed preparation retry target remains free'
@@ -56,5 +59,5 @@ $r=[Collections.Generic.Dictionary[string,object]]::new();$r.Add('Owner','Onecha
 Check ([Onechanbara.Diagnostics.Core]::FindReceipt((Join-Path $testRoot '한글 공백 설치/unpacked/launcher'))-ceq(Join-Path $receiptDir 'install.json')) 'automatic parent root receipt discovery'
 $manifest=[Collections.Generic.Dictionary[string,object]]::new();$manifest.Add('display_revision','diagnostic-output-1');$manifest.Add('exe_sha256',('a'*64));[Onechanbara.Diagnostics.Core]::WriteJson((Join-Path $testRoot 'build.json'),$manifest)
 Check ([Onechanbara.Diagnostics.Core]::RuntimeHash((Join-Path $testRoot 'build.json'))-ceq('a'*64)) 'runtime lower-case exe_sha256 schema supported'
-[ordered]@{passed=$checks.Count;checks=$checks;actual_code_executed='DiagnosticCore.cs via PowerShell .NET runtime';native_windows_gui=$false;gpu_execution=$false}|ConvertTo-Json -Depth 5|Set-Content -LiteralPath (Join-Path $PSScriptRoot 'test-results.json') -Encoding utf8
+[ordered]@{passed=$checks.Count;checks=$checks;actual_code_executed='Shipped Onechanbara_Diagnostics.exe via Windows PowerShell 5.1 .NET Framework';runtime=[Environment]::Version.ToString();native_windows_gui=$false;gpu_execution=$false}|ConvertTo-Json -Depth 5|Set-Content -LiteralPath (Join-Path $PSScriptRoot 'test-results.json') -Encoding utf8
 Write-Output "Passed $($checks.Count) checks; GUI/GPU were not executed."

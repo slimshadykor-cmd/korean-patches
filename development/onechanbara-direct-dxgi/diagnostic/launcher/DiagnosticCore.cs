@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
-using System.Runtime.Serialization.Json;
+using System.Web.Script.Serialization;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Security.Cryptography;
@@ -27,8 +27,24 @@ public static class Core {
  public static string StripComment(string s){bool quoted=false,literal=false,escape=false;for(int i=0;i<s.Length;i++){char c=s[i];if(escape){escape=false;continue;}if(quoted&&c=='\\'){escape=true;continue;}if(!literal&&c=='"')quoted=!quoted;else if(!quoted&&c=='\'')literal=!literal;else if(!quoted&&!literal&&c=='#')return s.Substring(0,i);}return s;}
  public static string StringValue(string text,string section,string key){var v=Value(text,section,key);if(v==null)return "";if(v.Length>=2&&v[0]=='\''&&v[v.Length-1]=='\'')return v.Substring(1,v.Length-2);if(v.Length<2||v[0]!='"'||v[v.Length-1]!='"')throw new InvalidDataException("문자열 설정 형식: "+key);var b=new StringBuilder();for(int i=1;i<v.Length-1;i++){char c=v[i];if(c=='\\'){if(++i>=v.Length-1)throw new InvalidDataException("경로 이스케이프: "+key);c=v[i];if(c!='\\'&&c!='"'&&c!='/')throw new InvalidDataException("지원하지 않는 경로 이스케이프: "+key);}b.Append(c);}return b.ToString();}
  public static string Set(string text,string section,string key,string value){Value(text,section,key);var lines=new List<string>(text.Replace("\r\n","\n").Split('\n'));int start=-1,end=lines.Count;for(int i=0;i<lines.Count;i++){string t=lines[i].Trim();if(t=="["+section+"]"){if(start>=0)throw new InvalidDataException("중복 설정 섹션: "+section);start=i;}else if(start>=0&&end==lines.Count&&t.StartsWith("[")&&t.EndsWith("]"))end=i;}if(start<0){lines.Add("["+section+"]");lines.Add(key+" = "+value);}else{bool replaced=false;for(int i=start+1;i<end;i++){if(Regex.IsMatch(lines[i],@"^\s*"+Regex.Escape(key)+@"\s*=")){lines[i]=key+" = "+value;replaced=true;break;}}if(!replaced)lines.Insert(end,key+" = "+value);}return String.Join("\r\n",lines);}
- public static Dictionary<string,object> ReadJson(string p){SafePath(p);using(var f=File.OpenRead(p)){var j=new DataContractJsonSerializer(typeof(Dictionary<string,object>),new DataContractJsonSerializerSettings{UseSimpleDictionaryFormat=true});return (Dictionary<string,object>)j.ReadObject(f);}}
- public static void WriteJson(string p,Dictionary<string,object> value){SafePath(p);using(var f=new FileStream(p,FileMode.CreateNew,FileAccess.Write,FileShare.Read)){var j=new DataContractJsonSerializer(typeof(Dictionary<string,object>),new DataContractJsonSerializerSettings{UseSimpleDictionaryFormat=true});j.WriteObject(f,value);}}
+ // Installation receipts are written by Windows PowerShell with a UTF-8 BOM.
+ // Decode the document before parsing so an encoding marker is never treated as JSON.
+ // Use the same .NET Framework serializer as the installed, working game launcher.
+ static JavaScriptSerializer JsonSerializer(){return new JavaScriptSerializer{MaxJsonLength=Int32.MaxValue,RecursionLimit=128};}
+ public static Dictionary<string,object> ReadJson(string p){
+  SafePath(p);
+  try{
+   string text;using(var f=new StreamReader(p,new UTF8Encoding(false,true),true))text=f.ReadToEnd();
+   var value=JsonSerializer().Deserialize<Dictionary<string,object>>(text);
+   if(value==null)throw new InvalidDataException("기록의 최상위 값이 JSON 객체가 아닙니다: "+p);
+   return value;
+  }catch(ArgumentException ex){throw new InvalidDataException("기록 파일을 읽지 못했습니다: "+p+"\n원인: "+ex.Message,ex);}
+   catch(InvalidOperationException ex){throw new InvalidDataException("기록 파일을 읽지 못했습니다: "+p+"\n원인: "+ex.Message,ex);}
+ }
+ public static void WriteJson(string p,Dictionary<string,object> value){
+  SafePath(p);if(value==null)throw new ArgumentNullException("value");string text=JsonSerializer().Serialize(value);
+  using(var f=new FileStream(p,FileMode.CreateNew,FileAccess.Write,FileShare.Read))using(var writer=new StreamWriter(f,new UTF8Encoding(false)))writer.Write(text);
+ }
  public static string S(Dictionary<string,object> d,string k){object v;if(!d.TryGetValue(k,out v)||v==null)throw new InvalidDataException("기록 항목 누락: "+k);return Convert.ToString(v,CultureInfo.InvariantCulture);}
  public static string Optional(Dictionary<string,object> d,string k){object v;return d.TryGetValue(k,out v)&&v!=null?Convert.ToString(v,CultureInfo.InvariantCulture):"";}
  public static long TreeBytes(string path){SafePath(path);if(!Directory.Exists(path))return 0;long n=0;foreach(var f in Directory.GetFiles(path)){SafePath(f);n+=new FileInfo(f).Length;}foreach(var d in Directory.GetDirectories(path))n+=TreeBytes(d);return n;}

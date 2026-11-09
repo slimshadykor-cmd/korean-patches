@@ -1,0 +1,50 @@
+name: Validate Onechanbara diagnostic launcher on Windows Framework
+on:
+  push:
+    branches: [development/onechanbara-direct-dxgi-v1.7]
+    paths:
+      - '.github/workflows/onechanbara-diagnostic-launcher.yml'
+      - 'development/onechanbara-direct-dxgi/diagnostic/launcher/*.cs'
+      - 'development/onechanbara-direct-dxgi/diagnostic/launcher/*.manifest'
+      - 'development/onechanbara-direct-dxgi/diagnostic/launcher/test_*.ps1'
+      - 'development/onechanbara-direct-dxgi/diagnostic/launcher/windows-tests/**'
+permissions:
+  contents: write
+concurrency:
+  group: onechanbara-diagnostic-launcher
+  cancel-in-progress: true
+jobs:
+  windows-netframework:
+    if: github.repository == 'slimshadykor-cmd/korean-patches'
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Compile and run production launcher tests with Windows Framework
+        shell: powershell
+        run: ./development/onechanbara-direct-dxgi/diagnostic/launcher/windows-tests/run-windows.ps1
+      - name: Preserve tested launcher and test report on development branch
+        # Public standard runner; no artifact or cache storage service used.
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_SHA: ${{ github.sha }}
+          SOURCE_BRANCH: ${{ github.ref_name }}
+        run: |
+          $ErrorActionPreference='Stop'
+          $auth=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes('x-access-token:'+$env:GH_TOKEN))
+          $header='AUTHORIZATION: basic '+$auth
+          $remote=git -c "http.extraheader=$header" ls-remote origin "refs/heads/$env:SOURCE_BRANCH"
+          if ($LASTEXITCODE -ne 0) { throw 'Could not check branch head.' }
+          if (($remote -split '\s+')[0] -ne $env:SOURCE_SHA) { throw 'Source branch advanced. Refusing to publish an older binary.' }
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- development/onechanbara-direct-dxgi/diagnostic/launcher/windows-build/Onechanbara_Diagnostics.exe development/onechanbara-direct-dxgi/diagnostic/launcher/windows-build/Windows-test-results.json development/onechanbara-direct-dxgi/diagnostic/launcher/windows-build/launcher-build.json development/onechanbara-direct-dxgi/diagnostic/launcher/windows-build/test-results.json development/onechanbara-direct-dxgi/diagnostic/launcher/windows-build/layout-test-results.json
+          if ($LASTEXITCODE -ne 0) { throw 'Could not stage tested outputs.' }
+          git commit -m 'Store Windows Framework validated diagnostic launcher [skip ci]'
+          if ($LASTEXITCODE -ne 0) { throw 'Could not record tested outputs.' }
+          git -c "http.extraheader=$header" push origin "HEAD:refs/heads/$env:SOURCE_BRANCH"
+          if ($LASTEXITCODE -ne 0) { throw 'Could not publish tested outputs; no force push is used.' }
