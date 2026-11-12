@@ -6,7 +6,7 @@ def ok(x,msg):
  assert x,msg
  checks.append(msg);print('PASS',msg,flush=True)
 with tempfile.TemporaryDirectory(prefix='ocb-direct-install-') as temp:
- T=Path(temp);bundle=T/'bundle';bundle.mkdir()
+ T=Path(temp).resolve();bundle=T/'bundle';bundle.mkdir()
  (bundle/'xenia_onechanbara.exe').write_bytes(b'fixture Windows emulator, not a usable game executable')
  shutil.copyfile(R/'release/Onechanbara_Launcher.exe',bundle/'Onechanbara_Launcher.exe')
  source=(R/'source/Manage-Onechanbara.ps1').read_text(encoding='utf-8-sig')
