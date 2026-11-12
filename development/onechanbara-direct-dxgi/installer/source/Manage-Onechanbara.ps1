@@ -243,19 +243,19 @@ function Check-Link($shell,[string]$link) {
   No-Link $syncReceipt;$sync=Read-Text $syncReceipt|ConvertFrom-Json
   if($sync.Owner-ceq'Onechanbara.SyncLauncher.1'-and$sync.Build-notmatch '[^0-9a-f]'-and$sync.Build.Length-eq64){
    $expected=Join-Path $LegacyRoot ('SyncToggle/Launcher/'+$sync.Build+'/Sync-Toggle.ps1')
-   if([string]$sync.Entry-ceq$expected){$known+=$expected}
+   if(Same-Location ([string]$sync.Entry) $expected){$known+=$expected}
   }
  }
- $owned=($t-ieq$NativeLauncher -and $a-eq'')
+ $owned=((Same-Location $t $NativeLauncher) -and $a-eq'')
  $known+=(Join-Path $LegacyRoot 'Manage-Onechanbara.ps1')
- foreach($p in $known){if($t -ieq $PowerShell -and $a.IndexOf(('"'+$p+'"'),[StringComparison]::OrdinalIgnoreCase) -ge 0){$owned=$true}}
+ foreach($p in $known){if((Same-Location $t $PowerShell) -and $a.Replace([char]47,[char]92).IndexOf(('"'+$p.Replace([char]47,[char]92)+'"'),[StringComparison]::OrdinalIgnoreCase) -ge 0){$owned=$true}}
  if(-not $owned){throw '같은 이름의 다른 바로가기가 있습니다. 덮어쓰지 않았습니다.'}
 }
 try {
  if($Root -eq ''){throw '제니아 실행파일 위치가 필요합니다.'}
  $Root=[IO.Path]::GetFullPath($Root);No-Link $Root
  $LegacyRoot=Join-Path $Root 'config/Onechanbara'
- $PrivateRoot=Join-Path $Root 'config/OnechanbaraDirect';No-Link $PrivateRoot
+ $PrivateRoot=Join-Path (Join-Path $Root 'config') 'OnechanbaraDirect';No-Link $PrivateRoot
  $SourceExe=Join-Path $Root 'xenia_canary.exe'
  $PrivateExe=Join-Path $PrivateRoot 'runtime/xenia_onechanbara.exe'
  $NativeLauncher=Join-Path $PrivateRoot 'Onechanbara_Launcher.exe'
@@ -336,7 +336,7 @@ try {
    $new.Arguments=''
    $new.WorkingDirectory=$PrivateRoot;$new.IconLocation=$GameIcon+',0';$new.Description='오네찬바라 한글판 v1.7 · 기존 프로필 · 전용 그래픽';$new.WindowStyle=7;$new.Save()
    $check=$shell.CreateShortcut($link)
-   if($check.TargetPath -ine $NativeLauncher -or $check.Arguments -cne $new.Arguments -or $check.IconLocation -ine $new.IconLocation -or $check.WorkingDirectory -ine $PrivateRoot){throw '바탕화면 바로가기 저장 확인 실패'}
+   if(-not(Same-Location $check.TargetPath $NativeLauncher) -or $check.Arguments -cne $new.Arguments -or $check.IconLocation -ine $new.IconLocation -or -not(Same-Location $check.WorkingDirectory $PrivateRoot)){throw '바탕화면 바로가기 저장 확인 실패'}
    # No NVIDIA profiles are created, edited or removed.
    Assert-Snapshot $before;$Committed=$true
   }catch{
