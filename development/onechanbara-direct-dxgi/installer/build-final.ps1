@@ -26,7 +26,13 @@ try { $icon.Save($dst) } finally { $dst.Dispose(); $icon.Dispose() }
 $csc = Join-Path $env:WINDIR 'Microsoft.NET/Framework64/v4.0.30319/csc.exe'
 $refs = @('/r:System.dll','/r:System.Core.dll','/r:System.Drawing.dll','/r:System.Windows.Forms.dll','/r:System.IO.Compression.dll','/r:System.Web.Extensions.dll')
 $launcher = Join-Path $stage 'Onechanbara_Launcher.exe'
-& $csc /nologo /target:winexe /platform:x64 /codepage:65001 /optimize+ "/out:$launcher" "/win32icon:$ico" /win32manifest:source/app.manifest $refs NativeLauncher.cs source/AssemblyInfo.cs
+$sourceDir = Join-Path $PSScriptRoot 'source'
+$manifest = Join-Path $sourceDir 'app.manifest'
+$assemblyInfo = Join-Path $sourceDir 'AssemblyInfo.cs'
+$nativeSource = Join-Path $PSScriptRoot 'NativeLauncher.cs'
+$template = Join-Path $sourceDir 'Onechanbara.config.toml'
+$installerSources = @('IsoCore.cs','Standalone.cs','LauncherGlue.cs','Program.cs','AssemblyInfo.cs') | ForEach-Object { Join-Path $sourceDir $_ }
+& $csc /nologo /target:winexe /platform:x64 /codepage:65001 /optimize+ "/out:$launcher" "/win32icon:$ico" "/win32manifest:$manifest" $refs $nativeSource $assemblyInfo
 if ($LASTEXITCODE -ne 0) { throw 'Launcher compilation failed' }
 $script = Join-Path $stage 'Manage-Onechanbara.ps1'
 $srcText = [IO.File]::ReadAllText((Join-Path $PSScriptRoot 'source/Manage-Onechanbara.ps1'))
@@ -38,7 +44,7 @@ foreach ($entry in @(@('KnownRuntimeHash',$runtime),@('KnownLauncherHash',$launc
 }
 [IO.File]::WriteAllText($script,$srcText,[Text.UTF8Encoding]::new($true))
 $exe = Join-Path $stage 'Onechanbara_Korean_v1.7.exe'
-& $csc /nologo /target:winexe /platform:x64 /codepage:65001 /optimize+ "/out:$exe" "/win32icon:$ico" /win32manifest:source/app.manifest $refs "/resource:$payload,OnechanbaraPackage.zip" "/resource:$script,Manage-Onechanbara.ps1" "/resource:source/Onechanbara.config.toml,Onechanbara.config.toml" "/resource:$runtime,xenia_onechanbara.exe" "/resource:$launcher,Onechanbara_Launcher.exe" source/IsoCore.cs source/Standalone.cs source/LauncherGlue.cs source/Program.cs source/AssemblyInfo.cs
+& $csc /nologo /target:winexe /platform:x64 /codepage:65001 /optimize+ "/out:$exe" "/win32icon:$ico" "/win32manifest:$manifest" $refs "/resource:$payload,OnechanbaraPackage.zip" "/resource:$script,Manage-Onechanbara.ps1" "/resource:$template,Onechanbara.config.toml" "/resource:$runtime,xenia_onechanbara.exe" "/resource:$launcher,Onechanbara_Launcher.exe" $installerSources
 if ($LASTEXITCODE -ne 0) { throw 'Installer compilation failed' }
 $new = [Reflection.Assembly]::LoadFile($exe)
 foreach ($entry in @(@('OnechanbaraPackage.zip',$payload),@('xenia_onechanbara.exe',$runtime),@('Onechanbara_Launcher.exe',$launcher),@('Manage-Onechanbara.ps1',$script))) {
