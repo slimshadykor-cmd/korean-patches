@@ -115,6 +115,7 @@ function Settings([string]$text) {
  foreach($x in @(@('gpu','"vulkan"'),@('render_target_path_vulkan','"fsi"'),@('occlusion_query','"strict"'),@('draw_resolution_scale_x','2'),@('draw_resolution_scale_y','2'),@('vsync','true'),@('framerate_limit','0'))){$text=Set-Value $text 'GPU' $x[0] $x[1]}
  $text=Set-Value $text 'General' 'time_scalar' '1'
 $text=Set-Value $text 'Vulkan' 'vulkan_direct_dxgi' 'true'
+ foreach($key in @('vulkan_allow_present_mode_immediate','vulkan_allow_present_mode_mailbox','vulkan_allow_present_mode_fifo_relaxed')){$text=Set-Value $text 'Vulkan' $key 'false'}
  foreach($x in @(@('storage_root',$PrivateRoot),@('content_root',$OriginalContent),@('cache_root',(Join-Path $PrivateRoot 'cache')))){$text=Set-Value $text 'Storage' $x[0] (Toml-String $x[1])}
  $text=Set-Value $text 'Logging' 'log_file' (Toml-String (Join-Path $PrivateRoot 'logs/xenia.log'))
  $text=Set-Value $text 'General' 'recent_titles_entry_amount' '0'

@@ -1,6 +1,6 @@
 from pathlib import Path
-import tempfile,hashlib,json,subprocess,tomllib,shutil,re
-R=Path(__file__).resolve().parent;PS='/tmp/onechanbara_pwsh/pwsh';checks=[]
+import os,tempfile,hashlib,json,subprocess,tomllib,shutil,re
+R=Path(__file__).resolve().parent;PS=os.environ.get('OCB_TEST_PWSH','/tmp/onechanbara_pwsh/pwsh');checks=[]
 def h(p):return hashlib.sha256(p.read_bytes()).hexdigest().upper()
 def ok(x,msg):
  assert x,msg
@@ -41,15 +41,17 @@ with tempfile.TemporaryDirectory(prefix='ocb-direct-install-') as temp:
   return p
  def snap(p,include_direct=False):return {str(f.relative_to(p)):h(f) for f in p.rglob('*') if f.is_file() and (include_direct or 'OnechanbaraDirect' not in f.parts) and 'desktop' not in f.parts}
  def run(p,fail=False):
-  r=subprocess.run([PS,'-NoProfile','-File',str(R/'test_install_harness.ps1'),'-Fixture',str(p),'-Bundle',str(bundle)]+(['-FailLink'] if fail else []),capture_output=True,text=True,timeout=45)
+  r=subprocess.run([PS,'-NoProfile','-File',str(R/'test_install_harness.ps1'),'-Fixture',str(p),'-Bundle',str(bundle)]+(['-FailLink'] if fail else []),capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=45)
   if (r.returncode==0)==fail:raise AssertionError(r.stdout+'\n'+r.stderr)
   return r
  p=fixture('새 설치 공백');before=snap(p);run(p)
  home=p/'config/OnechanbaraDirect';link=p/'desktop/오네찬바라.lnk'
  ok(snap(p)==before,'fresh install preserves source EXE, ISO, common settings, other game, profile and save')
- lnk=json.loads(link.read_text());ok(lnk['TargetPath']==str(home/'Onechanbara_Launcher.exe') and not lnk['Arguments'],'desktop directly starts native launcher with no PowerShell arguments')
+ lnk=json.loads(link.read_text(encoding='utf-8-sig'));ok(lnk['TargetPath']==str(home/'Onechanbara_Launcher.exe') and not lnk['Arguments'],'desktop directly starts native launcher with no PowerShell arguments')
  cfg=tomllib.loads((home/'Onechanbara.config.toml').read_text(encoding='utf-8-sig'))
  ok(cfg['Vulkan']['vulkan_direct_dxgi'] is True and cfg['GPU']['render_target_path_vulkan']=='fsi','direct DXGI enabled with Vulkan FSI')
+ ok(all(cfg['Vulkan'][key] is False for key in ('vulkan_allow_present_mode_immediate','vulkan_allow_present_mode_mailbox','vulkan_allow_present_mode_fifo_relaxed')),'present mode flags match the user-tested mode')
+ ok(not any((home/'cache').iterdir()),'clean fixture begins with an empty game cache')
  ok(cfg['Storage']['content_root']==str(p/'content'),'original content root retained')
  ok(not(home/'SyncToggle').exists(),'no NVIDIA profile state or watcher installed')
  run(p);ok(snap(p)==before,'repeat install accepts its native shortcut and leaves unrelated files unchanged')

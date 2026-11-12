@@ -33,7 +33,7 @@ internal static class NativeLauncher {
     var file=new FileInfo(iso);
     if(game.Length!=Int64.Parse(S(r,"GameLength"))||file.LastWriteTimeUtc.Ticks.ToString()!=S(r,"GameWriteUtcTicks"))throw new InvalidDataException("연결한 ISO가 변경됐습니다. 통합 패치에서 변경된 ISO를 연결해 주세요.");
     if(File.Exists(Path.Combine(home,"launch_data.bin")))throw new InvalidDataException("이전 재시작 정보가 남아 있습니다: "+Path.Combine(home,"launch_data.bin"));
-    string args=Q(iso)+" --config="+Q(config)+" --storage_root="+Q(home)+" --content_root="+Q(content)+" --cache_root="+Q(cache)+" --log_file="+Q(Path.Combine(logs,"xenia.log"))+" --gpu=vulkan --render_target_path_vulkan=fsi --vulkan_direct_dxgi=true";
+    string args=Q(iso)+" --config="+Q(config)+" --storage_root="+Q(home)+" --content_root="+Q(content)+" --cache_root="+Q(cache)+" --log_file="+Q(Path.Combine(logs,"xenia.log"))+" --gpu=vulkan --render_target_path_vulkan=fsi --vulkan_direct_dxgi=true --onechanbara_guest_output=true --onechanbara_diagnostics=true --vulkan_allow_present_mode_immediate=false --vulkan_allow_present_mode_mailbox=false --vulkan_allow_present_mode_fifo_relaxed=false";
     using(var p=Process.Start(new ProcessStartInfo(exe,args){UseShellExecute=false,WorkingDirectory=home})){
      if(p==null)throw new InvalidOperationException("제니아 실행을 시작하지 못했습니다.");
      p.WaitForExit();

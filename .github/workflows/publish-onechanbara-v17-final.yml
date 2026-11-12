@@ -1,0 +1,39 @@
+name: Build and publish Onechanbara v1.7 integrated patch
+on:
+  push:
+    branches: [publish/onechanbara-v1.7-direct-dxgi]
+    paths:
+      - '.github/workflows/publish-onechanbara-v17-final.yml'
+      - 'development/onechanbara-direct-dxgi/installer/**'
+permissions:
+  contents: write
+concurrency:
+  group: onechanbara-v17-integrated-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'slimshadykor-cmd/korean-patches'
+    runs-on: windows-2022
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: development/onechanbara-direct-dxgi/installer
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Build installer from verified patch data and runtime
+        shell: powershell
+        run: ./build-final.ps1
+      - name: Verify clean installation, upgrade and rollback
+        shell: pwsh
+        env:
+          OCB_TEST_PWSH: pwsh
+          PYTHONUTF8: '1'
+        run: python test_install.py
+      - name: Publish verified ZIP and update previous release notices
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PYTHONUTF8: '1'
+        run: python publish-final.py
