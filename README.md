@@ -4,8 +4,15 @@
 
 ## 기종 선택
 
+- **[PS3](ps3/README.md)**
 - **[Xbox](xbox/README.md)**
 - **[Xbox 360](xbox360/README.md)**
+
+## PS3
+
+| 게임 | 안내 |
+| --- | --- |
+| 사이렌 NT | [설치 안내·다운로드](ps3/siren-nt/README.md) |
 
 ## Xbox
 
