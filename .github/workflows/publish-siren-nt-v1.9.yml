@@ -1,0 +1,32 @@
+name: Publish SIREN NT v1.9
+on:
+  push:
+    branches: [publish/siren-nt-v1.9]
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify installer, publish and verify download
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          cd .release-upload/siren-nt-v1.9
+          file=SIREN_NT_BCAS20047_Korean_v1.9.exe
+          digest=fc2211b40026512ca75202f472c3fe14df4600eabd21e198ec330f0887404899
+          tag=siren-nt-v1.5
+          echo "$digest  $file" | sha256sum -c -
+          if ! gh release view "$tag" --json assets --jq '.assets[].name' | grep -Fx "$file"; then
+            gh release upload "$tag" "$file"
+          fi
+          gh release download "$tag" --pattern "$file" --dir "$RUNNER_TEMP/check"
+          echo "$digest  $RUNNER_TEMP/check/$file" | sha256sum -c -
+          test "$(wc -c < "$RUNNER_TEMP/check/$file")" = "11313839"
+          gh release edit "$tag" --title '사이렌 NT 한글 통합패치 v1.9' --notes-file release.md
