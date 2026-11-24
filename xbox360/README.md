@@ -8,3 +8,4 @@
 | 천주천란 | [설치 안내·다운로드](tenchu/README.md) |
 | 오네찬바라 볼텍스 \~기혈을 잇는 자들\~ | [설치 안내·다운로드](onechanbara/README.md) |
 | 스플린터셀 더블 에이전트 | [설치 안내·다운로드](https://github.com/slimshadykor-cmd/korean-patches/releases/tag/scda-v2.0) |
+| 고스트리콘 어드밴스드 워파이터 2 | [설치 안내·다운로드](graw2/README.md) |
