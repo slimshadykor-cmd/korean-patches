@@ -1,26 +1,32 @@
-# 사이렌 NT 한글 통합패치 v1.9
+# 사이렌 NT 한글 통합패치 v2.7
 
 [PS3 한글패치 목록으로](../README.md) · [배포 페이지](https://github.com/slimshadykor-cmd/korean-patches/releases/tag/siren-nt-v1.5)
 
 **한글화 슬림쉐이디 · PS3 아시아판 BCAS20047**
 
-**[v1.9 통합 설치기 다운로드](https://github.com/slimshadykor-cmd/korean-patches/releases/download/siren-nt-v1.5/SIREN_NT_BCAS20047_Korean_v1.9.exe)** · [PS3 목록](https://github.com/slimshadykor-cmd/korean-patches/blob/main/ps3/README.md)
+**[v2.7 통합 패치 다운로드](https://github.com/slimshadykor-cmd/korean-patches/releases/download/siren-nt-v1.5/SIREN_NT_BCAS20047_Korean_v2.7.zip)**
 
-### 설치 방법
+### 처음 설치
 
-1. Windows에서 EXE 하나를 실행하고 순정 BCAS20047 ISO를 선택합니다.
-2. **한글 ISO 만들기 · 컷신 필름 입자 정리**를 누르고 새 ISO를 저장할 폴더를 선택합니다. 처음 실행할 때 필요한 도구는 인터넷으로 받습니다.
-3. 설치기가 원본에서 컷신 127편을 추출해 필름 입자 노이즈를 줄이고 영상을 검수한 뒤 ISO를 다시 만듭니다. PC의 CPU와 저장장치 속도에 따라 시간이 걸립니다. 원래 명암을 기본으로 사용하며 컷신 밝기 추가를 선택할 수 있습니다. **원본 컷신 유지**를 선택하면 영상 변환을 건너뜁니다. 처리 후 임시 작업 폴더는 자동 정리됩니다.
+1. Windows에서 ZIP을 풀고 EXE를 실행한 뒤 순정 BCAS20047 ISO를 선택합니다. 첫 실행에는 도구를 자동으로 받기 위한 인터넷 연결이 필요합니다.
+2. 아래 두 모드 중 하나를 선택하고 새 ISO를 저장할 폴더를 지정합니다.
+3. 생성된 ISO를 RPCS3에 등록합니다. 선택 기능이 필요하면 설치기에서 사용 중인 `rpcs3.exe`를 지정해 전용 패치 네 개를 설치한 뒤, 게임 패치 관리에서 사용할 항목을 켭니다.
 
-### v1.5 이후 주요 변경
+| 선택 | 적용 내용 |
+| --- | --- |
+| 한글 ISO 만들기 · 컷신 보정 | 필름 입자와 어두운 부분의 거친 계조를 줄입니다. 컷신 밝기 추가를 선택할 수 있습니다. |
+| 한글 ISO 만들기 · 순정 컷신 유지 | 순정 컷신 127편을 그대로 사용하고 영상 변환을 건너뜁니다. |
 
-- 수술실 칸막이 등 행동 문구, 지도 사용 안내의 버튼 표시, 오른쪽 세로 메뉴 정렬을 수정했습니다.
-- v1.8에서 25개 스테이지 지도의 종료 조건·목표·소목표 글자 크기와 시작 위치를 맞추고, 임무 안내문 4개의 가운데 정렬을 수정했습니다.
-- v1.9에서 지도·상태·ARCHIVE·도움말·설정의 선택 색상이 글자 영역에 맞도록 정렬하고, 구분 원 네 개를 원래 위치로 복원했습니다.
-- RPCS3에서 인게임·메뉴 필름 입자, 인게임 밝기, 뷰 재킹 프레임 옵션을 선택할 수 있습니다. 31/60/120 FPS는 실험 옵션입니다.
+두 모드 모두 한글화와 메인 화면의 **한글화 슬림쉐이디 v2.7** 표기가 적용됩니다.
 
-순정 게임 데이터에 v1.9 패치를 재적용해 수정 리소스의 해시를 대조했습니다. v1.9 세로 메뉴는 게임 텍스처로 검수했으며 RPCS3 실기동은 미확인입니다.
+**컷신 보정은 오래 걸릴 수 있습니다.** 사용자 PC에서 컷신 127편을 추출·변환하고 영상과 음성을 검사한 뒤 ISO를 다시 만듭니다. 소요 시간은 CPU와 저장장치 성능에 따라 달라집니다. 순정 컷신 유지 모드도 ISO 생성과 검사에 시간이 필요합니다. 정상 완료되면 큰 작업용 임시 폴더를 자동으로 정리합니다.
 
-**v1.9 설치기** · 11,313,839바이트 · SHA-256 `fc2211b40026512ca75202f472c3fe14df4600eabd21e198ec330f0887404899`
+### RPCS3 전용 옵션
 
-[이전 버전 v1.5 설치기](https://github.com/slimshadykor-cmd/korean-patches/releases/download/siren-nt-v1.5/SIREN_NT_BCAS20047_Korean_v1.5_OneClick.exe)도 같은 페이지에 보존합니다.
+- 인게임·메뉴 필름 입자 감소는 각각 선택할 수 있습니다.
+- 인게임 밝기는 RPCS3에서, 컷신 밝기는 ISO를 만들 때 별도로 선택합니다.
+- 뷰 재킹은 기존 30 FPS 패치를 제공합니다.
+
+**v2.7 ZIP** · 11,126,209바이트 · SHA-256 `800e8a0d0d678fe69a8155671276251f2bdcc7adc98e2eff7fd13a1414d6bc0a`
+
+이전 설치기 · [v1.9](https://github.com/slimshadykor-cmd/korean-patches/releases/download/siren-nt-v1.5/SIREN_NT_BCAS20047_Korean_v1.9.exe) · [v1.5](https://github.com/slimshadykor-cmd/korean-patches/releases/download/siren-nt-v1.5/SIREN_NT_BCAS20047_Korean_v1.5_OneClick.exe)
