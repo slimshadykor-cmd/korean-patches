@@ -29,4 +29,6 @@
 
 **v2.7 ZIP** · 11,126,209바이트 · SHA-256 `800e8a0d0d678fe69a8155671276251f2bdcc7adc98e2eff7fd13a1414d6bc0a`
 
+이전 v1.9 또는 v1.5를 사용 중이라면 위의 최신 v2.7 통합 패치를 받아 주세요.
+
 이전 설치기 · [v1.9](https://github.com/slimshadykor-cmd/korean-patches/releases/download/siren-nt-v1.5/SIREN_NT_BCAS20047_Korean_v1.9.exe) · [v1.5](https://github.com/slimshadykor-cmd/korean-patches/releases/download/siren-nt-v1.5/SIREN_NT_BCAS20047_Korean_v1.5_OneClick.exe)
